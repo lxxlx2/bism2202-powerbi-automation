@@ -8,8 +8,8 @@
 
 ## COMMON
 
-- Data read: **COMPLETE** - `/Users/jerson/Documents/教学接单/BISM2202_WINDOWS_PACKAGE/INPUTS/Assignment1_BISM2202_pizza_sell_data.xlsx` / Sheet1 / 1,004 rows / 25 columns.
-- Instructor requirements read: **COMPLETE** - `/Users/jerson/Documents/教学接单/BISM2202_WINDOWS_PACKAGE/INPUTS/Data Visualization Using Microsoft Power BI Assessment Task Instructions 2026 Semester 2_BISM2202.docx`; 20 questions, 20 points, screenshot plus explanation for each question, report + PBIX submission.
+- Data read: **COMPLETE** - `C:\BISM2202\INPUTS\Assignment1_BISM2202_pizza_sell_data.xlsx` / Sheet1 / 1,004 rows / 25 columns.
+- Instructor requirements read: **COMPLETE** - `C:\BISM2202\INPUTS\Data Visualization Using Microsoft Power BI Assessment Task Instructions 2026 Semester 2_BISM2202.docx`; 20 questions, 20 points, screenshot plus explanation for each question, report + PBIX submission.
 - Data quality check: **COMPLETE** - quality findings and one typography normalization documented.
 - Python validation: **COMPLETE** - reproducible script, JSON, and XLSX created.
 - Q1-Q20 calculated: **COMPLETE** - Q1-Q19 numeric outputs plus Q20 validated support metrics.

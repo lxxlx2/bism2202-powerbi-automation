@@ -1,0 +1,9 @@
+{
+  "version": "B",
+  "built": "2026-08-23T18:09:48",
+  "pbip": "C:\\BISM2202\\PROJECT\\Version_B_PowerBI\\BISM2202_Seed.pbip",
+  "report": "C:\\BISM2202\\PROJECT\\Version_B_PowerBI\\BISM2202_Seed.Report",
+  "expected_pages": 20,
+  "q19_metric": "Order Share Within Payment; denominator removes only Traffic Level so Order Time slicer remains effective",
+  "q16_conditional_formatting": "Field-value colors via Delivery Duration Color and Delay Color measures when supported by installed pbi-cli format command"
+}

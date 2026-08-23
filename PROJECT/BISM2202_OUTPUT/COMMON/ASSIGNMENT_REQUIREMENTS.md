@@ -1,6 +1,6 @@
 # BISM2202 Assessment Requirements (extracted from instructor DOCX)
 
-- Source: `/Users/jerson/Documents/教学接单/BISM2202_WINDOWS_PACKAGE/INPUTS/Data Visualization Using Microsoft Power BI Assessment Task Instructions 2026 Semester 2_BISM2202.docx`
+- Source: `C:\BISM2202\INPUTS\Data Visualization Using Microsoft Power BI Assessment Task Instructions 2026 Semester 2_BISM2202.docx`
 - Course: BISM2202
 - Assessment: Data Visualization Using Microsoft Power BI - Assessment Task
 - Total points: 20

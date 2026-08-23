@@ -292,6 +292,10 @@ table PizzaOrders
 		summarizeBy: sum
 		isHidden
 
+	measure 'Order Share Within Payment' = DIVIDE([Order Count], CALCULATE([Order Count], REMOVEFILTERS(PizzaOrders[Traffic Level])))
+		formatString: 0.00%
+		displayFolder: BISM2202 Measures
+
 	partition PizzaOrders = m
 		mode: import
 		source =

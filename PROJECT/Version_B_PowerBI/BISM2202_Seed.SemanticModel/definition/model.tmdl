@@ -1,0 +1,22 @@
+model Model
+	culture: zh-CN
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: zh-CN
+	valueFilterBehavior: independent
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_QueryOrder = ["PizzaOrders"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table PizzaOrders
+ref table DateTableTemplate_6d96e8ea-a0d5-43d6-9db1-6ee0a1ac4b56
+ref table LocalDateTable_e1c4d522-349a-4535-9270-3aafe5f175f2
+ref table LocalDateTable_4e0295f6-debf-4dac-b1e6-d4f1287cf88a
+
+ref cultureInfo zh-CN
+
