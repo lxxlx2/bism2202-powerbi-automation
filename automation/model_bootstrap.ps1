@@ -1,6 +1,7 @@
 param(
     [string]$ProjectRoot = "C:\BISM2202",
-    [switch]$NoOpen
+    [switch]$NoOpen,
+    [switch]$ForceClosePowerBI
 )
 
 Set-StrictMode -Version Latest
@@ -17,10 +18,22 @@ function Assert-Path {
     }
 }
 
-function Assert-PowerBIClosed {
+function Ensure-PowerBIClosed {
     $running = Get-Process PBIDesktop -ErrorAction SilentlyContinue
-    if ($running) {
-        throw "Power BI Desktop is currently open. Save the Seed project, close ALL Power BI Desktop windows, then rerun this script. Direct TMDL editing must be done while Desktop is closed so Desktop cannot overwrite the file."
+    if (-not $running) {
+        return
+    }
+
+    if (-not $ForceClosePowerBI) {
+        throw "Power BI Desktop is currently open. Save the Seed project, close ALL Power BI Desktop windows, then rerun this script, or rerun with -ForceClosePowerBI after saving. Direct TMDL editing must be done while Desktop is closed so Desktop cannot overwrite the file."
+    }
+
+    Write-Host "Closing all Power BI Desktop processes before TMDL editing..." -ForegroundColor Yellow
+    $running | Stop-Process -Force
+    Start-Sleep -Seconds 3
+
+    if (Get-Process PBIDesktop -ErrorAction SilentlyContinue) {
+        throw "Power BI Desktop could not be closed automatically. Close it manually and rerun."
     }
 }
 
@@ -58,7 +71,7 @@ function Ensure-TmdlObject {
 
 Assert-Path -Path $SeedPbip -Label "Seed PBIP"
 Assert-Path -Path $TmdlPath -Label "PizzaOrders TMDL"
-Assert-PowerBIClosed
+Ensure-PowerBIClosed
 
 $backupDir = Join-Path $ProjectRoot "automation\backups"
 New-Item -ItemType Directory -Force -Path $backupDir | Out-Null
