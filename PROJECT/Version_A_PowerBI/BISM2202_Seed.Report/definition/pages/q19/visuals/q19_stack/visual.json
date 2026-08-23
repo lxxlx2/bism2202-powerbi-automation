@@ -13,25 +13,6 @@
     "visualType": "pivotTable",
     "query": {
       "queryState": {
-        "Rows": {
-          "projections": [
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "PizzaOrders"
-                    }
-                  },
-                  "Property": "Payment Method"
-                }
-              },
-              "queryRef": "PizzaOrders.Payment Method",
-              "nativeQueryRef": "Payment Method",
-              "active": true
-            }
-          ]
-        },
         "Columns": {
           "projections": [
             {
@@ -47,6 +28,25 @@
               },
               "queryRef": "PizzaOrders.Traffic Level",
               "nativeQueryRef": "Traffic Level",
+              "active": true
+            }
+          ]
+        },
+        "Rows": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "PizzaOrders"
+                    }
+                  },
+                  "Property": "Payment Method"
+                }
+              },
+              "queryRef": "PizzaOrders.Payment Method",
+              "nativeQueryRef": "Payment Method",
               "active": true
             }
           ]
@@ -69,6 +69,23 @@
             }
           ]
         }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "PizzaOrders"
+                  }
+                },
+                "Property": "Order Share Within Payment"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
       }
     },
     "objects": {
@@ -76,6 +93,13 @@
         {
           "properties": {
             "rowSubtotalsLabel": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Total'"
+                }
+              }
+            },
+            "columnSubtotalsLabel": {
               "expr": {
                 "Literal": {
                   "Value": "'Total'"
@@ -115,5 +139,51 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "ec5094a121698f1874b4",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "PizzaOrders"
+              }
+            },
+            "Property": "Payment Method"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "47729ec3ec5aee214853",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "PizzaOrders"
+              }
+            },
+            "Property": "Traffic Level"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "6ab5c609742bcb2eed30",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "PizzaOrders"
+              }
+            },
+            "Property": "Order Share Within Payment"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

@@ -55,11 +55,7 @@
     "objects": {
       "dataPoint": [
         {
-          "properties": {
-            "defaultColor": {
-              "solid": {}
-            }
-          }
+          "properties": {}
         }
       ]
     },
@@ -92,5 +88,37 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "0d539f058803e25c04b7",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "PizzaOrders"
+              }
+            },
+            "Property": "Order Hour"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "6ab7d4534025726fc78b",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "PizzaOrders"
+              }
+            },
+            "Property": "Order Count"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }
