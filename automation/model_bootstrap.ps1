@@ -113,6 +113,12 @@ Ensure-TmdlObject -Kind "measure" -Name "Avg Topping Density" -Block @"
 `t`tdisplayFolder: BISM2202 Measures
 "@
 
+Ensure-TmdlObject -Kind "measure" -Name "Order Share Within Payment" -Block @"
+`tmeasure 'Order Share Within Payment' = DIVIDE([Order Count], CALCULATE([Order Count], ALLEXCEPT(PizzaOrders, PizzaOrders[Payment Method])))
+`t`tformatString: 0.00%
+`t`tdisplayFolder: BISM2202 Measures
+"@
+
 Ensure-TmdlObject -Kind "measure" -Name "Delivery Duration Color" -Block @"
 `tmeasure 'Delivery Duration Color' = VAR CurrentValue = [Avg Delivery Duration] VAR MinValue = MINX(ALL(PizzaOrders[Restaurant Name]), CALCULATE([Avg Delivery Duration])) VAR MaxValue = MAXX(ALL(PizzaOrders[Restaurant Name]), CALCULATE([Avg Delivery Duration])) RETURN SWITCH(TRUE(), CurrentValue = MinValue, "#C6EFCE", CurrentValue = MaxValue, "#FFC7CE", "#FFF2CC")
 `t`tdisplayFolder: BISM2202 Helpers
@@ -180,6 +186,7 @@ $required = @(
     "Avg Toppings Count",
     "Avg Delay",
     "Avg Topping Density",
+    "Order Share Within Payment",
     "Delivery Duration Color",
     "Delay Color",
     "Weekend Label",
