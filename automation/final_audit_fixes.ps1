@@ -84,7 +84,7 @@ function Ensure-TmdlObject {
     $insert = $Block.TrimEnd() + "`r`n`r`n"
     $text = $text.Insert($match.Index, $insert)
     [System.IO.File]::WriteAllText($Path, $text, [System.Text.UTF8Encoding]::new($false))
-    Write-Host "Added $Kind: $Name" -ForegroundColor Green
+    Write-Host "Added ${Kind}: $Name" -ForegroundColor Green
 }
 
 function Remove-Visual([string]$Report, [string]$Page, [string]$Visual) {
