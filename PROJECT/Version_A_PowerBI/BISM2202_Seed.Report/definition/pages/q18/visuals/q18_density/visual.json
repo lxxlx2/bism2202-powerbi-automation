@@ -1,0 +1,85 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "name": "q18_density",
+  "position": {
+    "x": 650,
+    "y": 55,
+    "z": 1,
+    "height": 600,
+    "width": 600,
+    "tabOrder": 1
+  },
+  "visual": {
+    "visualType": "lineChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "PizzaOrders"
+                    }
+                  },
+                  "Property": "Pizza Type"
+                }
+              },
+              "queryRef": "PizzaOrders.Pizza Type",
+              "nativeQueryRef": "Pizza Type",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "PizzaOrders"
+                    }
+                  },
+                  "Property": "Avg Topping Density"
+                }
+              },
+              "queryRef": "PizzaOrders.Avg Topping Density",
+              "nativeQueryRef": "Avg Topping Density"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Average Topping Density by Pizza Type'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "name": "q20_traffic",
+  "position": {
+    "x": 640,
+    "y": 35,
+    "z": 1,
+    "height": 300,
+    "width": 610,
+    "tabOrder": 1
+  },
+  "visual": {
+    "visualType": "clusteredColumnChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "PizzaOrders"
+                    }
+                  },
+                  "Property": "Traffic Level"
+                }
+              },
+              "queryRef": "PizzaOrders.Traffic Level",
+              "nativeQueryRef": "Traffic Level",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "PizzaOrders"
+                    }
+                  },
+                  "Property": "Avg Delay"
+                }
+              },
+              "queryRef": "PizzaOrders.Avg Delay",
+              "nativeQueryRef": "Avg Delay"
+            }
+          ]
+        },
+        "Legend": {
+          "projections": []
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Average Delay by Traffic Level'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}
