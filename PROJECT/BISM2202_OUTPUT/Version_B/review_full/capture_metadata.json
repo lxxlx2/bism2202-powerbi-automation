@@ -1,0 +1,402 @@
+[
+  {
+    "page": "Q01",
+    "canvas_file": "C:\\BISM2202\\PROJECT\\BISM2202_OUTPUT\\Version_B\\screenshots\\Q01.png",
+    "review_file": "C:\\BISM2202\\PROJECT\\BISM2202_OUTPUT\\Version_B\\review_full\\Q01_full.png",
+    "canvas_sha256": "d4a8203989982526e0ba57ebaae9a97d30b1693f5dd2fe66daae2b58b751c6c0",
+    "review_sha256": "bb557bf52259271b6a13c0271bac1061f00233067766fc917abfe79cb3c1c7d3",
+    "captured": "2026-08-23T18:13:53",
+    "window": {
+      "Left": -13,
+      "Top": -13,
+      "Width": 3482,
+      "Height": 1842
+    },
+    "canvas": {
+      "left": 161,
+      "top": 300,
+      "width": 2228,
+      "height": 1271
+    }
+  },
+  {
+    "page": "Q02",
+    "canvas_file": "C:\\BISM2202\\PROJECT\\BISM2202_OUTPUT\\Version_B\\screenshots\\Q02.png",
+    "review_file": "C:\\BISM2202\\PROJECT\\BISM2202_OUTPUT\\Version_B\\review_full\\Q02_full.png",
+    "canvas_sha256": "019ac9ecd9b3d88e67e1f76c256173990ddce232796c37607dc3c304f2b2bea1",
+    "review_sha256": "bd70d153e56998ed2f84d32b1fb0be5ecdf73e12784c03f87c3338522aab1c71",
+    "captured": "2026-08-23T18:13:56",
+    "window": {
+      "Left": -13,
+      "Top": -13,
+      "Width": 3482,
+      "Height": 1842
+    },
+    "canvas": {
+      "left": 161,
+      "top": 300,
+      "width": 2228,
+      "height": 1271
+    }
+  },
+  {
+    "page": "Q03",
+    "canvas_file": "C:\\BISM2202\\PROJECT\\BISM2202_OUTPUT\\Version_B\\screenshots\\Q03.png",
+    "review_file": "C:\\BISM2202\\PROJECT\\BISM2202_OUTPUT\\Version_B\\review_full\\Q03_full.png",
+    "canvas_sha256": "a030b1f0517b60a3def3b273cfabcc7e2d0f425f17bab6d6d67533ed373995fc",
+    "review_sha256": "818138c4c1069914ed4179d41a68e1d0f6cd46c1c04bc23d6292c71de59cf0aa",
+    "captured": "2026-08-23T18:14:00",
+    "window": {
+      "Left": -13,
+      "Top": -13,
+      "Width": 3482,
+      "Height": 1842
+    },
+    "canvas": {
+      "left": 161,
+      "top": 300,
+      "width": 2228,
+      "height": 1271
+    }
+  },
+  {
+    "page": "Q04",
+    "canvas_file": "C:\\BISM2202\\PROJECT\\BISM2202_OUTPUT\\Version_B\\screenshots\\Q04.png",
+    "review_file": "C:\\BISM2202\\PROJECT\\BISM2202_OUTPUT\\Version_B\\review_full\\Q04_full.png",
+    "canvas_sha256": "b7196222339573382f918c9cdf8db18bf4487fc8b85e28f2ec6ed12fabcdcc28",
+    "review_sha256": "39f3ca1dcebddf2c2b89c7cdee6828a9b1fe981bdb2243ce09b90e8521780145",
+    "captured": "2026-08-23T18:14:03",
+    "window": {
+      "Left": -13,
+      "Top": -13,
+      "Width": 3482,
+      "Height": 1842
+    },
+    "canvas": {
+      "left": 161,
+      "top": 300,
+      "width": 2228,
+      "height": 1271
+    }
+  },
+  {
+    "page": "Q05",
+    "canvas_file": "C:\\BISM2202\\PROJECT\\BISM2202_OUTPUT\\Version_B\\screenshots\\Q05.png",
+    "review_file": "C:\\BISM2202\\PROJECT\\BISM2202_OUTPUT\\Version_B\\review_full\\Q05_full.png",
+    "canvas_sha256": "1f85b79917169eb2565f74da6714918753f3180f24da723b8325803d7697658b",
+    "review_sha256": "4df78a4cc02157e126e9381c9ba56c540a915d1030d48c66cef5239d0cbf866e",
+    "captured": "2026-08-23T18:14:06",
+    "window": {
+      "Left": -13,
+      "Top": -13,
+      "Width": 3482,
+      "Height": 1842
+    },
+    "canvas": {
+      "left": 161,
+      "top": 300,
+      "width": 2228,
+      "height": 1271
+    }
+  },
+  {
+    "page": "Q06",
+    "canvas_file": "C:\\BISM2202\\PROJECT\\BISM2202_OUTPUT\\Version_B\\screenshots\\Q06.png",
+    "review_file": "C:\\BISM2202\\PROJECT\\BISM2202_OUTPUT\\Version_B\\review_full\\Q06_full.png",
+    "canvas_sha256": "7e17d8767dac583499d6c22824db7fe274d262715bc341486d9430561a03c2c3",
+    "review_sha256": "8ade16e6f7cbd6987cf4352cc29d3eaa946e27ebb6570cfd68a7dde9161c3be5",
+    "captured": "2026-08-23T18:14:10",
+    "window": {
+      "Left": -13,
+      "Top": -13,
+      "Width": 3482,
+      "Height": 1842
+    },
+    "canvas": {
+      "left": 161,
+      "top": 300,
+      "width": 2228,
+      "height": 1271
+    }
+  },
+  {
+    "page": "Q07",
+    "canvas_file": "C:\\BISM2202\\PROJECT\\BISM2202_OUTPUT\\Version_B\\screenshots\\Q07.png",
+    "review_file": "C:\\BISM2202\\PROJECT\\BISM2202_OUTPUT\\Version_B\\review_full\\Q07_full.png",
+    "canvas_sha256": "5d22d54c49e6ec9d881e48be5e303b9de9cd89064868834ddeb492b314bfefab",
+    "review_sha256": "24f8caf5a3ffb4ff254e3738932133267c5d980a05e5ff415c25453ad703802c",
+    "captured": "2026-08-23T18:14:13",
+    "window": {
+      "Left": -13,
+      "Top": -13,
+      "Width": 3482,
+      "Height": 1842
+    },
+    "canvas": {
+      "left": 161,
+      "top": 300,
+      "width": 2228,
+      "height": 1271
+    }
+  },
+  {
+    "page": "Q08",
+    "canvas_file": "C:\\BISM2202\\PROJECT\\BISM2202_OUTPUT\\Version_B\\screenshots\\Q08.png",
+    "review_file": "C:\\BISM2202\\PROJECT\\BISM2202_OUTPUT\\Version_B\\review_full\\Q08_full.png",
+    "canvas_sha256": "0a27fb277863a5ace39933f5ac45e228798330e20f92a3cb013e4ae505b99a93",
+    "review_sha256": "d70a28253b04911235a2991d20eb8ec269b96f61b9de1ef743adf268a8d0361c",
+    "captured": "2026-08-23T18:14:16",
+    "window": {
+      "Left": -13,
+      "Top": -13,
+      "Width": 3482,
+      "Height": 1842
+    },
+    "canvas": {
+      "left": 161,
+      "top": 300,
+      "width": 2228,
+      "height": 1271
+    }
+  },
+  {
+    "page": "Q09",
+    "canvas_file": "C:\\BISM2202\\PROJECT\\BISM2202_OUTPUT\\Version_B\\screenshots\\Q09.png",
+    "review_file": "C:\\BISM2202\\PROJECT\\BISM2202_OUTPUT\\Version_B\\review_full\\Q09_full.png",
+    "canvas_sha256": "62ea782e3a7c6c8da4c381b4a7a4c5b200d8f2425498e8c1c4713634e2a02b8a",
+    "review_sha256": "db4209fc1216f56311e09f4f7cf266a37c669586c57cb12d13993aa4fde4c85c",
+    "captured": "2026-08-23T18:14:20",
+    "window": {
+      "Left": -13,
+      "Top": -13,
+      "Width": 3482,
+      "Height": 1842
+    },
+    "canvas": {
+      "left": 161,
+      "top": 300,
+      "width": 2228,
+      "height": 1271
+    }
+  },
+  {
+    "page": "Q10",
+    "canvas_file": "C:\\BISM2202\\PROJECT\\BISM2202_OUTPUT\\Version_B\\screenshots\\Q10.png",
+    "review_file": "C:\\BISM2202\\PROJECT\\BISM2202_OUTPUT\\Version_B\\review_full\\Q10_full.png",
+    "canvas_sha256": "872e42ee52ac935ca480dce787f0bdf1cd3d97d49f3e25363a36ec4245a1b5a3",
+    "review_sha256": "842dc89c3c2f83a136d88cf5606a4c0a01863c65a77648448c5f2b1132ea4b32",
+    "captured": "2026-08-23T18:14:23",
+    "window": {
+      "Left": -13,
+      "Top": -13,
+      "Width": 3482,
+      "Height": 1842
+    },
+    "canvas": {
+      "left": 161,
+      "top": 300,
+      "width": 2228,
+      "height": 1271
+    }
+  },
+  {
+    "page": "Q11",
+    "canvas_file": "C:\\BISM2202\\PROJECT\\BISM2202_OUTPUT\\Version_B\\screenshots\\Q11.png",
+    "review_file": "C:\\BISM2202\\PROJECT\\BISM2202_OUTPUT\\Version_B\\review_full\\Q11_full.png",
+    "canvas_sha256": "59a00c80971d88359c03bb91cd6e65d3fe7422da4445df3596c05a1596702844",
+    "review_sha256": "8a812d7977f87e1aa39e6b8f80dd738cd7d9a5473f121f3ddcb5bff3f91b370a",
+    "captured": "2026-08-23T18:14:27",
+    "window": {
+      "Left": -13,
+      "Top": -13,
+      "Width": 3482,
+      "Height": 1842
+    },
+    "canvas": {
+      "left": 161,
+      "top": 300,
+      "width": 2228,
+      "height": 1271
+    }
+  },
+  {
+    "page": "Q12",
+    "canvas_file": "C:\\BISM2202\\PROJECT\\BISM2202_OUTPUT\\Version_B\\screenshots\\Q12.png",
+    "review_file": "C:\\BISM2202\\PROJECT\\BISM2202_OUTPUT\\Version_B\\review_full\\Q12_full.png",
+    "canvas_sha256": "0a4fcab59655ae3d96918d8f644041e550914921df3ff2bac7bb1ac3ffb5578d",
+    "review_sha256": "e4710be0a58eb1e9e61087c6a6565214bfb698273c3a58ed2c8425898bb24cee",
+    "captured": "2026-08-23T18:14:30",
+    "window": {
+      "Left": -13,
+      "Top": -13,
+      "Width": 3482,
+      "Height": 1842
+    },
+    "canvas": {
+      "left": 161,
+      "top": 300,
+      "width": 2228,
+      "height": 1271
+    }
+  },
+  {
+    "page": "Q13",
+    "canvas_file": "C:\\BISM2202\\PROJECT\\BISM2202_OUTPUT\\Version_B\\screenshots\\Q13.png",
+    "review_file": "C:\\BISM2202\\PROJECT\\BISM2202_OUTPUT\\Version_B\\review_full\\Q13_full.png",
+    "canvas_sha256": "8f0616d5f8fdbb37bebef9edc2e7c63a74b7564904d81146e1b5687fe2d48edc",
+    "review_sha256": "2b6887e49eb7fa07aee6dba7dc73bfc97369f204615a4397ce7abe59c6a92932",
+    "captured": "2026-08-23T18:14:33",
+    "window": {
+      "Left": -13,
+      "Top": -13,
+      "Width": 3482,
+      "Height": 1842
+    },
+    "canvas": {
+      "left": 161,
+      "top": 300,
+      "width": 2228,
+      "height": 1271
+    }
+  },
+  {
+    "page": "Q14",
+    "canvas_file": "C:\\BISM2202\\PROJECT\\BISM2202_OUTPUT\\Version_B\\screenshots\\Q14.png",
+    "review_file": "C:\\BISM2202\\PROJECT\\BISM2202_OUTPUT\\Version_B\\review_full\\Q14_full.png",
+    "canvas_sha256": "53fba1ebd696d510678ec2d8590c59d1121925197f8e56c6c9f745349ef7db33",
+    "review_sha256": "2942cb2d0b74fe8ad0b1cfaa2bf56a04efe4f28326ff89285bba0525a2391047",
+    "captured": "2026-08-23T18:14:37",
+    "window": {
+      "Left": -13,
+      "Top": -13,
+      "Width": 3482,
+      "Height": 1842
+    },
+    "canvas": {
+      "left": 161,
+      "top": 300,
+      "width": 2228,
+      "height": 1271
+    }
+  },
+  {
+    "page": "Q15",
+    "canvas_file": "C:\\BISM2202\\PROJECT\\BISM2202_OUTPUT\\Version_B\\screenshots\\Q15.png",
+    "review_file": "C:\\BISM2202\\PROJECT\\BISM2202_OUTPUT\\Version_B\\review_full\\Q15_full.png",
+    "canvas_sha256": "cbd07aa14706f2a2c013e362dd96682c7aa9da8553ab54b95f0bb0cfb68bef95",
+    "review_sha256": "4b59e6cb7d9800222d4a318d530dc2117a5a9f4849aa4ed8552f70c3d8ac3418",
+    "captured": "2026-08-23T18:14:40",
+    "window": {
+      "Left": -13,
+      "Top": -13,
+      "Width": 3482,
+      "Height": 1842
+    },
+    "canvas": {
+      "left": 161,
+      "top": 300,
+      "width": 2228,
+      "height": 1271
+    }
+  },
+  {
+    "page": "Q16",
+    "canvas_file": "C:\\BISM2202\\PROJECT\\BISM2202_OUTPUT\\Version_B\\screenshots\\Q16.png",
+    "review_file": "C:\\BISM2202\\PROJECT\\BISM2202_OUTPUT\\Version_B\\review_full\\Q16_full.png",
+    "canvas_sha256": "dc3daeccbb3b6195da9e244577aacc33d323a845e382486ee0a5614f98c80f24",
+    "review_sha256": "4c1b15d71f9570cdf7132df57655d74118a76f85ff3241bffe542008282d8f51",
+    "captured": "2026-08-23T18:14:43",
+    "window": {
+      "Left": -13,
+      "Top": -13,
+      "Width": 3482,
+      "Height": 1842
+    },
+    "canvas": {
+      "left": 161,
+      "top": 300,
+      "width": 2228,
+      "height": 1271
+    }
+  },
+  {
+    "page": "Q17",
+    "canvas_file": "C:\\BISM2202\\PROJECT\\BISM2202_OUTPUT\\Version_B\\screenshots\\Q17.png",
+    "review_file": "C:\\BISM2202\\PROJECT\\BISM2202_OUTPUT\\Version_B\\review_full\\Q17_full.png",
+    "canvas_sha256": "ff35882745348c962fd11c64d275948058fd47b204090de4556cf4ed56654fd0",
+    "review_sha256": "137fd026c35cda13f80cbf77707ef7d1d18af61cf0df048b88b819e0ae8cdc2e",
+    "captured": "2026-08-23T18:14:47",
+    "window": {
+      "Left": -13,
+      "Top": -13,
+      "Width": 3482,
+      "Height": 1842
+    },
+    "canvas": {
+      "left": 161,
+      "top": 300,
+      "width": 2228,
+      "height": 1271
+    }
+  },
+  {
+    "page": "Q18",
+    "canvas_file": "C:\\BISM2202\\PROJECT\\BISM2202_OUTPUT\\Version_B\\screenshots\\Q18.png",
+    "review_file": "C:\\BISM2202\\PROJECT\\BISM2202_OUTPUT\\Version_B\\review_full\\Q18_full.png",
+    "canvas_sha256": "9a6a6b80fb2822993e96366bd1680a05387f93c2bd09d349c97b4886ae24b1a4",
+    "review_sha256": "3d044b5e7fceeb079feaec9bbc09e4fbc7243557df07888ae4732dca066a410c",
+    "captured": "2026-08-23T18:14:50",
+    "window": {
+      "Left": -13,
+      "Top": -13,
+      "Width": 3482,
+      "Height": 1842
+    },
+    "canvas": {
+      "left": 161,
+      "top": 300,
+      "width": 2228,
+      "height": 1271
+    }
+  },
+  {
+    "page": "Q19",
+    "canvas_file": "C:\\BISM2202\\PROJECT\\BISM2202_OUTPUT\\Version_B\\screenshots\\Q19.png",
+    "review_file": "C:\\BISM2202\\PROJECT\\BISM2202_OUTPUT\\Version_B\\review_full\\Q19_full.png",
+    "canvas_sha256": "176a452522c28e740ba140e625548b09fa356d00c49dce8f181a9503ae12537f",
+    "review_sha256": "aa44b6844d70fa6da7883aa9b07d3d4fec8764013a1e5fcadc6e47519947fd65",
+    "captured": "2026-08-23T18:14:53",
+    "window": {
+      "Left": -13,
+      "Top": -13,
+      "Width": 3482,
+      "Height": 1842
+    },
+    "canvas": {
+      "left": 161,
+      "top": 300,
+      "width": 2228,
+      "height": 1271
+    }
+  },
+  {
+    "page": "Q20",
+    "canvas_file": "C:\\BISM2202\\PROJECT\\BISM2202_OUTPUT\\Version_B\\screenshots\\Q20.png",
+    "review_file": "C:\\BISM2202\\PROJECT\\BISM2202_OUTPUT\\Version_B\\review_full\\Q20_full.png",
+    "canvas_sha256": "b9802be78594f06daa6f1f416dce4031ff12903efb0aca093b81aaf02141e045",
+    "review_sha256": "21a0738404c8edb5c88190bd1136fe430ebb4493324cf80afb3c41c97a64747d",
+    "captured": "2026-08-23T18:14:57",
+    "window": {
+      "Left": -13,
+      "Top": -13,
+      "Width": 3482,
+      "Height": 1842
+    },
+    "canvas": {
+      "left": 161,
+      "top": 300,
+      "width": 2228,
+      "height": 1271
+    }
+  }
+]
