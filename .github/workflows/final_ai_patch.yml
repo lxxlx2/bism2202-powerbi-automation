@@ -1,0 +1,254 @@
+name: Final AI patch and QA
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/final_ai_patch.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  patch-and-qa:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install Python dependencies
+        run: python3 -m pip install --quiet python-docx pillow
+
+      - name: Patch Version B report wording to match final Power BI visuals
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          from docx import Document
+
+          q19_old = "The 100% bars compare composition rather than payment-method size."
+          q19_new = (
+              "The percentage matrix compares composition within each payment method. "
+              "Card is 44.57% High traffic; Cash and UPI are mainly Medium traffic at 48.02% and 47.60%; "
+              "Wallet is mainly Low traffic at 44.71%. Small groups such as Hut Points (24 orders) and "
+              "Domino's Cash (23) require cautious percentage comparisons."
+          )
+          q20_old_1 = "The dashboard begins with demand location"
+          q20_new_1 = (
+              "The dashboard combines a conditionally formatted restaurant table, an average-delay column chart by Traffic Level, "
+              "and an hourly order-volume line chart. The table highlights relative restaurant performance, the traffic chart "
+              "compares delivery conditions, and the line chart shows when order demand is concentrated."
+          )
+          q20_old_2 = "The traffic-payment view adds operating context:"
+          q20_new_2 = (
+              "Papa John's has the shortest average delivery duration at 28.19 minutes, while Marco's Pizza has the highest average "
+              "delay at 18.44 minutes. High traffic has the highest average delay at 19.16 minutes, and order volume peaks at 19:00 "
+              "with 328 orders. Read together, the three visuals connect restaurant performance, traffic conditions, and time-of-day "
+              "demand while keeping the interpretation descriptive rather than causal."
+          )
+
+          docx_paths = [
+              Path('Student_B/BISM2202_Report.docx'),
+              Path('PROJECT/BISM2202_OUTPUT/Version_B/BISM2202_Report_B.docx'),
+          ]
+          for path in docx_paths:
+              doc = Document(path)
+              found = {'q19': False, 'q20_1': False, 'q20_2': False}
+              for p in doc.paragraphs:
+                  text = p.text.strip()
+                  if text.startswith(q19_old):
+                      p.text = q19_new
+                      found['q19'] = True
+                  elif text.startswith(q20_old_1):
+                      p.text = q20_new_1
+                      found['q20_1'] = True
+                  elif text.startswith(q20_old_2):
+                      p.text = q20_new_2
+                      found['q20_2'] = True
+              if not all(found.values()):
+                  raise SystemExit(f'Could not patch all target paragraphs in {path}: {found}')
+              doc.save(path)
+              print('Patched', path)
+
+          md = Path('PROJECT/BISM2202_OUTPUT/Version_B/report_answers.md')
+          text = md.read_text(encoding='utf-8')
+          old_q19_full = (
+              "The 100% bars compare composition rather than payment-method size. Card is 44.57% High traffic; Cash and UPI are mainly "
+              "Medium traffic at 48.02% and 47.60%; Wallet is mainly Low traffic at 44.71%. Small groups such as Hut Points (24 orders) "
+              "and Domino's Cash (23) require cautious percentage comparisons."
+          )
+          old_q20_1_full = (
+              "The dashboard begins with demand location, then compares pizza-type delivery performance, and finishes with traffic composition "
+              "inside payment methods. Atlanta leads location demand with 78 orders, while Stuffed Crust has the longest pizza-type average "
+              "delivery duration at 39.52 minutes."
+          )
+          old_q20_2_full = (
+              "The traffic-payment view adds operating context: Card is weighted toward High traffic, while Cash and UPI are weighted toward "
+              "Medium traffic and Wallet toward Low traffic. Using the Order Time slicer lets the viewer test whether these patterns remain stable "
+              "across different periods. Together, the three visuals connect where demand occurs, which pizza types take longer, and the conditions "
+              "surrounding each payment mix."
+          )
+          for old, new in [(old_q19_full, q19_new), (old_q20_1_full, q20_new_1), (old_q20_2_full, q20_new_2)]:
+              if old not in text:
+                  raise SystemExit('Expected report_answers.md text not found: ' + old[:60])
+              text = text.replace(old, new)
+          md.write_text(text, encoding='utf-8')
+          print('Patched', md)
+          PY
+
+      - name: Validate core deliverables and report text
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json, re, struct, zipfile
+          from pathlib import Path
+          from docx import Document
+
+          summary = {}
+          for v in ['A','B']:
+              root = Path(f'Student_{v}')
+              pbix = root/'BISM2202_Assignment.pbix'
+              docx = root/'BISM2202_Report.docx'
+              if not pbix.is_file() or pbix.stat().st_size < 50000:
+                  raise SystemExit(f'Student_{v} PBIX missing or suspiciously small')
+              if not docx.is_file() or docx.stat().st_size < 50000:
+                  raise SystemExit(f'Student_{v} DOCX missing or suspiciously small')
+              with zipfile.ZipFile(docx) as z:
+                  xml = z.read('word/document.xml').decode('utf-8', errors='ignore')
+                  cjk = re.findall(r'[\u4e00-\u9fff]', xml)
+                  media = [n for n in z.namelist() if n.startswith('word/media/') and not n.endswith('/')]
+              if cjk:
+                  raise SystemExit(f'Student_{v} report contains CJK text')
+              if len(media) < 20:
+                  raise SystemExit(f'Student_{v} report has only {len(media)} embedded images')
+              shots = sorted((root/'screenshots').glob('Q??.png'))
+              if len(shots) != 20:
+                  raise SystemExit(f'Student_{v} has {len(shots)} screenshots')
+              stats=[]
+              for p in shots:
+                  data=p.read_bytes()
+                  if data[:8] != b'\x89PNG\r\n\x1a\n':
+                      raise SystemExit(f'{p} invalid PNG')
+                  w,h=struct.unpack('>II',data[16:24])
+                  if w < 500 or h < 300 or len(data) < 5000:
+                      raise SystemExit(f'{p} suspicious image {w}x{h}, {len(data)} bytes')
+                  stats.append({'file':p.name,'width':w,'height':h,'bytes':len(data)})
+              doc = Document(docx)
+              body='\n'.join(p.text for p in doc.paragraphs)
+              if v == 'B':
+                  if 'The 100% bars compare composition' in body:
+                      raise SystemExit('Version B still contains stale Q19 bars wording')
+                  if 'The dashboard begins with demand location' in body or 'The traffic-payment view adds operating context:' in body:
+                      raise SystemExit('Version B still contains stale Q20 wording')
+                  for required in [
+                      'The percentage matrix compares composition within each payment method.',
+                      'The dashboard combines a conditionally formatted restaurant table',
+                      "Papa John's has the shortest average delivery duration at 28.19 minutes"
+                  ]:
+                      if required not in body:
+                          raise SystemExit('Version B missing corrected text: '+required)
+              summary[v]={
+                  'pbix_bytes': pbix.stat().st_size,
+                  'docx_bytes': docx.stat().st_size,
+                  'docx_media_count': len(media),
+                  'docx_cjk_character_count': len(cjk),
+                  'screenshot_count': len(shots),
+                  'screenshots': stats,
+              }
+          out=Path('FINAL_PACKAGES/AI_FINAL_REVIEW')
+          out.mkdir(parents=True,exist_ok=True)
+          (out/'qa_summary.json').write_text(json.dumps(summary,indent=2),encoding='utf-8')
+          print(json.dumps(summary,indent=2))
+          PY
+
+      - name: Build compact contact sheets for independent visual review
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import base64
+          from pathlib import Path
+          from PIL import Image, ImageDraw
+
+          out=Path('FINAL_PACKAGES/AI_FINAL_REVIEW')
+          out.mkdir(parents=True,exist_ok=True)
+          for v in ['A','B']:
+              files=sorted(Path(f'Student_{v}/screenshots').glob('Q??.png'))
+              tiles=[]
+              for p in files:
+                  im=Image.open(p).convert('RGB')
+                  im.thumbnail((460,262))
+                  tile=Image.new('RGB',(480,292),'white')
+                  tile.paste(im,((480-im.width)//2,24))
+                  ImageDraw.Draw(tile).text((8,5),p.stem,fill='black')
+                  tiles.append(tile)
+              cols=2; rows=(len(tiles)+1)//2
+              sheet=Image.new('RGB',(cols*480,rows*292),'white')
+              for i,t in enumerate(tiles):
+                  sheet.paste(t,((i%cols)*480,(i//cols)*292))
+              jpg=out/f'Student_{v}_contact_sheet.jpg'
+              sheet.save(jpg,quality=82,optimize=True)
+              b64=base64.b64encode(jpg.read_bytes()).decode('ascii')
+              # Wrap to make connector reads chunkable by line.
+              wrapped='\n'.join(b64[i:i+76] for i in range(0,len(b64),76))+'\n'
+              (out/f'Student_{v}_contact_sheet.jpg.b64.txt').write_text(wrapped,encoding='ascii')
+              jpg.unlink()
+          PY
+
+      - name: Rebuild final ZIP packages and manifest
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -f FINAL_PACKAGES/BISM2202_Student_A_FINAL.zip FINAL_PACKAGES/BISM2202_Student_B_FINAL.zip
+          (cd Student_A && zip -r -9 ../FINAL_PACKAGES/BISM2202_Student_A_FINAL.zip . >/dev/null)
+          (cd Student_B && zip -r -9 ../FINAL_PACKAGES/BISM2202_Student_B_FINAL.zip . >/dev/null)
+          python3 - <<'PY'
+          from pathlib import Path
+          import hashlib, datetime, zipfile
+          out=Path('FINAL_PACKAGES')
+          rows=[]
+          for v in ['A','B']:
+              z=out/f'BISM2202_Student_{v}_FINAL.zip'
+              with zipfile.ZipFile(z) as a:
+                  names=a.namelist()
+                  shots=[n for n in names if n.startswith('screenshots/Q') and n.endswith('.png')]
+                  pbix=[n for n in names if n=='BISM2202_Assignment.pbix']
+                  docx=[n for n in names if n=='BISM2202_Report.docx']
+                  if len(shots)!=20 or len(pbix)!=1 or len(docx)!=1:
+                      raise SystemExit(f'Bad ZIP contents for {v}: shots={len(shots)} pbix={len(pbix)} docx={len(docx)}')
+              sha=hashlib.sha256(z.read_bytes()).hexdigest().upper()
+              rows.append((v,z.name,z.stat().st_size,sha))
+          ts=datetime.datetime.now(datetime.timezone.utc).astimezone().strftime('%Y-%m-%d %H:%M:%S %z')
+          text=['BISM2202 FINAL DELIVERY','',f'Generated: {ts}','']
+          for v,name,size,sha in rows:
+              text += [
+                  f'Version {v}:',
+                  f'PBIX: Student_{v}/BISM2202_Assignment.pbix',
+                  f'Report: Student_{v}/BISM2202_Report.docx',
+                  'Screenshots: 20',
+                  f'ZIP: FINAL_PACKAGES/{name}',
+                  f'ZIP bytes: {size}',
+                  f'SHA256: {sha}',
+                  ''
+              ]
+          text += ['Structural QA: PASS','Version B Q19/Q20 report wording aligned to final visuals: PASS','Independent visual review: PENDING']
+          (out/'FINAL_PACKAGE_MANIFEST.txt').write_text('\n'.join(text)+'\n',encoding='utf-8')
+          PY
+
+      - name: Commit final patched deliverables and QA material
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add Student_B/BISM2202_Report.docx \
+                  PROJECT/BISM2202_OUTPUT/Version_B/BISM2202_Report_B.docx \
+                  PROJECT/BISM2202_OUTPUT/Version_B/report_answers.md \
+                  FINAL_PACKAGES
+          if git diff --cached --quiet; then
+            echo 'No changes to commit.'
+          else
+            git commit -m 'Fix final B report wording and refresh packages'
+            git push
+          fi
