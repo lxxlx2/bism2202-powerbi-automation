@@ -13,7 +13,7 @@ $PowerBIExe = "C:\Program Files\Microsoft Power BI Desktop\bin\PBIDesktop.exe"
 $ProjectDir = Join-Path $ProjectRoot "PROJECT\Version_${Version}_PowerBI"
 $Pbip = Join-Path $ProjectDir "BISM2202_Seed.pbip"
 $ReportDefinition = Join-Path $ProjectDir "BISM2202_Seed.Report\definition"
-$CaptureScript = Join-Path $ProjectRoot "automation\capture_pages.py"
+$CaptureScript = Join-Path $ProjectRoot "automation\capture_pages_windows.ps1"
 $OutputRoot = Join-Path $ProjectRoot "PROJECT\BISM2202_OUTPUT\Version_${Version}"
 $Screenshots = Join-Path $OutputRoot "screenshots"
 $ReviewFull = Join-Path $OutputRoot "review_full"
@@ -25,7 +25,7 @@ function Assert-Path([string]$Path, [string]$Label) {
 Assert-Path $ProjectRoot "Project root"
 Assert-Path $Pbip "Version $Version PBIP"
 Assert-Path $ReportDefinition "Version $Version PBIR definition"
-Assert-Path $CaptureScript "Capture script"
+Assert-Path $CaptureScript "Native Windows capture script"
 Assert-Path $PowerBIExe "Power BI Desktop"
 
 Set-Location $ProjectRoot
@@ -44,16 +44,9 @@ if ($OpenProject -or -not $running) {
     Start-Sleep -Seconds $WaitSeconds
 }
 
-Write-Host "Ensuring screenshot dependencies are installed..." -ForegroundColor Cyan
-py -3.12 -c "import mss, pywinauto" 2>$null
-if ($LASTEXITCODE -ne 0) {
-    py -3.12 -m pip install --upgrade mss pywinauto
-    if ($LASTEXITCODE -ne 0) { throw "Failed to install screenshot dependencies." }
-}
-
-Write-Host "Capturing Q01-Q20 in both canvas-only and full-review forms..." -ForegroundColor Cyan
-py -3.12 $CaptureScript --version $Version --keyboard-fallback
-if ($LASTEXITCODE -ne 0) { throw "capture_pages.py failed." }
+Write-Host "Capturing Q01-Q20 with ARM64-safe native Windows APIs..." -ForegroundColor Cyan
+& pwsh -ExecutionPolicy Bypass -File $CaptureScript -Version $Version -ProjectRoot $ProjectRoot
+if ($LASTEXITCODE -ne 0) { throw "capture_pages_windows.ps1 failed." }
 
 Assert-Path $Screenshots "Canvas screenshots"
 Assert-Path $ReviewFull "Full review screenshots"
@@ -73,6 +66,7 @@ $reviewStatus = Join-Path $OutputRoot "AUTOMATED_REVIEW_CAPTURE.md"
 - Canvas screenshots: 20
 - Full-window QA screenshots: 20
 - PBIR source included in Git review commit: yes
+- Capture implementation: native PowerShell + user32 + System.Drawing, ARM64-safe
 
 `review_full/` is for QA only and can contain localized Power BI UI text.
 `screenshots/` contains cropped report-canvas images intended for final report use after QA approval.
