@@ -5,7 +5,7 @@
     "width": 640,
     "height": 365,
     "jpeg_quality": 52,
-    "bytes": 25524,
+    "bytes": 25279,
     "base64_file": "PROJECT/BISM2202_OUTPUT/Version_B/ai_review/Q01.jpg.b64.txt"
   },
   {
@@ -59,7 +59,7 @@
     "width": 640,
     "height": 365,
     "jpeg_quality": 52,
-    "bytes": 32354,
+    "bytes": 32344,
     "base64_file": "PROJECT/BISM2202_OUTPUT/Version_B/ai_review/Q07.jpg.b64.txt"
   },
   {
@@ -68,7 +68,7 @@
     "width": 640,
     "height": 365,
     "jpeg_quality": 52,
-    "bytes": 9898,
+    "bytes": 9911,
     "base64_file": "PROJECT/BISM2202_OUTPUT/Version_B/ai_review/Q08.jpg.b64.txt"
   },
   {
@@ -95,7 +95,7 @@
     "width": 640,
     "height": 365,
     "jpeg_quality": 52,
-    "bytes": 11545,
+    "bytes": 11541,
     "base64_file": "PROJECT/BISM2202_OUTPUT/Version_B/ai_review/Q11.jpg.b64.txt"
   },
   {
@@ -104,7 +104,7 @@
     "width": 640,
     "height": 365,
     "jpeg_quality": 52,
-    "bytes": 16242,
+    "bytes": 16212,
     "base64_file": "PROJECT/BISM2202_OUTPUT/Version_B/ai_review/Q12.jpg.b64.txt"
   },
   {
@@ -149,7 +149,7 @@
     "width": 640,
     "height": 365,
     "jpeg_quality": 52,
-    "bytes": 7164,
+    "bytes": 14401,
     "base64_file": "PROJECT/BISM2202_OUTPUT/Version_B/ai_review/Q17.jpg.b64.txt"
   },
   {
@@ -158,7 +158,7 @@
     "width": 640,
     "height": 365,
     "jpeg_quality": 52,
-    "bytes": 7265,
+    "bytes": 17788,
     "base64_file": "PROJECT/BISM2202_OUTPUT/Version_B/ai_review/Q18.jpg.b64.txt"
   },
   {
@@ -167,7 +167,7 @@
     "width": 640,
     "height": 365,
     "jpeg_quality": 52,
-    "bytes": 8632,
+    "bytes": 20453,
     "base64_file": "PROJECT/BISM2202_OUTPUT/Version_B/ai_review/Q19.jpg.b64.txt"
   },
   {
@@ -176,7 +176,7 @@
     "width": 640,
     "height": 365,
     "jpeg_quality": 52,
-    "bytes": 12801,
+    "bytes": 15324,
     "base64_file": "PROJECT/BISM2202_OUTPUT/Version_B/ai_review/Q20.jpg.b64.txt"
   }
 ]
