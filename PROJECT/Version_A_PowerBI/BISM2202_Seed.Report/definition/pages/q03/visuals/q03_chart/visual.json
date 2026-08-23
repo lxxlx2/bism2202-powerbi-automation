@@ -10,7 +10,7 @@
     "tabOrder": 0
   },
   "visual": {
-    "visualType": "treemap",
+    "visualType": "clusteredColumnChart",
     "query": {
       "queryState": {
         "Category": {
@@ -32,7 +32,7 @@
             }
           ]
         },
-        "Values": {
+        "Y": {
           "projections": [
             {
               "field": {
@@ -42,14 +42,35 @@
                       "Entity": "PizzaOrders"
                     }
                   },
-                  "Property": "Order Count"
+                  "Property": "Order Share Overall"
                 }
               },
-              "queryRef": "PizzaOrders.Order Count",
-              "nativeQueryRef": "Order Count"
+              "queryRef": "PizzaOrders.Order Share Overall",
+              "nativeQueryRef": "Order Share Overall"
             }
           ]
+        },
+        "Legend": {
+          "projections": []
         }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "PizzaOrders"
+                  }
+                },
+                "Property": "Order Share Overall"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
       }
     },
     "drillFilterOtherVisuals": true,
@@ -74,6 +95,35 @@
               "expr": {
                 "Literal": {
                   "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "objects": {
+      "labels": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "labelPrecision": {
+              "expr": {
+                "Literal": {
+                  "Value": "2D"
                 }
               }
             }

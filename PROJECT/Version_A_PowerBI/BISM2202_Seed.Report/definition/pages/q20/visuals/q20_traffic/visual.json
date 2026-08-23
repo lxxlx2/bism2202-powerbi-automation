@@ -83,6 +83,19 @@
           }
         }
       ]
+    },
+    "objects": {
+      "dataPoint": [
+        {
+          "properties": {
+            "defaultColor": {
+              "solid": {
+                "color": "#E67E22"
+              }
+            }
+          }
+        }
+      ]
     }
   }
 }

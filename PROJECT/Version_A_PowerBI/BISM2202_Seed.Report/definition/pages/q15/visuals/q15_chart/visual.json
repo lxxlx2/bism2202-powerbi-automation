@@ -42,11 +42,11 @@
                       "Entity": "PizzaOrders"
                     }
                   },
-                  "Property": "Order Count"
+                  "Property": "Order Share Overall"
                 }
               },
-              "queryRef": "PizzaOrders.Order Count",
-              "nativeQueryRef": "Order Count"
+              "queryRef": "PizzaOrders.Order Share Overall",
+              "nativeQueryRef": "Order Share Overall"
             }
           ]
         },
@@ -77,6 +77,35 @@
               "expr": {
                 "Literal": {
                   "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "objects": {
+      "labels": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "labelPrecision": {
+              "expr": {
+                "Literal": {
+                  "Value": "2D"
                 }
               }
             }
