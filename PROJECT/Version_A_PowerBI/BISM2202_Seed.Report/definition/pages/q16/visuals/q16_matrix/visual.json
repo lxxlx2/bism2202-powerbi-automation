@@ -64,6 +64,23 @@
             }
           ]
         }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "PizzaOrders"
+                  }
+                },
+                "Property": "Restaurant Name"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
       }
     },
     "objects": {
@@ -132,7 +149,7 @@
       "rowTotal": [
         {
           "properties": {
-            "show": {
+            "applyToHeaders": {
               "expr": {
                 "Literal": {
                   "Value": "false"
@@ -144,11 +161,16 @@
       ],
       "columnTotal": [
         {
+          "properties": {}
+        }
+      ],
+      "subTotals": [
+        {
           "properties": {
-            "show": {
+            "rowSubtotalsLabel": {
               "expr": {
                 "Literal": {
-                  "Value": "false"
+                  "Value": "'Total'"
                 }
               }
             }
@@ -185,5 +207,51 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "4d3cf8a06cd50e5e356b",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "PizzaOrders"
+              }
+            },
+            "Property": "Restaurant Name"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "4e80688e16ade9e60f16",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "PizzaOrders"
+              }
+            },
+            "Property": "Avg Delivery Duration"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "ca612393e5712ed9637c",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "PizzaOrders"
+              }
+            },
+            "Property": "Avg Delay"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }
