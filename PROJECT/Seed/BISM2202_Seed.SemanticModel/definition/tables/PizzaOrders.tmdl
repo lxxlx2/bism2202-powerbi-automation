@@ -233,6 +233,65 @@ table PizzaOrders
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
+	measure 'Order Count' = DISTINCTCOUNT(PizzaOrders[Order ID])
+		formatString: #,0
+		displayFolder: BISM2202 Measures
+
+	measure 'Avg Delivery Duration' = AVERAGE(PizzaOrders[Delivery Duration (min)])
+		formatString: 0.00
+		displayFolder: BISM2202 Measures
+
+	measure 'Avg Toppings Count' = AVERAGE(PizzaOrders[Toppings Count])
+		formatString: 0.00
+		displayFolder: BISM2202 Measures
+
+	measure 'Avg Delay' = AVERAGE(PizzaOrders[Delay (min)])
+		formatString: 0.00
+		displayFolder: BISM2202 Measures
+
+	measure 'Avg Topping Density' = AVERAGE(PizzaOrders[Topping Density])
+		formatString: 0.000
+		displayFolder: BISM2202 Measures
+
+	measure 'Delivery Duration Color' = VAR CurrentValue = [Avg Delivery Duration] VAR MinValue = MINX(ALL(PizzaOrders[Restaurant Name]), CALCULATE([Avg Delivery Duration])) VAR MaxValue = MAXX(ALL(PizzaOrders[Restaurant Name]), CALCULATE([Avg Delivery Duration])) RETURN SWITCH(TRUE(), CurrentValue = MinValue, "#C6EFCE", CurrentValue = MaxValue, "#FFC7CE", "#FFF2CC")
+		displayFolder: BISM2202 Helpers
+
+	measure 'Delay Color' = VAR CurrentValue = [Avg Delay] VAR MinValue = MINX(ALL(PizzaOrders[Restaurant Name]), CALCULATE([Avg Delay])) VAR MaxValue = MAXX(ALL(PizzaOrders[Restaurant Name]), CALCULATE([Avg Delay])) RETURN SWITCH(TRUE(), CurrentValue = MinValue, "#C6EFCE", CurrentValue = MaxValue, "#FFC7CE", "#FFF2CC")
+		displayFolder: BISM2202 Helpers
+
+	column 'Weekend Label' = IF(PizzaOrders[Is Weekend] = TRUE(), "Weekend", "Weekday")
+		dataType: string
+		summarizeBy: none
+
+	column 'Peak Hour Label' = IF(PizzaOrders[Is Peak Hour] = TRUE(), "Peak Hour", "Non-Peak Hour")
+		dataType: string
+		summarizeBy: none
+
+	column 'Order Month Sorted' = FORMAT(PizzaOrders[Order Time], "MM - MMMM")
+		dataType: string
+		summarizeBy: none
+
+	column __OrderOne = 1
+		dataType: int64
+		formatString: 0
+		summarizeBy: sum
+		isHidden
+
+	column __LocationAvgDeliveryContribution = DIVIDE(CALCULATE(AVERAGE(PizzaOrders[Delivery Duration (min)]), ALLEXCEPT(PizzaOrders, PizzaOrders[Location])), CALCULATE(DISTINCTCOUNT(PizzaOrders[Order ID]), ALLEXCEPT(PizzaOrders, PizzaOrders[Location])))
+		dataType: double
+		summarizeBy: sum
+		isHidden
+
+	column __RestaurantAvgDelayContribution = DIVIDE(CALCULATE(AVERAGE(PizzaOrders[Delay (min)]), ALLEXCEPT(PizzaOrders, PizzaOrders[Restaurant Name])), CALCULATE(DISTINCTCOUNT(PizzaOrders[Order ID]), ALLEXCEPT(PizzaOrders, PizzaOrders[Restaurant Name])))
+		dataType: double
+		summarizeBy: sum
+		isHidden
+
+	column __PizzaTypeAvgDeliveryContribution = DIVIDE(CALCULATE(AVERAGE(PizzaOrders[Delivery Duration (min)]), ALLEXCEPT(PizzaOrders, PizzaOrders[Pizza Type])), CALCULATE(DISTINCTCOUNT(PizzaOrders[Order ID]), ALLEXCEPT(PizzaOrders, PizzaOrders[Pizza Type])))
+		dataType: double
+		summarizeBy: sum
+		isHidden
+
 	partition PizzaOrders = m
 		mode: import
 		source =
