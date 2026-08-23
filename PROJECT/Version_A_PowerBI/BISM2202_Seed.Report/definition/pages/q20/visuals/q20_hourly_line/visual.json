@@ -57,7 +57,9 @@
         {
           "properties": {
             "defaultColor": {
-              "solid": {}
+              "solid": {
+                "color": "#2E8B57"
+              }
             }
           }
         }
