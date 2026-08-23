@@ -37,7 +37,7 @@ function Invoke-Pbi {
     & pbi @Arguments
     $code = $LASTEXITCODE
     if ($code -ne 0 -and -not $AllowFailure) {
-        throw "pbi command failed with exit code $code: pbi $($Arguments -join ' ')"
+        throw "pbi command failed with exit code ${code}: pbi $($Arguments -join ' ')"
     }
     return $code
 }
