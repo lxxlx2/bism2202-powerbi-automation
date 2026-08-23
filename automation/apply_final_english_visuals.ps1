@@ -20,9 +20,13 @@ function Ensure-PbiCommand {
 
 function Invoke-Pbi([string[]]$Arguments) {
     Write-Host ("pbi " + ($Arguments -join " ")) -ForegroundColor DarkGray
-    & pbi @Arguments
-    if ($LASTEXITCODE -ne 0) {
-        throw "pbi command failed: pbi $($Arguments -join ' ')"
+    # Send pbi-cli output to the host instead of the PowerShell success pipeline.
+    # This keeps helper-function return values clean, especially the PBIP path
+    # later used by -OpenAfter.
+    & pbi @Arguments | Out-Host
+    $code = $LASTEXITCODE
+    if ($code -ne 0) {
+        throw "pbi command failed with exit code ${code}: pbi $($Arguments -join ' ')"
     }
 }
 
@@ -84,6 +88,7 @@ function Polish-Version([ValidateSet('A','B')][string]$Label) {
     $report = Join-Path $dir 'BISM2202_Seed.Report'
     $pbip = Join-Path $dir 'BISM2202_Seed.pbip'
     if (-not (Test-Path -LiteralPath $report)) { throw "Version $Label report not found: $report" }
+    if (-not (Test-Path -LiteralPath $pbip)) { throw "Version $Label PBIP not found: $pbip" }
 
     Write-Host "Applying English-safe final visuals to Version $Label..." -ForegroundColor Cyan
 
@@ -110,7 +115,7 @@ function Polish-Version([ValidateSet('A','B')][string]$Label) {
         Add-Visual $report 'q15' 'treemap' 'q15_chart' 'Order Proportion by Pizza Complexity' @('--category','PizzaOrders[Pizza Complexity]','--value','PizzaOrders[Order Count]')
     }
 
-    # Re-hide subtitles across all visuals so no locale-generated "by/按 ..." text leaks into final canvas captures.
+    # Re-hide subtitles across all visuals so no locale-generated field subtitle leaks into final canvas captures.
     $visuals = Get-ChildItem -LiteralPath (Join-Path $report 'definition\pages') -Filter 'visual.json' -File -Recurse
     foreach ($vf in $visuals) {
         $data = Get-Content -LiteralPath $vf.FullName -Raw | ConvertFrom-Json
@@ -125,16 +130,20 @@ function Polish-Version([ValidateSet('A','B')][string]$Label) {
 
     Invoke-Pbi @('report','-p',$report,'validate')
     Write-Host "VERSION_${Label}_ENGLISH_VISUALS: PASS" -ForegroundColor Green
-    return $pbip
+    # Deliberately emit exactly one object from this function.
+    Write-Output $pbip
 }
 
 Ensure-PbiCommand
 Close-PowerBIIfNeeded
 $labels = if ($Version -eq 'Both') { @('A','B') } else { @($Version) }
 $pbips = @()
-foreach ($label in $labels) { $pbips += Polish-Version $label }
+foreach ($label in $labels) { $pbips += @(Polish-Version $label) }
 
 Write-Host 'FINAL_ENGLISH_VISUAL_POLISH: PASS' -ForegroundColor Green
 if ($OpenAfter -and $pbips.Count -gt 0) {
-    Start-Process -FilePath $PowerBIExe -ArgumentList ('"' + $pbips[0] + '"')
+    $openPath = [string]$pbips[0]
+    if (-not (Test-Path -LiteralPath $openPath)) { throw "PBIP to open does not exist: $openPath" }
+    Write-Host "Opening: $openPath" -ForegroundColor Cyan
+    Start-Process -FilePath $PowerBIExe -ArgumentList @($openPath)
 }
