@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "q19_time_slicer",
   "position": {
-    "x": 930,
+    "x": 915,
     "y": 25,
     "z": 1,
-    "height": 145,
-    "width": 315,
+    "height": 125,
+    "width": 335,
     "tabOrder": 1
   },
   "visual": {
@@ -17,7 +17,7 @@
           "projections": [
             {
               "field": {
-                "Measure": {
+                "Column": {
                   "Expression": {
                     "SourceRef": {
                       "Entity": "PizzaOrders"
@@ -27,7 +27,8 @@
                 }
               },
               "queryRef": "PizzaOrders.Order Time",
-              "nativeQueryRef": "Order Time"
+              "nativeQueryRef": "Order Time",
+              "active": true
             }
           ]
         }

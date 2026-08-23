@@ -2,15 +2,15 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "q19_stack",
   "position": {
-    "x": 35,
-    "y": 190,
+    "x": 25,
+    "y": 175,
     "z": 0,
-    "height": 480,
-    "width": 1210,
+    "height": 500,
+    "width": 1225,
     "tabOrder": 0
   },
   "visual": {
-    "visualType": "stackedBarChart",
+    "visualType": "barChart",
     "query": {
       "queryState": {
         "Category": {

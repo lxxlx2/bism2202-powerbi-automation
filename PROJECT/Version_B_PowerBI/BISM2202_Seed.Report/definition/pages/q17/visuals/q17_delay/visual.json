@@ -1,16 +1,16 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
-  "name": "q08_chart",
+  "name": "q17_delay",
   "position": {
-    "x": 35,
-    "y": 45,
-    "z": 0,
-    "height": 620,
-    "width": 1210,
-    "tabOrder": 0
+    "x": 650,
+    "y": 55,
+    "z": 1,
+    "height": 600,
+    "width": 600,
+    "tabOrder": 1
   },
   "visual": {
-    "visualType": "clusteredBarChart",
+    "visualType": "lineChart",
     "query": {
       "queryState": {
         "Category": {
@@ -23,11 +23,11 @@
                       "Entity": "PizzaOrders"
                     }
                   },
-                  "Property": "Peak Hour Label"
+                  "Property": "Order Hour"
                 }
               },
-              "queryRef": "PizzaOrders.Peak Hour Label",
-              "nativeQueryRef": "Peak Hour Label",
+              "queryRef": "PizzaOrders.Order Hour",
+              "nativeQueryRef": "Order Hour",
               "active": true
             }
           ]
@@ -42,16 +42,13 @@
                       "Entity": "PizzaOrders"
                     }
                   },
-                  "Property": "Order Count"
+                  "Property": "Avg Delay"
                 }
               },
-              "queryRef": "PizzaOrders.Order Count",
-              "nativeQueryRef": "Order Count"
+              "queryRef": "PizzaOrders.Avg Delay",
+              "nativeQueryRef": "Avg Delay"
             }
           ]
-        },
-        "Legend": {
-          "projections": []
         }
       }
     },
@@ -63,7 +60,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Peak vs Non-Peak Order Volume'"
+                  "Value": "'Average Delay by Order Hour'"
                 }
               }
             }
@@ -77,35 +74,6 @@
               "expr": {
                 "Literal": {
                   "Value": "false"
-                }
-              }
-            }
-          }
-        }
-      ]
-    },
-    "objects": {
-      "labels": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "labelDisplayUnits": {
-              "expr": {
-                "Literal": {
-                  "Value": "1D"
-                }
-              }
-            },
-            "labelPrecision": {
-              "expr": {
-                "Literal": {
-                  "Value": "0L"
                 }
               }
             }

@@ -1,16 +1,16 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
-  "name": "q20_hourly",
+  "name": "q18_density",
   "position": {
-    "x": 25,
-    "y": 360,
-    "z": 2,
-    "height": 325,
-    "width": 1225,
-    "tabOrder": 2
+    "x": 650,
+    "y": 55,
+    "z": 1,
+    "height": 600,
+    "width": 600,
+    "tabOrder": 1
   },
   "visual": {
-    "visualType": "lineStackedColumnComboChart",
+    "visualType": "lineChart",
     "query": {
       "queryState": {
         "Category": {
@@ -23,16 +23,16 @@
                       "Entity": "PizzaOrders"
                     }
                   },
-                  "Property": "Order Hour"
+                  "Property": "Pizza Type"
                 }
               },
-              "queryRef": "PizzaOrders.Order Hour",
-              "nativeQueryRef": "Order Hour",
+              "queryRef": "PizzaOrders.Pizza Type",
+              "nativeQueryRef": "Pizza Type",
               "active": true
             }
           ]
         },
-        "ColumnY": {
+        "Y": {
           "projections": [
             {
               "field": {
@@ -42,29 +42,11 @@
                       "Entity": "PizzaOrders"
                     }
                   },
-                  "Property": "Order Count"
+                  "Property": "Avg Topping Density"
                 }
               },
-              "queryRef": "PizzaOrders.Order Count",
-              "nativeQueryRef": "Order Count"
-            }
-          ]
-        },
-        "LineY": {
-          "projections": [
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "PizzaOrders"
-                    }
-                  },
-                  "Property": "Avg Delay"
-                }
-              },
-              "queryRef": "PizzaOrders.Avg Delay",
-              "nativeQueryRef": "Avg Delay"
+              "queryRef": "PizzaOrders.Avg Topping Density",
+              "nativeQueryRef": "Avg Topping Density"
             }
           ]
         }
@@ -78,7 +60,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Order Volume and Delay by Hour'"
+                  "Value": "'Average Topping Density by Pizza Type'"
                 }
               }
             }

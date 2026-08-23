@@ -1,16 +1,16 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
-  "name": "q17_combo",
+  "name": "q18_volume",
   "position": {
-    "x": 35,
-    "y": 45,
+    "x": 25,
+    "y": 55,
     "z": 0,
-    "height": 620,
-    "width": 1210,
+    "height": 600,
+    "width": 600,
     "tabOrder": 0
   },
   "visual": {
-    "visualType": "lineStackedColumnComboChart",
+    "visualType": "clusteredColumnChart",
     "query": {
       "queryState": {
         "Category": {
@@ -23,16 +23,16 @@
                       "Entity": "PizzaOrders"
                     }
                   },
-                  "Property": "Order Hour"
+                  "Property": "Pizza Type"
                 }
               },
-              "queryRef": "PizzaOrders.Order Hour",
-              "nativeQueryRef": "Order Hour",
+              "queryRef": "PizzaOrders.Pizza Type",
+              "nativeQueryRef": "Pizza Type",
               "active": true
             }
           ]
         },
-        "ColumnY": {
+        "Y": {
           "projections": [
             {
               "field": {
@@ -50,23 +50,8 @@
             }
           ]
         },
-        "LineY": {
-          "projections": [
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "PizzaOrders"
-                    }
-                  },
-                  "Property": "Avg Delay"
-                }
-              },
-              "queryRef": "PizzaOrders.Avg Delay",
-              "nativeQueryRef": "Avg Delay"
-            }
-          ]
+        "Legend": {
+          "projections": []
         }
       }
     },
@@ -78,7 +63,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Order Volume and Average Delay by Order Hour'"
+                  "Value": "'Order Volume by Pizza Type'"
                 }
               }
             }
