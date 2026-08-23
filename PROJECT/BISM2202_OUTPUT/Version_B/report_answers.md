@@ -32,7 +32,7 @@ What is the share of orders by Pizza Size?
 
 Observation:
 
-The treemap gives the largest area to Medium pizzas, which generated 429 orders or 42.73% of the total. Small pizzas occupy the smallest area at 132 orders or 13.15%.
+The percentage chart shows Medium pizzas as the largest category, with 429 orders or 42.73% of the total. Small pizzas have the smallest share at 132 orders or 13.15%.
 
 ## Q4
 
@@ -52,7 +52,7 @@ What is the share of orders by Traffic Level?
 
 Observation:
 
-Medium traffic forms the largest block at 398 orders (39.64%). High traffic contributes 328 orders (32.67%) and Low traffic contributes 278 (27.69%).
+Medium traffic forms the largest share at 398 orders (39.64%). High traffic contributes 328 orders (32.67%) and Low traffic contributes 278 (27.69%).
 
 ## Q6
 
@@ -62,7 +62,7 @@ What is the average Toppings Count for weekend vs. weekday orders?
 
 Observation:
 
-Weekday orders average 3.40 toppings and weekend orders average 3.27. The short bars are close, confirming that the observed difference is only about 0.13.
+Weekday orders average 3.40 toppings and weekend orders average 3.27. The two values are close, confirming that the observed difference is only about 0.13 toppings per order.
 
 ## Q7
 
@@ -72,7 +72,7 @@ Which locations have the highest average Delivery Duration (min)?
 
 Observation:
 
-Fort Wayne and Newark form the highest pair at 50.00 minutes. Four more locations share 45.00 minutes, so the column view should retain and clearly label tied results at the filter boundary.
+Fort Wayne and Newark form the highest pair at 50.00 minutes. Four more locations share 45.00 minutes, so the ranking should retain and clearly label tied results at the filter boundary.
 
 ## Q8
 
@@ -82,7 +82,7 @@ How many orders were placed during peak hours vs. non-peak?
 
 Observation:
 
-The columns show a strong imbalance: 949 Peak Hour orders versus 55 Non-Peak Hour orders. Peak periods represent 94.52% of all orders in the source.
+The visual shows a strong imbalance: 949 Peak Hour orders versus 55 Non-Peak Hour orders. Peak periods represent 94.52% of all orders in the source.
 
 ## Q9
 
@@ -92,7 +92,7 @@ How does order volume trend across Order Month?
 
 Observation:
 
-The filled area rises to its highest point in August (117 orders) and remains high in September (105), before falling to 75 in October. July is the lowest month at 49 orders; the month values aggregate all years in the workbook.
+Order volume reaches its highest point in August at 117 orders and remains high in September at 105 before falling to 75 in October. July is the lowest month at 49 orders; the month values aggregate all years in the workbook.
 
 ## Q10
 
@@ -112,7 +112,7 @@ Which 2 restaurants have the lowest average Delay (min) i.e., the fastest, most 
 
 Observation:
 
-Little Caesars is the first low-delay performer at 16.62 minutes, followed by Domino's at 17.02. The two-column comparison uses the same bottom-two ranking as Version A.
+Little Caesars is the first low-delay performer at 16.62 minutes, followed by Domino's at 17.02. The two-bar comparison uses the same bottom-two ranking as Version A.
 
 ## Q12
 
@@ -132,7 +132,7 @@ How does order volume vary by Order Hour across a typical day?
 
 Observation:
 
-The area is concentrated around 18:00–20:00. Order volume reaches 328 at 19:00, with 312 at 18:00 and 306 at 20:00; other observed hours contribute relatively few orders.
+Order volume is concentrated around 18:00 to 20:00. It reaches 328 at 19:00, with 312 at 18:00 and 306 at 20:00; other observed hours contribute relatively few orders.
 
 ## Q14
 
@@ -142,7 +142,7 @@ What is the average delay (min) by Traffic Level?
 
 Observation:
 
-The ordered bars rise from 15.46 minutes under Low traffic to 17.86 under Medium and 19.16 under High traffic. The color progression reinforces the observed association without treating it as causal proof.
+The ordered bars rise from 15.46 minutes under Low traffic to 17.86 under Medium and 19.16 under High traffic. The pattern reinforces the observed association without treating it as causal proof.
 
 ## Q15
 
@@ -152,7 +152,7 @@ What proportion of orders fall into each Pizza Complexity category?
 
 Observation:
 
-Complexity 6 occupies the largest treemap area with 30.68% of orders. Complexity 12 and 20 add 22.81% and 20.12%, so these three categories together dominate the mix.
+The percentage chart shows Complexity 6 as the largest category at 30.68% of orders. Complexity 12 and 20 contribute 22.81% and 20.12%, so these three categories together dominate the mix.
 
 ## Q16
 
@@ -162,7 +162,7 @@ Build a table of average Delivery Duration and Delay by Restaurant Name and use 
 
 Observation:
 
-The matrix highlights different leaders for the two measures. Papa John's is fastest on average delivery duration at 28.19 minutes, while Little Caesars has the lowest average delay at 16.62 minutes. Domino's has the longest average duration (30.26), and Marco's Pizza has the highest average delay (18.44).
+The matrix highlights different leaders for the two measures. Papa John's is fastest on average delivery duration at 28.19 minutes, while Little Caesars has the lowest average delay at 16.62 minutes. Domino's has the longest average duration at 30.26, and Marco's Pizza has the highest average delay at 18.44.
 
 ## Q17
 
@@ -172,7 +172,7 @@ How does order volume vary by Order Hour, alongside average Delay (min)?
 
 Observation:
 
-The alternative combo styling shows that demand reaches its maximum at 19:00 (328 orders), while average delay reaches its maximum one hour later at 20:00 (19.97 minutes). This separation is easier to see when the delay line is emphasized on its own axis. The 21:00 value is based on only three orders.
+The paired visuals show that demand reaches its maximum at 19:00 with 328 orders, while average delay reaches its maximum one hour later at 20:00 at 19.97 minutes. The 21:00 delay is also high, but that value is based on only three orders.
 
 ## Q18
 
@@ -192,7 +192,7 @@ What is the percentage breakdown of orders by Traffic Level within each Payment 
 
 Observation:
 
-The 100% bars compare composition rather than payment-method size. Card is 44.57% High traffic; Cash and UPI are mainly Medium traffic at 48.02% and 47.60%; Wallet is mainly Low traffic at 44.71%. Small groups such as Hut Points (24 orders) and Domino's Cash (23) require cautious percentage comparisons.
+Traffic composition differed by payment method. High traffic made up 44.57% of Card orders, Medium traffic was largest for Cash (48.02%) and UPI (47.60%), and Low traffic was largest for Wallet (44.71%). Hut Points was 95.83% High traffic, but it contained only 24 orders, so its percentage is based on a small group.
 
 ## Q20
 
@@ -202,7 +202,7 @@ Design three different charts or tables that use conditional formatting (or high
 
 Observation:
 
-The dashboard begins with demand location, then compares pizza-type delivery performance, and finishes with traffic composition inside payment methods. Atlanta leads location demand with 78 orders, while Stuffed Crust has the longest pizza-type average delivery duration at 39.52 minutes.
+The dashboard combines a conditionally formatted restaurant matrix, an average-delay chart by Traffic Level, and an hourly order-volume line chart. The matrix identifies where delivery duration and delay are relatively high or low, the traffic chart compares operating conditions, and the line chart shows when demand is concentrated.
 
-The traffic-payment view adds operating context: Card is weighted toward High traffic, while Cash and UPI are weighted toward Medium traffic and Wallet toward Low traffic. Using the Order Time slicer lets the viewer test whether these patterns remain stable across different periods. Together, the three visuals connect where demand occurs, which pizza types take longer, and the conditions surrounding each payment mix.
+Papa John's had the shortest average delivery duration at 28.19 minutes, while Marco's Pizza had the highest average delay at 18.44 minutes. High traffic had the highest average delay at 19.16 minutes, and order volume peaked at 19:00 with 328 orders. Together, the three visuals connect restaurant performance, delivery conditions, and time-of-day demand while keeping the interpretation descriptive rather than causal.
 
