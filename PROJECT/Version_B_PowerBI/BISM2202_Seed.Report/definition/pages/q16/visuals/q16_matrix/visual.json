@@ -131,24 +131,21 @@
       ],
       "rowTotal": [
         {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            }
-          }
+          "properties": {}
         }
       ],
       "columnTotal": [
         {
+          "properties": {}
+        }
+      ],
+      "subTotals": [
+        {
           "properties": {
-            "show": {
+            "rowSubtotalsLabel": {
               "expr": {
                 "Literal": {
-                  "Value": "false"
+                  "Value": "'Total'"
                 }
               }
             }
@@ -185,5 +182,51 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "90a28f13460aecfb6c86",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "PizzaOrders"
+              }
+            },
+            "Property": "Restaurant Name"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "6c7453196fbd6ba39414",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "PizzaOrders"
+              }
+            },
+            "Property": "Avg Delivery Duration"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "4aa66742a98cc53f48e7",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "PizzaOrders"
+              }
+            },
+            "Property": "Avg Delay"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }
