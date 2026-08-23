@@ -1,0 +1,20 @@
+Q01: SATS aw TaA We BUSS cased Y z Top 20 Locations by Order Count wee Atlanta, CA Milwaukee, Vi Louisville, KY Omaha, NE ae Fre Albuquerque, NM [ee Boston, MA Dallas, TX Mia, 6 ae Denver, CO Chicago, | Los Angeles, CA Seattle, WA Phoenix, AZ Houston, 1X New York, NY [is Austin, TX Charlotte, NC San Francisco, CA (ITT Indianapolis, IN SanJose,C7\ ITT, 0 20 40 60 80
+Q02: Bie ay TRA Th BUS ca Y z Average Delivery Duration by Pizza Size IS. 35 30 Prt 25 20 15 10 5 0 Large Medium Small XL
+Q03: Bie ay TRA Th BUS ca Y z Share of Orders by Pizza Size ia ‘eam Lo eee “oe PRE arse [LF — * [| “ _ [| — 0% 10% 20% 30% 40%
+Q04: SOGE aw TBA We BUR nS Y z Orders by Payment Method fie Pre Domino's Cash | | Hut Points | | 0 50 100 150 200 250 300
+Q05: Bie ay TRA Th BUS ca Y z Share of Orders by Traffic Level IS. 39.64% 40% 32.67% PRE 30% 27.69% 20% 10% 0% Medium High Low
+Q06: Bie ay TRA Th BUS ca Y z Average Toppings Count: Weekend vs Weekday IS. 3.5 3.0 Prt 2.5 2.0 1.5 1.0 0.5 0.0 Weekday Weekend
+Q07: SOGE aw TBA We BUR nS Y z Locations with Highest Average Delivery Duration fie Fort Wayne, (Ns Newark, NK) Laredo, XX PRE Lexington, KY Minneapolis, MN rs Orlando, FL rs Fort Worth, TX ns Philadelphia, PA ns Anahejn, A Hencerson, NV | Lincoln, NE Scottsdale, AZ |, St. Lovis, MO ne Virginia Beach, VA ns Wichita, KS 0 10 20 30 40 50
+Q08: SOGE aw TBA We BUR nS Y z Peak vs Non-Peak Order Volume fie Pre Non-Peak Hour L 55 me _ Cee ~ 0 200 400 600 800 1,000
+Q09: SATS aw TaA We BUSS cased Y c Order Volume by Order Month we. 120 100 Pre 80 60 40 20 0 01-January 02- February 03 - March 04 - April 05 - May 06 - June 07 - July 08 - August 09 - 10 - October 11- 12 - September November December
+Q10: Bie ay TRA Th BUS ca Y z Average Toppings Count by Pizza Size IS. 5 4 Pn 3 - | 7 0 Large Medium Small XL
+Q11: Bie ay TRA Th BUS ca Y z Bottom 2 Restaurants by Average Delay IS. Pn ™ — Sas omnes Saas 0 5 10 15
+Q12: Bie ay TRA Th BUS ca Y z Top 5 Pizza Types by Average Delivery Duration IS. Stuffed crust Cee Pn Gluten-Free Lo eee Cheese Burst Lo eee The chicken [PT Stctian Po 0 10 20 30 40
+Q13: SOGE ay TRA Th BUS ca Y z Order Volume by Order Hour fie 350 300 Pn 250 200 150 100 50 0 —— a Le a — 12 14 16 18 20
+Q14: Bie ay TRA Th BUS ca Y z Average Delay by Traffic Level IS. 20 Prt 15 10 5 0 High Low Medium
+Q15: Bie ay TRA Th BUS ca Order Proportion by Pizza Complexity ia 35% 30.68% 30% PRE 25% 22.81% 20.12% 20% 15% 10.96% 10% 8.67% 5% 4.28% l] 1.20% 0.90% 0.20% 0.20% 9 — ZT = __ 0% 0) 5 10 15 20
+Q16: Sage aw Ta We BUGIS. nS Y &s Restaurant Performance: Average Delivery Duration and Delay wee Restaurant Name Avg Delivery Duration Avg Delay Domino's 30.26 17.02 Little Caesars 28.84 16.62 PRE Marco's Pizza 30.23 18.44 Papa John's 28.19 17.89 Pizza Hut 29.95 18.21 Total 29.49 17.62
+Q17: Bie ay TRA Th BUS ca Y z Order Volume by Order Hour Average Delay by Order Hour on iD. 350 20 300 Pn 18 250 200 16 150 100 14 50 .— i || — — 12 12 14 16 18 20 12 14 16 18 20
+Q18: SOGE ay TRA Th BUS ca Y z Order Volume by Pizza Type Average Topping Density by Pizza Type es iD. 0.85 200 0.80 Pre 150 0.75 0.70 100 0.65 50 L 0.60 0 h | i J = 0.55 . . . - ) RON Sd oe So sO 9 se) se Qe 5 RON ‘4 axe xo 9 sO 9 se) so ot oe ro ro oe or ok se oe oe “ eF ee ae 2 o€ es Ca of No os Ron “ we ‘S 2 R » vk ‘2 Q Ny ee ot OF eg Ww os we SS Or ge? oe gs w os we OO
+Q19: Sage aw Ta We BUGIS. nS Y Order Time Sf 2024/1/5 fA 2026/77 Oo ts Iraffic-Level Percentage Breakdown within Payment Method PRE Payment Method High Low Medium Total v Card 44.57% 20.29% 35.14% 100.00% Cash 20.30% 31.68% 48.02% 100.00% Domino's Cash 56.52% 21.74% 21.74% 100.00% Hut Points 95.83% 4.17% 100.00% UPI 30.26% 22.14% 47.60% 100.00% Wallet 22.12% 44.71% 33.17% 100.00% Total 32.67% 27.69% 39.64% 100.00%
+Q20: SATS aw ThA We BUSS cased Y c Restaurant Performance Average Delay by Traffic Level Restaurant Name Avg Delivery Duration Avg Delay 20 ks Domino's 30.26 17.02 15 Little Caesars 28.84 16.62 Marco's Pizza 30.23 18.44 10 . Prt Papa John's 28.19 17.89 Pizza Hut 29.95 18.21 5 Total 29.49 17.62 0 High Low Medium Order Volume by Order Hour 300 200 100 0 12 14 16 18 20

@@ -1,0 +1,575 @@
+{
+  "versions": {
+    "A": [
+      {
+        "page": "Q01",
+        "width": 2228,
+        "height": 1271,
+        "bytes": 84911,
+        "gray_stddev": 48.941,
+        "entropy": 1.883,
+        "nonwhite_ratio_lt245": 0.2107,
+        "error_terms": [],
+        "expected_tokens_missing_from_ocr": [],
+        "ocr": "SATS aw TaA We BUSS cased Y z Top 20 Locations by Order Count wee Atlanta, CA Milwaukee, Vi Louisville, KY Omaha, NE ae Fre Albuquerque, NM [ee Boston, MA Dallas, TX Mia, 6 ae Denver, CO Chicago, | Los Angeles, CA Seattle, WA Phoenix, AZ Houston, 1X New York, NY [is Austin, TX Charlotte, NC San Francisco, CA (ITT Indianapolis, IN SanJose,C7\\ ITT, 0 20 40 60 80"
+      },
+      {
+        "page": "Q02",
+        "width": 2228,
+        "height": 1271,
+        "bytes": 59927,
+        "gray_stddev": 57.099,
+        "entropy": 1.911,
+        "nonwhite_ratio_lt245": 0.2829,
+        "error_terms": [],
+        "expected_tokens_missing_from_ocr": [],
+        "ocr": "Bie ay TRA Th BUS ca Y z Average Delivery Duration by Pizza Size IS. 35 30 Prt 25 20 15 10 5 0 Large Medium Small XL"
+      },
+      {
+        "page": "Q03",
+        "width": 2228,
+        "height": 1271,
+        "bytes": 58865,
+        "gray_stddev": 49.169,
+        "entropy": 1.75,
+        "nonwhite_ratio_lt245": 0.2058,
+        "error_terms": [],
+        "expected_tokens_missing_from_ocr": [],
+        "ocr": "Bie ay TRA Th BUS ca Y z Share of Orders by Pizza Size IS. 42.73% 40% Pre 30% 23.90% 20.22% 20% 13.15% 0% Medium Large XL Small"
+      },
+      {
+        "page": "Q04",
+        "width": 2228,
+        "height": 1271,
+        "bytes": 57415,
+        "gray_stddev": 48.976,
+        "entropy": 1.747,
+        "nonwhite_ratio_lt245": 0.2028,
+        "error_terms": [],
+        "expected_tokens_missing_from_ocr": [],
+        "ocr": "SOGE aw TBA We BUR nS Y z Orders by Payment Method fie Pre Domino's Cash | | Hut Points | | 0 50 100 150 200 250 300"
+      },
+      {
+        "page": "Q05",
+        "width": 2228,
+        "height": 1271,
+        "bytes": 55681,
+        "gray_stddev": 54.537,
+        "entropy": 1.811,
+        "nonwhite_ratio_lt245": 0.2515,
+        "error_terms": [],
+        "expected_tokens_missing_from_ocr": [],
+        "ocr": "Bie ay TRA Th BUS ca Y z Share of Orders by Traffic Level ia “ue Sia r m ue a _ - as _ 0% 10% 20% 30% 40%"
+      },
+      {
+        "page": "Q06",
+        "width": 2228,
+        "height": 1271,
+        "bytes": 56552,
+        "gray_stddev": 50.891,
+        "entropy": 1.806,
+        "nonwhite_ratio_lt245": 0.2213,
+        "error_terms": [],
+        "expected_tokens_missing_from_ocr": [],
+        "ocr": "Bie ay TRA Th BUS ca Y z Average Toppings Count: Weekend vs Weekday IS. 3.5 3.0 Prt 2.5 2.0 1.5 1.0 0.5 0.0 Weekday Weekend"
+      },
+      {
+        "page": "Q07",
+        "width": 2228,
+        "height": 1271,
+        "bytes": 81849,
+        "gray_stddev": 58.34,
+        "entropy": 2.072,
+        "nonwhite_ratio_lt245": 0.3036,
+        "error_terms": [],
+        "expected_tokens_missing_from_ocr": [],
+        "ocr": "SOGE aw TBA We BUR nS Y z Locations with Highest Average Delivery Duration fie Fort Wayne, (Ns Newark, NK) Laredo, XX PRE Lexington, KY Minneapolis, MN rs Orlando, FL rs Fort Worth, TX ns Philadelphia, PA ns Anahejn, A Hencerson, NV | Lincoln, NE Scottsdale, AZ |, St. Lovis, MO ne Virginia Beach, VA ns Wichita, KS 0 10 20 30 40 50"
+      },
+      {
+        "page": "Q08",
+        "width": 2228,
+        "height": 1271,
+        "bytes": 46742,
+        "gray_stddev": 39.181,
+        "entropy": 1.596,
+        "nonwhite_ratio_lt245": 0.1411,
+        "error_terms": [],
+        "expected_tokens_missing_from_ocr": [],
+        "ocr": "SOGE aw TBA Th BUS ca Y z Orders During Peak vs Non-Peak Hours fie 1,000 800 Prt 600 400 200 5 fp Non-Peak Hour Peak Hour"
+      },
+      {
+        "page": "Q09",
+        "width": 2228,
+        "height": 1271,
+        "bytes": 87941,
+        "gray_stddev": 17.127,
+        "entropy": 1.306,
+        "nonwhite_ratio_lt245": 0.0666,
+        "error_terms": [],
+        "expected_tokens_missing_from_ocr": [],
+        "ocr": "SATS aw ThA We BUSS cased Y c Order Volume Trend Across Order Month wee 120 Pre 100 80 60 40 01-January 02-February 03 - March 04 - April 05 - May 06 - June 07 - July 08 - August 09 - 10 - October 11- 12- September November December"
+      },
+      {
+        "page": "Q10",
+        "width": 2228,
+        "height": 1271,
+        "bytes": 53680,
+        "gray_stddev": 53.008,
+        "entropy": 1.831,
+        "nonwhite_ratio_lt245": 0.238,
+        "error_terms": [],
+        "expected_tokens_missing_from_ocr": [],
+        "ocr": "Bie ay TRA Th BUS ca Y z Average Toppings Count by Pizza Size IS. 5 4 Pn 3 - | 7 0 Large Medium Small XL"
+      },
+      {
+        "page": "Q11",
+        "width": 2228,
+        "height": 1271,
+        "bytes": 49122,
+        "gray_stddev": 49.263,
+        "entropy": 1.699,
+        "nonwhite_ratio_lt245": 0.2043,
+        "error_terms": [],
+        "expected_tokens_missing_from_ocr": [],
+        "ocr": "Bie ay TRA Th BUS ca Y z Bottom 2 Restaurants by Average Delay IS. Pn ™ — Sas omnes Saas 0 5 10 15"
+      },
+      {
+        "page": "Q12",
+        "width": 2228,
+        "height": 1271,
+        "bytes": 56340,
+        "gray_stddev": 56.598,
+        "entropy": 1.877,
+        "nonwhite_ratio_lt245": 0.2744,
+        "error_terms": [],
+        "expected_tokens_missing_from_ocr": [],
+        "ocr": "Bie ay TRA Th BUS ca Y z Top 5 Pizza Types by Average Delivery Duration IS. Stuffed crust Cee Pre Gluten-Free Lo eee Cheese Burst Lo eee The chicken [PT Stctian Po 0 10 20 30 40"
+      },
+      {
+        "page": "Q13",
+        "width": 2228,
+        "height": 1271,
+        "bytes": 64588,
+        "gray_stddev": 40.759,
+        "entropy": 1.671,
+        "nonwhite_ratio_lt245": 0.1553,
+        "error_terms": [],
+        "expected_tokens_missing_from_ocr": [],
+        "ocr": "SOGE ay TRA Th BUS ca Y z Order Volume by Order Hour fie 350 300 Pre 250 200 150 100 50 0 —— a Le a — 12 14 16 18 20"
+      },
+      {
+        "page": "Q14",
+        "width": 2228,
+        "height": 1271,
+        "bytes": 52129,
+        "gray_stddev": 56.935,
+        "entropy": 1.87,
+        "nonwhite_ratio_lt245": 0.2779,
+        "error_terms": [],
+        "expected_tokens_missing_from_ocr": [],
+        "ocr": "Bie ay TRA Th BUS ca Y z Average Delay by Traffic Level IS. 20 Prt 15 10 5 0 High Low Medium"
+      },
+      {
+        "page": "Q15",
+        "width": 2228,
+        "height": 1271,
+        "bytes": 72053,
+        "gray_stddev": 30.124,
+        "entropy": 1.529,
+        "nonwhite_ratio_lt245": 0.1073,
+        "error_terms": [],
+        "expected_tokens_missing_from_ocr": [],
+        "ocr": "Bie ay TRA Th BUS ca Order Proportion by Pizza Complexity ia 20 20.12% PRE 15 Bf 0.20% a 22.81% 10 HE 0.90% ME 1.20% 30.68% 5 ns 10.96% 0.20% ee 8.67% 4.28% 0) 0% 5% 10% 15% 20% 25% 30% 35%"
+      },
+      {
+        "page": "Q16",
+        "width": 2228,
+        "height": 1271,
+        "bytes": 70521,
+        "gray_stddev": 17.892,
+        "entropy": 1.734,
+        "nonwhite_ratio_lt245": 0.0893,
+        "error_terms": [],
+        "expected_tokens_missing_from_ocr": [],
+        "ocr": "Sage aw Ta We BUGIS. nS Y &s Restaurant Performance: Average Delivery Duration and Delay wee Restaurant Name Avg Delivery Duration Avg Delay Domino's 30.26 17.02 Little Caesars 28.84 16.62 PRE Marco's Pizza 30.23 18.44 Papa John's 28.19 17.89 Pizza Hut 29.95 18.21 Total 29.49 17.62"
+      },
+      {
+        "page": "Q17",
+        "width": 2228,
+        "height": 1271,
+        "bytes": 95121,
+        "gray_stddev": 30.795,
+        "entropy": 1.628,
+        "nonwhite_ratio_lt245": 0.1099,
+        "error_terms": [],
+        "expected_tokens_missing_from_ocr": [],
+        "ocr": "Bie ay TRA Th BUS ca Y z Order Volume by Order Hour Average Delay by Order Hour on iD. 350 20 300 Pn 18 250 200 16 150 100 14 50 .— i || — — 12 12 14 16 18 20 12 14 16 18 20"
+      },
+      {
+        "page": "Q18",
+        "width": 2228,
+        "height": 1271,
+        "bytes": 128348,
+        "gray_stddev": 33.183,
+        "entropy": 1.711,
+        "nonwhite_ratio_lt245": 0.12,
+        "error_terms": [],
+        "expected_tokens_missing_from_ocr": [],
+        "ocr": "SOGE ay TRA Th BUS ca Y z Order Volume by Pizza Type Average Topping Density by Pizza Type es iD. 0.85 200 0.80 Pre 150 0.75 0.70 100 0.65 50 L 0.60 0 h | i J = 0.55 . . . - ) RON Sd oe So sO 9 se) se Qe 5 RON ‘4 axe xo 9 sO 9 se) so ot oe ro ro oe or ok se oe oe “ eF ee ae 2 o€ es Ca of No os Ron “ we ‘S 2 R » vk ‘2 Q Ny ee ot OF eg Ww os we SS Or ge? oe gs w os we OO"
+      },
+      {
+        "page": "Q19",
+        "width": 2228,
+        "height": 1271,
+        "bytes": 87559,
+        "gray_stddev": 22.442,
+        "entropy": 1.577,
+        "nonwhite_ratio_lt245": 0.0664,
+        "error_terms": [],
+        "expected_tokens_missing_from_ocr": [
+          "traffic"
+        ],
+        "ocr": "Sage aw Ta We BUGIS. nS Y Order Time Sf 2024/1/5 fi 2026/77 & Oo ts Iraffic-Level Percentage Breakdown within Payment Method PRE Payment Method High Low Medium Total Card 44.57% 20.29% 35.14% 100.00% Cash 20.30% 31.68% 48.02% 100.00% Domino's Cash 56.52% 21.74% 21.74% 100.00% Hut Points 95.83% 4.17% 100.00% UPI 30.26% 22.14% 47.60% 100.00% Wallet 22.12% 44.71% 33.17% 100.00% Total 32.67% 27.69% 39.64% 100.00%"
+      },
+      {
+        "page": "Q20",
+        "width": 2228,
+        "height": 1271,
+        "bytes": 105649,
+        "gray_stddev": 33.553,
+        "entropy": 1.83,
+        "nonwhite_ratio_lt245": 0.1457,
+        "error_terms": [],
+        "expected_tokens_missing_from_ocr": [],
+        "ocr": "SATS aw ThA We BUSS cased Y c Restaurant Performance Average Delay by Traffic Level Restaurant Name Avg Delivery Duration Avg Delay 20 ks Domino's 30.26 17.02 15 Little Caesars 28.84 16.62 Marco's Pizza 30.23 18.44 10 . Prt Papa John's 28.19 17.89 Pizza Hut 29.95 18.21 5 Total 29.49 17.62 0 High Low Medium Order Volume by Order Hour 300 200 100 0 12 14 16 18 20"
+      }
+    ],
+    "B": [
+      {
+        "page": "Q01",
+        "width": 2228,
+        "height": 1271,
+        "bytes": 84911,
+        "gray_stddev": 49.103,
+        "entropy": 1.886,
+        "nonwhite_ratio_lt245": 0.2107,
+        "error_terms": [],
+        "expected_tokens_missing_from_ocr": [],
+        "ocr": "SATS aw TaA We BUSS cased Y z Top 20 Locations by Order Count wee Atlanta, CA Milwaukee, Vi Louisville, KY Omaha, NE ae Fre Albuquerque, NM [ee Boston, MA Dallas, TX Mia, 6 ae Denver, CO Chicago, | Los Angeles, CA Seattle, WA Phoenix, AZ Houston, 1X New York, NY [is Austin, TX Charlotte, NC San Francisco, CA (ITT Indianapolis, IN SanJose,C7\\ ITT, 0 20 40 60 80"
+      },
+      {
+        "page": "Q02",
+        "width": 2228,
+        "height": 1271,
+        "bytes": 59928,
+        "gray_stddev": 57.313,
+        "entropy": 1.911,
+        "nonwhite_ratio_lt245": 0.2829,
+        "error_terms": [],
+        "expected_tokens_missing_from_ocr": [],
+        "ocr": "Bie ay TRA Th BUS ca Y z Average Delivery Duration by Pizza Size IS. 35 30 Prt 25 20 15 10 5 0 Large Medium Small XL"
+      },
+      {
+        "page": "Q03",
+        "width": 2228,
+        "height": 1271,
+        "bytes": 56867,
+        "gray_stddev": 48.654,
+        "entropy": 1.71,
+        "nonwhite_ratio_lt245": 0.2002,
+        "error_terms": [],
+        "expected_tokens_missing_from_ocr": [],
+        "ocr": "Bie ay TRA Th BUS ca Y z Share of Orders by Pizza Size ia ‘eam Lo eee “oe PRE arse [LF — * [| “ _ [| — 0% 10% 20% 30% 40%"
+      },
+      {
+        "page": "Q04",
+        "width": 2228,
+        "height": 1271,
+        "bytes": 57416,
+        "gray_stddev": 49.135,
+        "entropy": 1.745,
+        "nonwhite_ratio_lt245": 0.2028,
+        "error_terms": [],
+        "expected_tokens_missing_from_ocr": [],
+        "ocr": "SOGE aw TBA We BUR nS Y z Orders by Payment Method fie Pre Domino's Cash | | Hut Points | | 0 50 100 150 200 250 300"
+      },
+      {
+        "page": "Q05",
+        "width": 2228,
+        "height": 1271,
+        "bytes": 58250,
+        "gray_stddev": 55.261,
+        "entropy": 1.842,
+        "nonwhite_ratio_lt245": 0.2591,
+        "error_terms": [],
+        "expected_tokens_missing_from_ocr": [],
+        "ocr": "Bie ay TRA Th BUS ca Y z Share of Orders by Traffic Level IS. 39.64% 40% 32.67% PRE 30% 27.69% 20% 10% 0% Medium High Low"
+      },
+      {
+        "page": "Q06",
+        "width": 2228,
+        "height": 1271,
+        "bytes": 56554,
+        "gray_stddev": 51.061,
+        "entropy": 1.805,
+        "nonwhite_ratio_lt245": 0.2213,
+        "error_terms": [],
+        "expected_tokens_missing_from_ocr": [],
+        "ocr": "Bie ay TRA Th BUS ca Y z Average Toppings Count: Weekend vs Weekday IS. 3.5 3.0 Prt 2.5 2.0 1.5 1.0 0.5 0.0 Weekday Weekend"
+      },
+      {
+        "page": "Q07",
+        "width": 2228,
+        "height": 1271,
+        "bytes": 81849,
+        "gray_stddev": 58.567,
+        "entropy": 2.073,
+        "nonwhite_ratio_lt245": 0.3036,
+        "error_terms": [],
+        "expected_tokens_missing_from_ocr": [],
+        "ocr": "SOGE aw TBA We BUR nS Y z Locations with Highest Average Delivery Duration fie Fort Wayne, (Ns Newark, NK) Laredo, XX PRE Lexington, KY Minneapolis, MN rs Orlando, FL rs Fort Worth, TX ns Philadelphia, PA ns Anahejn, A Hencerson, NV | Lincoln, NE Scottsdale, AZ |, St. Lovis, MO ne Virginia Beach, VA ns Wichita, KS 0 10 20 30 40 50"
+      },
+      {
+        "page": "Q08",
+        "width": 2228,
+        "height": 1271,
+        "bytes": 53603,
+        "gray_stddev": 38.067,
+        "entropy": 1.529,
+        "nonwhite_ratio_lt245": 0.1344,
+        "error_terms": [],
+        "expected_tokens_missing_from_ocr": [],
+        "ocr": "SOGE aw TBA We BUR nS Y z Peak vs Non-Peak Order Volume fie Pre Non-Peak Hour L 55 me _ Cee ~ 0 200 400 600 800 1,000"
+      },
+      {
+        "page": "Q09",
+        "width": 2228,
+        "height": 1271,
+        "bytes": 92953,
+        "gray_stddev": 55.109,
+        "entropy": 1.923,
+        "nonwhite_ratio_lt245": 0.2614,
+        "error_terms": [],
+        "expected_tokens_missing_from_ocr": [],
+        "ocr": "SATS aw TaA We BUSS cased Y c Order Volume by Order Month we. 120 100 Pre 80 60 40 20 0 01-January 02- February 03 - March 04 - April 05 - May 06 - June 07 - July 08 - August 09 - 10 - October 11- 12 - September November December"
+      },
+      {
+        "page": "Q10",
+        "width": 2228,
+        "height": 1271,
+        "bytes": 53680,
+        "gray_stddev": 53.191,
+        "entropy": 1.831,
+        "nonwhite_ratio_lt245": 0.238,
+        "error_terms": [],
+        "expected_tokens_missing_from_ocr": [],
+        "ocr": "Bie ay TRA Th BUS ca Y z Average Toppings Count by Pizza Size IS. 5 4 Pn 3 - | 7 0 Large Medium Small XL"
+      },
+      {
+        "page": "Q11",
+        "width": 2228,
+        "height": 1271,
+        "bytes": 49123,
+        "gray_stddev": 49.423,
+        "entropy": 1.702,
+        "nonwhite_ratio_lt245": 0.2043,
+        "error_terms": [],
+        "expected_tokens_missing_from_ocr": [],
+        "ocr": "Bie ay TRA Th BUS ca Y z Bottom 2 Restaurants by Average Delay IS. Pn ™ — Sas omnes Saas 0 5 10 15"
+      },
+      {
+        "page": "Q12",
+        "width": 2228,
+        "height": 1271,
+        "bytes": 56341,
+        "gray_stddev": 56.808,
+        "entropy": 1.882,
+        "nonwhite_ratio_lt245": 0.2744,
+        "error_terms": [],
+        "expected_tokens_missing_from_ocr": [],
+        "ocr": "Bie ay TRA Th BUS ca Y z Top 5 Pizza Types by Average Delivery Duration IS. Stuffed crust Cee Pn Gluten-Free Lo eee Cheese Burst Lo eee The chicken [PT Stctian Po 0 10 20 30 40"
+      },
+      {
+        "page": "Q13",
+        "width": 2228,
+        "height": 1271,
+        "bytes": 64589,
+        "gray_stddev": 40.876,
+        "entropy": 1.668,
+        "nonwhite_ratio_lt245": 0.1553,
+        "error_terms": [],
+        "expected_tokens_missing_from_ocr": [],
+        "ocr": "SOGE ay TRA Th BUS ca Y z Order Volume by Order Hour fie 350 300 Pn 250 200 150 100 50 0 —— a Le a — 12 14 16 18 20"
+      },
+      {
+        "page": "Q14",
+        "width": 2228,
+        "height": 1271,
+        "bytes": 52133,
+        "gray_stddev": 57.147,
+        "entropy": 1.87,
+        "nonwhite_ratio_lt245": 0.2779,
+        "error_terms": [],
+        "expected_tokens_missing_from_ocr": [],
+        "ocr": "Bie ay TRA Th BUS ca Y z Average Delay by Traffic Level IS. 20 Prt 15 10 5 0 High Low Medium"
+      },
+      {
+        "page": "Q15",
+        "width": 2228,
+        "height": 1271,
+        "bytes": 75700,
+        "gray_stddev": 30.306,
+        "entropy": 1.533,
+        "nonwhite_ratio_lt245": 0.1092,
+        "error_terms": [],
+        "expected_tokens_missing_from_ocr": [],
+        "ocr": "Bie ay TRA Th BUS ca Order Proportion by Pizza Complexity ia 35% 30.68% 30% PRE 25% 22.81% 20.12% 20% 15% 10.96% 10% 8.67% 5% 4.28% l] 1.20% 0.90% 0.20% 0.20% 9 — ZT = __ 0% 0) 5 10 15 20"
+      },
+      {
+        "page": "Q16",
+        "width": 2228,
+        "height": 1271,
+        "bytes": 70440,
+        "gray_stddev": 17.909,
+        "entropy": 1.743,
+        "nonwhite_ratio_lt245": 0.0892,
+        "error_terms": [],
+        "expected_tokens_missing_from_ocr": [],
+        "ocr": "Sage aw Ta We BUGIS. nS Y &s Restaurant Performance: Average Delivery Duration and Delay wee Restaurant Name Avg Delivery Duration Avg Delay Domino's 30.26 17.02 Little Caesars 28.84 16.62 PRE Marco's Pizza 30.23 18.44 Papa John's 28.19 17.89 Pizza Hut 29.95 18.21 Total 29.49 17.62"
+      },
+      {
+        "page": "Q17",
+        "width": 2228,
+        "height": 1271,
+        "bytes": 95119,
+        "gray_stddev": 30.893,
+        "entropy": 1.625,
+        "nonwhite_ratio_lt245": 0.1099,
+        "error_terms": [],
+        "expected_tokens_missing_from_ocr": [],
+        "ocr": "Bie ay TRA Th BUS ca Y z Order Volume by Order Hour Average Delay by Order Hour on iD. 350 20 300 Pn 18 250 200 16 150 100 14 50 .— i || — — 12 12 14 16 18 20 12 14 16 18 20"
+      },
+      {
+        "page": "Q18",
+        "width": 2228,
+        "height": 1271,
+        "bytes": 128344,
+        "gray_stddev": 33.295,
+        "entropy": 1.709,
+        "nonwhite_ratio_lt245": 0.12,
+        "error_terms": [],
+        "expected_tokens_missing_from_ocr": [],
+        "ocr": "SOGE ay TRA Th BUS ca Y z Order Volume by Pizza Type Average Topping Density by Pizza Type es iD. 0.85 200 0.80 Pre 150 0.75 0.70 100 0.65 50 L 0.60 0 h | i J = 0.55 . . . - ) RON Sd oe So sO 9 se) se Qe 5 RON ‘4 axe xo 9 sO 9 se) so ot oe ro ro oe or ok se oe oe “ eF ee ae 2 o€ es Ca of No os Ron “ we ‘S 2 R » vk ‘2 Q Ny ee ot OF eg Ww os we SS Or ge? oe gs w os we OO"
+      },
+      {
+        "page": "Q19",
+        "width": 2228,
+        "height": 1271,
+        "bytes": 87594,
+        "gray_stddev": 22.482,
+        "entropy": 1.574,
+        "nonwhite_ratio_lt245": 0.0656,
+        "error_terms": [],
+        "expected_tokens_missing_from_ocr": [
+          "traffic"
+        ],
+        "ocr": "Sage aw Ta We BUGIS. nS Y Order Time Sf 2024/1/5 fA 2026/77 Oo ts Iraffic-Level Percentage Breakdown within Payment Method PRE Payment Method High Low Medium Total v Card 44.57% 20.29% 35.14% 100.00% Cash 20.30% 31.68% 48.02% 100.00% Domino's Cash 56.52% 21.74% 21.74% 100.00% Hut Points 95.83% 4.17% 100.00% UPI 30.26% 22.14% 47.60% 100.00% Wallet 22.12% 44.71% 33.17% 100.00% Total 32.67% 27.69% 39.64% 100.00%"
+      },
+      {
+        "page": "Q20",
+        "width": 2228,
+        "height": 1271,
+        "bytes": 105644,
+        "gray_stddev": 33.64,
+        "entropy": 1.83,
+        "nonwhite_ratio_lt245": 0.1455,
+        "error_terms": [],
+        "expected_tokens_missing_from_ocr": [],
+        "ocr": "SATS aw ThA We BUSS cased Y c Restaurant Performance Average Delay by Traffic Level Restaurant Name Avg Delivery Duration Avg Delay 20 ks Domino's 30.26 17.02 15 Little Caesars 28.84 16.62 Marco's Pizza 30.23 18.44 10 . Prt Papa John's 28.19 17.89 Pizza Hut 29.95 18.21 5 Total 29.49 17.62 0 High Low Medium Order Volume by Order Hour 300 200 100 0 12 14 16 18 20"
+      }
+    ]
+  },
+  "cross_version": {
+    "Q01": {
+      "mean_absolute_pixel_difference": 0.5196,
+      "stddev_difference": 1.5257
+    },
+    "Q02": {
+      "mean_absolute_pixel_difference": 0.5196,
+      "stddev_difference": 1.5257
+    },
+    "Q03": {
+      "mean_absolute_pixel_difference": 31.4789,
+      "stddev_difference": 57.0174
+    },
+    "Q04": {
+      "mean_absolute_pixel_difference": 0.5196,
+      "stddev_difference": 1.5257
+    },
+    "Q05": {
+      "mean_absolute_pixel_difference": 38.2239,
+      "stddev_difference": 60.8879
+    },
+    "Q06": {
+      "mean_absolute_pixel_difference": 0.5196,
+      "stddev_difference": 1.5257
+    },
+    "Q07": {
+      "mean_absolute_pixel_difference": 0.5196,
+      "stddev_difference": 1.5257
+    },
+    "Q08": {
+      "mean_absolute_pixel_difference": 20.4766,
+      "stddev_difference": 48.2213
+    },
+    "Q09": {
+      "mean_absolute_pixel_difference": 28.982,
+      "stddev_difference": 55.3198
+    },
+    "Q10": {
+      "mean_absolute_pixel_difference": 0.5196,
+      "stddev_difference": 1.5257
+    },
+    "Q11": {
+      "mean_absolute_pixel_difference": 0.5196,
+      "stddev_difference": 1.5257
+    },
+    "Q12": {
+      "mean_absolute_pixel_difference": 0.5196,
+      "stddev_difference": 1.5257
+    },
+    "Q13": {
+      "mean_absolute_pixel_difference": 0.5196,
+      "stddev_difference": 1.5257
+    },
+    "Q14": {
+      "mean_absolute_pixel_difference": 0.5196,
+      "stddev_difference": 1.5257
+    },
+    "Q15": {
+      "mean_absolute_pixel_difference": 12.2613,
+      "stddev_difference": 37.5562
+    },
+    "Q16": {
+      "mean_absolute_pixel_difference": 1.4073,
+      "stddev_difference": 2.4811
+    },
+    "Q17": {
+      "mean_absolute_pixel_difference": 0.7168,
+      "stddev_difference": 1.7505
+    },
+    "Q18": {
+      "mean_absolute_pixel_difference": 0.7168,
+      "stddev_difference": 1.7505
+    },
+    "Q19": {
+      "mean_absolute_pixel_difference": 1.2814,
+      "stddev_difference": 2.394
+    },
+    "Q20": {
+      "mean_absolute_pixel_difference": 0.5448,
+      "stddev_difference": 1.557
+    }
+  },
+  "hard_failures": []
+}
