@@ -202,7 +202,7 @@ Design three different charts or tables that use conditional formatting (or high
 
 Observation:
 
-The dashboard combines three complementary views. The restaurant matrix compares average delivery duration and average delay and uses conditional cell colors to highlight stronger and weaker performers. The traffic-level column chart compares average delay under High, Medium, and Low traffic, while the hourly line chart shows when order demand is concentrated.
+The restaurant table identifies where delivery time and delay are highest or lowest, the traffic chart shows that average delay rises from Low to High traffic, and the hourly combo chart shows when operational pressure is greatest. Read together, they separate three useful views: restaurant performance, delivery conditions, and time-of-day demand.
 
-Papa John's had the shortest average delivery duration at 28.19 minutes, while Marco's Pizza had the highest average delay at 18.44 minutes. High traffic had the highest average delay at 19.16 minutes, and order volume reached its maximum at 19:00 with 328 orders. Viewed together, the visuals connect restaurant performance, operating conditions, and time-of-day demand without implying that these observed relationships prove causation.
+Papa John's had the shortest average delivery duration (28.19 minutes), while Marco's Pizza had the highest average delay (18.44 minutes). High traffic also had the highest average delay (19.16 minutes), and the order-volume peak at 19:00 was followed by the delay peak at 20:00. These patterns point to specific restaurants and periods for closer operational review without claiming that the visualized relationships prove causation.
 

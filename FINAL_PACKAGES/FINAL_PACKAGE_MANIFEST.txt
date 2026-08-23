@@ -1,0 +1,20 @@
+BISM2202 FINAL DELIVERY
+
+Generated: 2026-08-23 20:58:55
+
+Version A:
+PBIX: Student_A/BISM2202_Assignment.pbix
+Report: Student_A/BISM2202_Report.docx
+Screenshots: 20
+ZIP: FINAL_PACKAGES/BISM2202_Student_A_FINAL.zip
+SHA256: 2BEA268C38B4C95C4A46C0410B65C645A1D825CA2546521DAB1391D812A8E2EA
+
+Version B:
+PBIX: Student_B/BISM2202_Assignment.pbix
+Report: Student_B/BISM2202_Report.docx
+Screenshots: 20
+ZIP: FINAL_PACKAGES/BISM2202_Student_B_FINAL.zip
+SHA256: BE05CC5FB98CA84FE14FCEFFD380D7BB62888088D9A30DE3BB6C596D2612A474
+
+Local structural checks: PASS
+Pending final independent AI visual/content review after GitHub push.
