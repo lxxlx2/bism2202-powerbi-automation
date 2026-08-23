@@ -1,0 +1,12 @@
+{
+  "generated": "2026-08-23T13:25:44",
+  "source_xlsx": "/Users/jerson/Documents/\u6559\u5b66\u63a5\u5355/BISM2202_WINDOWS_PACKAGE/INPUTS/Assignment1_BISM2202_pizza_sell_data.xlsx",
+  "source_docx": "/Users/jerson/Documents/\u6559\u5b66\u63a5\u5355/BISM2202_WINDOWS_PACKAGE/INPUTS/Data Visualization Using Microsoft Power BI Assessment Task Instructions 2026 Semester 2_BISM2202.docx",
+  "project": "/Users/jerson/Documents/\u6559\u5b66\u63a5\u5355/BISM2202_WINDOWS_PACKAGE/PROJECT/BISM2202_OUTPUT",
+  "versions": [
+    "A",
+    "B"
+  ],
+  "powerbi_table": "PizzaOrders",
+  "pbix_policy": "Must be created and saved by genuine Microsoft Power BI Desktop; no fake PBIX is generated."
+}

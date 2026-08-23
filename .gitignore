@@ -1,0 +1,50 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Power BI local/cache
+**/.pbi/
+*.abf
+*.tmp
+*.bak
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# Logs
+logs/*.log
+
+# Temporary work
+work/
+
+# Original instructor inputs
+INPUTS/
+
+# Personal/student information
+*student_id*
+
+# Generated logs
+automation/logs/*.log
+**/*.log
+
+# Power BI local cache
+**/.pbi/
+*.abf
+
+# Python cache
+**/__pycache__/
+*.pyc
+
+# macOS metadata
+.DS_Store
+**/.DS_Store
+
+# Local backup
+PROJECT/Seed_BACKUP/
+
+# Generated logs
+automation/logs/*.log
+**/*.log

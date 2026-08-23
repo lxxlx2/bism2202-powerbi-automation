@@ -1,0 +1,1635 @@
+{
+  "metadata": {
+    "course": "BISM2202",
+    "assessment": "Data Visualization Using Microsoft Power BI - Assessment Task",
+    "source": "/Users/jerson/Documents/教学接单/BISM2202_WINDOWS_PACKAGE/INPUTS/Assignment1_BISM2202_pizza_sell_data.xlsx",
+    "analysis_grain": "One row per unique Order ID",
+    "total_orders": 1004,
+    "source_rows": 1004,
+    "python": "3.12.13",
+    "normalization": "Marco’s Pizza -> Marco's Pizza (3 rows, in memory only)"
+  },
+  "data_quality": {
+    "source_path": "/Users/jerson/Documents/教学接单/BISM2202_WINDOWS_PACKAGE/INPUTS/Assignment1_BISM2202_pizza_sell_data.xlsx",
+    "sheet_names": [
+      "Sheet1"
+    ],
+    "analysis_sheet": "Sheet1",
+    "rows": 1004,
+    "columns": 25,
+    "field_names": [
+      "Order ID",
+      "Restaurant Name",
+      "Location",
+      "Order Time",
+      "Delivery Time",
+      "Delivery Duration (min)",
+      "Pizza Size",
+      "Pizza Type",
+      "Toppings Count",
+      "Distance (km)",
+      "Traffic Level",
+      "Payment Method",
+      "Is Peak Hour",
+      "Is Weekend",
+      "Delivery Efficiency (min/km)",
+      "Topping Density",
+      "Order Month",
+      "Payment Category",
+      "Estimated Duration (min)",
+      "Delay (min)",
+      "Is Delayed",
+      "Pizza Complexity",
+      "Traffic Impact",
+      "Order Hour",
+      "Restaurant Avg Time"
+    ],
+    "missing_required_fields": [],
+    "dtypes_raw": {
+      "Order ID": "object",
+      "Restaurant Name": "object",
+      "Location": "object",
+      "Order Time": "datetime64[ns]",
+      "Delivery Time": "datetime64[ns]",
+      "Delivery Duration (min)": "int64",
+      "Pizza Size": "object",
+      "Pizza Type": "object",
+      "Toppings Count": "int64",
+      "Distance (km)": "float64",
+      "Traffic Level": "object",
+      "Payment Method": "object",
+      "Is Peak Hour": "bool",
+      "Is Weekend": "bool",
+      "Delivery Efficiency (min/km)": "float64",
+      "Topping Density": "float64",
+      "Order Month": "object",
+      "Payment Category": "object",
+      "Estimated Duration (min)": "float64",
+      "Delay (min)": "float64",
+      "Is Delayed": "bool",
+      "Pizza Complexity": "int64",
+      "Traffic Impact": "int64",
+      "Order Hour": "int64",
+      "Restaurant Avg Time": "float64"
+    },
+    "null_counts": {
+      "Order ID": 0,
+      "Restaurant Name": 0,
+      "Location": 0,
+      "Order Time": 0,
+      "Delivery Time": 0,
+      "Delivery Duration (min)": 0,
+      "Pizza Size": 0,
+      "Pizza Type": 0,
+      "Toppings Count": 0,
+      "Distance (km)": 0,
+      "Traffic Level": 0,
+      "Payment Method": 0,
+      "Is Peak Hour": 0,
+      "Is Weekend": 0,
+      "Delivery Efficiency (min/km)": 0,
+      "Topping Density": 0,
+      "Order Month": 0,
+      "Payment Category": 0,
+      "Estimated Duration (min)": 0,
+      "Delay (min)": 0,
+      "Is Delayed": 0,
+      "Pizza Complexity": 0,
+      "Traffic Impact": 0,
+      "Order Hour": 0,
+      "Restaurant Avg Time": 0
+    },
+    "unique_counts_including_null": {
+      "Order ID": 1004,
+      "Restaurant Name": 6,
+      "Location": 84,
+      "Order Time": 968,
+      "Delivery Time": 980,
+      "Delivery Duration (min)": 8,
+      "Pizza Size": 4,
+      "Pizza Type": 12,
+      "Toppings Count": 5,
+      "Distance (km)": 25,
+      "Traffic Level": 3,
+      "Payment Method": 6,
+      "Is Peak Hour": 2,
+      "Is Weekend": 2,
+      "Delivery Efficiency (min/km)": 40,
+      "Topping Density": 37,
+      "Order Month": 12,
+      "Payment Category": 2,
+      "Estimated Duration (min)": 25,
+      "Delay (min)": 54,
+      "Is Delayed": 2,
+      "Pizza Complexity": 10,
+      "Traffic Impact": 3,
+      "Order Hour": 8,
+      "Restaurant Avg Time": 6
+    },
+    "duplicate_order_id_rows": 0,
+    "duplicate_order_id_values": 0,
+    "duplicate_full_rows": 0,
+    "boolean_values": {
+      "Is Peak Hour": {
+        "True": 949,
+        "False": 55
+      },
+      "Is Weekend": {
+        "False": 718,
+        "True": 286
+      },
+      "Is Delayed": {
+        "False": 794,
+        "True": 210
+      }
+    },
+    "date_ranges": {
+      "Order Time": {
+        "min": "2024-01-05T18:30:00",
+        "max": "2026-07-07T20:00:00",
+        "unparseable": 0
+      },
+      "Delivery Time": {
+        "min": "2024-01-05T18:45:00",
+        "max": "2026-07-07T20:30:00",
+        "unparseable": 0
+      }
+    },
+    "order_year_counts": {
+      "2024": 443,
+      "2025": 373,
+      "2026": 188
+    },
+    "numeric_summary": {
+      "Delivery Duration (min)": {
+        "count": 1004.0,
+        "mean": 29.49203187250996,
+        "std": 7.753102891207824,
+        "min": 15.0,
+        "25%": 25.0,
+        "50%": 30.0,
+        "75%": 30.0,
+        "max": 50.0
+      },
+      "Toppings Count": {
+        "count": 1004.0,
+        "mean": 3.362549800796813,
+        "std": 1.135852714195342,
+        "min": 1.0,
+        "25%": 3.0,
+        "50%": 3.0,
+        "75%": 4.0,
+        "max": 5.0
+      },
+      "Distance (km)": {
+        "count": 1004.0,
+        "mean": 4.945617529880478,
+        "std": 1.9514625537875354,
+        "min": 2.0,
+        "25%": 3.5,
+        "50%": 4.5,
+        "75%": 6.0,
+        "max": 10.0
+      },
+      "Delivery Efficiency (min/km)": {
+        "count": 1004.0,
+        "mean": 6.3970062221260084,
+        "std": 1.5625726938200324,
+        "min": 4.166666666666667,
+        "25%": 5.0,
+        "50%": 6.0,
+        "75%": 7.142857142857143,
+        "max": 12.5
+      },
+      "Topping Density": {
+        "count": 1004.0,
+        "mean": 0.7146840897601571,
+        "std": 0.20301970887983656,
+        "min": 0.2666666666666667,
+        "25%": 0.6,
+        "50%": 0.6666666666666666,
+        "75%": 0.8333333333333334,
+        "max": 1.5
+      },
+      "Estimated Duration (min)": {
+        "count": 1004.0,
+        "mean": 11.869482071713147,
+        "std": 4.683510129090085,
+        "min": 4.8,
+        "25%": 8.4,
+        "50%": 10.8,
+        "75%": 14.4,
+        "max": 24.0
+      },
+      "Delay (min)": {
+        "count": 1004.0,
+        "mean": 17.622549800796815,
+        "std": 3.9642894319674404,
+        "min": 9.0,
+        "25%": 15.2,
+        "50%": 17.8,
+        "75%": 20.4,
+        "max": 30.08
+      },
+      "Pizza Complexity": {
+        "count": 1004.0,
+        "mean": 9.46812749003984,
+        "std": 6.233730975431897,
+        "min": 1.0,
+        "25%": 6.0,
+        "50%": 6.0,
+        "75%": 12.0,
+        "max": 20.0
+      },
+      "Traffic Impact": {
+        "count": 1004.0,
+        "mean": 2.049800796812749,
+        "std": 0.7756963617437528,
+        "min": 1.0,
+        "25%": 1.0,
+        "50%": 2.0,
+        "75%": 3.0,
+        "max": 3.0
+      },
+      "Order Hour": {
+        "count": 1004.0,
+        "mean": 18.691235059760956,
+        "std": 1.5294656169087222,
+        "min": 12.0,
+        "25%": 18.0,
+        "50%": 19.0,
+        "75%": 20.0,
+        "max": 21.0
+      },
+      "Restaurant Avg Time": {
+        "count": 1004.0,
+        "mean": 29.49203187250996,
+        "std": 0.8599408182875841,
+        "min": 26.66666666666667,
+        "25%": 28.84422110552764,
+        "50%": 29.94845360824742,
+        "75%": 30.25943396226415,
+        "max": 30.28645833333333
+      }
+    },
+    "consistency_checks_mismatch_counts": {
+      "order_month_matches_order_time": 0,
+      "order_hour_matches_order_time": 0,
+      "delivery_duration_matches_timestamps": 0,
+      "delay_matches_actual_minus_estimated": 0,
+      "delivery_efficiency_matches_duration_per_km": 0,
+      "topping_density_matches_toppings_per_km": 0,
+      "restaurant_avg_time_matches_group_average": 195,
+      "delivery_before_order": 0,
+      "is_delayed_disagrees_with_dictionary_rule_delay_gt_zero": 794,
+      "is_delayed_disagrees_with_actual_rule_duration_gt_30": 0
+    },
+    "restaurant_name_normalization": {
+      "mapping": {
+        "Marco’s Pizza": "Marco's Pizza"
+      },
+      "rows_affected": 3,
+      "applied_in_memory_only": true
+    },
+    "material_findings": [
+      "No missing values, duplicate Order IDs, duplicate rows, unparseable dates, or negative/zero distances were found.",
+      "The source contains 188 orders in 2026 even though the scenario says 2024–2025. All 1,004 rows are retained because no question authorizes a year filter.",
+      "Three rows use the typographic variant Marco’s Pizza. It is normalized to Marco's Pizza in memory and must be replaced the same way in Power Query.",
+      "Is Delayed exactly matches Delivery Duration (min) > 30, not the dictionary rule Delay (min) > 0. None of Q1–Q20 uses Is Delayed.",
+      "Topping Density exactly equals Toppings Count / Distance (km), while the dictionary describes a relationship to pizza size. Q18 uses the supplied field as instructed.",
+      "Revenue is mentioned in the scenario but no revenue field exists and none of the 20 questions asks for revenue."
+    ]
+  },
+  "questions": {
+    "Q01": {
+      "metadata": {
+        "Question": "Top 20 locations based on count of order number",
+        "Metric": "Order Count",
+        "Dimension": "Location",
+        "Aggregation": "DISTINCTCOUNT(Order ID)",
+        "Filter": "None",
+        "Sort": "Order Count descending",
+        "Top N / Bottom N": "Top 20",
+        "Notes": "Ties are ordered by Location for deterministic output."
+      },
+      "result": [
+        {
+          "Location": "Atlanta, GA",
+          "Order Count": 78,
+          "Rank": 1
+        },
+        {
+          "Location": "Milwaukee, WI",
+          "Order Count": 71,
+          "Rank": 2
+        },
+        {
+          "Location": "Louisville, KY",
+          "Order Count": 69,
+          "Rank": 3
+        },
+        {
+          "Location": "Omaha, NE",
+          "Order Count": 68,
+          "Rank": 4
+        },
+        {
+          "Location": "Albuquerque, NM",
+          "Order Count": 59,
+          "Rank": 5
+        },
+        {
+          "Location": "Boston, MA",
+          "Order Count": 51,
+          "Rank": 6
+        },
+        {
+          "Location": "Dallas, TX",
+          "Order Count": 50,
+          "Rank": 7
+        },
+        {
+          "Location": "Miami, FL",
+          "Order Count": 49,
+          "Rank": 8
+        },
+        {
+          "Location": "Denver, CO",
+          "Order Count": 46,
+          "Rank": 9
+        },
+        {
+          "Location": "Chicago, IL",
+          "Order Count": 45,
+          "Rank": 10
+        },
+        {
+          "Location": "Los Angeles, CA",
+          "Order Count": 42,
+          "Rank": 11
+        },
+        {
+          "Location": "Seattle, WA",
+          "Order Count": 37,
+          "Rank": 12
+        },
+        {
+          "Location": "Phoenix, AZ",
+          "Order Count": 35,
+          "Rank": 13
+        },
+        {
+          "Location": "Houston, TX",
+          "Order Count": 27,
+          "Rank": 14
+        },
+        {
+          "Location": "New York, NY",
+          "Order Count": 21,
+          "Rank": 15
+        },
+        {
+          "Location": "Austin, TX",
+          "Order Count": 19,
+          "Rank": 16
+        },
+        {
+          "Location": "Charlotte, NC",
+          "Order Count": 18,
+          "Rank": 17
+        },
+        {
+          "Location": "San Francisco, CA",
+          "Order Count": 13,
+          "Rank": 18
+        },
+        {
+          "Location": "Indianapolis, IN",
+          "Order Count": 12,
+          "Rank": 19
+        },
+        {
+          "Location": "San Jose, CA",
+          "Order Count": 12,
+          "Rank": 19
+        }
+      ]
+    },
+    "Q02": {
+      "metadata": {
+        "Question": "Average Delivery Duration by Pizza Size",
+        "Metric": "Avg Delivery Duration",
+        "Dimension": "Pizza Size",
+        "Aggregation": "AVERAGE(Delivery Duration (min))",
+        "Filter": "None",
+        "Sort": "None",
+        "Top N / Bottom N": "None",
+        "Notes": ""
+      },
+      "result": [
+        {
+          "Pizza Size": "Large",
+          "Avg Delivery Duration": 34.166666666666664
+        },
+        {
+          "Pizza Size": "Medium",
+          "Avg Delivery Duration": 27.52913752913753
+        },
+        {
+          "Pizza Size": "Small",
+          "Avg Delivery Duration": 21.856060606060606
+        },
+        {
+          "Pizza Size": "XL",
+          "Avg Delivery Duration": 33.07881773399015
+        }
+      ]
+    },
+    "Q03": {
+      "metadata": {
+        "Question": "Share of orders by Pizza Size",
+        "Metric": "Order Count; Share of Orders",
+        "Dimension": "Pizza Size",
+        "Aggregation": "DISTINCTCOUNT(Order ID); count / total",
+        "Filter": "None",
+        "Sort": "None",
+        "Top N / Bottom N": "None",
+        "Notes": ""
+      },
+      "result": [
+        {
+          "Pizza Size": "Large",
+          "Order Count": 240,
+          "Share of Orders": 0.23904382470119523
+        },
+        {
+          "Pizza Size": "Medium",
+          "Order Count": 429,
+          "Share of Orders": 0.42729083665338646
+        },
+        {
+          "Pizza Size": "Small",
+          "Order Count": 132,
+          "Share of Orders": 0.13147410358565736
+        },
+        {
+          "Pizza Size": "XL",
+          "Order Count": 203,
+          "Share of Orders": 0.20219123505976094
+        }
+      ]
+    },
+    "Q04": {
+      "metadata": {
+        "Question": "Orders by Payment Method",
+        "Metric": "Order Count",
+        "Dimension": "Payment Method",
+        "Aggregation": "DISTINCTCOUNT(Order ID)",
+        "Filter": "None",
+        "Sort": "Order Count descending",
+        "Top N / Bottom N": "None",
+        "Notes": ""
+      },
+      "result": [
+        {
+          "Payment Method": "Card",
+          "Order Count": 276
+        },
+        {
+          "Payment Method": "UPI",
+          "Order Count": 271
+        },
+        {
+          "Payment Method": "Wallet",
+          "Order Count": 208
+        },
+        {
+          "Payment Method": "Cash",
+          "Order Count": 202
+        },
+        {
+          "Payment Method": "Hut Points",
+          "Order Count": 24
+        },
+        {
+          "Payment Method": "Domino's Cash",
+          "Order Count": 23
+        }
+      ]
+    },
+    "Q05": {
+      "metadata": {
+        "Question": "Share of orders by Traffic Level",
+        "Metric": "Order Count; Share of Orders",
+        "Dimension": "Traffic Level",
+        "Aggregation": "DISTINCTCOUNT(Order ID); count / total",
+        "Filter": "None",
+        "Sort": "None",
+        "Top N / Bottom N": "None",
+        "Notes": ""
+      },
+      "result": [
+        {
+          "Traffic Level": "High",
+          "Order Count": 328,
+          "Share of Orders": 0.32669322709163345
+        },
+        {
+          "Traffic Level": "Low",
+          "Order Count": 278,
+          "Share of Orders": 0.27689243027888444
+        },
+        {
+          "Traffic Level": "Medium",
+          "Order Count": 398,
+          "Share of Orders": 0.39641434262948205
+        }
+      ]
+    },
+    "Q06": {
+      "metadata": {
+        "Question": "Average Toppings Count for weekend vs weekday",
+        "Metric": "Avg Toppings Count",
+        "Dimension": "Weekend Label",
+        "Aggregation": "AVERAGE(Toppings Count)",
+        "Filter": "None",
+        "Sort": "None",
+        "Top N / Bottom N": "None",
+        "Notes": ""
+      },
+      "result": [
+        {
+          "Weekend Label": "Weekday",
+          "Avg Toppings Count": 3.3983286908077996
+        },
+        {
+          "Weekend Label": "Weekend",
+          "Avg Toppings Count": 3.272727272727273
+        }
+      ]
+    },
+    "Q07": {
+      "metadata": {
+        "Question": "Locations with highest average Delivery Duration",
+        "Metric": "Avg Delivery Duration",
+        "Dimension": "Location",
+        "Aggregation": "AVERAGE(Delivery Duration (min))",
+        "Filter": "None",
+        "Sort": "Avg Delivery Duration descending",
+        "Top N / Bottom N": "Top 10 for readable chart",
+        "Notes": ""
+      },
+      "result": [
+        {
+          "Location": "Fort Wayne, IN",
+          "Avg Delivery Duration": 50.0,
+          "Rank": 1
+        },
+        {
+          "Location": "Newark, NJ",
+          "Avg Delivery Duration": 50.0,
+          "Rank": 1
+        },
+        {
+          "Location": "Laredo, TX",
+          "Avg Delivery Duration": 45.0,
+          "Rank": 2
+        },
+        {
+          "Location": "Lexington, KY",
+          "Avg Delivery Duration": 45.0,
+          "Rank": 2
+        },
+        {
+          "Location": "Minneapolis, MN",
+          "Avg Delivery Duration": 45.0,
+          "Rank": 2
+        },
+        {
+          "Location": "Orlando, FL",
+          "Avg Delivery Duration": 45.0,
+          "Rank": 2
+        },
+        {
+          "Location": "Fort Worth, TX",
+          "Avg Delivery Duration": 41.81818181818182,
+          "Rank": 3
+        },
+        {
+          "Location": "Philadelphia, PA",
+          "Avg Delivery Duration": 41.666666666666664,
+          "Rank": 4
+        },
+        {
+          "Location": "Anaheim, CA",
+          "Avg Delivery Duration": 40.0,
+          "Rank": 5
+        },
+        {
+          "Location": "Henderson, NV",
+          "Avg Delivery Duration": 40.0,
+          "Rank": 5
+        },
+        {
+          "Location": "Lincoln, NE",
+          "Avg Delivery Duration": 40.0,
+          "Rank": 5
+        },
+        {
+          "Location": "Scottsdale, AZ",
+          "Avg Delivery Duration": 40.0,
+          "Rank": 5
+        },
+        {
+          "Location": "St. Louis, MO",
+          "Avg Delivery Duration": 40.0,
+          "Rank": 5
+        },
+        {
+          "Location": "Virginia Beach, VA",
+          "Avg Delivery Duration": 40.0,
+          "Rank": 5
+        },
+        {
+          "Location": "Wichita, KS",
+          "Avg Delivery Duration": 40.0,
+          "Rank": 5
+        },
+        {
+          "Location": "San Diego, CA",
+          "Avg Delivery Duration": 37.27272727272727,
+          "Rank": 6
+        },
+        {
+          "Location": "Memphis, TN",
+          "Avg Delivery Duration": 35.55555555555556,
+          "Rank": 7
+        },
+        {
+          "Location": "Akron, OH",
+          "Avg Delivery Duration": 35.0,
+          "Rank": 8
+        },
+        {
+          "Location": "Bakersfield, CA",
+          "Avg Delivery Duration": 35.0,
+          "Rank": 8
+        },
+        {
+          "Location": "Columbus, OH",
+          "Avg Delivery Duration": 35.0,
+          "Rank": 8
+        },
+        {
+          "Location": "Fresno, CA",
+          "Avg Delivery Duration": 35.0,
+          "Rank": 8
+        },
+        {
+          "Location": "Garland, TX",
+          "Avg Delivery Duration": 35.0,
+          "Rank": 8
+        },
+        {
+          "Location": "Long Beach, CA",
+          "Avg Delivery Duration": 35.0,
+          "Rank": 8
+        },
+        {
+          "Location": "Madison, WI",
+          "Avg Delivery Duration": 35.0,
+          "Rank": 8
+        },
+        {
+          "Location": "Portland, OR",
+          "Avg Delivery Duration": 35.0,
+          "Rank": 8
+        },
+        {
+          "Location": "St. Paul, MN",
+          "Avg Delivery Duration": 35.0,
+          "Rank": 8
+        },
+        {
+          "Location": "St. Petersburg, FL",
+          "Avg Delivery Duration": 35.0,
+          "Rank": 8
+        },
+        {
+          "Location": "Tampa, FL",
+          "Avg Delivery Duration": 35.0,
+          "Rank": 8
+        },
+        {
+          "Location": "Indianapolis, IN",
+          "Avg Delivery Duration": 34.166666666666664,
+          "Rank": 9
+        },
+        {
+          "Location": "Sacramento, CA",
+          "Avg Delivery Duration": 33.75,
+          "Rank": 10
+        },
+        {
+          "Location": "San Francisco, CA",
+          "Avg Delivery Duration": 33.46153846153846,
+          "Rank": 11
+        },
+        {
+          "Location": "Nashville, TN",
+          "Avg Delivery Duration": 33.333333333333336,
+          "Rank": 12
+        },
+        {
+          "Location": "Charlotte, NC",
+          "Avg Delivery Duration": 32.77777777777778,
+          "Rank": 13
+        },
+        {
+          "Location": "Austin, TX",
+          "Avg Delivery Duration": 32.63157894736842,
+          "Rank": 14
+        },
+        {
+          "Location": "Baton Rouge, LA",
+          "Avg Delivery Duration": 32.5,
+          "Rank": 15
+        },
+        {
+          "Location": "Glendale, AZ",
+          "Avg Delivery Duration": 32.5,
+          "Rank": 15
+        },
+        {
+          "Location": "Phoenix, AZ",
+          "Avg Delivery Duration": 32.142857142857146,
+          "Rank": 16
+        },
+        {
+          "Location": "Washington, DC",
+          "Avg Delivery Duration": 31.25,
+          "Rank": 17
+        },
+        {
+          "Location": "El Paso, TX",
+          "Avg Delivery Duration": 31.11111111111111,
+          "Rank": 18
+        },
+        {
+          "Location": "Milwaukee, WI",
+          "Avg Delivery Duration": 30.422535211267604,
+          "Rank": 19
+        },
+        {
+          "Location": "Omaha, NE",
+          "Avg Delivery Duration": 30.220588235294116,
+          "Rank": 20
+        },
+        {
+          "Location": "Boston, MA",
+          "Avg Delivery Duration": 30.19607843137255,
+          "Rank": 21
+        },
+        {
+          "Location": "Louisville, KY",
+          "Avg Delivery Duration": 30.144927536231883,
+          "Rank": 22
+        },
+        {
+          "Location": "Albuquerque, NM",
+          "Avg Delivery Duration": 30.084745762711865,
+          "Rank": 23
+        },
+        {
+          "Location": "Chandler, AZ",
+          "Avg Delivery Duration": 30.0,
+          "Rank": 24
+        },
+        {
+          "Location": "Corpus Christi, TX",
+          "Avg Delivery Duration": 30.0,
+          "Rank": 24
+        },
+        {
+          "Location": "Durham, NC",
+          "Avg Delivery Duration": 30.0,
+          "Rank": 24
+        },
+        {
+          "Location": "Honolulu, HI",
+          "Avg Delivery Duration": 30.0,
+          "Rank": 24
+        },
+        {
+          "Location": "Kansas City, MO",
+          "Avg Delivery Duration": 30.0,
+          "Rank": 24
+        },
+        {
+          "Location": "Las Vegas, NV",
+          "Avg Delivery Duration": 30.0,
+          "Rank": 24
+        },
+        {
+          "Location": "Mesa, AZ",
+          "Avg Delivery Duration": 30.0,
+          "Rank": 24
+        },
+        {
+          "Location": "New Orleans, LA",
+          "Avg Delivery Duration": 30.0,
+          "Rank": 24
+        },
+        {
+          "Location": "Norfolk, VA",
+          "Avg Delivery Duration": 30.0,
+          "Rank": 24
+        },
+        {
+          "Location": "Oakland, CA",
+          "Avg Delivery Duration": 30.0,
+          "Rank": 24
+        },
+        {
+          "Location": "Oklahoma City, OK",
+          "Avg Delivery Duration": 30.0,
+          "Rank": 24
+        },
+        {
+          "Location": "Reno, NV",
+          "Avg Delivery Duration": 30.0,
+          "Rank": 24
+        },
+        {
+          "Location": "Tucson, AZ",
+          "Avg Delivery Duration": 30.0,
+          "Rank": 24
+        },
+        {
+          "Location": "Tulsa, OK",
+          "Avg Delivery Duration": 30.0,
+          "Rank": 24
+        },
+        {
+          "Location": "Los Angeles, CA",
+          "Avg Delivery Duration": 29.761904761904763,
+          "Rank": 25
+        },
+        {
+          "Location": "Seattle, WA",
+          "Avg Delivery Duration": 29.324324324324323,
+          "Rank": 26
+        },
+        {
+          "Location": "Atlanta, GA",
+          "Avg Delivery Duration": 28.78205128205128,
+          "Rank": 27
+        },
+        {
+          "Location": "Baltimore, MD",
+          "Avg Delivery Duration": 28.0,
+          "Rank": 28
+        },
+        {
+          "Location": "Miami, FL",
+          "Avg Delivery Duration": 26.53061224489796,
+          "Rank": 29
+        },
+        {
+          "Location": "New York, NY",
+          "Avg Delivery Duration": 26.19047619047619,
+          "Rank": 30
+        },
+        {
+          "Location": "Denver, CO",
+          "Avg Delivery Duration": 26.08695652173913,
+          "Rank": 31
+        },
+        {
+          "Location": "Dallas, TX",
+          "Avg Delivery Duration": 25.9,
+          "Rank": 32
+        },
+        {
+          "Location": "Jacksonville, FL",
+          "Avg Delivery Duration": 25.454545454545453,
+          "Rank": 33
+        },
+        {
+          "Location": "Chicago, IL",
+          "Avg Delivery Duration": 25.22222222222222,
+          "Rank": 34
+        },
+        {
+          "Location": "Lubbock, TX",
+          "Avg Delivery Duration": 25.0,
+          "Rank": 35
+        },
+        {
+          "Location": "Raleigh, NC",
+          "Avg Delivery Duration": 25.0,
+          "Rank": 35
+        },
+        {
+          "Location": "San Jose, CA",
+          "Avg Delivery Duration": 23.333333333333332,
+          "Rank": 36
+        },
+        {
+          "Location": "Houston, TX",
+          "Avg Delivery Duration": 23.14814814814815,
+          "Rank": 37
+        },
+        {
+          "Location": "Detroit, MI",
+          "Avg Delivery Duration": 22.0,
+          "Rank": 38
+        },
+        {
+          "Location": "Arlington, TX",
+          "Avg Delivery Duration": 20.0,
+          "Rank": 39
+        },
+        {
+          "Location": "Aurora, CO",
+          "Avg Delivery Duration": 20.0,
+          "Rank": 39
+        },
+        {
+          "Location": "Boise, ID",
+          "Avg Delivery Duration": 20.0,
+          "Rank": 39
+        },
+        {
+          "Location": "Chula Vista, CA",
+          "Avg Delivery Duration": 20.0,
+          "Rank": 39
+        },
+        {
+          "Location": "Cleveland, OH",
+          "Avg Delivery Duration": 20.0,
+          "Rank": 39
+        },
+        {
+          "Location": "Irving, TX",
+          "Avg Delivery Duration": 20.0,
+          "Rank": 39
+        },
+        {
+          "Location": "Jersey City, NJ",
+          "Avg Delivery Duration": 20.0,
+          "Rank": 39
+        },
+        {
+          "Location": "Plano, TX",
+          "Avg Delivery Duration": 20.0,
+          "Rank": 39
+        },
+        {
+          "Location": "Riverside, CA",
+          "Avg Delivery Duration": 20.0,
+          "Rank": 39
+        },
+        {
+          "Location": "San Antonio, TX",
+          "Avg Delivery Duration": 20.0,
+          "Rank": 39
+        },
+        {
+          "Location": "Stockton, CA",
+          "Avg Delivery Duration": 20.0,
+          "Rank": 39
+        }
+      ]
+    },
+    "Q08": {
+      "metadata": {
+        "Question": "Peak Hour vs Non-Peak order count",
+        "Metric": "Order Count",
+        "Dimension": "Peak Hour Label",
+        "Aggregation": "DISTINCTCOUNT(Order ID)",
+        "Filter": "None",
+        "Sort": "None",
+        "Top N / Bottom N": "None",
+        "Notes": ""
+      },
+      "result": [
+        {
+          "Peak Hour Label": "Non-Peak Hour",
+          "Order Count": 55
+        },
+        {
+          "Peak Hour Label": "Peak Hour",
+          "Order Count": 949
+        }
+      ]
+    },
+    "Q09": {
+      "metadata": {
+        "Question": "Order volume trend across Order Month",
+        "Metric": "Order Count",
+        "Dimension": "Order Month",
+        "Aggregation": "DISTINCTCOUNT(Order ID)",
+        "Filter": "None",
+        "Sort": "Month Number ascending",
+        "Top N / Bottom N": "None",
+        "Notes": "Aggregated across all years per wording; source covers 2024-01 to 2026-07."
+      },
+      "result": [
+        {
+          "Month Number": 1,
+          "Order Month": "January",
+          "Order Count": 88
+        },
+        {
+          "Month Number": 2,
+          "Order Month": "February",
+          "Order Count": 86
+        },
+        {
+          "Month Number": 3,
+          "Order Month": "March",
+          "Order Count": 94
+        },
+        {
+          "Month Number": 4,
+          "Order Month": "April",
+          "Order Count": 91
+        },
+        {
+          "Month Number": 5,
+          "Order Month": "May",
+          "Order Count": 68
+        },
+        {
+          "Month Number": 6,
+          "Order Month": "June",
+          "Order Count": 91
+        },
+        {
+          "Month Number": 7,
+          "Order Month": "July",
+          "Order Count": 49
+        },
+        {
+          "Month Number": 8,
+          "Order Month": "August",
+          "Order Count": 117
+        },
+        {
+          "Month Number": 9,
+          "Order Month": "September",
+          "Order Count": 105
+        },
+        {
+          "Month Number": 10,
+          "Order Month": "October",
+          "Order Count": 75
+        },
+        {
+          "Month Number": 11,
+          "Order Month": "November",
+          "Order Count": 60
+        },
+        {
+          "Month Number": 12,
+          "Order Month": "December",
+          "Order Count": 80
+        }
+      ]
+    },
+    "Q10": {
+      "metadata": {
+        "Question": "Average Toppings Count by Pizza Size",
+        "Metric": "Avg Toppings Count",
+        "Dimension": "Pizza Size",
+        "Aggregation": "AVERAGE(Toppings Count)",
+        "Filter": "None",
+        "Sort": "None",
+        "Top N / Bottom N": "None",
+        "Notes": ""
+      },
+      "result": [
+        {
+          "Pizza Size": "Large",
+          "Avg Toppings Count": 3.970833333333333
+        },
+        {
+          "Pizza Size": "Medium",
+          "Avg Toppings Count": 2.769230769230769
+        },
+        {
+          "Pizza Size": "Small",
+          "Avg Toppings Count": 1.6893939393939394
+        },
+        {
+          "Pizza Size": "XL",
+          "Avg Toppings Count": 4.985221674876847
+        }
+      ]
+    },
+    "Q11": {
+      "metadata": {
+        "Question": "Two restaurants with lowest average Delay",
+        "Metric": "Avg Delay",
+        "Dimension": "Restaurant Name",
+        "Aggregation": "AVERAGE(Delay (min))",
+        "Filter": "None",
+        "Sort": "Avg Delay ascending",
+        "Top N / Bottom N": "Bottom 2",
+        "Notes": "Restaurant typography normalized consistently."
+      },
+      "result": [
+        {
+          "Restaurant Name": "Little Caesars",
+          "Avg Delay": 16.62110552763819
+        },
+        {
+          "Restaurant Name": "Domino's",
+          "Avg Delay": 17.022075471698113
+        }
+      ]
+    },
+    "Q12": {
+      "metadata": {
+        "Question": "Five Pizza Types with highest average Delivery Duration",
+        "Metric": "Avg Delivery Duration",
+        "Dimension": "Pizza Type",
+        "Aggregation": "AVERAGE(Delivery Duration (min))",
+        "Filter": "None",
+        "Sort": "Avg Delivery Duration descending",
+        "Top N / Bottom N": "Top 5",
+        "Notes": ""
+      },
+      "result": [
+        {
+          "Pizza Type": "Stuffed Crust",
+          "Avg Delivery Duration": 39.523809523809526
+        },
+        {
+          "Pizza Type": "Gluten-Free",
+          "Avg Delivery Duration": 32.4390243902439
+        },
+        {
+          "Pizza Type": "Cheese Burst",
+          "Avg Delivery Duration": 32.26063829787234
+        },
+        {
+          "Pizza Type": "Thai Chicken",
+          "Avg Delivery Duration": 31.666666666666668
+        },
+        {
+          "Pizza Type": "Sicilian",
+          "Avg Delivery Duration": 30.859375
+        }
+      ]
+    },
+    "Q13": {
+      "metadata": {
+        "Question": "Order volume by Order Hour",
+        "Metric": "Order Count",
+        "Dimension": "Order Hour",
+        "Aggregation": "DISTINCTCOUNT(Order ID)",
+        "Filter": "None",
+        "Sort": "Order Hour ascending",
+        "Top N / Bottom N": "None",
+        "Notes": ""
+      },
+      "result": [
+        {
+          "Order Hour": 12,
+          "Order Count": 2
+        },
+        {
+          "Order Hour": 13,
+          "Order Count": 43
+        },
+        {
+          "Order Hour": 14,
+          "Order Count": 6
+        },
+        {
+          "Order Hour": 17,
+          "Order Count": 4
+        },
+        {
+          "Order Hour": 18,
+          "Order Count": 312
+        },
+        {
+          "Order Hour": 19,
+          "Order Count": 328
+        },
+        {
+          "Order Hour": 20,
+          "Order Count": 306
+        },
+        {
+          "Order Hour": 21,
+          "Order Count": 3
+        }
+      ]
+    },
+    "Q14": {
+      "metadata": {
+        "Question": "Average Delay by Traffic Level",
+        "Metric": "Avg Delay",
+        "Dimension": "Traffic Level",
+        "Aggregation": "AVERAGE(Delay (min))",
+        "Filter": "None",
+        "Sort": "Low, Medium, High",
+        "Top N / Bottom N": "None",
+        "Notes": ""
+      },
+      "result": [
+        {
+          "Traffic Level": "Low",
+          "Avg Delay": 15.464172661870503
+        },
+        {
+          "Traffic Level": "Medium",
+          "Avg Delay": 17.86381909547739
+        },
+        {
+          "Traffic Level": "High",
+          "Avg Delay": 19.159146341463416
+        }
+      ]
+    },
+    "Q15": {
+      "metadata": {
+        "Question": "Proportion of orders by Pizza Complexity",
+        "Metric": "Order Count; Share of Orders",
+        "Dimension": "Pizza Complexity",
+        "Aggregation": "DISTINCTCOUNT(Order ID); count / total",
+        "Filter": "None",
+        "Sort": "Pizza Complexity ascending",
+        "Top N / Bottom N": "None",
+        "Notes": "The supplied category is numeric and is displayed as a category."
+      },
+      "result": [
+        {
+          "Pizza Complexity": 1,
+          "Order Count": 43,
+          "Share of Orders": 0.04282868525896414
+        },
+        {
+          "Pizza Complexity": 2,
+          "Order Count": 87,
+          "Share of Orders": 0.08665338645418327
+        },
+        {
+          "Pizza Complexity": 3,
+          "Order Count": 2,
+          "Share of Orders": 0.00199203187250996
+        },
+        {
+          "Pizza Complexity": 4,
+          "Order Count": 110,
+          "Share of Orders": 0.10956175298804781
+        },
+        {
+          "Pizza Complexity": 6,
+          "Order Count": 308,
+          "Share of Orders": 0.30677290836653387
+        },
+        {
+          "Pizza Complexity": 8,
+          "Order Count": 12,
+          "Share of Orders": 0.01195219123505976
+        },
+        {
+          "Pizza Complexity": 9,
+          "Order Count": 9,
+          "Share of Orders": 0.008964143426294821
+        },
+        {
+          "Pizza Complexity": 12,
+          "Order Count": 229,
+          "Share of Orders": 0.22808764940239043
+        },
+        {
+          "Pizza Complexity": 15,
+          "Order Count": 2,
+          "Share of Orders": 0.00199203187250996
+        },
+        {
+          "Pizza Complexity": 20,
+          "Order Count": 202,
+          "Share of Orders": 0.20119521912350596
+        }
+      ]
+    },
+    "Q16": {
+      "metadata": {
+        "Question": "Average Delivery Duration and Delay by Restaurant Name",
+        "Metric": "Avg Delivery Duration; Avg Delay",
+        "Dimension": "Restaurant Name",
+        "Aggregation": "AVERAGE for both metrics",
+        "Filter": "None",
+        "Sort": "Avg Delivery Duration ascending",
+        "Top N / Bottom N": "None",
+        "Notes": "Use Fx > Format by field value in Power BI."
+      },
+      "result": [
+        {
+          "Restaurant Name": "Papa John's",
+          "Order Count": 204,
+          "Avg Delivery Duration": 28.186274509803923,
+          "Avg Delay": 17.887450980392156,
+          "Delivery Duration Status": "Fastest",
+          "Delay Status": "Middle"
+        },
+        {
+          "Restaurant Name": "Little Caesars",
+          "Order Count": 199,
+          "Avg Delivery Duration": 28.844221105527637,
+          "Avg Delay": 16.62110552763819,
+          "Delivery Duration Status": "Middle",
+          "Delay Status": "Lowest"
+        },
+        {
+          "Restaurant Name": "Pizza Hut",
+          "Order Count": 194,
+          "Avg Delivery Duration": 29.948453608247423,
+          "Avg Delay": 18.210721649484537,
+          "Delivery Duration Status": "Middle",
+          "Delay Status": "Middle"
+        },
+        {
+          "Restaurant Name": "Marco's Pizza",
+          "Order Count": 195,
+          "Avg Delivery Duration": 30.23076923076923,
+          "Avg Delay": 18.43507692307692,
+          "Delivery Duration Status": "Middle",
+          "Delay Status": "Highest"
+        },
+        {
+          "Restaurant Name": "Domino's",
+          "Order Count": 212,
+          "Avg Delivery Duration": 30.25943396226415,
+          "Avg Delay": 17.022075471698113,
+          "Delivery Duration Status": "Slowest",
+          "Delay Status": "Middle"
+        }
+      ]
+    },
+    "Q17": {
+      "metadata": {
+        "Question": "Order volume by Order Hour alongside average Delay",
+        "Metric": "Order Count; Avg Delay",
+        "Dimension": "Order Hour",
+        "Aggregation": "DISTINCTCOUNT(Order ID); AVERAGE(Delay (min))",
+        "Filter": "None",
+        "Sort": "Order Hour ascending",
+        "Top N / Bottom N": "None",
+        "Notes": ""
+      },
+      "result": [
+        {
+          "Order Hour": 12,
+          "Order Count": 2,
+          "Avg Delay": 14.8
+        },
+        {
+          "Order Hour": 13,
+          "Order Count": 43,
+          "Avg Delay": 13.279069767441861
+        },
+        {
+          "Order Hour": 14,
+          "Order Count": 6,
+          "Avg Delay": 12.0
+        },
+        {
+          "Order Hour": 17,
+          "Order Count": 4,
+          "Avg Delay": 17.23
+        },
+        {
+          "Order Hour": 18,
+          "Order Count": 312,
+          "Avg Delay": 15.691282051282052
+        },
+        {
+          "Order Hour": 19,
+          "Order Count": 328,
+          "Avg Delay": 17.948414634146342
+        },
+        {
+          "Order Hour": 20,
+          "Order Count": 306,
+          "Avg Delay": 19.965751633986926
+        },
+        {
+          "Order Hour": 21,
+          "Order Count": 3,
+          "Avg Delay": 19.746666666666666
+        }
+      ]
+    },
+    "Q18": {
+      "metadata": {
+        "Question": "Average Topping Density by Pizza Type alongside order volume",
+        "Metric": "Avg Topping Density; Order Count",
+        "Dimension": "Pizza Type",
+        "Aggregation": "AVERAGE(Topping Density); DISTINCTCOUNT(Order ID)",
+        "Filter": "None",
+        "Sort": "Order Count descending",
+        "Top N / Bottom N": "None",
+        "Notes": "Uses supplied Topping Density field; its actual formula is toppings per km."
+      },
+      "result": [
+        {
+          "Pizza Type": "Non-Veg",
+          "Order Count": 216,
+          "Avg Topping Density": 0.7597730833743852
+        },
+        {
+          "Pizza Type": "Veg",
+          "Order Count": 202,
+          "Avg Topping Density": 0.621562816962479
+        },
+        {
+          "Pizza Type": "Cheese Burst",
+          "Order Count": 188,
+          "Avg Topping Density": 0.8449208838836498
+        },
+        {
+          "Pizza Type": "Vegan",
+          "Order Count": 132,
+          "Avg Topping Density": 0.722029822029822
+        },
+        {
+          "Pizza Type": "Sicilian",
+          "Order Count": 64,
+          "Avg Topping Density": 0.7099723193473194
+        },
+        {
+          "Pizza Type": "BBQ Chicken",
+          "Order Count": 54,
+          "Avg Topping Density": 0.6
+        },
+        {
+          "Pizza Type": "Margarita",
+          "Order Count": 54,
+          "Avg Topping Density": 0.6666666666666666
+        },
+        {
+          "Pizza Type": "Gluten-Free",
+          "Order Count": 41,
+          "Avg Topping Density": 0.5824614409980263
+        },
+        {
+          "Pizza Type": "Thai Chicken",
+          "Order Count": 24,
+          "Avg Topping Density": 0.6884424603174603
+        },
+        {
+          "Pizza Type": "Stuffed Crust",
+          "Order Count": 21,
+          "Avg Topping Density": 0.6737137383689108
+        },
+        {
+          "Pizza Type": "Deep Dish",
+          "Order Count": 6,
+          "Avg Topping Density": 0.6666666666666666
+        },
+        {
+          "Pizza Type": "Thin Crust",
+          "Order Count": 2,
+          "Avg Topping Density": 0.6666666666666666
+        }
+      ]
+    },
+    "Q19": {
+      "metadata": {
+        "Question": "Traffic Level percentage within Payment Method, filterable by Order Time",
+        "Metric": "Order Count; Percentage Within Payment Method",
+        "Dimension": "Payment Method; Traffic Level",
+        "Aggregation": "DISTINCTCOUNT(Order ID); share within each Payment Method",
+        "Filter": "Order Time slicer (Between)",
+        "Sort": "None",
+        "Top N / Bottom N": "None",
+        "Notes": "Default full-range percentages; each payment method sums to 100%."
+      },
+      "result": [
+        {
+          "Payment Method": "Card",
+          "Traffic Level": "High",
+          "Order Count": 123,
+          "Percentage Within Payment Method": 0.44565217391304346
+        },
+        {
+          "Payment Method": "Card",
+          "Traffic Level": "Low",
+          "Order Count": 56,
+          "Percentage Within Payment Method": 0.2028985507246377
+        },
+        {
+          "Payment Method": "Card",
+          "Traffic Level": "Medium",
+          "Order Count": 97,
+          "Percentage Within Payment Method": 0.35144927536231885
+        },
+        {
+          "Payment Method": "Cash",
+          "Traffic Level": "High",
+          "Order Count": 41,
+          "Percentage Within Payment Method": 0.20297029702970298
+        },
+        {
+          "Payment Method": "Cash",
+          "Traffic Level": "Low",
+          "Order Count": 64,
+          "Percentage Within Payment Method": 0.31683168316831684
+        },
+        {
+          "Payment Method": "Cash",
+          "Traffic Level": "Medium",
+          "Order Count": 97,
+          "Percentage Within Payment Method": 0.4801980198019802
+        },
+        {
+          "Payment Method": "Domino's Cash",
+          "Traffic Level": "High",
+          "Order Count": 13,
+          "Percentage Within Payment Method": 0.5652173913043478
+        },
+        {
+          "Payment Method": "Domino's Cash",
+          "Traffic Level": "Low",
+          "Order Count": 5,
+          "Percentage Within Payment Method": 0.21739130434782608
+        },
+        {
+          "Payment Method": "Domino's Cash",
+          "Traffic Level": "Medium",
+          "Order Count": 5,
+          "Percentage Within Payment Method": 0.21739130434782608
+        },
+        {
+          "Payment Method": "Hut Points",
+          "Traffic Level": "High",
+          "Order Count": 23,
+          "Percentage Within Payment Method": 0.9583333333333334
+        },
+        {
+          "Payment Method": "Hut Points",
+          "Traffic Level": "Medium",
+          "Order Count": 1,
+          "Percentage Within Payment Method": 0.041666666666666664
+        },
+        {
+          "Payment Method": "UPI",
+          "Traffic Level": "High",
+          "Order Count": 82,
+          "Percentage Within Payment Method": 0.3025830258302583
+        },
+        {
+          "Payment Method": "UPI",
+          "Traffic Level": "Low",
+          "Order Count": 60,
+          "Percentage Within Payment Method": 0.22140221402214022
+        },
+        {
+          "Payment Method": "UPI",
+          "Traffic Level": "Medium",
+          "Order Count": 129,
+          "Percentage Within Payment Method": 0.47601476014760147
+        },
+        {
+          "Payment Method": "Wallet",
+          "Traffic Level": "High",
+          "Order Count": 46,
+          "Percentage Within Payment Method": 0.22115384615384615
+        },
+        {
+          "Payment Method": "Wallet",
+          "Traffic Level": "Low",
+          "Order Count": 93,
+          "Percentage Within Payment Method": 0.44711538461538464
+        },
+        {
+          "Payment Method": "Wallet",
+          "Traffic Level": "Medium",
+          "Order Count": 69,
+          "Percentage Within Payment Method": 0.3317307692307692
+        }
+      ]
+    },
+    "Q20_support": {
+      "metadata": {
+        "Question": "Three coordinated visuals with conditional formatting/colors",
+        "Metric": "Reuses Q01/Q12/Q14/Q16/Q17/Q19 metrics",
+        "Dimension": "Restaurant; Traffic; Hour; Location; Pizza Type; Payment",
+        "Aggregation": "No new aggregation",
+        "Filter": "None",
+        "Sort": "None",
+        "Top N / Bottom N": "None",
+        "Notes": "Design question; source values are the validated earlier results."
+      },
+      "result": []
+    }
+  }
+}

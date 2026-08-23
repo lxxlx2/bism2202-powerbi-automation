@@ -1,0 +1,251 @@
+table PizzaOrders
+	lineageTag: eff61bec-c3de-466d-b505-5c08a2d520d9
+
+	column 'Order ID'
+		dataType: string
+		lineageTag: b265fac1-1798-4f4d-b4c0-ffb9fe249d51
+		summarizeBy: none
+		sourceColumn: Order ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Restaurant Name'
+		dataType: string
+		lineageTag: 26814635-153f-4ff1-a9a3-b35b979fbf3a
+		summarizeBy: none
+		sourceColumn: Restaurant Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Location
+		dataType: string
+		lineageTag: 034ce043-f285-4f72-a52b-6bc4df3671ab
+		summarizeBy: none
+		sourceColumn: Location
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Order Time'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: b7b96006-fa50-4ba2-ad14-1e0a9bf1507d
+		summarizeBy: none
+		sourceColumn: Order Time
+
+		variation 变体
+			isDefault
+			relationship: 16209724-8ae8-4549-a96d-ef0a83945863
+			defaultHierarchy: LocalDateTable_e1c4d522-349a-4535-9270-3aafe5f175f2.日期层次结构
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Delivery Time'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 663f1060-020d-4501-a88b-c4d46196b911
+		summarizeBy: none
+		sourceColumn: Delivery Time
+
+		variation 变体
+			isDefault
+			relationship: 8aedf06a-8495-4614-8425-cf03fec80e17
+			defaultHierarchy: LocalDateTable_4e0295f6-debf-4dac-b1e6-d4f1287cf88a.日期层次结构
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Delivery Duration (min)'
+		dataType: int64
+		formatString: 0
+		lineageTag: fdc42460-cd4c-48e3-86d8-aef20445fe6b
+		summarizeBy: sum
+		sourceColumn: Delivery Duration (min)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Pizza Size'
+		dataType: string
+		lineageTag: ade18f27-8280-461e-94a0-ed110d219949
+		summarizeBy: none
+		sourceColumn: Pizza Size
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Pizza Type'
+		dataType: string
+		lineageTag: 24512f5f-c9fa-43ca-9d18-19b83aba7a6a
+		summarizeBy: none
+		sourceColumn: Pizza Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Toppings Count'
+		dataType: int64
+		formatString: 0
+		lineageTag: 0bb87e00-7c90-4be0-953a-6a07c127ac2d
+		summarizeBy: sum
+		sourceColumn: Toppings Count
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Distance (km)'
+		dataType: double
+		lineageTag: 22b53910-f881-4627-a7ed-ee58c93ba0b6
+		summarizeBy: sum
+		sourceColumn: Distance (km)
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Traffic Level'
+		dataType: string
+		lineageTag: c79287c2-eb94-493b-bb58-c873c04215c1
+		summarizeBy: none
+		sourceColumn: Traffic Level
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Payment Method'
+		dataType: string
+		lineageTag: 390193ae-9b55-4731-827a-e6837a938bac
+		summarizeBy: none
+		sourceColumn: Payment Method
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Is Peak Hour'
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 00b22b45-7cad-4713-a54c-34e59495b02c
+		summarizeBy: none
+		sourceColumn: Is Peak Hour
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Is Weekend'
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 16ce1c06-539f-42da-9b0d-bd8e2ef71960
+		summarizeBy: none
+		sourceColumn: Is Weekend
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Delivery Efficiency (min/km)'
+		dataType: double
+		lineageTag: 9566e31a-15bf-4af5-b8ea-4ba6a1a2bd7c
+		summarizeBy: sum
+		sourceColumn: Delivery Efficiency (min/km)
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Topping Density'
+		dataType: double
+		lineageTag: 4a342850-cf86-488d-9d21-f8098dc14991
+		summarizeBy: sum
+		sourceColumn: Topping Density
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Order Month'
+		dataType: string
+		lineageTag: ba8c4db0-0acc-438e-8671-dd82c92df63a
+		summarizeBy: none
+		sourceColumn: Order Month
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Payment Category'
+		dataType: string
+		lineageTag: 6780e815-bb4d-40b3-bd4e-807d28363159
+		summarizeBy: none
+		sourceColumn: Payment Category
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Estimated Duration (min)'
+		dataType: double
+		lineageTag: ca03dcd0-58db-4043-9aad-fb1bcf873fd6
+		summarizeBy: sum
+		sourceColumn: Estimated Duration (min)
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Delay (min)'
+		dataType: double
+		lineageTag: 1c124dfd-7a2b-4cf2-a9e2-2fb86499a298
+		summarizeBy: sum
+		sourceColumn: Delay (min)
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Is Delayed'
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: d2d6e2a0-0296-45ec-a02c-283ddc8bf494
+		summarizeBy: none
+		sourceColumn: Is Delayed
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Pizza Complexity'
+		dataType: int64
+		formatString: 0
+		lineageTag: 2ef8db75-24bc-4dba-b162-b3e9b5857598
+		summarizeBy: sum
+		sourceColumn: Pizza Complexity
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Traffic Impact'
+		dataType: int64
+		formatString: 0
+		lineageTag: adaa3ec7-b378-4f3a-aae9-bd2cb71fc949
+		summarizeBy: sum
+		sourceColumn: Traffic Impact
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Order Hour'
+		dataType: int64
+		formatString: 0
+		lineageTag: 8b65a2e1-4673-4e9c-89d5-ddd7a1e1d9b2
+		summarizeBy: sum
+		sourceColumn: Order Hour
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Restaurant Avg Time'
+		dataType: double
+		lineageTag: 6f14b459-ad85-4883-adcb-0cc3b99b5b97
+		summarizeBy: sum
+		sourceColumn: Restaurant Avg Time
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition PizzaOrders = m
+		mode: import
+		source =
+				let
+				    源 = Excel.Workbook(File.Contents("C:\BISM2202\INPUTS\Assignment1_BISM2202_pizza_sell_data.xlsx"), null, true),
+				    Sheet1_Sheet = 源{[Item="Sheet1",Kind="Sheet"]}[Data],
+				    提升的标题 = Table.PromoteHeaders(Sheet1_Sheet, [PromoteAllScalars=true]),
+				    更改的类型 = Table.TransformColumnTypes(提升的标题,{{"Order ID", type text}, {"Restaurant Name", type text}, {"Location", type text}, {"Order Time", type datetime}, {"Delivery Time", type datetime}, {"Delivery Duration (min)", Int64.Type}, {"Pizza Size", type text}, {"Pizza Type", type text}, {"Toppings Count", Int64.Type}, {"Distance (km)", type number}, {"Traffic Level", type text}, {"Payment Method", type text}, {"Is Peak Hour", type logical}, {"Is Weekend", type logical}, {"Delivery Efficiency (min/km)", type number}, {"Topping Density", type number}, {"Order Month", type text}, {"Payment Category", type text}, {"Estimated Duration (min)", type number}, {"Delay (min)", type number}, {"Is Delayed", type logical}, {"Pizza Complexity", Int64.Type}, {"Traffic Impact", Int64.Type}, {"Order Hour", Int64.Type}, {"Restaurant Avg Time", type number}}),
+				    替换的值 = Table.ReplaceValue(更改的类型,"Marco’s Pizza","Marco's Pizza",Replacer.ReplaceText,{"Restaurant Name"})
+				in
+				    替换的值
+
+	annotation PBI_NavigationStepName = 导航
+
+	annotation PBI_ResultType = Table
+
