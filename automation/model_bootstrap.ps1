@@ -114,7 +114,7 @@ Ensure-TmdlObject -Kind "measure" -Name "Avg Topping Density" -Block @"
 "@
 
 Ensure-TmdlObject -Kind "measure" -Name "Order Share Within Payment" -Block @"
-`tmeasure 'Order Share Within Payment' = DIVIDE([Order Count], CALCULATE([Order Count], ALLEXCEPT(PizzaOrders, PizzaOrders[Payment Method])))
+`tmeasure 'Order Share Within Payment' = DIVIDE([Order Count], CALCULATE([Order Count], REMOVEFILTERS(PizzaOrders[Traffic Level])))
 `t`tformatString: 0.00%
 `t`tdisplayFolder: BISM2202 Measures
 "@
