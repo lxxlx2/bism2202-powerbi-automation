@@ -1,0 +1,111 @@
+name: Final visual OCR review
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/final_visual_ocr.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  visual-review:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install OCR and image tools
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq tesseract-ocr >/dev/null
+          python3 -m pip install --quiet pillow
+      - name: OCR all 40 final screenshots and compute visual metrics
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import json, math, re, subprocess
+          from pathlib import Path
+          from PIL import Image, ImageStat, ImageChops
+
+          out = Path('FINAL_PACKAGES/AI_FINAL_REVIEW')
+          out.mkdir(parents=True, exist_ok=True)
+          report = {'versions': {}, 'cross_version': {}}
+          bad_terms = [
+              'fix this', 'something went wrong', 'could not load', 'couldn\'t load',
+              'can\'t display', 'cannot display', 'one or more fields', 'visual has exceeded',
+              'see details', 'unexpected error'
+          ]
+          expected = {
+            1: ['location'], 2: ['delivery','pizza'], 3: ['pizza','size'], 4: ['payment'],
+            5: ['traffic'], 6: ['toppings'], 7: ['delivery','location'], 8: ['peak'],
+            9: ['order','volume'], 10: ['toppings','pizza'], 11: ['restaurant','delay'],
+            12: ['pizza','delivery'], 13: ['order','hour'], 14: ['delay','traffic'],
+            15: ['pizza','complexity'], 16: ['restaurant','delivery','delay'],
+            17: ['order','delay'], 18: ['pizza','topping'], 19: ['traffic','payment'],
+            20: ['restaurant','delay','order']
+          }
+          ocr_text_files={}
+          for v in ['A','B']:
+              records=[]
+              combined=[]
+              for n in range(1,21):
+                  p=Path(f'Student_{v}/screenshots/Q{n:02d}.png')
+                  im=Image.open(p).convert('RGB')
+                  gray=im.convert('L')
+                  stat=ImageStat.Stat(gray)
+                  hist=gray.histogram()
+                  total=sum(hist)
+                  entropy=0.0
+                  for c in hist:
+                      if c:
+                          pr=c/total
+                          entropy -= pr*math.log2(pr)
+                  nonwhite=sum(hist[:245])/total
+                  # Upscaling is unnecessary at source resolution; psm 6 gives a stable canvas OCR.
+                  proc=subprocess.run(['tesseract',str(p),'stdout','-l','eng','--psm','6'],stdout=subprocess.PIPE,stderr=subprocess.DEVNULL,text=True,check=True)
+                  text=' '.join(proc.stdout.split())
+                  lower=text.lower()
+                  errors=[term for term in bad_terms if term in lower]
+                  missing=[term for term in expected[n] if term not in lower]
+                  rec={
+                    'page':f'Q{n:02d}','width':im.width,'height':im.height,'bytes':p.stat().st_size,
+                    'gray_stddev':round(float(stat.stddev[0]),3),'entropy':round(entropy,3),
+                    'nonwhite_ratio_lt245':round(nonwhite,4),'error_terms':errors,
+                    'expected_tokens_missing_from_ocr':missing,'ocr':text
+                  }
+                  records.append(rec)
+                  combined.append(f'Q{n:02d}: {text}')
+              report['versions'][v]=records
+              (out/f'ocr_{v}.txt').write_text('\n'.join(combined)+'\n',encoding='utf-8')
+
+          # Cross-version visual difference score for corresponding pages.
+          for n in range(1,21):
+              a=Image.open(f'Student_A/screenshots/Q{n:02d}.png').convert('RGB')
+              b=Image.open(f'Student_B/screenshots/Q{n:02d}.png').convert('RGB')
+              d=ImageChops.difference(a,b).convert('L')
+              st=ImageStat.Stat(d)
+              report['cross_version'][f'Q{n:02d}']={'mean_absolute_pixel_difference':round(float(st.mean[0]),4),'stddev_difference':round(float(st.stddev[0]),4)}
+
+          # Fail only on hard visual-render signals, not OCR keyword misses.
+          hard=[]
+          for v,recs in report['versions'].items():
+              for r in recs:
+                  if r['gray_stddev'] < 5 or r['entropy'] < 1.0 or r['nonwhite_ratio_lt245'] < 0.01:
+                      hard.append(f"{v} {r['page']} looks blank/near-blank")
+                  if r['error_terms']:
+                      hard.append(f"{v} {r['page']} error text: {r['error_terms']}")
+          report['hard_failures']=hard
+          (out/'visual_ocr_review.json').write_text(json.dumps(report,indent=2,ensure_ascii=False),encoding='utf-8')
+          if hard:
+              raise SystemExit('\n'.join(hard))
+          print('FINAL_VISUAL_OCR_STRUCTURAL_REVIEW: PASS')
+          PY
+      - name: Commit OCR review output
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add FINAL_PACKAGES/AI_FINAL_REVIEW/ocr_A.txt FINAL_PACKAGES/AI_FINAL_REVIEW/ocr_B.txt FINAL_PACKAGES/AI_FINAL_REVIEW/visual_ocr_review.json
+          git commit -m 'Add final 40-page visual OCR review'
+          git push
