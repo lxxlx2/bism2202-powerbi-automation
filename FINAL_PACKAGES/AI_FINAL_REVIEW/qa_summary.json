@@ -1,0 +1,260 @@
+{
+  "A": {
+    "pbix_bytes": 141936,
+    "docx_bytes": 939580,
+    "docx_media_count": 20,
+    "docx_cjk_character_count": 0,
+    "screenshot_count": 20,
+    "screenshots": [
+      {
+        "file": "Q01.png",
+        "width": 2228,
+        "height": 1271,
+        "bytes": 84911
+      },
+      {
+        "file": "Q02.png",
+        "width": 2228,
+        "height": 1271,
+        "bytes": 59927
+      },
+      {
+        "file": "Q03.png",
+        "width": 2228,
+        "height": 1271,
+        "bytes": 58865
+      },
+      {
+        "file": "Q04.png",
+        "width": 2228,
+        "height": 1271,
+        "bytes": 57415
+      },
+      {
+        "file": "Q05.png",
+        "width": 2228,
+        "height": 1271,
+        "bytes": 55681
+      },
+      {
+        "file": "Q06.png",
+        "width": 2228,
+        "height": 1271,
+        "bytes": 56552
+      },
+      {
+        "file": "Q07.png",
+        "width": 2228,
+        "height": 1271,
+        "bytes": 81849
+      },
+      {
+        "file": "Q08.png",
+        "width": 2228,
+        "height": 1271,
+        "bytes": 46742
+      },
+      {
+        "file": "Q09.png",
+        "width": 2228,
+        "height": 1271,
+        "bytes": 87941
+      },
+      {
+        "file": "Q10.png",
+        "width": 2228,
+        "height": 1271,
+        "bytes": 53680
+      },
+      {
+        "file": "Q11.png",
+        "width": 2228,
+        "height": 1271,
+        "bytes": 49122
+      },
+      {
+        "file": "Q12.png",
+        "width": 2228,
+        "height": 1271,
+        "bytes": 56340
+      },
+      {
+        "file": "Q13.png",
+        "width": 2228,
+        "height": 1271,
+        "bytes": 64588
+      },
+      {
+        "file": "Q14.png",
+        "width": 2228,
+        "height": 1271,
+        "bytes": 52129
+      },
+      {
+        "file": "Q15.png",
+        "width": 2228,
+        "height": 1271,
+        "bytes": 72053
+      },
+      {
+        "file": "Q16.png",
+        "width": 2228,
+        "height": 1271,
+        "bytes": 70521
+      },
+      {
+        "file": "Q17.png",
+        "width": 2228,
+        "height": 1271,
+        "bytes": 95121
+      },
+      {
+        "file": "Q18.png",
+        "width": 2228,
+        "height": 1271,
+        "bytes": 128348
+      },
+      {
+        "file": "Q19.png",
+        "width": 2228,
+        "height": 1271,
+        "bytes": 87559
+      },
+      {
+        "file": "Q20.png",
+        "width": 2228,
+        "height": 1271,
+        "bytes": 105649
+      }
+    ]
+  },
+  "B": {
+    "pbix_bytes": 141619,
+    "docx_bytes": 904098,
+    "docx_media_count": 20,
+    "docx_cjk_character_count": 0,
+    "screenshot_count": 20,
+    "screenshots": [
+      {
+        "file": "Q01.png",
+        "width": 2228,
+        "height": 1271,
+        "bytes": 84911
+      },
+      {
+        "file": "Q02.png",
+        "width": 2228,
+        "height": 1271,
+        "bytes": 59928
+      },
+      {
+        "file": "Q03.png",
+        "width": 2228,
+        "height": 1271,
+        "bytes": 56867
+      },
+      {
+        "file": "Q04.png",
+        "width": 2228,
+        "height": 1271,
+        "bytes": 57416
+      },
+      {
+        "file": "Q05.png",
+        "width": 2228,
+        "height": 1271,
+        "bytes": 58250
+      },
+      {
+        "file": "Q06.png",
+        "width": 2228,
+        "height": 1271,
+        "bytes": 56554
+      },
+      {
+        "file": "Q07.png",
+        "width": 2228,
+        "height": 1271,
+        "bytes": 81849
+      },
+      {
+        "file": "Q08.png",
+        "width": 2228,
+        "height": 1271,
+        "bytes": 53603
+      },
+      {
+        "file": "Q09.png",
+        "width": 2228,
+        "height": 1271,
+        "bytes": 92953
+      },
+      {
+        "file": "Q10.png",
+        "width": 2228,
+        "height": 1271,
+        "bytes": 53680
+      },
+      {
+        "file": "Q11.png",
+        "width": 2228,
+        "height": 1271,
+        "bytes": 49123
+      },
+      {
+        "file": "Q12.png",
+        "width": 2228,
+        "height": 1271,
+        "bytes": 56341
+      },
+      {
+        "file": "Q13.png",
+        "width": 2228,
+        "height": 1271,
+        "bytes": 64589
+      },
+      {
+        "file": "Q14.png",
+        "width": 2228,
+        "height": 1271,
+        "bytes": 52133
+      },
+      {
+        "file": "Q15.png",
+        "width": 2228,
+        "height": 1271,
+        "bytes": 75700
+      },
+      {
+        "file": "Q16.png",
+        "width": 2228,
+        "height": 1271,
+        "bytes": 70440
+      },
+      {
+        "file": "Q17.png",
+        "width": 2228,
+        "height": 1271,
+        "bytes": 95119
+      },
+      {
+        "file": "Q18.png",
+        "width": 2228,
+        "height": 1271,
+        "bytes": 128344
+      },
+      {
+        "file": "Q19.png",
+        "width": 2228,
+        "height": 1271,
+        "bytes": 87594
+      },
+      {
+        "file": "Q20.png",
+        "width": 2228,
+        "height": 1271,
+        "bytes": 105644
+      }
+    ]
+  }
+}
