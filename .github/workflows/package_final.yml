@@ -1,6 +1,8 @@
 name: Package final BISM2202 deliverables
 
 on:
+  pull_request:
+    branches: [main]
   push:
     branches: [main]
     paths:
@@ -35,7 +37,7 @@ jobs:
         run: |
           set -euo pipefail
           python3 - <<'PY'
-          import os, re, zipfile, struct, statistics, json
+          import re, zipfile, struct, json
           from pathlib import Path
 
           summary = {}
@@ -79,7 +81,7 @@ jobs:
         run: |
           python3 -m pip install --quiet pillow
           python3 - <<'PY'
-          from PIL import Image, ImageOps, ImageDraw
+          from PIL import Image, ImageDraw
           from pathlib import Path
 
           for v in ['A','B']:
