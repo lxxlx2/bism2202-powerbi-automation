@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "q19_stack",
   "position": {
     "x": 25,
@@ -10,10 +10,10 @@
     "tabOrder": 0
   },
   "visual": {
-    "visualType": "barChart",
+    "visualType": "pivotTable",
     "query": {
       "queryState": {
-        "Category": {
+        "Rows": {
           "projections": [
             {
               "field": {
@@ -32,25 +32,7 @@
             }
           ]
         },
-        "Y": {
-          "projections": [
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "PizzaOrders"
-                    }
-                  },
-                  "Property": "Order Share Within Payment"
-                }
-              },
-              "queryRef": "PizzaOrders.Order Share Within Payment",
-              "nativeQueryRef": "Order Share Within Payment"
-            }
-          ]
-        },
-        "Legend": {
+        "Columns": {
           "projections": [
             {
               "field": {
@@ -68,10 +50,42 @@
               "active": true
             }
           ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "PizzaOrders"
+                    }
+                  },
+                  "Property": "Order Share Within Payment"
+                }
+              },
+              "queryRef": "PizzaOrders.Order Share Within Payment",
+              "nativeQueryRef": "Order Share Within Payment"
+            }
+          ]
         }
       }
     },
-    "drillFilterOtherVisuals": true,
+    "objects": {
+      "subTotals": [
+        {
+          "properties": {
+            "rowSubtotalsLabel": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Total'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
     "visualContainerObjects": {
       "title": [
         {
@@ -99,6 +113,7 @@
           }
         }
       ]
-    }
+    },
+    "drillFilterOtherVisuals": true
   }
 }
