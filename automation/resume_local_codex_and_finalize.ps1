@@ -24,6 +24,11 @@ Write-Host "ProjectRoot=$ProjectRoot"
 Require-Path (Join-Path $ProjectRoot 'automation')
 Require-Path (Join-Path $ProjectRoot 'PROJECT')
 
+$branch = (git branch --show-current).Trim()
+if ($branch -ne 'main') {
+    throw "Expected to run from local main branch, current branch is '$branch'."
+}
+
 # Preserve any local Codex edits. Do not pull/reset/checkout over them.
 $before = git status --porcelain
 Write-Host 'LOCAL_WORKTREE_BEFORE:' -ForegroundColor Yellow
@@ -58,12 +63,10 @@ foreach ($v in @('A','B')) {
     Start-Process $pbip
     Start-Sleep -Seconds 18
 
-    # Capture all 20 genuine report pages from the real Power BI window.
     Run-Step "CAPTURE Q01-Q20 $v" { py -3.12 .\automation\capture_pages.py --version $v }
     Run-Step "SCREENSHOT VALIDATION $v" { py -3.12 .\automation\validate_screenshots.py --version $v }
     Run-Step "POWER BI VALIDATION $v" { py -3.12 .\automation\validate_powerbi.py --version $v --reopen }
 
-    # Save a real PBIX from the open PBIP through the existing Windows UI automation.
     if (Test-Path -LiteralPath .\automation\powerbi_ui.ps1) {
         Run-Step "SAVE PBIX $v" { pwsh -ExecutionPolicy Bypass -File .\automation\powerbi_ui.ps1 -Version $v -Action SaveAs -ProjectRoot $ProjectRoot }
     }
@@ -80,7 +83,6 @@ Run-Step 'PACKAGE FINAL ZIPs' {
     py -3.12 .\automation\package_final.py
 }
 
-# Structural verification.
 foreach ($v in @('A','B')) {
     $shotDir = Join-Path $ProjectRoot "PROJECT\BISM2202_OUTPUT\Version_${v}\screenshots"
     $shots = @(Get-ChildItem -LiteralPath $shotDir -Filter 'Q??.png' -File)
@@ -120,14 +122,28 @@ if ($manifest.status -ne 'PASS') {
 }
 Write-Host 'FINAL_PACKAGE_MANIFEST: PASS' -ForegroundColor Green
 
-# Commit everything produced by the resumed local workflow, then push main.
+# Commit local/Codex work first.
 git add -A
 $staged = git diff --cached --name-only
 if ($staged) {
     git commit -m 'fix: complete final BISM2202 A and B deliverables'
     if ($LASTEXITCODE -ne 0) { throw 'git commit failed' }
 } else {
-    Write-Host 'No new changes to commit.' -ForegroundColor Yellow
+    Write-Host 'No new local changes to commit.' -ForegroundColor Yellow
+}
+
+# The helper script itself may have been added to origin/main after the local Windows
+# workspace was created. Integrate remote main only after local work is safely committed.
+git fetch origin
+if ($LASTEXITCODE -ne 0) { throw 'git fetch origin failed' }
+$localHeadBeforeRebase = (git rev-parse HEAD).Trim()
+$originMain = (git rev-parse origin/main).Trim()
+if ($localHeadBeforeRebase -ne $originMain) {
+    Write-Host "Rebasing local completed work onto origin/main ($originMain)..." -ForegroundColor Cyan
+    git rebase origin/main
+    if ($LASTEXITCODE -ne 0) {
+        throw 'git rebase origin/main failed. Stop here and send the terminal output for review; do not reset or abort manually.'
+    }
 }
 
 git push origin HEAD:main
