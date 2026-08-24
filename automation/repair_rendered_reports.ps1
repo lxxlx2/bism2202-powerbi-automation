@@ -72,7 +72,8 @@ function Read-VisualJson {
 
 function Write-VisualJson {
     param([string]$Path, $Data)
-    $Data | ConvertTo-Json -Depth 100 | Set-Content -LiteralPath $Path -Encoding utf8
+    $json = $Data | ConvertTo-Json -Depth 100
+    [System.IO.File]::WriteAllText($Path, $json, [System.Text.UTF8Encoding]::new($false))
 }
 
 function Hide-AutoSubtitle {

@@ -60,7 +60,7 @@ QUESTIONS = {
     6: "What is the average Toppings Count for weekend vs. weekday orders?",
     7: "Which locations have the highest average Delivery Duration (min)?",
     8: "How many orders were placed during peak hours vs. non-peak?",
-    9: "How does order volume trend by Month-Year?",
+    9: "How does order volume trend across Order Month?",
     10: "What is the average Toppings Count by Pizza Size?",
     11: "Which 2 restaurants have the lowest average Delay (min) i.e., the fastest, most reliable performers?",
     12: "Which 5 Pizza Types have the highest average Delivery Duration (min)?",
@@ -86,7 +86,7 @@ VISUALS = {
         6: ("Clustered column chart", "X-axis: Weekend Label; Y-axis: [Avg Toppings Count]", "Data labels on; 2 decimals"),
         7: ("Clustered bar chart", "Y-axis: Location; X-axis: [Avg Delivery Duration]", "Top N = 10 by [Avg Delivery Duration]; descending; retain ties"),
         8: ("Donut chart", "Legend: Peak Hour Label; Values: [Order Count]", "Category + percentage labels"),
-        9: ("Line chart", "X-axis: Order Month-Year; Y-axis: [Order Count]", "Order Month-Year ascending from 2024-01 to 2026-07"),
+        9: ("Line chart", "X-axis: Order Month Start; Y-axis: [Order Count]", "Order Month Start ascending; displayed as yyyy-MM from 2024-01 to 2026-07"),
         10: ("Clustered column chart", "X-axis: Pizza Size; Y-axis: [Avg Toppings Count]", "Data labels on; 2 decimals"),
         11: ("Clustered bar chart", "Y-axis: Restaurant Name; X-axis: [Avg Delay]", "Visual filter [Delay Rank Asc] <= 2; ascending"),
         12: ("Clustered bar chart", "Y-axis: Pizza Type; X-axis: [Avg Delivery Duration]", "Top N = 5 by [Avg Delivery Duration]; descending"),
@@ -96,8 +96,8 @@ VISUALS = {
         16: ("Table", "Columns: Restaurant Name, [Avg Delivery Duration], [Avg Delay]", "Background color Fx > Field value using two color measures"),
         17: ("Line and clustered column chart", "X-axis: Order Hour; Column Y-axis: [Order Count]; Line Y-axis: [Avg Delay]", "Secondary Y-axis on; hour ascending"),
         18: ("Line and clustered column chart", "X-axis: Pizza Type; Column Y-axis: [Order Count]; Line Y-axis: [Avg Topping Density]", "Secondary Y-axis on; descending by [Order Count]"),
-        19: ("100% stacked column chart + slicer", "X-axis: Payment Method; Legend: Traffic Level; Y-axis: [Order Count]; slicer: Order Time", "Slicer style Between; test interaction"),
-        20: ("Dashboard: table + column + combo", "Restaurant performance; Traffic delay; Hourly volume and delay", "Three visuals; conditional formatting/intentional colors"),
+        19: ("Percentage matrix + slicer", "Rows: Payment Method; Columns: Traffic Level; Values: [Order Share Within Payment]; slicer: Order Time", "Slicer style Between; each row totals 100%"),
+        20: ("Dashboard: matrix + column + line", "Restaurant Performance; Average Delay by Traffic Level; Order Volume by Order Hour", "Three visuals; conditional formatting/intentional colors"),
     },
     "B": {
         1: ("Clustered column chart", "X-axis: Location; Y-axis: [Order Count]", "Top N = 20; descending; labels readable"),
@@ -108,7 +108,7 @@ VISUALS = {
         6: ("Clustered bar chart", "Y-axis: Weekend Label; X-axis: [Avg Toppings Count]", "Data labels on; 2 decimals"),
         7: ("Clustered column chart", "X-axis: Location; Y-axis: [Avg Delivery Duration]", "Top N = 10; descending; retain ties"),
         8: ("Clustered column chart", "X-axis: Peak Hour Label; Y-axis: [Order Count]", "Data labels on"),
-        9: ("Clustered column chart", "X-axis: Order Month-Year; Y-axis: [Order Count]", "Order Month-Year ascending from 2024-01 to 2026-07"),
+        9: ("Clustered column chart", "X-axis: Order Month Start; Y-axis: [Order Count]", "Order Month Start ascending; displayed as yyyy-MM from 2024-01 to 2026-07"),
         10: ("Clustered bar chart", "Y-axis: Pizza Size; X-axis: [Avg Toppings Count]", "Data labels on; 2 decimals"),
         11: ("Clustered column chart", "X-axis: Restaurant Name; Y-axis: [Avg Delay]", "Visual filter [Delay Rank Asc] <= 2; ascending"),
         12: ("Clustered column chart", "X-axis: Pizza Type; Y-axis: [Avg Delivery Duration]", "Top N = 5; descending"),
@@ -118,8 +118,8 @@ VISUALS = {
         16: ("Matrix", "Rows: Restaurant Name; Values: [Avg Delivery Duration], [Avg Delay]", "Fx > Field value using Version B color measures"),
         17: ("Line and stacked column chart", "X-axis: Order Hour; Column Y-axis: [Order Count]; Line Y-axis: [Avg Delay]", "Secondary Y-axis on; hour ascending"),
         18: ("Line and clustered column chart", "X-axis: Pizza Type; Column Y-axis: [Order Count]; Line Y-axis: [Avg Topping Density]", "Secondary axis on; stronger density emphasis"),
-        19: ("100% stacked bar chart + slicer", "Y-axis: Payment Method; Legend: Traffic Level; X-axis: [Order Count]; slicer: Order Time", "Slicer style Between; test interaction"),
-        20: ("Dashboard: bar + column + 100% stacked bar", "Top locations; Pizza type delivery time; Traffic mix by payment", "Order Time slicer; three coordinated visuals"),
+        19: ("Percentage matrix + slicer", "Rows: Payment Method; Columns: Traffic Level; Values: [Order Share Within Payment]; slicer: Order Time", "Slicer style Between; each row totals 100%"),
+        20: ("Dashboard: matrix + column + line", "Restaurant Performance; Average Delay by Traffic Level; Order Volume by Order Hour", "Three coordinated visuals with independently styled colors"),
     },
 }
 
@@ -154,7 +154,7 @@ def narratives() -> dict[str, dict[int, str]]:
         17: "Order volume peaked at 19:00 with 328 orders, but the highest average delay occurred at 20:00 at 19.97 minutes. The volume and delay peaks did not fully coincide. The 21:00 delay was also high at 19.75 minutes, but that hour contained only three orders and should be read cautiously.",
         18: "Non-Veg had the largest order volume at 216 and an average topping density of 0.760. Cheese Burst combined high volume (188 orders) with the highest average density, 0.845. The supplied density field equals toppings per kilometre, so it should not be interpreted as a pure pizza-size measure.",
         19: "Traffic composition differed by payment method. High traffic made up 44.57% of Card orders, Medium traffic was largest for Cash (48.02%) and UPI (47.60%), and Low traffic was largest for Wallet (44.71%). Hut Points was 95.83% High traffic, but it contained only 24 orders, so its percentage is based on a small group.",
-        20: "The restaurant table identifies where delivery time and delay are highest or lowest, the traffic chart shows that average delay rises from Low to High traffic, and the hourly combo chart shows when operational pressure is greatest. Read together, they separate three useful views: restaurant performance, delivery conditions, and time-of-day demand.\n\nPapa John's had the shortest average delivery duration (28.19 minutes), while Marco's Pizza had the highest average delay (18.44 minutes). High traffic also had the highest average delay (19.16 minutes), and the order-volume peak at 19:00 was followed by the delay peak at 20:00. These patterns point to specific restaurants and periods for closer operational review without claiming that the visualized relationships prove causation.",
+        20: "The dashboard combines a conditionally formatted Restaurant Performance matrix, an Average Delay by Traffic Level column chart, and an Order Volume by Order Hour line chart. Together they compare restaurant performance, delivery conditions, and demand timing.\n\nPapa John's had the shortest average delivery duration (28.19 minutes), while Marco's Pizza had the highest average delay (18.44 minutes). High traffic had the highest average delay (19.16 minutes), and order volume reached 328 at 19:00. These supported results identify where and when operations warrant closer review without claiming causation.",
     }
     b = {
         1: "The compact ranking keeps Atlanta, GA as the leading location at 78 orders, ahead of Milwaukee, WI (71) and Louisville, KY (69). The alternative orientation emphasizes the size gap among the top demand locations.",
@@ -175,8 +175,8 @@ def narratives() -> dict[str, dict[int, str]]:
         16: "The matrix highlights different leaders for the two measures. Papa John's is fastest on average delivery duration at 28.19 minutes, while Little Caesars has the lowest average delay at 16.62 minutes. Domino's has the longest average duration (30.26), and Marco's Pizza has the highest average delay (18.44).",
         17: "The alternative combo styling shows that demand reaches its maximum at 19:00 (328 orders), while average delay reaches its maximum one hour later at 20:00 (19.97 minutes). This separation is easier to see when the delay line is emphasized on its own axis. The 21:00 value is based on only three orders.",
         18: "Cheese Burst has the highest average topping density at 0.845 while still recording 188 orders. Non-Veg has the greatest volume at 216 with density 0.760, whereas Gluten-Free is lower at 0.582. The supplied metric is toppings per kilometre, which limits a pizza-only interpretation.",
-        19: "The 100% bars compare composition rather than payment-method size. Card is 44.57% High traffic; Cash and UPI are mainly Medium traffic at 48.02% and 47.60%; Wallet is mainly Low traffic at 44.71%. Small groups such as Hut Points (24 orders) and Domino's Cash (23) require cautious percentage comparisons.",
-        20: "The dashboard begins with demand location, then compares pizza-type delivery performance, and finishes with traffic composition inside payment methods. Atlanta leads location demand with 78 orders, while Stuffed Crust has the longest pizza-type average delivery duration at 39.52 minutes.\n\nThe traffic-payment view adds operating context: Card is weighted toward High traffic, while Cash and UPI are weighted toward Medium traffic and Wallet toward Low traffic. Using the Order Time slicer lets the viewer test whether these patterns remain stable across different periods. Together, the three visuals connect where demand occurs, which pizza types take longer, and the conditions surrounding each payment mix.",
+        19: "The percentage matrix compares Traffic Level composition within each Payment Method while retaining the Between-style Order Time slicer context. Card is 44.57% High traffic; Cash and UPI are mainly Medium traffic at 48.02% and 47.60%; Wallet is mainly Low traffic at 44.71%. Every payment-method row totals 100%, while small groups such as Hut Points (24 orders) and Domino's Cash (23) should be interpreted cautiously.",
+        20: "Three coordinated views align restaurant comparison, delivery conditions, and demand timing. The Restaurant Performance matrix highlights the two averages by restaurant, the traffic columns compare average delay across Low, Medium, and High conditions, and the hourly line traces order volume.\n\nPapa John's records the shortest average delivery duration at 28.19 minutes, whereas Marco's Pizza records the highest average delay at 18.44 minutes. High traffic reaches 19.16 minutes of average delay, and the hourly curve reaches 328 orders at 19:00. Read together, the views locate operational pressure without implying a causal relationship.",
     }
     return {"A": a, "B": b}
 
@@ -257,8 +257,8 @@ RANKX(
 ## Calculated columns
 
 ```DAX
-Order Month-Year =
-FORMAT(PizzaOrders[Order Time], "yyyy-MM")
+Order Month Start =
+DATE(YEAR(PizzaOrders[Order Time]), MONTH(PizzaOrders[Order Time]), 1)
 
 Peak Hour Label =
 IF(PizzaOrders[Is Peak Hour] = TRUE(), "Peak Hour", "Non-Peak Hour")
@@ -267,7 +267,7 @@ Weekend Label =
 IF(PizzaOrders[Is Weekend] = TRUE(), "Weekend", "Weekday")
 ```
 
-Because the label uses ISO `yyyy-MM`, sorting `Order Month-Year` ascending is also chronological. Do not use the source `Order Month` name alone, because that would combine the same month across different years.
+Format `Order Month Start` as `yyyy-MM` and sort it ascending. Do not use the source `Order Month` name alone, because that would combine calendar-month names from different years.
 
 ## Version A field-value colors for Q16
 
@@ -493,8 +493,8 @@ def common_guide_intro(version: str) -> list[str]:
         "## 2. 创建 Measures 和 Columns", "",
         "1. 在右侧 Data pane 对 `PizzaOrders` 右键 > **New measure**；也可先选中表，再点 Home > Calculations > New measure。顶部会出现公式栏。",
         "2. 逐个复制 `COMMON/DAX_MEASURES.md` 中的 Measures。每粘贴一条按 Enter，确认表下出现计算器图标。",
-        "3. 对 `PizzaOrders` 右键 > **New column**，逐个创建 `Order Month-Year`、`Peak Hour Label`、`Weekend Label`。`Order Month-Year = FORMAT(PizzaOrders[Order Time], \"yyyy-MM\")`。",
-        "4. Q09 必须使用 `Order Month-Year` 并设为 Ascending；不要使用源字段 `Order Month`，否则不同年份的同名月份会被错误合并。",
+        "3. 对 `PizzaOrders` 右键 > **New column**，逐个创建 `Order Month Start`、`Peak Hour Label`、`Weekend Label`。`Order Month Start = DATE(YEAR(PizzaOrders[Order Time]), MONTH(PizzaOrders[Order Time]), 1)`，格式设为 `yyyy-MM`。",
+        "4. Q09 必须使用真实日期字段 `Order Month Start` 并设为 Ascending；不要使用源字段 `Order Month`，否则不同年份的同名月份会被错误合并。",
         "5. 选中各平均值 Measure，在 Measure tools 把 Format 设为 Decimal number；Avg Delivery/Avg Delay 设 2 位，Avg Toppings/Avg Topping Density 设 2 或 3 位。Order Count 设 Whole number。", "",
         "## 3. 新增与重命名页面", "",
         "1. 报告底部点 `+` 新建页面。双击页面标签，依次创建并命名 Q01、Q02、…、Q19、Q20 Dashboard。",
@@ -565,7 +565,7 @@ def question_steps(version: str, i: int) -> list[str]:
     elif i in (17, 18):
         lines.append("6. 在 Format visual 展开 Secondary y-axis，设为 On，并开启左右轴标题；Order Count 使用整数轴，平均值使用 1–2 位小数。")
     elif i == 9:
-        lines.append("6. X-axis 必须使用 `Order Month-Year`（显示为 yyyy-MM），不是源字段 `Order Month`；Visual 右上 `...` > Sort axis > Order Month-Year > Ascending。应出现 31 个时间点，从 2024-01 到 2026-07。")
+        lines.append("6. X-axis 必须使用真实日期字段 `Order Month Start`（显示为 yyyy-MM），不是源字段 `Order Month`；Visual 右上 `...` > Sort axis > Order Month Start > Ascending。应出现 31 个时间点，从 2024-01 到 2026-07。")
     elif i == 13:
         lines.append("6. 确认 X-axis 使用 Whole Number `Order Hour`，不是把它当日期或文本；排序必须是 12、13、14、17、18、19、20、21。")
     else:

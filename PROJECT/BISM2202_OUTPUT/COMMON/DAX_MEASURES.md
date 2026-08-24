@@ -48,8 +48,8 @@ RANKX(
 ## Calculated columns
 
 ```DAX
-Order Month-Year =
-FORMAT(PizzaOrders[Order Time], "yyyy-MM")
+Order Month Start =
+DATE(YEAR(PizzaOrders[Order Time]), MONTH(PizzaOrders[Order Time]), 1)
 
 Peak Hour Label =
 IF(PizzaOrders[Is Peak Hour] = TRUE(), "Peak Hour", "Non-Peak Hour")
@@ -58,7 +58,7 @@ Weekend Label =
 IF(PizzaOrders[Is Weekend] = TRUE(), "Weekend", "Weekday")
 ```
 
-Because the label uses ISO `yyyy-MM`, sorting `Order Month-Year` ascending is also chronological. Do not use the source `Order Month` name alone, because that would combine the same month across different years.
+Format `Order Month Start` as `yyyy-MM` and sort it ascending. Do not use the source `Order Month` name alone, because that would combine calendar-month names from different years.
 
 ## Version A field-value colors for Q16
 

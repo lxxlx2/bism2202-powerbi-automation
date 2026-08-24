@@ -87,12 +87,12 @@ def main() -> int:
                     issues.append("PBIX does not contain q01-q20 in order.")
 
                 q09 = _visual(archive, "q09", "q09_chart")
-                if "Order Month-Year" not in _projection_properties(q09):
-                    issues.append("Q09 does not use Order Month-Year.")
-                if "Order Month English" in _projection_properties(q09) or "Order Month Sorted" in _projection_properties(q09):
+                if "Order Month Start" not in _projection_properties(q09):
+                    issues.append("Q09 does not use the real date field Order Month Start.")
+                if {"Order Month English", "Order Month Sorted", "Order Month-Year"} & _projection_properties(q09):
                     issues.append("Q09 still uses the old month-only field.")
-                if not _sorts_by(q09, "Order Month-Year"):
-                    issues.append("Q09 is not explicitly sorted by Month-Year ascending.")
+                if not _sorts_by(q09, "Order Month Start"):
+                    issues.append("Q09 is not explicitly sorted by Order Month Start ascending.")
 
                 for page, visual_name in (
                     ("q13", "q13_chart"),

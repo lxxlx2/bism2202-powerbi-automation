@@ -61,7 +61,8 @@ function Hide-Subtitle([string]$Report, [string]$Page, [string]$Visual) {
     }
     $subtitle = [pscustomobject]@{ properties = [pscustomobject]@{ show = (Literal-Bool $false) } }
     Set-Property $data.visual.visualContainerObjects 'subTitle' @($subtitle)
-    $data | ConvertTo-Json -Depth 100 | Set-Content -LiteralPath $path -Encoding UTF8
+    $json = $data | ConvertTo-Json -Depth 100
+    [System.IO.File]::WriteAllText($path, $json, [System.Text.UTF8Encoding]::new($false))
 }
 
 function Remove-Visual([string]$Report, [string]$Page, [string]$Visual) {
@@ -125,7 +126,8 @@ function Polish-Version([ValidateSet('A','B')][string]$Label) {
         }
         $subtitle = [pscustomobject]@{ properties = [pscustomobject]@{ show = (Literal-Bool $false) } }
         Set-Property $data.visual.visualContainerObjects 'subTitle' @($subtitle)
-        $data | ConvertTo-Json -Depth 100 | Set-Content -LiteralPath $vf.FullName -Encoding UTF8
+        $json = $data | ConvertTo-Json -Depth 100
+        [System.IO.File]::WriteAllText($vf.FullName, $json, [System.Text.UTF8Encoding]::new($false))
     }
 
     Invoke-Pbi @('report','-p',$report,'validate')

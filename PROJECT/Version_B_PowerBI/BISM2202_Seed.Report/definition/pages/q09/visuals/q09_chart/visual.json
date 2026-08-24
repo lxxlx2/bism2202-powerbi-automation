@@ -23,11 +23,11 @@
                       "Entity": "PizzaOrders"
                     }
                   },
-                  "Property": "Order Month-Year"
+                  "Property": "Order Month Start"
                 }
               },
-              "queryRef": "PizzaOrders.Order Month-Year",
-              "nativeQueryRef": "Order Month-Year",
+              "queryRef": "PizzaOrders.Order Month Start",
+              "nativeQueryRef": "Order Month Start",
               "active": true
             }
           ]
@@ -64,7 +64,7 @@
                     "Entity": "PizzaOrders"
                   }
                 },
-                "Property": "Order Month-Year"
+                "Property": "Order Month Start"
               }
             },
             "direction": "Ascending"

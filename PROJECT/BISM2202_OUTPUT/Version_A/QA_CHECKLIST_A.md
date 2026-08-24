@@ -92,7 +92,7 @@ Python基准已完成；Power BI、截图和 PBIX 项必须在 Windows 上验证
 
 ## Q09
 
-- [x] Question requirement mapped: How does order volume trend by Month-Year?
+- [x] Question requirement mapped: How does order volume trend across Order Month?
 - [x] Correct planned visual: Line chart
 - [x] Correct field/aggregation/filter/sort documented
 - [x] Python verification target: 31 chronological points from 2024-01 to 2026-07; 2024-08 = 86; 2024-09 = 75; total = 1,004.
@@ -203,7 +203,7 @@ Python基准已完成；Power BI、截图和 PBIX 项必须在 Windows 上验证
 ## Q19
 
 - [x] Question requirement mapped: What is the percentage breakdown of orders by Traffic Level within each Payment methods, filterable by order time?
-- [x] Correct planned visual: 100% stacked column chart + slicer
+- [x] Correct planned visual: Percentage matrix + slicer
 - [x] Correct field/aggregation/filter/sort documented
 - [x] Python verification target: Each Payment Method totals 100%; Card High = 44.57%; Cash Medium = 48.02%; UPI Medium = 47.60%; Wallet Low = 44.71%.
 - [x] Report text uses validated numbers
@@ -214,7 +214,7 @@ Python基准已完成；Power BI、截图和 PBIX 项必须在 Windows 上验证
 ## Q20
 
 - [x] Question requirement mapped: Design three different charts or tables that use conditional formatting (or highlight them by using different colors) in a single dashboard. Explain why each one matters, what it represents, how they should be read together, and what insights emerge from viewing them as a whole.
-- [x] Correct planned visual: Dashboard: table + column + combo
+- [x] Correct planned visual: Dashboard: matrix + column + line
 - [x] Correct field/aggregation/filter/sort documented
 - [x] Python verification target: Exactly three main visuals, differentiated colors or conditional formatting, and an integrated explanation based on validated earlier results.
 - [x] Report text uses validated numbers

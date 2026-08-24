@@ -7,7 +7,7 @@ on:
       - '.github/workflows/final_visual_ocr.yml'
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
   visual-review:
@@ -100,12 +100,8 @@ jobs:
               raise SystemExit('\n'.join(hard))
           print('FINAL_VISUAL_OCR_STRUCTURAL_REVIEW: PASS')
           PY
-      - name: Commit OCR review output
+      - name: Verify OCR review is current
         shell: bash
         run: |
           set -euo pipefail
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add FINAL_PACKAGES/AI_FINAL_REVIEW/ocr_A.txt FINAL_PACKAGES/AI_FINAL_REVIEW/ocr_B.txt FINAL_PACKAGES/AI_FINAL_REVIEW/visual_ocr_review.json
-          git commit -m 'Add final 40-page visual OCR review'
-          git push
+          git diff --exit-code -- FINAL_PACKAGES/AI_FINAL_REVIEW/ocr_A.txt FINAL_PACKAGES/AI_FINAL_REVIEW/ocr_B.txt FINAL_PACKAGES/AI_FINAL_REVIEW/visual_ocr_review.json

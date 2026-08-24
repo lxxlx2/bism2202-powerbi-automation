@@ -286,8 +286,9 @@ table PizzaOrders
 		lineageTag: e1625a0f-a940-4d02-9d9e-113f42c3e2bd
 		summarizeBy: none
 
-	column 'Order Month-Year' = FORMAT(PizzaOrders[Order Time], "yyyy-MM")
-		dataType: string
+	column 'Order Month Start' = DATE(YEAR(PizzaOrders[Order Time]), MONTH(PizzaOrders[Order Time]), 1)
+		dataType: dateTime
+		formatString: yyyy-MM
 		lineageTag: df3dc216-1e55-41e3-9290-76fa3d30f74a
 		summarizeBy: none
 

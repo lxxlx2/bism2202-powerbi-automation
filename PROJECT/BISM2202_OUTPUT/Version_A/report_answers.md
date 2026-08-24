@@ -86,7 +86,7 @@ Peak hours contained 949 orders (94.52%), compared with only 55 non-peak orders 
 
 ## Q9
 
-How does order volume trend by Month-Year?
+How does order volume trend across Order Month?
 
 [Insert Power BI screenshot: screenshots/Q09.png]
 
@@ -202,7 +202,7 @@ Design three different charts or tables that use conditional formatting (or high
 
 Observation:
 
-The restaurant table identifies where delivery time and delay are highest or lowest, the traffic chart shows that average delay rises from Low to High traffic, and the hourly combo chart shows when operational pressure is greatest. Read together, they separate three useful views: restaurant performance, delivery conditions, and time-of-day demand.
+The dashboard combines a conditionally formatted Restaurant Performance matrix, an Average Delay by Traffic Level column chart, and an Order Volume by Order Hour line chart. Together they compare restaurant performance, delivery conditions, and demand timing.
 
-Papa John's had the shortest average delivery duration (28.19 minutes), while Marco's Pizza had the highest average delay (18.44 minutes). High traffic also had the highest average delay (19.16 minutes), and the order-volume peak at 19:00 was followed by the delay peak at 20:00. These patterns point to specific restaurants and periods for closer operational review without claiming that the visualized relationships prove causation.
+Papa John's had the shortest average delivery duration (28.19 minutes), while Marco's Pizza had the highest average delay (18.44 minutes). High traffic had the highest average delay (19.16 minutes), and order volume reached 328 at 19:00. These supported results identify where and when operations warrant closer review without claiming causation.
 

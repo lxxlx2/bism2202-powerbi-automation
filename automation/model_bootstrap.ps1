@@ -142,9 +142,10 @@ Ensure-TmdlObject -Kind "column" -Name "Peak Hour Label" -Block @"
 `t`tsummarizeBy: none
 "@
 
-Ensure-TmdlObject -Kind "column" -Name "Order Month-Year" -Block @"
-`tcolumn 'Order Month-Year' = FORMAT(PizzaOrders[Order Time], "yyyy-MM")
-`t`tdataType: string
+Ensure-TmdlObject -Kind "column" -Name "Order Month Start" -Block @"
+`tcolumn 'Order Month Start' = DATE(YEAR(PizzaOrders[Order Time]), MONTH(PizzaOrders[Order Time]), 1)
+`t`tdataType: dateTime
+`t`tformatString: yyyy-MM
 `t`tsummarizeBy: none
 "@
 
@@ -191,7 +192,7 @@ $required = @(
     "Delay Color",
     "Weekend Label",
     "Peak Hour Label",
-    "Order Month-Year",
+    "Order Month Start",
     "__OrderOne",
     "__LocationAvgDeliveryContribution",
     "__RestaurantAvgDelayContribution",

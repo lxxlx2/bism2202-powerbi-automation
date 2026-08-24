@@ -2,7 +2,7 @@
   "metadata": {
     "course": "BISM2202",
     "assessment": "Data Visualization Using Microsoft Power BI - Assessment Task",
-    "source": "/Users/jerson/Documents/教学接单/BISM2202_WIN_REPO_MIRROR/INPUTS/Assignment1_BISM2202_pizza_sell_data.xlsx",
+    "source": "/Users/jerson/Documents/教学接单/BISM2202_WINDOWS_PACKAGE/INPUTS/Assignment1_BISM2202_pizza_sell_data.xlsx",
     "analysis_grain": "One row per unique Order ID",
     "total_orders": 1004,
     "source_rows": 1004,
@@ -10,7 +10,7 @@
     "normalization": "Marco’s Pizza -> Marco's Pizza (3 rows, in memory only)"
   },
   "data_quality": {
-    "source_path": "/Users/jerson/Documents/教学接单/BISM2202_WIN_REPO_MIRROR/INPUTS/Assignment1_BISM2202_pizza_sell_data.xlsx",
+    "source_path": "/Users/jerson/Documents/教学接单/BISM2202_WINDOWS_PACKAGE/INPUTS/Assignment1_BISM2202_pizza_sell_data.xlsx",
     "sheet_names": [
       "Sheet1"
     ],
@@ -1026,12 +1026,12 @@
     },
     "Q09": {
       "metadata": {
-        "Question": "Order volume trend by Month-Year",
+        "Question": "How does order volume trend across Order Month?",
         "Metric": "Order Count",
-        "Dimension": "Month-Year",
+        "Dimension": "Order Month Start",
         "Aggregation": "DISTINCTCOUNT(Order ID)",
         "Filter": "None",
-        "Sort": "Month-Year ascending",
+        "Sort": "Order Month Start ascending",
         "Top N / Bottom N": "None",
         "Notes": "One point per calendar month; 31 months from 2024-01 through 2026-07."
       },
@@ -1716,8 +1716,8 @@
     "Q20_support": {
       "metadata": {
         "Question": "Three coordinated visuals with conditional formatting/colors",
-        "Metric": "Reuses Q01/Q12/Q14/Q16/Q17/Q19 metrics",
-        "Dimension": "Restaurant; Traffic; Hour; Location; Pizza Type; Payment",
+        "Metric": "Reuses Q13/Q14/Q16 metrics",
+        "Dimension": "Restaurant; Traffic Level; Order Hour",
         "Aggregation": "No new aggregation",
         "Filter": "None",
         "Sort": "None",

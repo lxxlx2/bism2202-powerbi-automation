@@ -57,7 +57,8 @@ function Read-Json([string]$Path) {
 }
 
 function Write-Json([string]$Path, $Data) {
-    $Data | ConvertTo-Json -Depth 100 | Set-Content -LiteralPath $Path -Encoding UTF8
+    $json = $Data | ConvertTo-Json -Depth 100
+    [System.IO.File]::WriteAllText($Path, $json, [System.Text.UTF8Encoding]::new($false))
 }
 
 function Ensure-TmdlObject {
@@ -227,9 +228,10 @@ function Fix-Version([ValidateSet('A','B')][string]$Label) {
 `t`tdisplayFolder: BISM2202 Measures
 "@
 
-    Ensure-TmdlObject -Path $tmdl -Kind column -Name 'Order Month-Year' -Block @"
-`tcolumn 'Order Month-Year' = FORMAT(PizzaOrders[Order Time], "yyyy-MM")
-`t`tdataType: string
+    Ensure-TmdlObject -Path $tmdl -Kind column -Name 'Order Month Start' -Block @"
+`tcolumn 'Order Month Start' = DATE(YEAR(PizzaOrders[Order Time]), MONTH(PizzaOrders[Order Time]), 1)
+`t`tdataType: dateTime
+`t`tformatString: yyyy-MM
 `t`tsummarizeBy: none
 "@
 
@@ -240,12 +242,12 @@ function Fix-Version([ValidateSet('A','B')][string]$Label) {
     if ($Label -eq 'A') {
         Add-Visual $report 'q03' 'clustered_column' 'q03_chart' 'Share of Orders by Pizza Size' @('--category','PizzaOrders[Pizza Size]','--value','PizzaOrders[Order Share Overall]')
         Add-Visual $report 'q05' 'clustered_bar' 'q05_chart' 'Share of Orders by Traffic Level' @('--category','PizzaOrders[Traffic Level]','--value','PizzaOrders[Order Share Overall]')
-        Add-Visual $report 'q09' 'line' 'q09_chart' 'Order Volume Trend by Month-Year' @('--category','PizzaOrders[Order Month-Year]','--value','PizzaOrders[Order Count]')
+        Add-Visual $report 'q09' 'line' 'q09_chart' 'Order Volume Trend by Month-Year' @('--category','PizzaOrders[Order Month Start]','--value','PizzaOrders[Order Count]')
         Add-Visual $report 'q15' 'clustered_bar' 'q15_chart' 'Order Proportion by Pizza Complexity' @('--category','PizzaOrders[Pizza Complexity]','--value','PizzaOrders[Order Share Overall]')
     } else {
         Add-Visual $report 'q03' 'clustered_bar' 'q03_chart' 'Share of Orders by Pizza Size' @('--category','PizzaOrders[Pizza Size]','--value','PizzaOrders[Order Share Overall]')
         Add-Visual $report 'q05' 'clustered_column' 'q05_chart' 'Share of Orders by Traffic Level' @('--category','PizzaOrders[Traffic Level]','--value','PizzaOrders[Order Share Overall]')
-        Add-Visual $report 'q09' 'clustered_column' 'q09_chart' 'Order Volume by Month-Year' @('--category','PizzaOrders[Order Month-Year]','--value','PizzaOrders[Order Count]')
+        Add-Visual $report 'q09' 'clustered_column' 'q09_chart' 'Order Volume by Month-Year' @('--category','PizzaOrders[Order Month Start]','--value','PizzaOrders[Order Count]')
         Add-Visual $report 'q15' 'clustered_column' 'q15_chart' 'Order Proportion by Pizza Complexity' @('--category','PizzaOrders[Pizza Complexity]','--value','PizzaOrders[Order Share Overall]')
     }
 
@@ -263,7 +265,7 @@ function Fix-Version([ValidateSet('A','B')][string]$Label) {
 
     $q09Path = Join-Path $report 'definition\pages\q09\visuals\q09_chart\visual.json'
     Set-ChartFormatting -Path $q09Path -HideSubtitle
-    Add-SortByColumn -Path $q09Path -Column 'Order Month-Year' -Direction Ascending
+    Add-SortByColumn -Path $q09Path -Column 'Order Month Start' -Direction Ascending
 
     foreach ($hourVisual in @(
         @('q13','q13_chart'),

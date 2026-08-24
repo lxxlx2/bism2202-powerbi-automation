@@ -29,6 +29,8 @@ INPUTS/
 # Generated logs
 automation/logs/*.log
 **/*.log
+automation/logs/validate_*.json
+automation/backups/
 
 # Power BI local cache
 **/.pbi/

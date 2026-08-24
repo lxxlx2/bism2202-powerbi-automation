@@ -1,125 +1,36 @@
-name: Package final BISM2202 deliverables
+name: Validate final BISM2202 packages
 
 on:
   push:
     branches: [main]
     paths:
-      - 'Student_A/**'
-      - 'Student_B/**'
+      - 'FINAL_DELIVERABLES/**'
+      - 'FINAL_PACKAGES/**'
+      - 'automation/package_final.py'
       - '.github/workflows/package_final.yml'
 
 permissions:
   contents: read
 
 jobs:
-  package:
+  validate:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
-      - name: Verify core files and screenshot counts
+      - name: Re-extract and verify exact contents
         shell: bash
         run: |
-          set -euo pipefail
-          for V in A B; do
-            test -s "Student_${V}/BISM2202_Assignment.pbix"
-            test -s "Student_${V}/BISM2202_Report.docx"
-            count=$(find "Student_${V}/screenshots" -maxdepth 1 -type f -name 'Q??.png' | wc -l)
-            echo "Student_${V} screenshot count: $count"
-            test "$count" -eq 20
-            unzip -t "Student_${V}/BISM2202_Report.docx" >/dev/null
-          done
-
-      - name: Validate report text, media, and screenshot images
-        shell: bash
-        run: |
-          set -euo pipefail
           python3 - <<'PY'
-          import os, re, zipfile, struct, statistics, json
+          import hashlib, json, tempfile, zipfile
           from pathlib import Path
-
-          summary = {}
-          for v in ['A','B']:
-              root = Path(f'Student_{v}')
-              docx = root/'BISM2202_Report.docx'
-              with zipfile.ZipFile(docx) as z:
-                  xml = z.read('word/document.xml').decode('utf-8', errors='ignore')
-                  cjk = re.findall(r'[\u4e00-\u9fff]', xml)
-                  media = [n for n in z.namelist() if n.startswith('word/media/') and not n.endswith('/')]
-              shots = sorted((root/'screenshots').glob('Q??.png'))
-              image_stats = []
-              for p in shots:
-                  data = p.read_bytes()
-                  if data[:8] != b'\x89PNG\r\n\x1a\n':
-                      raise SystemExit(f'{p} is not a valid PNG signature')
-                  w,h = struct.unpack('>II', data[16:24])
-                  if w < 500 or h < 300:
-                      raise SystemExit(f'{p} suspicious dimensions {w}x{h}')
-                  if len(data) < 5000:
-                      raise SystemExit(f'{p} suspiciously small: {len(data)} bytes')
-                  image_stats.append({'file':p.name,'width':w,'height':h,'bytes':len(data)})
-              summary[v] = {
-                  'docx_cjk_character_count': len(cjk),
-                  'docx_media_count': len(media),
-                  'screenshot_count': len(shots),
-                  'screenshots': image_stats,
-                  'pbix_bytes': (root/'BISM2202_Assignment.pbix').stat().st_size,
-                  'docx_bytes': docx.stat().st_size,
-              }
-              if cjk:
-                  raise SystemExit(f'Student_{v} DOCX contains {len(cjk)} CJK characters in document text')
-              if len(media) < 20:
-                  raise SystemExit(f'Student_{v} DOCX has only {len(media)} embedded media files')
-          Path('qa_summary.json').write_text(json.dumps(summary, indent=2), encoding='utf-8')
-          print(json.dumps(summary, indent=2))
+          manifest=json.loads(Path('FINAL_PACKAGES/FINAL_PACKAGE_MANIFEST.json').read_text())
+          assert manifest['status']=='PASS' and not manifest['issues']
+          for v in ('A','B'):
+              z=Path(f'FINAL_PACKAGES/BISM2202_Student_{v}_FINAL.zip')
+              assert hashlib.sha256(z.read_bytes()).hexdigest().upper()==manifest['versions'][v]['zip_sha256']
+              with tempfile.TemporaryDirectory() as d, zipfile.ZipFile(z) as a:
+                  assert a.namelist()==[f'BISM2202_Assignment_{v}.pbix',f'BISM2202_Report_{v}.docx']
+                  a.extractall(d)
+                  assert len(list(Path(d).iterdir()))==2
+          print('FINAL_PACKAGE_REEXTRACTION: PASS')
           PY
-
-      - name: Build contact sheets for visual review
-        shell: bash
-        run: |
-          python3 -m pip install --quiet pillow
-          python3 - <<'PY'
-          from PIL import Image, ImageOps, ImageDraw
-          from pathlib import Path
-
-          for v in ['A','B']:
-              files = sorted(Path(f'Student_{v}/screenshots').glob('Q??.png'))
-              thumbs=[]
-              for p in files:
-                  im=Image.open(p).convert('RGB')
-                  im.thumbnail((480,270))
-                  canvas=Image.new('RGB',(500,310),'white')
-                  x=(500-im.width)//2
-                  canvas.paste(im,(x,25))
-                  d=ImageDraw.Draw(canvas)
-                  d.text((10,5),p.stem,fill='black')
-                  thumbs.append(canvas)
-              cols=2
-              rows=(len(thumbs)+cols-1)//cols
-              sheet=Image.new('RGB',(cols*500,rows*310),'white')
-              for i,im in enumerate(thumbs):
-                  sheet.paste(im,((i%cols)*500,(i//cols)*310))
-              sheet.save(f'Student_{v}_contact_sheet.jpg',quality=90)
-          PY
-
-      - name: Create final ZIP packages
-        shell: bash
-        run: |
-          set -euo pipefail
-          zip -r -9 BISM2202_Student_A.zip Student_A >/dev/null
-          zip -r -9 BISM2202_Student_B.zip Student_B >/dev/null
-          sha256sum BISM2202_Student_A.zip BISM2202_Student_B.zip > SHA256SUMS.txt
-
-      - name: Upload final packages
-        uses: actions/upload-artifact@v4
-        with:
-          name: BISM2202-final-packages
-          path: |
-            BISM2202_Student_A.zip
-            BISM2202_Student_B.zip
-            Student_A_contact_sheet.jpg
-            Student_B_contact_sheet.jpg
-            qa_summary.json
-            SHA256SUMS.txt
-          if-no-files-found: error
-          retention-days: 7

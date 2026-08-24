@@ -25,8 +25,8 @@
 
 1. 在右侧 Data pane 对 `PizzaOrders` 右键 > **New measure**；也可先选中表，再点 Home > Calculations > New measure。顶部会出现公式栏。
 2. 逐个复制 `COMMON/DAX_MEASURES.md` 中的 Measures。每粘贴一条按 Enter，确认表下出现计算器图标。
-3. 对 `PizzaOrders` 右键 > **New column**，逐个创建 `Order Month-Year`、`Peak Hour Label`、`Weekend Label`。`Order Month-Year = FORMAT(PizzaOrders[Order Time], "yyyy-MM")`。
-4. Q09 必须使用 `Order Month-Year` 并设为 Ascending；不要使用源字段 `Order Month`，否则不同年份的同名月份会被错误合并。
+3. 对 `PizzaOrders` 右键 > **New column**，逐个创建 `Order Month Start`、`Peak Hour Label`、`Weekend Label`。`Order Month Start = DATE(YEAR(PizzaOrders[Order Time]), MONTH(PizzaOrders[Order Time]), 1)`，格式设为 `yyyy-MM`。
+4. Q09 必须使用真实日期字段 `Order Month Start` 并设为 Ascending；不要使用源字段 `Order Month`，否则不同年份的同名月份会被错误合并。
 5. 选中各平均值 Measure，在 Measure tools 把 Format 设为 Decimal number；Avg Delivery/Avg Delay 设 2 位，Avg Toppings/Avg Topping Density 设 2 或 3 位。Order Count 设 Whole number。
 
 ## 3. 新增与重命名页面
@@ -183,19 +183,19 @@
 8. 核对 Python 基准：Peak Hour = 949; Non-Peak Hour = 55.
 9. Ctrl+S 保存 PBIX；用 Windows Snipping Tool 截完整 Visual，保存为 `screenshots/Q08.png`。
 
-### Q09 - How does order volume trend by Month-Year?
+### Q09 - How does order volume trend across Order Month?
 
-**目标 Visual：** Line chart
-**字段槽位：** X-axis: Order Month-Year; Y-axis: [Order Count]
-**筛选/排序/格式：** Order Month-Year ascending from 2024-01 to 2026-07
+**目标 Visual：** Line chart  
+**字段槽位：** X-axis: Order Month Start; Y-axis: [Order Count]  
+**筛选/排序/格式：** Order Month Start ascending; displayed as yyyy-MM from 2024-01 to 2026-07  
 **标题：** `Order Volume Trend by Month-Year`
 
 1. 在底部单击页面 `Q09`，再单击画布空白处，确保没有选中别的 Visual。
 2. 在 Visualizations/Build visual 中选择 **Line chart**。若图标名称不确定，把鼠标停在图标上等待工具提示。
-3. 从 Data pane 展开 `PizzaOrders`，按以下位置逐个拖字段：**X-axis: Order Month-Year; Y-axis: [Order Count]**。Measure 带计算器图标，普通列没有。
-4. 设置 Visual：Order Month-Year ascending from 2024-01 to 2026-07。若字段默认显示 Sum，点字段槽位右侧下拉箭头，改用指定 Measure 或 Average/Distinct count。
+3. 从 Data pane 展开 `PizzaOrders`，按以下位置逐个拖字段：**X-axis: Order Month Start; Y-axis: [Order Count]**。Measure 带计算器图标，普通列没有。
+4. 设置 Visual：Order Month Start ascending; displayed as yyyy-MM from 2024-01 to 2026-07。若字段默认显示 Sum，点字段槽位右侧下拉箭头，改用指定 Measure 或 Average/Distinct count。
 5. 点 Visual 右上 `...`，按题意完成排序；然后在 Format visual 中把 Data labels 开启，并按需要设置 1–2 位小数。
-6. X-axis 必须使用 `Order Month-Year`（显示为 yyyy-MM），不是源字段 `Order Month`；Visual 右上 `...` > Sort axis > Order Month-Year > Ascending。应出现 31 个时间点，从 2024-01 到 2026-07。
+6. X-axis 必须使用真实日期字段 `Order Month Start`（显示为 yyyy-MM），不是源字段 `Order Month`；Visual 右上 `...` > Sort axis > Order Month Start > Ascending。应出现 31 个时间点，从 2024-01 到 2026-07。
 7. 在 Format visual > General > Title 开启标题并输入 `Order Volume Trend by Month-Year`。
 8. 核对 Python 基准：31 chronological points from 2024-01 to 2026-07; 2024-08 = 86; 2024-09 = 75; total = 1,004.
 9. Ctrl+S 保存 PBIX；用 Windows Snipping Tool 截完整 Visual，保存为 `screenshots/Q09.png`。
@@ -356,14 +356,14 @@
 
 ### Q19 - What is the percentage breakdown of orders by Traffic Level within each Payment methods, filterable by order time?
 
-**目标 Visual：** 100% stacked column chart + slicer  
-**字段槽位：** X-axis: Payment Method; Legend: Traffic Level; Y-axis: [Order Count]; slicer: Order Time  
-**筛选/排序/格式：** Slicer style Between; test interaction  
+**目标 Visual：** Percentage matrix + slicer  
+**字段槽位：** Rows: Payment Method; Columns: Traffic Level; Values: [Order Share Within Payment]; slicer: Order Time  
+**筛选/排序/格式：** Slicer style Between; each row totals 100%  
 **标题：** `Traffic Mix within Payment Method`
 
 1. 在底部单击页面 `Q19`，再单击画布空白处，确保没有选中别的 Visual。
-2. 在 Visualizations/Build visual 中选择 **100% stacked column chart + slicer**。若图标名称不确定，把鼠标停在图标上等待工具提示。
-3. 从 Data pane 展开 `PizzaOrders`，按以下位置逐个拖字段：**X-axis: Payment Method; Legend: Traffic Level; Y-axis: [Order Count]; slicer: Order Time**。Measure 带计算器图标，普通列没有。
+2. 在 Visualizations/Build visual 中选择 **Percentage matrix + slicer**。若图标名称不确定，把鼠标停在图标上等待工具提示。
+3. 从 Data pane 展开 `PizzaOrders`，按以下位置逐个拖字段：**Rows: Payment Method; Columns: Traffic Level; Values: [Order Share Within Payment]; slicer: Order Time**。Measure 带计算器图标，普通列没有。
 4. 单击画布空白处，插入 Slicer visual；把 `Order Time`（不要用 Date hierarchy）拖入 Field。
 5. 选中 slicer，Format visual > Visual > Slicer settings > Options > Style 选 Between。拖动左右端点，确认 100% stacked chart 会变化，再恢复完整日期范围。
 6. 检查轴标题、图例和数据标签没有遮挡；必要时拉宽 Visual，不要缩小到看不清字段名。
@@ -373,8 +373,8 @@
 
 ### Q20 - Design three different charts or tables that use conditional formatting (or highlight them by using different colors) in a single dashboard. Explain why each one matters, what it represents, how they should be read together, and what insights emerge from viewing them as a whole.
 
-**目标 Visual：** Dashboard: table + column + combo  
-**字段槽位：** Restaurant performance; Traffic delay; Hourly volume and delay  
+**目标 Visual：** Dashboard: matrix + column + line  
+**字段槽位：** Restaurant Performance; Average Delay by Traffic Level; Order Volume by Order Hour  
 **筛选/排序/格式：** Three visuals; conditional formatting/intentional colors  
 **标题：** `Pizza Delivery Operations Dashboard`
 

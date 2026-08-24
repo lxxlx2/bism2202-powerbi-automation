@@ -1,6 +1,6 @@
 # BISM2202 Data Quality Report
 
-- Source: `/Users/jerson/Documents/教学接单/BISM2202_WIN_REPO_MIRROR/INPUTS/Assignment1_BISM2202_pizza_sell_data.xlsx`
+- Source: `/Users/jerson/Documents/教学接单/BISM2202_WINDOWS_PACKAGE/INPUTS/Assignment1_BISM2202_pizza_sell_data.xlsx`
 - Sheet(s): Sheet1
 - Analysis sheet: `Sheet1`
 - Data rows: 1,004

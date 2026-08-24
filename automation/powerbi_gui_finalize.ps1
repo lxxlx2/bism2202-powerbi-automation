@@ -480,8 +480,12 @@ Set-Clipboard -Value $output
 Start-Sleep -Seconds 3
 foreach ($window in Get-TopLevelWindows) {
     if ($window.Current.ClassName -eq '#32770') {
-        $window.SetFocus()
-        [System.Windows.Forms.SendKeys]::SendWait('%y')
+        try {
+            $window.SetFocus()
+            [System.Windows.Forms.SendKeys]::SendWait('%y')
+        } catch {
+            Write-Host "Non-focusable dialog ignored while save continues: $($_.Exception.Message)" -ForegroundColor DarkYellow
+        }
     }
 }
 

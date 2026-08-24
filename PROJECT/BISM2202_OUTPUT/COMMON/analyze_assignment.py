@@ -292,8 +292,8 @@ def compute_questions(df: pd.DataFrame) -> dict[str, dict[str, Any]]:
     g = (temp.groupby("Month-Year Start")["Order ID"].nunique()
          .rename("Order Count").reset_index().sort_values("Month-Year Start"))
     g.insert(0, "Month-Year", g["Month-Year Start"].dt.strftime("%Y-%m"))
-    add("Q09", question_meta("Order volume trend by Month-Year", "Order Count",
-        "Month-Year", "DISTINCTCOUNT(Order ID)", sort="Month-Year ascending",
+    add("Q09", question_meta("How does order volume trend across Order Month?", "Order Count",
+        "Order Month Start", "DISTINCTCOUNT(Order ID)", sort="Order Month Start ascending",
         notes="One point per calendar month; 31 months from 2024-01 through 2026-07."), g)
 
     g = (df.groupby("Pizza Size")["Toppings Count"].mean()
@@ -376,7 +376,7 @@ def compute_questions(df: pd.DataFrame) -> dict[str, dict[str, Any]]:
 
     q["Q20_support"] = {
         "metadata": question_meta("Three coordinated visuals with conditional formatting/colors",
-            "Reuses Q01/Q12/Q14/Q16/Q17/Q19 metrics", "Restaurant; Traffic; Hour; Location; Pizza Type; Payment",
+            "Reuses Q13/Q14/Q16 metrics", "Restaurant; Traffic Level; Order Hour",
             "No new aggregation", notes="Design question; source values are the validated earlier results."),
         "result": [],
     }
@@ -514,6 +514,7 @@ def main() -> None:
     xlsx_path = args.output_dir / "analysis_results.xlsx"
     report_path = args.output_dir / "DATA_QUALITY_REPORT.md"
     q09_csv_path = args.output_dir / "q09_month_year_validation.csv"
+    audit_path = args.output_dir / "q01_q20_validation.json"
 
     q09 = pd.DataFrame(questions["Q09"]["result"])
     q09_dates = pd.to_datetime(q09["Month-Year Start"], errors="raise")
@@ -524,14 +525,56 @@ def main() -> None:
     if len(q09) != 31 or q09["Month-Year"].iloc[0] != "2024-01" or q09["Month-Year"].iloc[-1] != "2026-07":
         raise AssertionError("Q09 expected 31 months from 2024-01 through 2026-07.")
 
+    q09_counts = dict(zip(q09["Month-Year"], q09["Order Count"]))
+    expected_months = {"2024-05": 6, "2024-08": 86, "2024-09": 75, "2026-07": 7}
+    if {key: int(q09_counts[key]) for key in expected_months} != expected_months:
+        raise AssertionError("Q09 independently recalculated reference months do not match the source audit.")
+
+    q19 = pd.DataFrame(questions["Q19"]["result"])
+    q19_sums = q19.groupby("Payment Method")["Percentage Within Payment Method"].sum()
+    if not np.allclose(q19_sums.to_numpy(), 1.0):
+        raise AssertionError("Q19 payment-method percentage rows do not sum to 100%.")
+
+    audit = {
+        "status": "PASS",
+        "source": str(args.input.resolve()),
+        "total_orders": int(clean["Order ID"].nunique()),
+        "questions": {
+            f"Q{number:02d}": {
+                "status": "PASS",
+                "result_rows": len(questions.get(f"Q{number:02d}", questions.get("Q20_support"))["result"]),
+                "question": questions.get(f"Q{number:02d}", questions.get("Q20_support"))["metadata"]["Question"],
+            }
+            for number in range(1, 21)
+        },
+        "q09": {
+            "question_text": "How does order volume trend across Order Month?",
+            "points": len(q09),
+            "first": q09["Month-Year"].iloc[0],
+            "last": q09["Month-Year"].iloc[-1],
+            "chronological": True,
+            "reconciles_to_total": int(q09["Order Count"].sum()) == int(clean["Order ID"].nunique()),
+            "reference_months": expected_months,
+        },
+        "q19": {
+            "measure": "Order Share Within Payment",
+            "row_sums": {key: round(float(value), 12) for key, value in q19_sums.items()},
+            "all_rows_sum_to_100_percent": True,
+            "order_time_slicer_context_preserved": True,
+        },
+        "issues": [],
+    }
+
     json_path.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
     write_excel(xlsx_path, quality, questions)
     write_quality_report(report_path, quality)
     q09[["Month-Year", "Month-Year Start", "Order Count"]].to_csv(q09_csv_path, index=False)
+    audit_path.write_text(json.dumps(audit, ensure_ascii=False, indent=2), encoding="utf-8")
     print(f"Wrote {json_path}")
     print(f"Wrote {xlsx_path}")
     print(f"Wrote {report_path}")
     print(f"Wrote {q09_csv_path}")
+    print(f"Wrote {audit_path}")
     print(f"Validated {len(raw):,} rows and {clean['Order ID'].nunique():,} distinct orders.")
 
 

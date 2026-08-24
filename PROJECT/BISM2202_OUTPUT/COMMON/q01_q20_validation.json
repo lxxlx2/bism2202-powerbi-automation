@@ -1,0 +1,135 @@
+{
+  "status": "PASS",
+  "source": "/Users/jerson/Documents/教学接单/BISM2202_WINDOWS_PACKAGE/INPUTS/Assignment1_BISM2202_pizza_sell_data.xlsx",
+  "total_orders": 1004,
+  "questions": {
+    "Q01": {
+      "status": "PASS",
+      "result_rows": 20,
+      "question": "Top 20 locations based on count of order number"
+    },
+    "Q02": {
+      "status": "PASS",
+      "result_rows": 4,
+      "question": "Average Delivery Duration by Pizza Size"
+    },
+    "Q03": {
+      "status": "PASS",
+      "result_rows": 4,
+      "question": "Share of orders by Pizza Size"
+    },
+    "Q04": {
+      "status": "PASS",
+      "result_rows": 6,
+      "question": "Orders by Payment Method"
+    },
+    "Q05": {
+      "status": "PASS",
+      "result_rows": 3,
+      "question": "Share of orders by Traffic Level"
+    },
+    "Q06": {
+      "status": "PASS",
+      "result_rows": 2,
+      "question": "Average Toppings Count for weekend vs weekday"
+    },
+    "Q07": {
+      "status": "PASS",
+      "result_rows": 84,
+      "question": "Locations with highest average Delivery Duration"
+    },
+    "Q08": {
+      "status": "PASS",
+      "result_rows": 2,
+      "question": "Peak Hour vs Non-Peak order count"
+    },
+    "Q09": {
+      "status": "PASS",
+      "result_rows": 31,
+      "question": "How does order volume trend across Order Month?"
+    },
+    "Q10": {
+      "status": "PASS",
+      "result_rows": 4,
+      "question": "Average Toppings Count by Pizza Size"
+    },
+    "Q11": {
+      "status": "PASS",
+      "result_rows": 2,
+      "question": "Two restaurants with lowest average Delay"
+    },
+    "Q12": {
+      "status": "PASS",
+      "result_rows": 5,
+      "question": "Five Pizza Types with highest average Delivery Duration"
+    },
+    "Q13": {
+      "status": "PASS",
+      "result_rows": 8,
+      "question": "Order volume by Order Hour"
+    },
+    "Q14": {
+      "status": "PASS",
+      "result_rows": 3,
+      "question": "Average Delay by Traffic Level"
+    },
+    "Q15": {
+      "status": "PASS",
+      "result_rows": 10,
+      "question": "Proportion of orders by Pizza Complexity"
+    },
+    "Q16": {
+      "status": "PASS",
+      "result_rows": 5,
+      "question": "Average Delivery Duration and Delay by Restaurant Name"
+    },
+    "Q17": {
+      "status": "PASS",
+      "result_rows": 8,
+      "question": "Order volume by Order Hour alongside average Delay"
+    },
+    "Q18": {
+      "status": "PASS",
+      "result_rows": 12,
+      "question": "Average Topping Density by Pizza Type alongside order volume"
+    },
+    "Q19": {
+      "status": "PASS",
+      "result_rows": 17,
+      "question": "Traffic Level percentage within Payment Method, filterable by Order Time"
+    },
+    "Q20": {
+      "status": "PASS",
+      "result_rows": 0,
+      "question": "Three coordinated visuals with conditional formatting/colors"
+    }
+  },
+  "q09": {
+    "question_text": "How does order volume trend across Order Month?",
+    "points": 31,
+    "first": "2024-01",
+    "last": "2026-07",
+    "chronological": true,
+    "reconciles_to_total": true,
+    "reference_months": {
+      "2024-05": 6,
+      "2024-08": 86,
+      "2024-09": 75,
+      "2026-07": 7
+    }
+  },
+  "q19": {
+    "measure": "Order Share Within Payment",
+    "row_sums": {
+      "Card": 1.0,
+      "Cash": 1.0,
+      "Domino's Cash": 1.0,
+      "Hut Points": 1.0,
+      "UPI": 1.0,
+      "Wallet": 1.0
+    },
+    "all_rows_sum_to_100_percent": true,
+    "order_time_slicer_context_preserved": true
+  },
+  "issues": []
+}

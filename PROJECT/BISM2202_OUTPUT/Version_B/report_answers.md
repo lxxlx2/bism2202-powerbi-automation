@@ -86,7 +86,7 @@ The columns show a strong imbalance: 949 Peak Hour orders versus 55 Non-Peak Hou
 
 ## Q9
 
-How does order volume trend by Month-Year?
+How does order volume trend across Order Month?
 
 [Insert Power BI screenshot: screenshots/Q09.png]
 
@@ -192,7 +192,7 @@ What is the percentage breakdown of orders by Traffic Level within each Payment 
 
 Observation:
 
-The 100% bars compare composition rather than payment-method size. Card is 44.57% High traffic; Cash and UPI are mainly Medium traffic at 48.02% and 47.60%; Wallet is mainly Low traffic at 44.71%. Small groups such as Hut Points (24 orders) and Domino's Cash (23) require cautious percentage comparisons.
+The percentage matrix compares Traffic Level composition within each Payment Method while retaining the Between-style Order Time slicer context. Card is 44.57% High traffic; Cash and UPI are mainly Medium traffic at 48.02% and 47.60%; Wallet is mainly Low traffic at 44.71%. Every payment-method row totals 100%, while small groups such as Hut Points (24 orders) and Domino's Cash (23) should be interpreted cautiously.
 
 ## Q20
 
@@ -202,7 +202,7 @@ Design three different charts or tables that use conditional formatting (or high
 
 Observation:
 
-The dashboard begins with demand location, then compares pizza-type delivery performance, and finishes with traffic composition inside payment methods. Atlanta leads location demand with 78 orders, while Stuffed Crust has the longest pizza-type average delivery duration at 39.52 minutes.
+Three coordinated views align restaurant comparison, delivery conditions, and demand timing. The Restaurant Performance matrix highlights the two averages by restaurant, the traffic columns compare average delay across Low, Medium, and High conditions, and the hourly line traces order volume.
 
-The traffic-payment view adds operating context: Card is weighted toward High traffic, while Cash and UPI are weighted toward Medium traffic and Wallet toward Low traffic. Using the Order Time slicer lets the viewer test whether these patterns remain stable across different periods. Together, the three visuals connect where demand occurs, which pizza types take longer, and the conditions surrounding each payment mix.
+Papa John's records the shortest average delivery duration at 28.19 minutes, whereas Marco's Pizza records the highest average delay at 18.44 minutes. High traffic reaches 19.16 minutes of average delay, and the hourly curve reaches 328 orders at 19:00. Read together, the views locate operational pressure without implying a causal relationship.
 
