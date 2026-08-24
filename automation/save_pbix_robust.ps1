@@ -200,11 +200,13 @@ Focus-Process $process
 $output = Join-Path $ProjectRoot "PROJECT\BISM2202_OUTPUT\Version_${Version}\BISM2202_Assignment_${Version}.pbix"
 New-Item -ItemType Directory -Force -Path (Split-Path -Parent $output) | Out-Null
 
-# Remove only the intended generated PBIX so this run cannot be blocked by its own old output.
+# Move only the intended generated PBIX out of the repo so an old output cannot trigger an overwrite dialog.
 if (Test-Path -LiteralPath $output) {
-    $backup = "$output.pre-save-$(Get-Date -Format yyyyMMdd-HHmmss).bak"
+    $backupDir = Join-Path $env:TEMP 'BISM2202_PBIX_BACKUPS'
+    New-Item -ItemType Directory -Force -Path $backupDir | Out-Null
+    $backup = Join-Path $backupDir ("BISM2202_Assignment_${Version}.pbix.pre-save-" + (Get-Date -Format yyyyMMdd-HHmmss) + '.bak')
     Move-Item -LiteralPath $output -Destination $backup -Force
-    Write-Host "Existing generated PBIX moved aside: $backup" -ForegroundColor DarkYellow
+    Write-Host "Existing generated PBIX moved outside repo: $backup" -ForegroundColor DarkYellow
 }
 
 # If the previous automation is already sitting on a PBIP overwrite confirmation, escape that state first.
