@@ -1,33 +1,40 @@
 {
-  "generated": "2026-08-24T22:43:13+07:00",
+  "generated": "2026-08-25T01:55:57+07:00",
+  "source_commit_before_fix": "73d9025da57ea53a545969d562ad40440fd1b7dc",
+  "final_commit_after_fix": "0ff36f519a0da602e3b1a45109931326aa5e3a5e",
+  "q01_q20_audit_status": "PASS",
   "versions": {
     "A": {
       "zip": "FINAL_PACKAGES\\BISM2202_Student_A_FINAL.zip",
-      "zip_bytes": 1121561,
-      "zip_sha256": "EDB1B0B22CAB4D69A2A9F94711B25E4D99B15C5EFD813E77EB2AD2EDA74F24BD",
+      "zip_bytes": 941580,
+      "zip_sha256": "41598E8545EECA18A6EDE8D73726B810418AC49BA1B79C0D78C8A018ED222923",
       "contents": [
-        "BISM2202_Assignment.pbix",
-        "BISM2202_Report.docx"
+        "BISM2202_Assignment_A.pbix",
+        "BISM2202_Report_A.docx"
       ],
-      "pbix_bytes": 142464,
-      "pbix_sha256": "9EAAACD30203E4076AD99A67E5E6F4CAEB9BA6245F82E9A644ACBB1740682207",
-      "docx_bytes": 998041,
-      "docx_sha256": "B0ECCC39A01CCD2AC283DCCA9D6A17E1313D62BF511C172840259AFF5C1A26BA",
-      "docx_embedded_images": 20
+      "pbix_bytes": 142856,
+      "pbix_sha256": "3F26AB0C47C3DB3E7F50A2D847A3E2CC09721924FCA95C8833DD96FD9C175719",
+      "docx_bytes": 817229,
+      "docx_sha256": "835A8A8770CDA2372A47BEA5C55AB81A51CC6842591931D0029CD20E7215B9A2",
+      "screenshot_count": 20,
+      "docx_embedded_images": 20,
+      "reextraction_status": "PASS"
     },
     "B": {
       "zip": "FINAL_PACKAGES\\BISM2202_Student_B_FINAL.zip",
-      "zip_bytes": 1050449,
-      "zip_sha256": "D18C9E294FFB290FB48965C40C5962729D1969B4166F976EA16C46FCB2966E53",
+      "zip_bytes": 881531,
+      "zip_sha256": "761BA37C07CDEEEC7C2306AE858D0B2FEEB3EC39395811F0093F3F0D86A58B77",
       "contents": [
-        "BISM2202_Assignment.pbix",
-        "BISM2202_Report.docx"
+        "BISM2202_Assignment_B.pbix",
+        "BISM2202_Report_B.docx"
       ],
-      "pbix_bytes": 142343,
-      "pbix_sha256": "14039BDEC3A5441196590552020FC860A5B0336FC37F0A0ED89D14F0FCE8F5AE",
-      "docx_bytes": 927096,
-      "docx_sha256": "F432DADBECF33A79E88CF9AB4C09DE3263DD8FC96EF3C7A56C9BB1B5AD3DED7D",
-      "docx_embedded_images": 20
+      "pbix_bytes": 142425,
+      "pbix_sha256": "CD93EC928C23D12925E8FEB8AF53540ABBAE0C7771B267B1E0271A15CDB89310",
+      "docx_bytes": 756965,
+      "docx_sha256": "4BFBB471431B358FC3F43698D4F4CC551C39343441C6311CD0294FB6C94BE1B4",
+      "screenshot_count": 20,
+      "docx_embedded_images": 20,
+      "reextraction_status": "PASS"
     }
   },
   "status": "PASS",
