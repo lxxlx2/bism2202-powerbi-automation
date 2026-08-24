@@ -15,7 +15,7 @@ Version A and Version B reports, guides, DAX, and QA targets are generated from 
 | Weekend / Weekday Avg Toppings | Shared Python result | Shared Python result | PASS |
 | Location Avg Delivery ranking | Shared Python result | Shared Python result | PASS |
 | Peak / Non-Peak counts | Shared Python result | Shared Python result | PASS |
-| Monthly order totals | Shared Python result | Shared Python result | PASS |
+| Month-Year order totals | Shared Python result | Shared Python result | PASS |
 | Avg Toppings by Pizza Size | Shared Python result | Shared Python result | PASS |
 | Bottom 2 restaurants by Avg Delay | Shared Python result | Shared Python result | PASS |
 | Top 5 Pizza Types by Avg Delivery Duration | Shared Python result | Shared Python result | PASS |
@@ -32,6 +32,6 @@ Version A and Version B reports, guides, DAX, and QA targets are generated from 
 
 - Source rows: 1,004; DISTINCTCOUNT(Order ID): 1,004.
 - Restaurant typography normalization: `Marco’s Pizza` -> `Marco's Pizza` for 3 rows, in memory/Power Query only.
-- Q9 aggregates Order Month across all available years and sorts January to December by Month Number.
+- Q9 uses 31 distinct Month-Year points from 2024-01 to 2026-07 and sorts them chronologically.
 - Q19 percentages use Payment Method as denominator and must respond to the Order Time slicer.
 - If either PBIX differs from `analysis_results.xlsx`, mark `FAIL_DATA_INCONSISTENCY`, correct the visual/filter/aggregation, and repeat the check.

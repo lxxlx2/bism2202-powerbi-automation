@@ -267,7 +267,7 @@ table PizzaOrders
 		dataType: string
 		summarizeBy: none
 
-	column 'Order Month Sorted' = FORMAT(PizzaOrders[Order Time], "MM - MMMM")
+	column 'Order Month-Year' = FORMAT(PizzaOrders[Order Time], "yyyy-MM")
 		dataType: string
 		summarizeBy: none
 

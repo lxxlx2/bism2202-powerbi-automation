@@ -86,13 +86,13 @@ Peak hours contained 949 orders (94.52%), compared with only 55 non-peak orders 
 
 ## Q9
 
-How does order volume trend across Order Month?
+How does order volume trend by Month-Year?
 
 [Insert Power BI screenshot: screenshots/Q09.png]
 
 Observation:
 
-Order volume was highest in August with 117 orders, followed by September with 105. July was the lowest month with 49 orders. These totals combine the same month across all source years, as requested by the Order Month wording.
+The chronological series contains 31 distinct Month-Year points from 2024-01 to 2026-07. Volume peaked at 86 orders in 2024-08 and remained high at 75 in 2024-09, before falling to 44 in 2024-10. The lowest complete point was 2024-05 with 6 orders; the final 2026-07 point has 7 orders and covers data only through 7 July.
 
 ## Q10
 

@@ -92,10 +92,10 @@ Python基准已完成；Power BI、截图和 PBIX 项必须在 Windows 上验证
 
 ## Q09
 
-- [x] Question requirement mapped: How does order volume trend across Order Month?
+- [x] Question requirement mapped: How does order volume trend by Month-Year?
 - [x] Correct planned visual: Line chart
 - [x] Correct field/aggregation/filter/sort documented
-- [x] Python verification target: January to December order; August = 117; July = 49.
+- [x] Python verification target: 31 chronological points from 2024-01 to 2026-07; 2024-08 = 86; 2024-09 = 75; total = 1,004.
 - [x] Report text uses validated numbers
 - [ ] Power BI visual matches Python
 - [ ] Screenshot present and readable

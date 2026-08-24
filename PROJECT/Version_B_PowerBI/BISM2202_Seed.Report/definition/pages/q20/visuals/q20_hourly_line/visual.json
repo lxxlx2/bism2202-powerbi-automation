@@ -50,12 +50,41 @@
             }
           ]
         }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "PizzaOrders"
+                  }
+                },
+                "Property": "Order Hour"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
       }
     },
     "objects": {
       "dataPoint": [
         {
-          "properties": {}
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#59A14F'"
+                    }
+                  }
+                }
+              }
+            }
+          }
         }
       ]
     },

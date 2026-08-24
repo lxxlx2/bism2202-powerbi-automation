@@ -23,11 +23,11 @@
                       "Entity": "PizzaOrders"
                     }
                   },
-                  "Property": "Order Month English"
+                  "Property": "Order Month-Year"
                 }
               },
-              "queryRef": "PizzaOrders.Order Month English",
-              "nativeQueryRef": "Order Month English",
+              "queryRef": "PizzaOrders.Order Month-Year",
+              "nativeQueryRef": "Order Month-Year",
               "active": true
             }
           ]
@@ -53,6 +53,24 @@
         "Legend": {
           "projections": []
         }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "PizzaOrders"
+                  }
+                },
+                "Property": "Order Month-Year"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ],
+        "isDefaultSort": true
       }
     },
     "drillFilterOtherVisuals": true,
@@ -63,7 +81,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Order Volume by Order Month'"
+                  "Value": "'Order Volume by Month-Year'"
                 }
               }
             }

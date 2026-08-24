@@ -24,7 +24,7 @@
 - Q6 (0.5 pt): What is the average Toppings Count for weekend vs. weekday orders?
 - Q7 (0.5 pt): Which locations have the highest average Delivery Duration (min)?
 - Q8 (0.5 pt): How many orders were placed during peak hours vs. non-peak?
-- Q9 (1 pt): How does order volume trend across Order Month?
+- Q9 (1 pt): How does order volume trend by Month-Year?
 - Q10 (1 pt): What is the average Toppings Count by Pizza Size?
 - Q11 (1 pt): Which 2 restaurants have the lowest average Delay (min) i.e., the fastest, most reliable performers?
 - Q12 (1 pt): Which 5 Pizza Types have the highest average Delivery Duration (min)?

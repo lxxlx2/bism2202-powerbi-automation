@@ -286,7 +286,7 @@ table PizzaOrders
 		lineageTag: 28513b7f-45a9-45fc-a2b5-1107494a28f5
 		summarizeBy: none
 
-	column 'Order Month Sorted' = FORMAT(PizzaOrders[Order Time], "MM - MMMM")
+	column 'Order Month-Year' = FORMAT(PizzaOrders[Order Time], "yyyy-MM")
 		dataType: string
 		lineageTag: 2eea84a8-904c-40dc-a8b4-fbb96c7a274f
 		summarizeBy: none
@@ -315,11 +315,6 @@ table PizzaOrders
 		isHidden
 		lineageTag: 3d4cdf96-3aec-4475-b15f-7ed00d4944a4
 		summarizeBy: sum
-
-	column 'Order Month English' = SWITCH(MONTH(PizzaOrders[Order Time]), 1, "01 - January", 2, "02 - February", 3, "03 - March", 4, "04 - April", 5, "05 - May", 6, "06 - June", 7, "07 - July", 8, "08 - August", 9, "09 - September", 10, "10 - October", 11, "11 - November", 12, "12 - December")
-		dataType: string
-		lineageTag: 850b195d-fd83-40dd-b67b-71c028b6b417
-		summarizeBy: none
 
 	partition PizzaOrders = m
 		mode: import

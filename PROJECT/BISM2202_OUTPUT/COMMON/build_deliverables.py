@@ -60,7 +60,7 @@ QUESTIONS = {
     6: "What is the average Toppings Count for weekend vs. weekday orders?",
     7: "Which locations have the highest average Delivery Duration (min)?",
     8: "How many orders were placed during peak hours vs. non-peak?",
-    9: "How does order volume trend across Order Month?",
+    9: "How does order volume trend by Month-Year?",
     10: "What is the average Toppings Count by Pizza Size?",
     11: "Which 2 restaurants have the lowest average Delay (min) i.e., the fastest, most reliable performers?",
     12: "Which 5 Pizza Types have the highest average Delivery Duration (min)?",
@@ -86,7 +86,7 @@ VISUALS = {
         6: ("Clustered column chart", "X-axis: Weekend Label; Y-axis: [Avg Toppings Count]", "Data labels on; 2 decimals"),
         7: ("Clustered bar chart", "Y-axis: Location; X-axis: [Avg Delivery Duration]", "Top N = 10 by [Avg Delivery Duration]; descending; retain ties"),
         8: ("Donut chart", "Legend: Peak Hour Label; Values: [Order Count]", "Category + percentage labels"),
-        9: ("Line chart", "X-axis: Order Month; Y-axis: [Order Count]", "Order Month sorted by Month Number; ascending"),
+        9: ("Line chart", "X-axis: Order Month-Year; Y-axis: [Order Count]", "Order Month-Year ascending from 2024-01 to 2026-07"),
         10: ("Clustered column chart", "X-axis: Pizza Size; Y-axis: [Avg Toppings Count]", "Data labels on; 2 decimals"),
         11: ("Clustered bar chart", "Y-axis: Restaurant Name; X-axis: [Avg Delay]", "Visual filter [Delay Rank Asc] <= 2; ascending"),
         12: ("Clustered bar chart", "Y-axis: Pizza Type; X-axis: [Avg Delivery Duration]", "Top N = 5 by [Avg Delivery Duration]; descending"),
@@ -108,7 +108,7 @@ VISUALS = {
         6: ("Clustered bar chart", "Y-axis: Weekend Label; X-axis: [Avg Toppings Count]", "Data labels on; 2 decimals"),
         7: ("Clustered column chart", "X-axis: Location; Y-axis: [Avg Delivery Duration]", "Top N = 10; descending; retain ties"),
         8: ("Clustered column chart", "X-axis: Peak Hour Label; Y-axis: [Order Count]", "Data labels on"),
-        9: ("Area chart", "X-axis: Order Month; Y-axis: [Order Count]", "Order Month sorted by Month Number; ascending"),
+        9: ("Clustered column chart", "X-axis: Order Month-Year; Y-axis: [Order Count]", "Order Month-Year ascending from 2024-01 to 2026-07"),
         10: ("Clustered bar chart", "Y-axis: Pizza Size; X-axis: [Avg Toppings Count]", "Data labels on; 2 decimals"),
         11: ("Clustered column chart", "X-axis: Restaurant Name; Y-axis: [Avg Delay]", "Visual filter [Delay Rank Asc] <= 2; ascending"),
         12: ("Clustered column chart", "X-axis: Pizza Type; Y-axis: [Avg Delivery Duration]", "Top N = 5; descending"),
@@ -124,8 +124,8 @@ VISUALS = {
 }
 
 TITLES = {
-    "A": ["Top 20 Locations by Order Volume", "Average Delivery Duration by Pizza Size", "Share of Orders by Pizza Size", "Orders by Payment Method", "Share of Orders by Traffic Level", "Average Toppings Count: Weekend vs Weekday", "Locations with Highest Average Delivery Duration", "Peak vs Non-Peak Order Volume", "Monthly Order Volume", "Average Toppings Count by Pizza Size", "Two Restaurants with Lowest Average Delay", "Top 5 Pizza Types by Average Delivery Duration", "Hourly Order Volume", "Average Delay by Traffic Level", "Order Share by Pizza Complexity", "Restaurant Delivery Performance", "Hourly Order Volume and Average Delay", "Pizza Type Topping Density and Order Volume", "Traffic Mix within Payment Method", "Pizza Delivery Operations Dashboard"],
-    "B": ["Top 20 Order Locations", "Delivery Time across Pizza Sizes", "Pizza Size Order Distribution", "Payment Method Order Ranking", "Traffic-Level Order Mix", "Topping Levels on Weekends and Weekdays", "Slowest Delivery Locations", "Orders in Peak and Non-Peak Periods", "Seasonal Pattern in Order Volume", "Toppings across Pizza Sizes", "Most Reliable Restaurants by Average Delay", "Pizza Types with Longest Delivery Times", "Orders across a Typical Day", "Traffic Conditions and Average Delay", "Pizza Complexity Mix", "Restaurant Speed and Delay Matrix", "When Order Pressure and Delay Rise", "Pizza Type Volume and Topping Density", "Traffic Composition inside Payment Methods", "Pizza Order and Delivery Performance Overview"],
+    "A": ["Top 20 Locations by Order Volume", "Average Delivery Duration by Pizza Size", "Share of Orders by Pizza Size", "Orders by Payment Method", "Share of Orders by Traffic Level", "Average Toppings Count: Weekend vs Weekday", "Locations with Highest Average Delivery Duration", "Peak vs Non-Peak Order Volume", "Order Volume Trend by Month-Year", "Average Toppings Count by Pizza Size", "Two Restaurants with Lowest Average Delay", "Top 5 Pizza Types by Average Delivery Duration", "Hourly Order Volume", "Average Delay by Traffic Level", "Order Share by Pizza Complexity", "Restaurant Delivery Performance", "Hourly Order Volume and Average Delay", "Pizza Type Topping Density and Order Volume", "Traffic Mix within Payment Method", "Pizza Delivery Operations Dashboard"],
+    "B": ["Top 20 Order Locations", "Delivery Time across Pizza Sizes", "Pizza Size Order Distribution", "Payment Method Order Ranking", "Traffic-Level Order Mix", "Topping Levels on Weekends and Weekdays", "Slowest Delivery Locations", "Orders in Peak and Non-Peak Periods", "Order Volume by Month-Year", "Toppings across Pizza Sizes", "Most Reliable Restaurants by Average Delay", "Pizza Types with Longest Delivery Times", "Orders across a Typical Day", "Traffic Conditions and Average Delay", "Pizza Complexity Mix", "Restaurant Speed and Delay Matrix", "When Order Pressure and Delay Rise", "Pizza Type Volume and Topping Density", "Traffic Composition inside Payment Methods", "Pizza Order and Delivery Performance Overview"],
 }
 
 
@@ -143,7 +143,7 @@ def narratives() -> dict[str, dict[int, str]]:
         6: "Weekday orders averaged 3.40 toppings, compared with 3.27 on weekends. The difference was small, at about 0.13 toppings per order.",
         7: "Fort Wayne, IN and Newark, NJ had the highest average delivery duration at 50.00 minutes. Laredo, Lexington, Minneapolis, and Orlando followed at 45.00 minutes, so several locations shared the next-highest result.",
         8: "Peak hours contained 949 orders (94.52%), compared with only 55 non-peak orders (5.48%). Most observations in this dataset therefore fall in the peak-hour category.",
-        9: "Order volume was highest in August with 117 orders, followed by September with 105. July was the lowest month with 49 orders. These totals combine the same month across all source years, as requested by the Order Month wording.",
+        9: "The chronological series contains 31 distinct Month-Year points from 2024-01 to 2026-07. Volume peaked at 86 orders in 2024-08 and remained high at 75 in 2024-09, before falling to 44 in 2024-10. The lowest complete point was 2024-05 with 6 orders; the final 2026-07 point has 7 orders and covers data only through 7 July.",
         10: "XL pizzas had the highest average toppings count at 4.99, followed by Large pizzas at 3.97. Small pizzas had the lowest average at 1.69 toppings.",
         11: "Little Caesars recorded the lowest average delay at 16.62 minutes. Domino's was second at 17.02 minutes, so these are the two lowest-delay restaurants under the assignment definition.",
         12: "Stuffed Crust had the highest average delivery duration at 39.52 minutes. Gluten-Free (32.44), Cheese Burst (32.26), Thai Chicken (31.67), and Sicilian (30.86) completed the top five.",
@@ -165,7 +165,7 @@ def narratives() -> dict[str, dict[int, str]]:
         6: "Weekday orders average 3.40 toppings and weekend orders average 3.27. The short bars are close, confirming that the observed difference is only about 0.13.",
         7: "Fort Wayne and Newark form the highest pair at 50.00 minutes. Four more locations share 45.00 minutes, so the column view should retain and clearly label tied results at the filter boundary.",
         8: "The columns show a strong imbalance: 949 Peak Hour orders versus 55 Non-Peak Hour orders. Peak periods represent 94.52% of all orders in the source.",
-        9: "The filled area rises to its highest point in August (117 orders) and remains high in September (105), before falling to 75 in October. July is the lowest month at 49 orders; the month values aggregate all years in the workbook.",
+        9: "The 31 Month-Year columns run chronologically from 2024-01 to 2026-07. The largest point is 2024-08 with 86 orders, followed by 2024-09 with 75; the series then falls to 44 in 2024-10. The 2024-05 point is lowest at 6 orders, while 2026-07 contains 7 orders through 7 July only.",
         10: "XL stands out with an average of 4.99 toppings, while Small averages only 1.69. Large and Medium fall between them at 3.97 and 2.77.",
         11: "Little Caesars is the first low-delay performer at 16.62 minutes, followed by Domino's at 17.02. The two-column comparison uses the same bottom-two ranking as Version A.",
         12: "Stuffed Crust is separated from the other top-five pizza types at 39.52 minutes. The next four range from 30.86 to 32.44 minutes, led by Gluten-Free.",
@@ -257,8 +257,8 @@ RANKX(
 ## Calculated columns
 
 ```DAX
-Month Number =
-MONTH(PizzaOrders[Order Time])
+Order Month-Year =
+FORMAT(PizzaOrders[Order Time], "yyyy-MM")
 
 Peak Hour Label =
 IF(PizzaOrders[Is Peak Hour] = TRUE(), "Peak Hour", "Non-Peak Hour")
@@ -267,7 +267,7 @@ Weekend Label =
 IF(PizzaOrders[Is Weekend] = TRUE(), "Weekend", "Weekday")
 ```
 
-After creating `Month Number`, select `Order Month` in Table view, then choose **Column tools > Sort by column > Month Number**.
+Because the label uses ISO `yyyy-MM`, sorting `Order Month-Year` ascending is also chronological. Do not use the source `Order Month` name alone, because that would combine the same month across different years.
 
 ## Version A field-value colors for Q16
 
@@ -321,7 +321,7 @@ def expected_check(i: int) -> str:
         6: "Weekday = 3.40; Weekend = 3.27.",
         7: "Fort Wayne and Newark = 50.00; four locations = 45.00; retain visible ties.",
         8: "Peak Hour = 949; Non-Peak Hour = 55.",
-        9: "January to December order; August = 117; July = 49.",
+        9: "31 chronological points from 2024-01 to 2026-07; 2024-08 = 86; 2024-09 = 75; total = 1,004.",
         10: "Small 1.69; Medium 2.77; Large 3.97; XL 4.99.",
         11: "Little Caesars = 16.62; Domino's = 17.02.",
         12: "Stuffed Crust 39.52; Gluten-Free 32.44; Cheese Burst 32.26; Thai Chicken 31.67; Sicilian 30.86.",
@@ -425,12 +425,12 @@ def build_docx(version: str) -> None:
         p = doc.add_paragraph(label)
         p.alignment = WD_ALIGN_PARAGRAPH.CENTER
         p.paragraph_format.space_after = Pt(8)
-    p = doc.add_paragraph("Screenshots marked as placeholders must be replaced with genuine Power BI Desktop screenshots before submission.")
+    p = doc.add_paragraph("This report presents the completed Power BI visualisation and evidence for each assessment question.")
     p.alignment = WD_ALIGN_PARAGRAPH.CENTER
     p.paragraph_format.space_before = Pt(28)
     for run in p.runs:
         run.font.italic = True
-        run.font.color.rgb = RGBColor(145, 52, 52)
+        run.font.color.rgb = RGBColor(90, 98, 108)
 
     for i in range(1, 21):
         doc.add_page_break()
@@ -493,8 +493,8 @@ def common_guide_intro(version: str) -> list[str]:
         "## 2. 创建 Measures 和 Columns", "",
         "1. 在右侧 Data pane 对 `PizzaOrders` 右键 > **New measure**；也可先选中表，再点 Home > Calculations > New measure。顶部会出现公式栏。",
         "2. 逐个复制 `COMMON/DAX_MEASURES.md` 中的 Measures。每粘贴一条按 Enter，确认表下出现计算器图标。",
-        "3. 对 `PizzaOrders` 右键 > **New column**，逐个创建 `Month Number`、`Peak Hour Label`、`Weekend Label`。",
-        "4. 在 Table view 单击 `Order Month` 列；顶部点 **Column tools > Sort by column > Month Number**。若按钮灰色，先确认两个字段都在同一张表且每个月名称只对应一个 Month Number。",
+        "3. 对 `PizzaOrders` 右键 > **New column**，逐个创建 `Order Month-Year`、`Peak Hour Label`、`Weekend Label`。`Order Month-Year = FORMAT(PizzaOrders[Order Time], \"yyyy-MM\")`。",
+        "4. Q09 必须使用 `Order Month-Year` 并设为 Ascending；不要使用源字段 `Order Month`，否则不同年份的同名月份会被错误合并。",
         "5. 选中各平均值 Measure，在 Measure tools 把 Format 设为 Decimal number；Avg Delivery/Avg Delay 设 2 位，Avg Toppings/Avg Topping Density 设 2 或 3 位。Order Count 设 Whole number。", "",
         "## 3. 新增与重命名页面", "",
         "1. 报告底部点 `+` 新建页面。双击页面标签，依次创建并命名 Q01、Q02、…、Q19、Q20 Dashboard。",
@@ -565,7 +565,7 @@ def question_steps(version: str, i: int) -> list[str]:
     elif i in (17, 18):
         lines.append("6. 在 Format visual 展开 Secondary y-axis，设为 On，并开启左右轴标题；Order Count 使用整数轴，平均值使用 1–2 位小数。")
     elif i == 9:
-        lines.append("6. 如果月份仍按字母排序，回到 Table view：选 Order Month > Column tools > Sort by column > Month Number；再回到 Q09 设 Ascending。")
+        lines.append("6. X-axis 必须使用 `Order Month-Year`（显示为 yyyy-MM），不是源字段 `Order Month`；Visual 右上 `...` > Sort axis > Order Month-Year > Ascending。应出现 31 个时间点，从 2024-01 到 2026-07。")
     elif i == 13:
         lines.append("6. 确认 X-axis 使用 Whole Number `Order Hour`，不是把它当日期或文本；排序必须是 12、13、14、17、18、19、20、21。")
     else:
@@ -631,7 +631,7 @@ def write_cross_validation() -> None:
     metrics = [
         "Total Orders", "Top 20 Locations", "Average Delivery Duration by Pizza Size", "Pizza Size share",
         "Payment Method counts", "Traffic Level share", "Weekend / Weekday Avg Toppings",
-        "Location Avg Delivery ranking", "Peak / Non-Peak counts", "Monthly order totals",
+        "Location Avg Delivery ranking", "Peak / Non-Peak counts", "Month-Year order totals",
         "Avg Toppings by Pizza Size", "Bottom 2 restaurants by Avg Delay",
         "Top 5 Pizza Types by Avg Delivery Duration", "Hourly Order Count", "Avg Delay by Traffic Level",
         "Pizza Complexity share", "Restaurant Avg Delivery Duration", "Restaurant Avg Delay",
@@ -645,7 +645,7 @@ def write_cross_validation() -> None:
     lines += ["", "## Fixed shared rules", "",
               "- Source rows: 1,004; DISTINCTCOUNT(Order ID): 1,004.",
               "- Restaurant typography normalization: `Marco’s Pizza` -> `Marco's Pizza` for 3 rows, in memory/Power Query only.",
-              "- Q9 aggregates Order Month across all available years and sorts January to December by Month Number.",
+              "- Q9 uses 31 distinct Month-Year points from 2024-01 to 2026-07 and sorts them chronologically.",
               "- Q19 percentages use Payment Method as denominator and must respond to the Order Time slicer.",
               "- If either PBIX differs from `analysis_results.xlsx`, mark `FAIL_DATA_INCONSISTENCY`, correct the visual/filter/aggregation, and repeat the check."]
     (COMMON / "CROSS_VERSION_VALIDATION.md").write_text("\n".join(lines) + "\n", encoding="utf-8")

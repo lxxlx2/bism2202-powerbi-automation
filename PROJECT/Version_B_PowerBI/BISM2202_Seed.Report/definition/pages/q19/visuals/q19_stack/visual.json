@@ -108,6 +108,16 @@
             }
           }
         }
+      ],
+      "rowTotal": [
+        {
+          "properties": {}
+        }
+      ],
+      "columnTotal": [
+        {
+          "properties": {}
+        }
       ]
     },
     "visualContainerObjects": {

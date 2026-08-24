@@ -129,6 +129,7 @@ def main() -> int:
 
     metadata = review / "capture_metadata.json"
     metadata.write_text(json.dumps(records, indent=2), encoding="utf-8")
+    (output / "capture_metadata.json").write_text(json.dumps(records, indent=2), encoding="utf-8")
     log_path("capture_pages").write_text(json.dumps(records, indent=2), encoding="utf-8")
     print(f"Captured {len(records)} pages for Version {args.version}.")
     return 0

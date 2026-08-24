@@ -283,12 +283,18 @@ def compute_questions(df: pd.DataFrame) -> dict[str, dict[str, Any]]:
     add("Q08", question_meta("Peak Hour vs Non-Peak order count", "Order Count",
         "Peak Hour Label", "DISTINCTCOUNT(Order ID)"), g)
 
-    temp = df.assign(**{"Month Number": df["Order Time"].dt.month})
-    g = (temp.groupby(["Month Number", "Order Month"])["Order ID"].nunique()
-         .rename("Order Count").reset_index().sort_values("Month Number"))
-    add("Q09", question_meta("Order volume trend across Order Month", "Order Count",
-        "Order Month", "DISTINCTCOUNT(Order ID)", sort="Month Number ascending",
-        notes="Aggregated across all years per wording; source covers 2024-01 to 2026-07."), g)
+    # Q09 is a time trend, so the grain must be a unique calendar month. Grouping
+    # by month name alone would incorrectly merge (for example) January 2024,
+    # January 2025, and January 2026 into one point.
+    temp = df.assign(**{
+        "Month-Year Start": df["Order Time"].dt.to_period("M").dt.to_timestamp(),
+    })
+    g = (temp.groupby("Month-Year Start")["Order ID"].nunique()
+         .rename("Order Count").reset_index().sort_values("Month-Year Start"))
+    g.insert(0, "Month-Year", g["Month-Year Start"].dt.strftime("%Y-%m"))
+    add("Q09", question_meta("Order volume trend by Month-Year", "Order Count",
+        "Month-Year", "DISTINCTCOUNT(Order ID)", sort="Month-Year ascending",
+        notes="One point per calendar month; 31 months from 2024-01 through 2026-07."), g)
 
     g = (df.groupby("Pizza Size")["Toppings Count"].mean()
          .rename("Avg Toppings Count").reset_index())
@@ -507,12 +513,25 @@ def main() -> None:
     json_path = args.output_dir / "analysis_results.json"
     xlsx_path = args.output_dir / "analysis_results.xlsx"
     report_path = args.output_dir / "DATA_QUALITY_REPORT.md"
+    q09_csv_path = args.output_dir / "q09_month_year_validation.csv"
+
+    q09 = pd.DataFrame(questions["Q09"]["result"])
+    q09_dates = pd.to_datetime(q09["Month-Year Start"], errors="raise")
+    if not q09_dates.is_monotonic_increasing or q09_dates.duplicated().any():
+        raise AssertionError("Q09 Month-Year values must be unique and chronological.")
+    if int(q09["Order Count"].sum()) != int(clean["Order ID"].nunique()):
+        raise AssertionError("Q09 monthly order counts do not reconcile to total orders.")
+    if len(q09) != 31 or q09["Month-Year"].iloc[0] != "2024-01" or q09["Month-Year"].iloc[-1] != "2026-07":
+        raise AssertionError("Q09 expected 31 months from 2024-01 through 2026-07.")
+
     json_path.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
     write_excel(xlsx_path, quality, questions)
     write_quality_report(report_path, quality)
+    q09[["Month-Year", "Month-Year Start", "Order Count"]].to_csv(q09_csv_path, index=False)
     print(f"Wrote {json_path}")
     print(f"Wrote {xlsx_path}")
     print(f"Wrote {report_path}")
+    print(f"Wrote {q09_csv_path}")
     print(f"Validated {len(raw):,} rows and {clean['Order ID'].nunique():,} distinct orders.")
 
 

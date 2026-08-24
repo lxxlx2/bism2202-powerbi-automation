@@ -25,8 +25,8 @@
 
 1. 在右侧 Data pane 对 `PizzaOrders` 右键 > **New measure**；也可先选中表，再点 Home > Calculations > New measure。顶部会出现公式栏。
 2. 逐个复制 `COMMON/DAX_MEASURES.md` 中的 Measures。每粘贴一条按 Enter，确认表下出现计算器图标。
-3. 对 `PizzaOrders` 右键 > **New column**，逐个创建 `Month Number`、`Peak Hour Label`、`Weekend Label`。
-4. 在 Table view 单击 `Order Month` 列；顶部点 **Column tools > Sort by column > Month Number**。若按钮灰色，先确认两个字段都在同一张表且每个月名称只对应一个 Month Number。
+3. 对 `PizzaOrders` 右键 > **New column**，逐个创建 `Order Month-Year`、`Peak Hour Label`、`Weekend Label`。`Order Month-Year = FORMAT(PizzaOrders[Order Time], "yyyy-MM")`。
+4. Q09 必须使用 `Order Month-Year` 并设为 Ascending；不要使用源字段 `Order Month`，否则不同年份的同名月份会被错误合并。
 5. 选中各平均值 Measure，在 Measure tools 把 Format 设为 Decimal number；Avg Delivery/Avg Delay 设 2 位，Avg Toppings/Avg Topping Density 设 2 或 3 位。Order Count 设 Whole number。
 
 ## 3. 新增与重命名页面
@@ -183,21 +183,21 @@
 8. 核对 Python 基准：Peak Hour = 949; Non-Peak Hour = 55.
 9. Ctrl+S 保存 PBIX；用 Windows Snipping Tool 截完整 Visual，保存为 `screenshots/Q08.png`。
 
-### Q09 - How does order volume trend across Order Month?
+### Q09 - How does order volume trend by Month-Year?
 
-**目标 Visual：** Line chart  
-**字段槽位：** X-axis: Order Month; Y-axis: [Order Count]  
-**筛选/排序/格式：** Order Month sorted by Month Number; ascending  
-**标题：** `Monthly Order Volume`
+**目标 Visual：** Line chart
+**字段槽位：** X-axis: Order Month-Year; Y-axis: [Order Count]
+**筛选/排序/格式：** Order Month-Year ascending from 2024-01 to 2026-07
+**标题：** `Order Volume Trend by Month-Year`
 
 1. 在底部单击页面 `Q09`，再单击画布空白处，确保没有选中别的 Visual。
 2. 在 Visualizations/Build visual 中选择 **Line chart**。若图标名称不确定，把鼠标停在图标上等待工具提示。
-3. 从 Data pane 展开 `PizzaOrders`，按以下位置逐个拖字段：**X-axis: Order Month; Y-axis: [Order Count]**。Measure 带计算器图标，普通列没有。
-4. 设置 Visual：Order Month sorted by Month Number; ascending。若字段默认显示 Sum，点字段槽位右侧下拉箭头，改用指定 Measure 或 Average/Distinct count。
+3. 从 Data pane 展开 `PizzaOrders`，按以下位置逐个拖字段：**X-axis: Order Month-Year; Y-axis: [Order Count]**。Measure 带计算器图标，普通列没有。
+4. 设置 Visual：Order Month-Year ascending from 2024-01 to 2026-07。若字段默认显示 Sum，点字段槽位右侧下拉箭头，改用指定 Measure 或 Average/Distinct count。
 5. 点 Visual 右上 `...`，按题意完成排序；然后在 Format visual 中把 Data labels 开启，并按需要设置 1–2 位小数。
-6. 如果月份仍按字母排序，回到 Table view：选 Order Month > Column tools > Sort by column > Month Number；再回到 Q09 设 Ascending。
-7. 在 Format visual > General > Title 开启标题并输入 `Monthly Order Volume`。
-8. 核对 Python 基准：January to December order; August = 117; July = 49.
+6. X-axis 必须使用 `Order Month-Year`（显示为 yyyy-MM），不是源字段 `Order Month`；Visual 右上 `...` > Sort axis > Order Month-Year > Ascending。应出现 31 个时间点，从 2024-01 到 2026-07。
+7. 在 Format visual > General > Title 开启标题并输入 `Order Volume Trend by Month-Year`。
+8. 核对 Python 基准：31 chronological points from 2024-01 to 2026-07; 2024-08 = 86; 2024-09 = 75; total = 1,004.
 9. Ctrl+S 保存 PBIX；用 Windows Snipping Tool 截完整 Visual，保存为 `screenshots/Q09.png`。
 
 ### Q10 - What is the average Toppings Count by Pizza Size?

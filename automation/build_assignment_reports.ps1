@@ -215,7 +215,7 @@ function Build-Version {
 
     Add-Visual -Report $report -Page "q08" -Type "donut" -Name "q08_chart" -Title "Orders During Peak vs Non-Peak Hours" -Bindings @("--category", "PizzaOrders[Peak Hour Label]", "--value", "PizzaOrders[Order Count]")
 
-    Add-Visual -Report $report -Page "q09" -Type "line" -Name "q09_chart" -Title "Order Volume Trend Across Order Month" -Bindings @("--category", "PizzaOrders[Order Month Sorted]", "--value", "PizzaOrders[Order Count]")
+    Add-Visual -Report $report -Page "q09" -Type "line" -Name "q09_chart" -Title "Order Volume Trend by Month-Year" -Bindings @("--category", "PizzaOrders[Order Month-Year]", "--value", "PizzaOrders[Order Count]")
 
     Add-Visual -Report $report -Page "q10" -Type "clustered_column" -Name "q10_chart" -Title "Average Toppings Count by Pizza Size" -Bindings @("--category", "PizzaOrders[Pizza Size]", "--value", "PizzaOrders[Avg Toppings Count]")
 

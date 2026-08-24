@@ -150,15 +150,20 @@ function Set-ChartFormatting {
     Write-Json $Path $data
 }
 
-function Hide-MatrixTotals([string]$Path) {
+function Ensure-MatrixEnglishTotals([string]$Path) {
     if (-not (Test-Path -LiteralPath $Path)) { throw "Matrix JSON missing: $Path" }
     $data = Read-Json $Path
     if ($null -eq $data.visual.PSObject.Properties['objects']) {
         Set-Property $data.visual 'objects' ([pscustomobject]@{})
     }
-    $off = @([pscustomobject]@{ properties = [pscustomobject]@{ show = (Literal-Bool $false) } })
-    Set-Property $data.visual.objects 'rowTotal' $off
-    Set-Property $data.visual.objects 'columnTotal' $off
+    $on = @([pscustomobject]@{ properties = [pscustomobject]@{ show = (Literal-Bool $true) } })
+    $labels = @([pscustomobject]@{ properties = [pscustomobject]@{
+        rowSubtotalsLabel = [pscustomobject]@{ expr = [pscustomobject]@{ Literal = [pscustomobject]@{ Value = "'Total'" } } }
+        columnSubtotalsLabel = [pscustomobject]@{ expr = [pscustomobject]@{ Literal = [pscustomobject]@{ Value = "'Total'" } } }
+    } })
+    Set-Property $data.visual.objects 'rowTotal' $on
+    Set-Property $data.visual.objects 'columnTotal' $on
+    Set-Property $data.visual.objects 'subTotals' $labels
     Write-Json $Path $data
 }
 
@@ -170,6 +175,24 @@ function Add-SortByMeasure([string]$Path, [string]$Measure, [ValidateSet('Ascend
                 Measure = [pscustomobject]@{
                     Expression = [pscustomobject]@{ SourceRef = [pscustomobject]@{ Entity = 'PizzaOrders' } }
                     Property = $Measure
+                }
+            }
+            direction = $Direction
+        })
+        isDefaultSort = $true
+    }
+    Set-Property $data.visual.query 'sortDefinition' $sort
+    Write-Json $Path $data
+}
+
+function Add-SortByColumn([string]$Path, [string]$Column, [ValidateSet('Ascending','Descending')][string]$Direction = 'Ascending') {
+    $data = Read-Json $Path
+    $sort = [pscustomobject]@{
+        sort = @([pscustomobject]@{
+            field = [pscustomobject]@{
+                Column = [pscustomobject]@{
+                    Expression = [pscustomobject]@{ SourceRef = [pscustomobject]@{ Entity = 'PizzaOrders' } }
+                    Property = $Column
                 }
             }
             direction = $Direction
@@ -204,8 +227,8 @@ function Fix-Version([ValidateSet('A','B')][string]$Label) {
 `t`tdisplayFolder: BISM2202 Measures
 "@
 
-    Ensure-TmdlObject -Path $tmdl -Kind column -Name 'Order Month English' -Block @"
-`tcolumn 'Order Month English' = SWITCH(MONTH(PizzaOrders[Order Time]), 1, "01 - January", 2, "02 - February", 3, "03 - March", 4, "04 - April", 5, "05 - May", 6, "06 - June", 7, "07 - July", 8, "08 - August", 9, "09 - September", 10, "10 - October", 11, "11 - November", 12, "12 - December")
+    Ensure-TmdlObject -Path $tmdl -Kind column -Name 'Order Month-Year' -Block @"
+`tcolumn 'Order Month-Year' = FORMAT(PizzaOrders[Order Time], "yyyy-MM")
 `t`tdataType: string
 `t`tsummarizeBy: none
 "@
@@ -217,12 +240,12 @@ function Fix-Version([ValidateSet('A','B')][string]$Label) {
     if ($Label -eq 'A') {
         Add-Visual $report 'q03' 'clustered_column' 'q03_chart' 'Share of Orders by Pizza Size' @('--category','PizzaOrders[Pizza Size]','--value','PizzaOrders[Order Share Overall]')
         Add-Visual $report 'q05' 'clustered_bar' 'q05_chart' 'Share of Orders by Traffic Level' @('--category','PizzaOrders[Traffic Level]','--value','PizzaOrders[Order Share Overall]')
-        Add-Visual $report 'q09' 'line' 'q09_chart' 'Order Volume Trend Across Order Month' @('--category','PizzaOrders[Order Month English]','--value','PizzaOrders[Order Count]')
+        Add-Visual $report 'q09' 'line' 'q09_chart' 'Order Volume Trend by Month-Year' @('--category','PizzaOrders[Order Month-Year]','--value','PizzaOrders[Order Count]')
         Add-Visual $report 'q15' 'clustered_bar' 'q15_chart' 'Order Proportion by Pizza Complexity' @('--category','PizzaOrders[Pizza Complexity]','--value','PizzaOrders[Order Share Overall]')
     } else {
         Add-Visual $report 'q03' 'clustered_bar' 'q03_chart' 'Share of Orders by Pizza Size' @('--category','PizzaOrders[Pizza Size]','--value','PizzaOrders[Order Share Overall]')
         Add-Visual $report 'q05' 'clustered_column' 'q05_chart' 'Share of Orders by Traffic Level' @('--category','PizzaOrders[Traffic Level]','--value','PizzaOrders[Order Share Overall]')
-        Add-Visual $report 'q09' 'clustered_column' 'q09_chart' 'Order Volume by Order Month' @('--category','PizzaOrders[Order Month English]','--value','PizzaOrders[Order Count]')
+        Add-Visual $report 'q09' 'clustered_column' 'q09_chart' 'Order Volume by Month-Year' @('--category','PizzaOrders[Order Month-Year]','--value','PizzaOrders[Order Count]')
         Add-Visual $report 'q15' 'clustered_column' 'q15_chart' 'Order Proportion by Pizza Complexity' @('--category','PizzaOrders[Pizza Complexity]','--value','PizzaOrders[Order Share Overall]')
     }
 
@@ -240,15 +263,28 @@ function Fix-Version([ValidateSet('A','B')][string]$Label) {
 
     $q09Path = Join-Path $report 'definition\pages\q09\visuals\q09_chart\visual.json'
     Set-ChartFormatting -Path $q09Path -HideSubtitle
+    Add-SortByColumn -Path $q09Path -Column 'Order Month-Year' -Direction Ascending
 
-    Hide-MatrixTotals (Join-Path $report 'definition\pages\q16\visuals\q16_matrix\visual.json')
-    Hide-MatrixTotals (Join-Path $report 'definition\pages\q20\visuals\q20_restaurant\visual.json')
+    foreach ($hourVisual in @(
+        @('q13','q13_chart'),
+        @('q17','q17_volume'),
+        @('q17','q17_delay'),
+        @('q20','q20_hourly_line')
+    )) {
+        Add-SortByColumn -Path (Join-Path $report "definition\pages\$($hourVisual[0])\visuals\$($hourVisual[1])\visual.json") -Column 'Order Hour' -Direction Ascending
+    }
+
+    Ensure-MatrixEnglishTotals (Join-Path $report 'definition\pages\q16\visuals\q16_matrix\visual.json')
+    Ensure-MatrixEnglishTotals (Join-Path $report 'definition\pages\q19\visuals\q19_stack\visual.json')
+    Ensure-MatrixEnglishTotals (Join-Path $report 'definition\pages\q20\visuals\q20_restaurant\visual.json')
 
     # Q20 uses three different visual types. Keep matrix conditional colors and make
     # the other two views visibly distinct so the dashboard clearly satisfies the
     # assignment's conditional-formatting / different-colors requirement.
-    Set-ChartFormatting -Path (Join-Path $report 'definition\pages\q20\visuals\q20_traffic\visual.json') -DefaultColor '#E67E22' -HideSubtitle
-    Set-ChartFormatting -Path (Join-Path $report 'definition\pages\q20\visuals\q20_hourly_line\visual.json') -DefaultColor '#2E8B57' -HideSubtitle
+    # Per-category High/Low/Medium colors are stored directly in the PBIR
+    # dataPoint selectors. Do not replace them with one default series color.
+    Set-ChartFormatting -Path (Join-Path $report 'definition\pages\q20\visuals\q20_traffic\visual.json') -HideSubtitle
+    Set-ChartFormatting -Path (Join-Path $report 'definition\pages\q20\visuals\q20_hourly_line\visual.json') -HideSubtitle
 
     Polish-AllSubtitles $report
     Invoke-Pbi @('report','-p',$report,'validate')

@@ -148,6 +148,13 @@
                   "Value": "'Total'"
                 }
               }
+            },
+            "columnSubtotalsLabel": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Total'"
+                }
+              }
             }
           }
         }

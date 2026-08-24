@@ -212,5 +212,7 @@ if ($canvasHashes.Count -lt 18 -or $fullHashes.Count -lt 18) {
 
 $metadata = Join-Path $ReviewFull 'capture_metadata.json'
 $records | ConvertTo-Json -Depth 8 | Set-Content -LiteralPath $metadata -Encoding UTF8
+$submissionMetadata = Join-Path $Screenshots 'capture_metadata.json'
+$records | ConvertTo-Json -Depth 8 | Set-Content -LiteralPath $submissionMetadata -Encoding UTF8
 Write-Host "Captured 20 distinct Power BI pages for Version $Version with UI Automation." -ForegroundColor Green
 Write-Host "ARM64_NATIVE_CAPTURE: PASS" -ForegroundColor Green

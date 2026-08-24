@@ -2,7 +2,7 @@
   "metadata": {
     "course": "BISM2202",
     "assessment": "Data Visualization Using Microsoft Power BI - Assessment Task",
-    "source": "/Users/jerson/Documents/教学接单/BISM2202_WINDOWS_PACKAGE/INPUTS/Assignment1_BISM2202_pizza_sell_data.xlsx",
+    "source": "/Users/jerson/Documents/教学接单/BISM2202_WIN_REPO_MIRROR/INPUTS/Assignment1_BISM2202_pizza_sell_data.xlsx",
     "analysis_grain": "One row per unique Order ID",
     "total_orders": 1004,
     "source_rows": 1004,
@@ -10,7 +10,7 @@
     "normalization": "Marco’s Pizza -> Marco's Pizza (3 rows, in memory only)"
   },
   "data_quality": {
-    "source_path": "/Users/jerson/Documents/教学接单/BISM2202_WINDOWS_PACKAGE/INPUTS/Assignment1_BISM2202_pizza_sell_data.xlsx",
+    "source_path": "/Users/jerson/Documents/教学接单/BISM2202_WIN_REPO_MIRROR/INPUTS/Assignment1_BISM2202_pizza_sell_data.xlsx",
     "sheet_names": [
       "Sheet1"
     ],
@@ -1026,75 +1026,170 @@
     },
     "Q09": {
       "metadata": {
-        "Question": "Order volume trend across Order Month",
+        "Question": "Order volume trend by Month-Year",
         "Metric": "Order Count",
-        "Dimension": "Order Month",
+        "Dimension": "Month-Year",
         "Aggregation": "DISTINCTCOUNT(Order ID)",
         "Filter": "None",
-        "Sort": "Month Number ascending",
+        "Sort": "Month-Year ascending",
         "Top N / Bottom N": "None",
-        "Notes": "Aggregated across all years per wording; source covers 2024-01 to 2026-07."
+        "Notes": "One point per calendar month; 31 months from 2024-01 through 2026-07."
       },
       "result": [
         {
-          "Month Number": 1,
-          "Order Month": "January",
-          "Order Count": 88
+          "Month-Year": "2024-01",
+          "Month-Year Start": "2024-01-01T00:00:00",
+          "Order Count": 26
         },
         {
-          "Month Number": 2,
-          "Order Month": "February",
+          "Month-Year": "2024-02",
+          "Month-Year Start": "2024-02-01T00:00:00",
+          "Order Count": 30
+        },
+        {
+          "Month-Year": "2024-03",
+          "Month-Year Start": "2024-03-01T00:00:00",
+          "Order Count": 32
+        },
+        {
+          "Month-Year": "2024-04",
+          "Month-Year Start": "2024-04-01T00:00:00",
+          "Order Count": 31
+        },
+        {
+          "Month-Year": "2024-05",
+          "Month-Year Start": "2024-05-01T00:00:00",
+          "Order Count": 6
+        },
+        {
+          "Month-Year": "2024-06",
+          "Month-Year Start": "2024-06-01T00:00:00",
+          "Order Count": 11
+        },
+        {
+          "Month-Year": "2024-07",
+          "Month-Year Start": "2024-07-01T00:00:00",
+          "Order Count": 31
+        },
+        {
+          "Month-Year": "2024-08",
+          "Month-Year Start": "2024-08-01T00:00:00",
           "Order Count": 86
         },
         {
-          "Month Number": 3,
-          "Order Month": "March",
-          "Order Count": 94
-        },
-        {
-          "Month Number": 4,
-          "Order Month": "April",
-          "Order Count": 91
-        },
-        {
-          "Month Number": 5,
-          "Order Month": "May",
-          "Order Count": 68
-        },
-        {
-          "Month Number": 6,
-          "Order Month": "June",
-          "Order Count": 91
-        },
-        {
-          "Month Number": 7,
-          "Order Month": "July",
-          "Order Count": 49
-        },
-        {
-          "Month Number": 8,
-          "Order Month": "August",
-          "Order Count": 117
-        },
-        {
-          "Month Number": 9,
-          "Order Month": "September",
-          "Order Count": 105
-        },
-        {
-          "Month Number": 10,
-          "Order Month": "October",
+          "Month-Year": "2024-09",
+          "Month-Year Start": "2024-09-01T00:00:00",
           "Order Count": 75
         },
         {
-          "Month Number": 11,
-          "Order Month": "November",
-          "Order Count": 60
+          "Month-Year": "2024-10",
+          "Month-Year Start": "2024-10-01T00:00:00",
+          "Order Count": 44
         },
         {
-          "Month Number": 12,
-          "Order Month": "December",
-          "Order Count": 80
+          "Month-Year": "2024-11",
+          "Month-Year Start": "2024-11-01T00:00:00",
+          "Order Count": 30
+        },
+        {
+          "Month-Year": "2024-12",
+          "Month-Year Start": "2024-12-01T00:00:00",
+          "Order Count": 41
+        },
+        {
+          "Month-Year": "2025-01",
+          "Month-Year Start": "2025-01-01T00:00:00",
+          "Order Count": 31
+        },
+        {
+          "Month-Year": "2025-02",
+          "Month-Year Start": "2025-02-01T00:00:00",
+          "Order Count": 28
+        },
+        {
+          "Month-Year": "2025-03",
+          "Month-Year Start": "2025-03-01T00:00:00",
+          "Order Count": 31
+        },
+        {
+          "Month-Year": "2025-04",
+          "Month-Year Start": "2025-04-01T00:00:00",
+          "Order Count": 30
+        },
+        {
+          "Month-Year": "2025-05",
+          "Month-Year Start": "2025-05-01T00:00:00",
+          "Order Count": 31
+        },
+        {
+          "Month-Year": "2025-06",
+          "Month-Year Start": "2025-06-01T00:00:00",
+          "Order Count": 50
+        },
+        {
+          "Month-Year": "2025-07",
+          "Month-Year Start": "2025-07-01T00:00:00",
+          "Order Count": 11
+        },
+        {
+          "Month-Year": "2025-08",
+          "Month-Year Start": "2025-08-01T00:00:00",
+          "Order Count": 31
+        },
+        {
+          "Month-Year": "2025-09",
+          "Month-Year Start": "2025-09-01T00:00:00",
+          "Order Count": 30
+        },
+        {
+          "Month-Year": "2025-10",
+          "Month-Year Start": "2025-10-01T00:00:00",
+          "Order Count": 31
+        },
+        {
+          "Month-Year": "2025-11",
+          "Month-Year Start": "2025-11-01T00:00:00",
+          "Order Count": 30
+        },
+        {
+          "Month-Year": "2025-12",
+          "Month-Year Start": "2025-12-01T00:00:00",
+          "Order Count": 39
+        },
+        {
+          "Month-Year": "2026-01",
+          "Month-Year Start": "2026-01-01T00:00:00",
+          "Order Count": 31
+        },
+        {
+          "Month-Year": "2026-02",
+          "Month-Year Start": "2026-02-01T00:00:00",
+          "Order Count": 28
+        },
+        {
+          "Month-Year": "2026-03",
+          "Month-Year Start": "2026-03-01T00:00:00",
+          "Order Count": 31
+        },
+        {
+          "Month-Year": "2026-04",
+          "Month-Year Start": "2026-04-01T00:00:00",
+          "Order Count": 30
+        },
+        {
+          "Month-Year": "2026-05",
+          "Month-Year Start": "2026-05-01T00:00:00",
+          "Order Count": 31
+        },
+        {
+          "Month-Year": "2026-06",
+          "Month-Year Start": "2026-06-01T00:00:00",
+          "Order Count": 30
+        },
+        {
+          "Month-Year": "2026-07",
+          "Month-Year Start": "2026-07-01T00:00:00",
+          "Order Count": 7
         }
       ]
     },

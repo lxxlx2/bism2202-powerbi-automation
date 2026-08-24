@@ -1,0 +1,35 @@
+{
+  "generated": "2026-08-24T22:43:13+07:00",
+  "versions": {
+    "A": {
+      "zip": "FINAL_PACKAGES\\BISM2202_Student_A_FINAL.zip",
+      "zip_bytes": 1121561,
+      "zip_sha256": "EDB1B0B22CAB4D69A2A9F94711B25E4D99B15C5EFD813E77EB2AD2EDA74F24BD",
+      "contents": [
+        "BISM2202_Assignment.pbix",
+        "BISM2202_Report.docx"
+      ],
+      "pbix_bytes": 142464,
+      "pbix_sha256": "9EAAACD30203E4076AD99A67E5E6F4CAEB9BA6245F82E9A644ACBB1740682207",
+      "docx_bytes": 998041,
+      "docx_sha256": "B0ECCC39A01CCD2AC283DCCA9D6A17E1313D62BF511C172840259AFF5C1A26BA",
+      "docx_embedded_images": 20
+    },
+    "B": {
+      "zip": "FINAL_PACKAGES\\BISM2202_Student_B_FINAL.zip",
+      "zip_bytes": 1050449,
+      "zip_sha256": "D18C9E294FFB290FB48965C40C5962729D1969B4166F976EA16C46FCB2966E53",
+      "contents": [
+        "BISM2202_Assignment.pbix",
+        "BISM2202_Report.docx"
+      ],
+      "pbix_bytes": 142343,
+      "pbix_sha256": "14039BDEC3A5441196590552020FC860A5B0336FC37F0A0ED89D14F0FCE8F5AE",
+      "docx_bytes": 927096,
+      "docx_sha256": "F432DADBECF33A79E88CF9AB4C09DE3263DD8FC96EF3C7A56C9BB1B5AD3DED7D",
+      "docx_embedded_images": 20
+    }
+  },
+  "status": "PASS",
+  "issues": []
+}

@@ -109,19 +109,27 @@ function Set-DonutFullNumbers {
     Write-VisualJson -Path $pair.Path -Data $data
 }
 
-function Hide-MatrixGrandTotal {
+function Ensure-MatrixEnglishGrandTotal {
     param([string]$Report, [string]$Page, [string]$Visual)
     $pair = Read-VisualJson -Report $Report -Page $Page -Visual $Visual
     $data = $pair.Data
     if ($null -eq $data.visual.PSObject.Properties['objects']) {
         Set-Property -Object $data.visual -Name 'objects' -Value ([pscustomobject]@{})
     }
-    $rowTotal = [pscustomobject]@{
+    $grandTotal = [pscustomobject]@{
         properties = [pscustomobject]@{
-            show = (Literal-Bool $false)
+            show = (Literal-Bool $true)
         }
     }
-    Set-Property -Object $data.visual.objects -Name 'rowTotal' -Value @($rowTotal)
+    $labels = [pscustomobject]@{
+        properties = [pscustomobject]@{
+            rowSubtotalsLabel = [pscustomobject]@{ expr = [pscustomobject]@{ Literal = [pscustomobject]@{ Value = "'Total'" } } }
+            columnSubtotalsLabel = [pscustomobject]@{ expr = [pscustomobject]@{ Literal = [pscustomobject]@{ Value = "'Total'" } } }
+        }
+    }
+    Set-Property -Object $data.visual.objects -Name 'rowTotal' -Value @($grandTotal)
+    Set-Property -Object $data.visual.objects -Name 'columnTotal' -Value @($grandTotal)
+    Set-Property -Object $data.visual.objects -Name 'subTotals' -Value @($labels)
     Write-VisualJson -Path $pair.Path -Data $data
 }
 
@@ -248,9 +256,10 @@ function Repair-Version {
         Set-DonutFullNumbers -Report $report -Page $item[0] -Visual $item[1]
     }
 
-    # Remove matrix grand total row so Chinese locale cannot inject a localized 'Total' label into final screenshots.
-    Hide-MatrixGrandTotal -Report $report -Page 'q16' -Visual 'q16_matrix'
-    Hide-MatrixGrandTotal -Report $report -Page 'q20' -Visual 'q20_restaurant'
+    # Keep the required totals visible while forcing an English label on a Chinese-locale Desktop.
+    Ensure-MatrixEnglishGrandTotal -Report $report -Page 'q16' -Visual 'q16_matrix'
+    Ensure-MatrixEnglishGrandTotal -Report $report -Page 'q19' -Visual 'q19_stack'
+    Ensure-MatrixEnglishGrandTotal -Report $report -Page 'q20' -Visual 'q20_restaurant'
 
     # Explicit final sorting for ranked visuals.
     Set-MeasureSort -Report $report -Page 'q01' -Visual 'q01_chart' -Measure 'Order Count' -Direction 'Descending'

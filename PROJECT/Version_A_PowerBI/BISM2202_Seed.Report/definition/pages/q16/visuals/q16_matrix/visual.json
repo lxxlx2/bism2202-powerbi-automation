@@ -148,15 +148,7 @@
       ],
       "rowTotal": [
         {
-          "properties": {
-            "applyToHeaders": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            }
-          }
+          "properties": {}
         }
       ],
       "columnTotal": [
@@ -168,6 +160,13 @@
         {
           "properties": {
             "rowSubtotalsLabel": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Total'"
+                }
+              }
+            },
+            "columnSubtotalsLabel": {
               "expr": {
                 "Literal": {
                   "Value": "'Total'"
