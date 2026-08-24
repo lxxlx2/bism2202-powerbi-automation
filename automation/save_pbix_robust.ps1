@@ -49,10 +49,10 @@ function Get-TopWindows {
     )
 }
 
-function Get-DialogForPid([int]$Pid) {
+function Get-DialogForProcessId([int]$ProcessId) {
     foreach ($w in Get-TopWindows) {
         try {
-            if ($w.Current.ProcessId -eq $Pid -and $w.Current.IsOffscreen -eq $false) {
+            if ($w.Current.ProcessId -eq $ProcessId -and $w.Current.IsOffscreen -eq $false) {
                 $class = $w.Current.ClassName
                 $name = $w.Current.Name
                 if ($class -eq '#32770' -or $name -match 'Save As|另存为|Save a copy|保存') {
@@ -74,13 +74,13 @@ function Find-DescendantsByType($Root, $ControlType) {
 
 function Invoke-Element($Element) {
     if (-not $Element) { return $false }
-    $p = $null
-    if ($Element.TryGetCurrentPattern([System.Windows.Automation.InvokePattern]::Pattern, [ref]$p)) {
-        $p.Invoke(); return $true
+    $pattern = $null
+    if ($Element.TryGetCurrentPattern([System.Windows.Automation.InvokePattern]::Pattern, [ref]$pattern)) {
+        $pattern.Invoke(); return $true
     }
-    $p = $null
-    if ($Element.TryGetCurrentPattern([System.Windows.Automation.SelectionItemPattern]::Pattern, [ref]$p)) {
-        $p.Select(); return $true
+    $pattern = $null
+    if ($Element.TryGetCurrentPattern([System.Windows.Automation.SelectionItemPattern]::Pattern, [ref]$pattern)) {
+        $pattern.Select(); return $true
     }
     $r = $Element.Current.BoundingRectangle
     if ($r.Width -gt 2 -and $r.Height -gt 2) {
@@ -92,10 +92,10 @@ function Invoke-Element($Element) {
     return $false
 }
 
-function Dismiss-WrongOverwritePrompt([int]$Pid) {
+function Dismiss-WrongOverwritePrompt([int]$ProcessId) {
     foreach ($w in Get-TopWindows) {
         try {
-            if ($w.Current.ProcessId -ne $Pid) { continue }
+            if ($w.Current.ProcessId -ne $ProcessId) { continue }
             $text = $w.Current.Name
             $allText = @()
             $txts = Find-DescendantsByType $w ([System.Windows.Automation.ControlType]::Text)
@@ -157,7 +157,7 @@ function Set-Filename($Dialog, [string]$FullPath) {
             $vp = $null
             if (-not $e.TryGetCurrentPattern([System.Windows.Automation.ValuePattern]::Pattern, [ref]$vp)) { continue }
             $val = $vp.Current.Value
-            if ($id -eq '1001' -or $name -match 'File name|文件名|檔案名稱' -or $val -match '(?i)\.pbi[p|x]$|BISM2202_Seed') {
+            if ($id -eq '1001' -or $name -match 'File name|文件名|檔案名稱' -or $val -match '(?i)\.pbi(?:p|x)$|BISM2202_Seed') {
                 $best = $e
                 if ($id -eq '1001') { break }
             }
@@ -200,7 +200,6 @@ Focus-Process $process
 $output = Join-Path $ProjectRoot "PROJECT\BISM2202_OUTPUT\Version_${Version}\BISM2202_Assignment_${Version}.pbix"
 New-Item -ItemType Directory -Force -Path (Split-Path -Parent $output) | Out-Null
 
-# Move only the intended generated PBIX out of the repo so an old output cannot trigger an overwrite dialog.
 if (Test-Path -LiteralPath $output) {
     $backupDir = Join-Path $env:TEMP 'BISM2202_PBIX_BACKUPS'
     New-Item -ItemType Directory -Force -Path $backupDir | Out-Null
@@ -209,20 +208,17 @@ if (Test-Path -LiteralPath $output) {
     Write-Host "Existing generated PBIX moved outside repo: $backup" -ForegroundColor DarkYellow
 }
 
-# If the previous automation is already sitting on a PBIP overwrite confirmation, escape that state first.
 Dismiss-WrongOverwritePrompt $process.Id | Out-Null
 
-$dialog = Get-DialogForPid $process.Id
+$dialog = Get-DialogForProcessId $process.Id
 if (-not $dialog) {
-    # First try the standard Save As shortcut.
     Focus-Process $process
     [System.Windows.Forms.SendKeys]::SendWait('^+s')
     Start-Sleep -Seconds 3
-    $dialog = Get-DialogForPid $process.Id
+    $dialog = Get-DialogForProcessId $process.Id
 }
 
 if (-not $dialog) {
-    # Fallback to the known Power BI File > Save As path used at fixed 100% scale.
     $root = [System.Windows.Automation.AutomationElement]::FromHandle($process.MainWindowHandle)
     $rect = $root.Current.BoundingRectangle
     [BismRobustPBIX]::SetCursorPos([int]($rect.X + 22),[int]($rect.Y + 52)) | Out-Null
@@ -237,7 +233,7 @@ if (-not $dialog) {
     [BismRobustPBIX]::mouse_event(0x0002,0,0,0,[UIntPtr]::Zero)
     [BismRobustPBIX]::mouse_event(0x0004,0,0,0,[UIntPtr]::Zero)
     Start-Sleep -Seconds 3
-    $dialog = Get-DialogForPid $process.Id
+    $dialog = Get-DialogForProcessId $process.Id
 }
 
 if (-not $dialog) { throw 'Save As dialog could not be found after both shortcut and File-menu fallback.' }
@@ -245,7 +241,6 @@ if (-not $dialog) { throw 'Save As dialog could not be found after both shortcut
 try { $dialog.SetFocus() } catch {}
 Start-Sleep -Milliseconds 300
 
-# Language-independent selection: choose the file-type item whose visible name contains .pbix.
 if (-not (Select-PbixFileType $dialog)) {
     throw 'Could not select a .pbix file type from the Save As dialog. No file was overwritten.'
 }
