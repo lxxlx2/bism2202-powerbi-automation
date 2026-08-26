@@ -20,12 +20,12 @@ if (-not $PowerBI) {
 $Start = Get-Date
 
 pwsh -ExecutionPolicy Bypass `
-  -File .\automation\capture_pages_robust.ps1 `
+  -File .\automation\capture_pages_vm_calibrated.ps1 `
   -Version $Version `
   -DelaySeconds 1.8
 
 if ($LASTEXITCODE -ne 0) {
-    throw "Robust 20-page capture failed with exit code $LASTEXITCODE"
+    throw "Calibrated robust 20-page capture failed with exit code $LASTEXITCODE"
 }
 
 $ShotDir = Join-Path $RepoRoot "PROJECT\BISM2202_OUTPUT\Version_$Version\screenshots"
@@ -44,7 +44,14 @@ if ($Tiny.Count -gt 0) {
     throw "Version $Version has suspiciously small screenshots: $($Tiny.Name -join ', ')"
 }
 
+$Hashes = $Shots | Get-FileHash -Algorithm SHA256
+$DuplicateHashGroups = @($Hashes | Group-Object Hash | Where-Object { $_.Count -gt 1 })
+if ($DuplicateHashGroups.Count -gt 0) {
+    throw "Version $Version still contains duplicate final screenshot hashes after calibrated capture."
+}
+
 Write-Host "VERSION_${Version}_SCREENSHOTS: 20 FRESH PASS" -ForegroundColor Green
+Write-Host "VERSION_${Version}_UNIQUE_FINAL_HASHES: 20/20 PASS" -ForegroundColor Green
 Write-Host "VERSION_${Version}_HOVER_SAFE_CAPTURE: PASS" -ForegroundColor Green
 Write-Host "VERSION_${Version}_TRANSACTIONAL_CAPTURE: PASS" -ForegroundColor Green
 Write-Host "Next: close Power BI after capture. When both A and B are captured, run teacher_feedback_workflow.ps1 -Stage Finalize." -ForegroundColor Yellow
