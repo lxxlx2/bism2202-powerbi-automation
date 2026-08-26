@@ -118,7 +118,7 @@ function Ensure-Q09EnglishMonthColumns([string]$TmdlPath, [string]$Version) {
 
         $text = $text.Replace($marker, $block + $marker)
         [IO.File]::WriteAllText($TmdlPath, $text, [Text.UTF8Encoding]::new($false))
-        Write-Host "Version $Version: added English month label + chronological sort columns." -ForegroundColor Green
+        Write-Host "Version ${Version}: added English month label + chronological sort columns." -ForegroundColor Green
     } else {
         if (-not $text.Contains('FORMAT(PizzaOrders[Order Month Start], "MMM yyyy", "en-US")')) {
             throw "Version $Version already contains Order Month English, but its expression is not the expected explicit en-US format."
@@ -126,7 +126,7 @@ function Ensure-Q09EnglishMonthColumns([string]$TmdlPath, [string]$Version) {
         if (-not $text.Contains("sortByColumn: 'Order Month Sort'")) {
             throw "Version $Version Order Month English is missing chronological sortByColumn metadata."
         }
-        Write-Host "Version $Version: English month columns already present and valid." -ForegroundColor DarkGreen
+        Write-Host "Version ${Version}: English month columns already present and valid." -ForegroundColor DarkGreen
     }
 }
 
@@ -176,7 +176,7 @@ function Patch-Q09Visual([string]$VisualPath, [string]$Version) {
         throw "Version $Version Q09 still binds the visible axis to Order Month Start."
     }
 
-    Write-Host "Version $Version: Q09 now uses discrete English month labels in chronological order." -ForegroundColor Green
+    Write-Host "Version ${Version}: Q09 now uses discrete English month labels in chronological order." -ForegroundColor Green
 }
 
 function Assert-NoExplicitChineseVisualText([string]$ReportPath, [string]$Version) {
@@ -189,11 +189,11 @@ function Assert-NoExplicitChineseVisualText([string]$ReportPath, [string]$Versio
         }
     }
     if ($hits.Count -gt 0) {
-        Write-Host "Explicit Chinese text found in visible visual definitions for Version $Version:" -ForegroundColor Red
+        Write-Host "Explicit Chinese text found in visible visual definitions for Version ${Version}:" -ForegroundColor Red
         $hits | ForEach-Object { Write-Host "  $_" -ForegroundColor Red }
         throw "Visible visual JSON still contains explicit Chinese text."
     }
-    Write-Host "Version $Version: no explicit Chinese characters in visual.json files." -ForegroundColor Green
+    Write-Host "Version ${Version}: no explicit Chinese characters in visual.json files." -ForegroundColor Green
 }
 
 function Ensure-PbiCommand {
@@ -242,7 +242,7 @@ function Verify-Capture([ValidateSet("A", "B")][string]$Version) {
     if ((Get-Item -LiteralPath $q09).LastWriteTime -lt [datetime]$marker.prepared_local_time) {
         throw "Version $Version Q09 screenshot predates the teacher-feedback patch. Capture is stale."
     }
-    Write-Host "Version $Version: 20 fresh screenshots PASS." -ForegroundColor Green
+    Write-Host "Version ${Version}: 20 fresh screenshots PASS." -ForegroundColor Green
 }
 
 function Capture-Version([ValidateSet("A", "B")][string]$Version) {
