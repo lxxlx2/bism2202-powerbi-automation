@@ -17,27 +17,18 @@ if (-not $PowerBI) {
     throw "Power BI Desktop is not running. Open the correct saved Version $Version report first."
 }
 
-py -3.12 -m py_compile .\automation\capture_pages_clean.py
+$Start = Get-Date
+
+pwsh -ExecutionPolicy Bypass `
+  -File .\automation\capture_pages_robust.ps1 `
+  -Version $Version `
+  -DelaySeconds 1.8
+
 if ($LASTEXITCODE -ne 0) {
-    throw "capture_pages_clean.py syntax validation failed"
+    throw "Robust 20-page capture failed with exit code $LASTEXITCODE"
 }
-Write-Host "CLEAN_CAPTURE_PYTHON_SYNTAX: PASS" -ForegroundColor Green
 
 $ShotDir = Join-Path $RepoRoot "PROJECT\BISM2202_OUTPUT\Version_$Version\screenshots"
-$ReviewDir = Join-Path $RepoRoot "PROJECT\BISM2202_OUTPUT\Version_$Version\review_full"
-
-New-Item -ItemType Directory -Force -Path $ShotDir | Out-Null
-New-Item -ItemType Directory -Force -Path $ReviewDir | Out-Null
-
-Get-ChildItem $ShotDir -Filter "Q??.png" -File -ErrorAction SilentlyContinue | Remove-Item -Force
-Get-ChildItem $ReviewDir -Filter "Q??_full.png" -File -ErrorAction SilentlyContinue | Remove-Item -Force
-
-$Start = Get-Date
-py -3.12 .\automation\capture_pages_clean.py --version $Version --delay 1.8
-if ($LASTEXITCODE -ne 0) {
-    throw "Clean capture failed with exit code $LASTEXITCODE"
-}
-
 $Shots = @(Get-ChildItem $ShotDir -Filter "Q??.png" -File | Sort-Object Name)
 if ($Shots.Count -ne 20) {
     throw "Version $Version expected 20 screenshots, found $($Shots.Count)"
@@ -55,4 +46,5 @@ if ($Tiny.Count -gt 0) {
 
 Write-Host "VERSION_${Version}_SCREENSHOTS: 20 FRESH PASS" -ForegroundColor Green
 Write-Host "VERSION_${Version}_HOVER_SAFE_CAPTURE: PASS" -ForegroundColor Green
+Write-Host "VERSION_${Version}_TRANSACTIONAL_CAPTURE: PASS" -ForegroundColor Green
 Write-Host "Next: close Power BI after capture. When both A and B are captured, run teacher_feedback_workflow.ps1 -Stage Finalize." -ForegroundColor Yellow
