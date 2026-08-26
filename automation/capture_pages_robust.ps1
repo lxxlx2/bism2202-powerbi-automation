@@ -37,8 +37,27 @@ public static class BISM2202CaptureNative {
 
     [DllImport("user32.dll")]
     public static extern bool ShowWindow(IntPtr hWnd, int nCmdShow);
+
+    [DllImport("user32.dll")]
+    public static extern bool SetCursorPos(int X, int Y);
+
+    [DllImport("user32.dll")]
+    public static extern void mouse_event(uint dwFlags, uint dx, uint dy, uint dwData, UIntPtr dwExtraInfo);
 }
 "@
+}
+
+function Invoke-LeftClick {
+    param(
+        [Parameter(Mandatory=$true)][int]$X,
+        [Parameter(Mandatory=$true)][int]$Y
+    )
+
+    [BISM2202CaptureNative]::SetCursorPos($X, $Y) | Out-Null
+    Start-Sleep -Milliseconds 90
+    [BISM2202CaptureNative]::mouse_event(0x0002, 0, 0, 0, [UIntPtr]::Zero)
+    Start-Sleep -Milliseconds 45
+    [BISM2202CaptureNative]::mouse_event(0x0004, 0, 0, 0, [UIntPtr]::Zero)
 }
 
 function Save-ScreenRegion {
@@ -91,7 +110,7 @@ if (-not $Process) {
 $Handle = $Process.MainWindowHandle
 [BISM2202CaptureNative]::ShowWindow($Handle, 3) | Out-Null
 [BISM2202CaptureNative]::SetForegroundWindow($Handle) | Out-Null
-Start-Sleep -Milliseconds 800
+Start-Sleep -Milliseconds 900
 
 $Rect = New-Object BISM2202CaptureNative+RECT
 if (-not [BISM2202CaptureNative]::GetWindowRect($Handle, [ref]$Rect)) {
@@ -104,14 +123,25 @@ if ($WindowWidth -lt 1000 -or $WindowHeight -lt 700) {
     throw "Power BI window is too small. Maximize Power BI before capture."
 }
 
-# These are the same crop ratios that were independently verified on Q01.
-# They exclude Chinese Power BI chrome, the right panes, page tabs and taskbar.
+# Crop ratios independently verified against the user's accepted Q01 screenshot.
+# They remove the Chinese Power BI chrome, right panes, page tabs, and Windows taskbar.
 $CropLeft = $Rect.Left + [int]($WindowWidth * 0.055)
 $CropTop = $Rect.Top + [int]($WindowHeight * 0.125)
 $CropWidth = [int]($WindowWidth * 0.755)
 $CropHeight = [int]($WindowHeight * 0.790)
 
 $SafePoint = New-Object System.Drawing.Point(($Rect.Right - 25), ($Rect.Top + 90))
+
+# All twenty report tabs are visible in the maximized Windows layout used for this
+# assignment. Keyboard Ctrl+PgDn was observed to leave the report on Q01 while the
+# old capture still reported PASS. Use deterministic mouse clicks on the visible tab
+# strip instead. Coordinates are expressed as ratios so the script survives small
+# resolution/DPI changes while preserving the verified layout.
+$FirstTabX = $Rect.Left + [int]($WindowWidth * 0.0573)
+$TabStepX = $WindowWidth * 0.0182
+$TabY = $Rect.Bottom - [int]($WindowHeight * 0.043)
+
+Write-Host ("Window={0}x{1}; firstTab=({2},{3}); tabStep={4:N2}" -f $WindowWidth, $WindowHeight, $FirstTabX, $TabY, $TabStepX) -ForegroundColor DarkGray
 
 $FinalShotDir = Join-Path $RepoRoot "PROJECT\BISM2202_OUTPUT\Version_$Version\screenshots"
 $FinalReviewDir = Join-Path $RepoRoot "PROJECT\BISM2202_OUTPUT\Version_$Version\review_full"
@@ -122,20 +152,16 @@ New-Item -ItemType Directory -Force -Path $StageShotDir | Out-Null
 New-Item -ItemType Directory -Force -Path $StageReviewDir | Out-Null
 
 try {
-    # Deterministically return to the first report tab without relying on UIA tab discovery.
-    [BISM2202CaptureNative]::SetForegroundWindow($Handle) | Out-Null
-    for ($i = 0; $i -lt 25; $i++) {
-        [System.Windows.Forms.SendKeys]::SendWait("^{PGUP}")
-        Start-Sleep -Milliseconds 60
-    }
-    Start-Sleep -Milliseconds 700
-
     $Metadata = @()
 
     for ($Number = 1; $Number -le 20; $Number++) {
         $Name = "Q{0:D2}" -f $Number
+        $TabX = $FirstTabX + [int](($Number - 1) * $TabStepX)
 
         [BISM2202CaptureNative]::SetForegroundWindow($Handle) | Out-Null
+        Start-Sleep -Milliseconds 120
+        Invoke-LeftClick -X $TabX -Y $TabY
+        Start-Sleep -Milliseconds 350
         [System.Windows.Forms.SendKeys]::SendWait("{ESC}")
         [System.Windows.Forms.Cursor]::Position = $SafePoint
         Start-Sleep -Milliseconds ([int]($DelaySeconds * 1000))
@@ -155,12 +181,19 @@ try {
             throw "$Name full review screenshot is suspiciously small: $($ReviewInfo.Length) bytes"
         }
 
+        $ShotHash = (Get-FileHash $Shot -Algorithm SHA256).Hash
+        $ReviewHash = (Get-FileHash $Review -Algorithm SHA256).Hash
+
         $Metadata += [pscustomobject]@{
             page = $Name
+            tab_x = $TabX
+            tab_y = $TabY
             canvas_file = $Shot
             canvas_bytes = $ShotInfo.Length
+            canvas_sha256 = $ShotHash
             review_file = $Review
             review_bytes = $ReviewInfo.Length
+            review_sha256 = $ReviewHash
             captured = (Get-Date).ToString("s")
             canvas_left = $CropLeft
             canvas_top = $CropTop
@@ -168,13 +201,7 @@ try {
             canvas_height = $CropHeight
         }
 
-        Write-Host "Captured ${Name}: $($ShotInfo.Length) bytes" -ForegroundColor DarkGray
-
-        if ($Number -lt 20) {
-            [BISM2202CaptureNative]::SetForegroundWindow($Handle) | Out-Null
-            [System.Windows.Forms.SendKeys]::SendWait("^{PGDN}")
-            Start-Sleep -Milliseconds 350
-        }
+        Write-Host ("Captured {0}: {1} bytes sha256={2}" -f $Name, $ShotInfo.Length, $ShotHash.Substring(0, 12)) -ForegroundColor DarkGray
     }
 
     $StageShots = @(Get-ChildItem $StageShotDir -Filter "Q??.png" -File | Sort-Object Name)
@@ -186,7 +213,24 @@ try {
         throw "Staging expected 20 full review screenshots, found $($StageReviews.Count)."
     }
 
-    # Transactional publish: old valid output is untouched until all 20 new pages pass.
+    # Critical acceptance invariant: each question page must be visually distinct.
+    # This catches the exact failure mode where Q01 was captured twenty times while
+    # file-count/freshness checks still passed.
+    $DuplicateCanvasGroups = @(
+        $Metadata |
+            Group-Object canvas_sha256 |
+            Where-Object { $_.Count -gt 1 }
+    )
+    if ($DuplicateCanvasGroups.Count -gt 0) {
+        $Details = foreach ($Group in $DuplicateCanvasGroups) {
+            $Pages = ($Group.Group | ForEach-Object { $_.page }) -join ","
+            "hash=$($Group.Name.Substring(0,12)) pages=$Pages"
+        }
+        throw "Duplicate page captures detected; refusing to publish. $($Details -join '; ')"
+    }
+    Write-Host "VERSION_${Version}_UNIQUE_PAGE_HASHES: 20/20 PASS" -ForegroundColor Green
+
+    # Transactional publish: old output stays untouched until every staged page passes.
     New-Item -ItemType Directory -Force -Path $FinalShotDir | Out-Null
     New-Item -ItemType Directory -Force -Path $FinalReviewDir | Out-Null
 
