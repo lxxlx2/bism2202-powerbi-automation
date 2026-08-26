@@ -19,13 +19,15 @@ if (-not $PowerBI) {
 
 $Start = Get-Date
 
-pwsh -ExecutionPolicy Bypass `
-  -File .\automation\capture_pages_vm_calibrated.ps1 `
-  -Version $Version `
-  -DelaySeconds 1.8
+# Restore the UIA named-page-tab switching mechanism that was used successfully
+# in the earlier review captures. The Python driver now stages all twenty pages,
+# rejects duplicate hashes, and publishes only after a complete pass.
+py -3.12 .\automation\capture_pages_uia_transactional.py `
+  --version $Version `
+  --delay 1.8
 
 if ($LASTEXITCODE -ne 0) {
-    throw "Calibrated robust 20-page capture failed with exit code $LASTEXITCODE"
+    throw "UIA transactional 20-page capture failed with exit code $LASTEXITCODE"
 }
 
 $ShotDir = Join-Path $RepoRoot "PROJECT\BISM2202_OUTPUT\Version_$Version\screenshots"
@@ -47,7 +49,7 @@ if ($Tiny.Count -gt 0) {
 $Hashes = $Shots | Get-FileHash -Algorithm SHA256
 $DuplicateHashGroups = @($Hashes | Group-Object Hash | Where-Object { $_.Count -gt 1 })
 if ($DuplicateHashGroups.Count -gt 0) {
-    throw "Version $Version still contains duplicate final screenshot hashes after calibrated capture."
+    throw "Version $Version still contains duplicate final screenshot hashes after UIA capture."
 }
 
 Write-Host "VERSION_${Version}_SCREENSHOTS: 20 FRESH PASS" -ForegroundColor Green
