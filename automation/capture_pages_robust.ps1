@@ -168,7 +168,7 @@ try {
             canvas_height = $CropHeight
         }
 
-        Write-Host "Captured $Name: $($ShotInfo.Length) bytes" -ForegroundColor DarkGray
+        Write-Host "Captured ${Name}: $($ShotInfo.Length) bytes" -ForegroundColor DarkGray
 
         if ($Number -lt 20) {
             [BISM2202CaptureNative]::SetForegroundWindow($Handle) | Out-Null
