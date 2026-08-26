@@ -16,16 +16,28 @@ if ($PowerBI) {
     throw "Power BI Desktop is still running. Close it before patching PBIR source files."
 }
 
-Write-Host "Checking Python script syntax..." -ForegroundColor Cyan
+Write-Host "Checking Python scripts..." -ForegroundColor Cyan
 py -3.12 -m py_compile .\automation\polish_teacher_feedback_visuals.py
 if ($LASTEXITCODE -ne 0) {
-    throw "Python syntax validation failed with exit code $LASTEXITCODE"
+    throw "polish_teacher_feedback_visuals.py syntax validation failed with exit code $LASTEXITCODE"
+}
+py -3.12 -m py_compile .\automation\fix_remaining_visual_issues.py
+if ($LASTEXITCODE -ne 0) {
+    throw "fix_remaining_visual_issues.py syntax validation failed with exit code $LASTEXITCODE"
 }
 Write-Host "VISUAL_POLISH_PYTHON_SYNTAX: PASS" -ForegroundColor Green
 
 py -3.12 .\automation\polish_teacher_feedback_visuals.py --version $Version
 if ($LASTEXITCODE -ne 0) {
     throw "polish_teacher_feedback_visuals.py failed with exit code $LASTEXITCODE"
+}
+
+# Deterministic post-pass based on live visual review:
+# Q07 keeps TopN=10 semantics while accurately labeling tied cutoff rows.
+# Q15 keeps the numeric complexity scale in a stable high-to-low order.
+py -3.12 .\automation\fix_remaining_visual_issues.py --version $Version
+if ($LASTEXITCODE -ne 0) {
+    throw "fix_remaining_visual_issues.py failed with exit code $LASTEXITCODE"
 }
 
 $Versions = if ($Version -eq "Both") { @("A", "B") } else { @($Version) }
@@ -47,6 +59,7 @@ foreach ($V in $Versions) {
 
 Write-Host ""
 Write-Host "TEACHER_FEEDBACK_RICH_VISUAL_POLISH: PASS" -ForegroundColor Green
-Write-Host "Changes include labels, meaningful sorting, semantic colors, concise subtitles, corrected Q07 tied-leader styling, and Q15 share ranking." -ForegroundColor Green
+Write-Host "Q07 tie-safe title/subtitle: PASS" -ForegroundColor Green
+Write-Host "Q15 deterministic complexity ordering: PASS" -ForegroundColor Green
 Write-Host "Power BI saving/export is intentionally NOT automated." -ForegroundColor Yellow
-Write-Host "Next: open A, inspect Q01/Q02/Q04/Q07/Q09/Q13/Q15/Q20, Ctrl+S and Save As final PBIX only after visual approval." -ForegroundColor Yellow
+Write-Host "Next: open A and inspect Q01/Q02/Q04/Q07/Q09/Q13/Q15/Q20, then Ctrl+S and Save As final PBIX only after visual approval." -ForegroundColor Yellow
