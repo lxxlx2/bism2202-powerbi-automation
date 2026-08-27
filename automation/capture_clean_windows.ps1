@@ -19,15 +19,17 @@ if (-not $PowerBI) {
 
 $Start = Get-Date
 
-# Restore the UIA named-page-tab switching mechanism that was used successfully
-# in the earlier review captures. The Python driver now stages all twenty pages,
-# rejects duplicate hashes, and publishes only after a complete pass.
-py -3.12 .\automation\capture_pages_uia_transactional.py `
-  --version $Version `
-  --delay 1.8
+# Use Windows' built-in .NET UI Automation directly. This preserves the proven
+# named Q01-Q20 page-tab switching strategy while avoiding Python/pywin32 DLL
+# dependencies on Windows ARM64. The driver stages all twenty pages, rejects
+# duplicate hashes, and publishes only after a complete pass.
+pwsh -ExecutionPolicy Bypass `
+  -File .\automation\capture_pages_dotnet_uia.ps1 `
+  -Version $Version `
+  -DelaySeconds 1.8
 
 if ($LASTEXITCODE -ne 0) {
-    throw "UIA transactional 20-page capture failed with exit code $LASTEXITCODE"
+    throw "Native .NET UIA transactional 20-page capture failed with exit code $LASTEXITCODE"
 }
 
 $ShotDir = Join-Path $RepoRoot "PROJECT\BISM2202_OUTPUT\Version_$Version\screenshots"
@@ -49,7 +51,7 @@ if ($Tiny.Count -gt 0) {
 $Hashes = $Shots | Get-FileHash -Algorithm SHA256
 $DuplicateHashGroups = @($Hashes | Group-Object Hash | Where-Object { $_.Count -gt 1 })
 if ($DuplicateHashGroups.Count -gt 0) {
-    throw "Version $Version still contains duplicate final screenshot hashes after UIA capture."
+    throw "Version $Version still contains duplicate final screenshot hashes after native .NET UIA capture."
 }
 
 Write-Host "VERSION_${Version}_SCREENSHOTS: 20 FRESH PASS" -ForegroundColor Green
