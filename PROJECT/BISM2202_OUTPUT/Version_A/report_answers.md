@@ -1,4 +1,4 @@
-# BISM2202 Power BI Assessment - Version A
+# BISM2202 Power BI Assessment
 
 Student Name: __________
 
@@ -12,7 +12,7 @@ What is the top 20 locations based on count of order number?
 
 Observation:
 
-Atlanta, GA ranked first with 78 orders, followed by Milwaukee, WI with 71 and Louisville, KY with 69. The horizontal ranking makes the difference between the leading locations easy to compare.
+Atlanta, GA had the highest order count at 78, with Milwaukee, WI on 71 and Louisville, KY on 69. The top three are fairly close, with only nine orders separating first and third place.
 
 ## Q2
 
@@ -22,7 +22,7 @@ What is the average Delivery Duration (min) by Pizza Size?
 
 Observation:
 
-Large pizzas had the longest average delivery duration at 34.17 minutes, while Small pizzas had the shortest at 21.86 minutes. XL pizzas were close to Large pizzas at 33.08 minutes.
+Large pizzas had the longest average delivery time at 34.17 minutes, followed closely by XL at 33.08. Medium averaged 27.53 minutes and Small was lowest at 21.86, giving a 12.31-minute gap between the highest and lowest size groups.
 
 ## Q3
 
@@ -32,7 +32,7 @@ What is the share of orders by Pizza Size?
 
 Observation:
 
-Medium pizzas accounted for the largest share, with 429 orders (42.73%). Small pizzas had the smallest share, with 132 orders (13.15%).
+Medium pizzas made up the largest share of orders, with 429 orders or 42.73% of the total. Small pizzas were the least common at 132 orders or 13.15%.
 
 ## Q4
 
@@ -42,7 +42,7 @@ How many orders were placed with each Payment Method?
 
 Observation:
 
-Card was the most common payment method with 276 orders, only five more than UPI at 271. Hut Points and Domino's Cash were much less common, at 24 and 23 orders respectively.
+Card was the most used payment method with 276 orders, only five ahead of UPI at 271. Wallet and Cash were also common at 208 and 202, while Hut Points and Domino's Cash were rare at 24 and 23 orders.
 
 ## Q5
 
@@ -52,7 +52,7 @@ What is the share of orders by Traffic Level?
 
 Observation:
 
-Medium traffic represented the largest share of orders at 39.64% (398 orders). High traffic accounted for 32.67%, while Low traffic represented 27.69%.
+Medium traffic accounted for the largest share of orders at 39.64% or 398 orders. High traffic represented 32.67% and Low traffic 27.69%, so most orders occurred under Medium or High traffic conditions.
 
 ## Q6
 
@@ -62,7 +62,7 @@ What is the average Toppings Count for weekend vs. weekday orders?
 
 Observation:
 
-Weekday orders averaged 3.40 toppings, compared with 3.27 on weekends. The difference was small, at about 0.13 toppings per order.
+Weekday orders averaged 3.40 toppings compared with 3.27 on weekends. The difference is only 0.13 toppings per order, so the two groups are very similar.
 
 ## Q7
 
@@ -72,7 +72,7 @@ Which locations have the highest average Delivery Duration (min)?
 
 Observation:
 
-Fort Wayne, IN and Newark, NJ had the highest average delivery duration at 50.00 minutes. Laredo, Lexington, Minneapolis, and Orlando followed at 45.00 minutes, so several locations shared the next-highest result.
+Fort Wayne, IN and Newark, NJ had the highest average delivery duration at 50.00 minutes. Laredo, Lexington, Minneapolis and Orlando were tied next at 45.00 minutes, making the tied results important when reading the ranking.
 
 ## Q8
 
@@ -82,7 +82,7 @@ How many orders were placed during peak hours vs. non-peak?
 
 Observation:
 
-Peak hours contained 949 orders (94.52%), compared with only 55 non-peak orders (5.48%). Most observations in this dataset therefore fall in the peak-hour category.
+Peak hours contained 949 orders, equal to 94.52% of the dataset, while only 55 orders or 5.48% were non-peak. Order activity is therefore heavily concentrated in the defined peak period.
 
 ## Q9
 
@@ -92,7 +92,7 @@ How does order volume trend across Order Month?
 
 Observation:
 
-The chronological series contains 31 distinct Month-Year points from 2024-01 to 2026-07. Volume peaked at 86 orders in 2024-08 and remained high at 75 in 2024-09, before falling to 44 in 2024-10. The lowest complete point was 2024-05 with 6 orders; the final 2026-07 point has 7 orders and covers data only through 7 July.
+Order volume is shown across 31 Month-Year points from 2024-01 to 2026-07. The highest month was 2024-08 with 86 orders, followed by 75 in 2024-09 and then 44 in 2024-10. The lowest full month was 2024-05 with 6 orders; the last point, 2026-07, contains 7 orders and only covers data through 7 July.
 
 ## Q10
 
@@ -102,7 +102,7 @@ What is the average Toppings Count by Pizza Size?
 
 Observation:
 
-XL pizzas had the highest average toppings count at 4.99, followed by Large pizzas at 3.97. Small pizzas had the lowest average at 1.69 toppings.
+Average topping count increased with pizza size in this dataset. XL was highest at 4.99 toppings, followed by Large at 3.97, Medium at 2.77 and Small at 1.69.
 
 ## Q11
 
@@ -112,7 +112,7 @@ Which 2 restaurants have the lowest average Delay (min) i.e., the fastest, most 
 
 Observation:
 
-Little Caesars recorded the lowest average delay at 16.62 minutes. Domino's was second at 17.02 minutes, so these are the two lowest-delay restaurants under the assignment definition.
+Little Caesars had the lowest average delay at 16.62 minutes, with Domino's second at 17.02 minutes. The difference between the two lowest-delay restaurants is just 0.40 minutes.
 
 ## Q12
 
@@ -122,7 +122,7 @@ Which 5 Pizza Types have the highest average Delivery Duration (min)?
 
 Observation:
 
-Stuffed Crust had the highest average delivery duration at 39.52 minutes. Gluten-Free (32.44), Cheese Burst (32.26), Thai Chicken (31.67), and Sicilian (30.86) completed the top five.
+Stuffed Crust had the longest average delivery duration at 39.52 minutes. The rest of the top five were Gluten-Free at 32.44, Cheese Burst at 32.26, Thai Chicken at 31.67 and Sicilian at 30.86 minutes.
 
 ## Q13
 
@@ -132,7 +132,7 @@ How does order volume vary by Order Hour across a typical day?
 
 Observation:
 
-The largest hourly order volume occurred at 19:00 with 328 orders. The nearby 18:00 and 20:00 periods were also busy, with 312 and 306 orders, while the remaining observed hours were much quieter.
+The busiest hour was 19:00 with 328 orders. The adjacent hours were also very busy, with 312 orders at 18:00 and 306 at 20:00, showing a strong evening concentration in order volume.
 
 ## Q14
 
@@ -142,7 +142,7 @@ What is the average delay (min) by Traffic Level?
 
 Observation:
 
-Average delay increased across the traffic categories: 15.46 minutes for Low, 17.86 for Medium, and 19.16 for High traffic. The pattern shows an association between heavier traffic and longer delay in this dataset.
+Average delay rose from 15.46 minutes in Low traffic to 17.86 in Medium and 19.16 in High traffic. The High-traffic average is 3.70 minutes above the Low-traffic average.
 
 ## Q15
 
@@ -152,7 +152,7 @@ What proportion of orders fall into each Pizza Complexity category?
 
 Observation:
 
-Pizza Complexity 6 was the largest category, with 308 orders (30.68%). Complexity 12 represented 22.81% and Complexity 20 represented 20.12%, while categories 3 and 15 each contained only two orders.
+Complexity 6 was the largest category at 30.68% of orders, followed by Complexity 12 at 22.81% and Complexity 20 at 20.12%. Together these three categories account for 73.61% of all orders, while Complexity 3 and 15 contain only two orders each.
 
 ## Q16
 
@@ -162,7 +162,7 @@ Build a table of average Delivery Duration and Delay by Restaurant Name and use 
 
 Observation:
 
-The conditional formatting identifies Papa John's as the fastest restaurant by average delivery duration at 28.19 minutes, while Domino's was slowest at 30.26 minutes. Little Caesars had the lowest average delay at 16.62 minutes, whereas Marco's Pizza had the highest at 18.44 minutes. The fastest delivery-duration restaurant is therefore not the same as the lowest-delay restaurant.
+The two performance measures identify different leaders. Papa John's had the shortest average delivery duration at 28.19 minutes, while Little Caesars had the lowest average delay at 16.62. Domino's had the longest average delivery duration at 30.26 minutes and Marco's Pizza had the highest average delay at 18.44.
 
 ## Q17
 
@@ -172,7 +172,7 @@ How does order volume vary by Order Hour, alongside average Delay (min)?
 
 Observation:
 
-Order volume peaked at 19:00 with 328 orders, but the highest average delay occurred at 20:00 at 19.97 minutes. The volume and delay peaks did not fully coincide. The 21:00 delay was also high at 19.75 minutes, but that hour contained only three orders and should be read cautiously.
+Order volume reached its maximum at 19:00 with 328 orders, while average delay peaked one hour later at 20:00 with 19.97 minutes. The 21:00 delay was also high at 19.75 minutes, though that value comes from only three orders and carries much less weight than the main evening peak.
 
 ## Q18
 
@@ -182,7 +182,7 @@ How does average Topping Density vary by Pizza Type, alongside order volume?
 
 Observation:
 
-Non-Veg had the largest order volume at 216 and an average topping density of 0.760. Cheese Burst combined high volume (188 orders) with the highest average density, 0.845. The supplied density field equals toppings per kilometre, so it should not be interpreted as a pure pizza-size measure.
+Non-Veg had the highest order volume at 216 with an average topping density of 0.760. Cheese Burst had 188 orders and the highest average density at 0.845. The supplied Topping Density field is based on toppings per kilometre, so it should be read as the provided dataset measure rather than a pure pizza-size indicator.
 
 ## Q19
 
@@ -192,7 +192,7 @@ What is the percentage breakdown of orders by Traffic Level within each Payment 
 
 Observation:
 
-Traffic composition differed by payment method. High traffic made up 44.57% of Card orders, Medium traffic was largest for Cash (48.02%) and UPI (47.60%), and Low traffic was largest for Wallet (44.71%). Hut Points was 95.83% High traffic, but it contained only 24 orders, so its percentage is based on a small group.
+Traffic mix varies across payment methods. High traffic represented 44.57% of Card orders, Medium traffic was largest for Cash at 48.02% and UPI at 47.60%, while Low traffic was largest for Wallet at 44.71%. Hut Points is 95.83% High traffic, but that payment method has only 24 orders, so the percentage comes from a small base.
 
 ## Q20
 
@@ -202,7 +202,4 @@ Design three different charts or tables that use conditional formatting (or high
 
 Observation:
 
-The dashboard combines a conditionally formatted Restaurant Performance matrix, an Average Delay by Traffic Level column chart, and an Order Volume by Order Hour line chart. Together they compare restaurant performance, delivery conditions, and demand timing.
-
-Papa John's had the shortest average delivery duration (28.19 minutes), while Marco's Pizza had the highest average delay (18.44 minutes). High traffic had the highest average delay (19.16 minutes), and order volume reached 328 at 19:00. These supported results identify where and when operations warrant closer review without claiming causation.
-
+The dashboard brings together restaurant performance, traffic-related delay and hourly demand. Papa John's had the shortest average delivery duration at 28.19 minutes, while Marco's Pizza had the highest average delay at 18.44. High traffic produced the highest average delay at 19.16 minutes, and demand reached 328 orders at 19:00. Looking at the three views together points to evening demand and high-traffic conditions as the main areas where delivery performance deserves attention.
