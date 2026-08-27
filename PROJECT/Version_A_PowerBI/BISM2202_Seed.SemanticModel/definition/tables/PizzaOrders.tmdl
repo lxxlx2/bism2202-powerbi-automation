@@ -44,6 +44,91 @@ table PizzaOrders
 		displayFolder: BISM2202 Measures
 		lineageTag: 2b4fa11c-8a56-4b38-888c-0aa3aa2d4983
 
+	measure 'Total Orders KPI' = [Order Count]
+		formatString: #,0
+		displayFolder: BISM2202 Dashboard KPIs
+		lineageTag: 3072e786-9c53-56b7-9a14-5855ecc3a2e7
+
+	measure 'Unique Locations KPI' = DISTINCTCOUNT(PizzaOrders[Location])
+		formatString: #,0
+		displayFolder: BISM2202 Dashboard KPIs
+		lineageTag: 158a115d-ad77-5efa-bdd8-c4b655422d9c
+
+	measure 'Top Location Orders KPI' = MAXX(VALUES(PizzaOrders[Location]), CALCULATE([Order Count]))
+		formatString: #,0
+		displayFolder: BISM2202 Dashboard KPIs
+		lineageTag: 5c254b81-5a20-5dfb-b4f7-5b72fef8ecc3
+
+	measure 'Payment Methods KPI' = DISTINCTCOUNT(PizzaOrders[Payment Method])
+		formatString: #,0
+		displayFolder: BISM2202 Dashboard KPIs
+		lineageTag: f561577d-7ae0-5399-9bfc-b4450c422035
+
+	measure 'Top Payment Orders KPI' = MAXX(VALUES(PizzaOrders[Payment Method]), CALCULATE([Order Count]))
+		formatString: #,0
+		displayFolder: BISM2202 Dashboard KPIs
+		lineageTag: 87657c69-d0d7-52b6-b982-77be20cece09
+
+	measure 'Highest Avg Delivery KPI' = MAXX(VALUES(PizzaOrders[Location]), CALCULATE([Avg Delivery Duration]))
+		formatString: 0.00
+		displayFolder: BISM2202 Dashboard KPIs
+		lineageTag: b973aeb2-ad60-561c-a7cc-fff7aa8cf306
+
+	measure 'Locations at Max Delivery KPI' = VAR M = [Highest Avg Delivery KPI] RETURN COUNTROWS(FILTER(VALUES(PizzaOrders[Location]), ABS(CALCULATE([Avg Delivery Duration]) - M) < 0.000001))
+		formatString: #,0
+		displayFolder: BISM2202 Dashboard KPIs
+		lineageTag: e15b3902-bc1d-5997-8a62-933266c863e4
+
+	measure 'Overall Avg Delivery KPI' = [Avg Delivery Duration]
+		formatString: 0.00
+		displayFolder: BISM2202 Dashboard KPIs
+		lineageTag: 5b7ca915-b59e-548c-b8fc-38094abf93bb
+
+	measure 'Peak Month Orders KPI' = MAXX(VALUES(PizzaOrders[Order Month Start]), CALCULATE([Order Count]))
+		formatString: #,0
+		displayFolder: BISM2202 Dashboard KPIs
+		lineageTag: 5874f9a6-6ec7-51c8-803f-962b16b7836f
+
+	measure 'Avg Monthly Orders KPI' = AVERAGEX(VALUES(PizzaOrders[Order Month Start]), CALCULATE([Order Count]))
+		formatString: 0.00
+		displayFolder: BISM2202 Dashboard KPIs
+		lineageTag: 861901de-8c64-55e3-9d5f-f9f84f029f48
+
+	measure 'Latest Month Orders KPI' = VAR LatestMonth = MAX(PizzaOrders[Order Month Start]) RETURN CALCULATE([Order Count], PizzaOrders[Order Month Start] = LatestMonth)
+		formatString: #,0
+		displayFolder: BISM2202 Dashboard KPIs
+		lineageTag: 5242f6b2-b77e-52f5-83dd-c9f1c3952ab8
+
+	measure 'Peak Hour Orders KPI' = MAXX(VALUES(PizzaOrders[Order Hour]), CALCULATE([Order Count]))
+		formatString: #,0
+		displayFolder: BISM2202 Dashboard KPIs
+		lineageTag: bf6d005d-83e1-5b9a-baff-bc21cf6f03ec
+
+	measure 'Peak Window Orders KPI' = CALCULATE([Order Count], FILTER(ALL(PizzaOrders[Order Hour]), PizzaOrders[Order Hour] >= 18 && PizzaOrders[Order Hour] <= 20))
+		formatString: #,0
+		displayFolder: BISM2202 Dashboard KPIs
+		lineageTag: 73d830cc-56a8-5ab7-a055-c17eee614b0f
+
+	measure 'Active Hours KPI' = COUNTROWS(FILTER(VALUES(PizzaOrders[Order Hour]), CALCULATE([Order Count]) > 0))
+		formatString: #,0
+		displayFolder: BISM2202 Dashboard KPIs
+		lineageTag: 9d9c1a1e-9e67-5560-a95d-7dfafbbcaa83
+
+	measure 'Dominant Complexity Share KPI' = MAXX(VALUES(PizzaOrders[Pizza Complexity]), CALCULATE([Order Share Overall]))
+		formatString: 0.00%
+		displayFolder: BISM2202 Dashboard KPIs
+		lineageTag: c9e41af9-cb6e-52a2-83e8-e6eeb49eb6db
+
+	measure 'Complexity Levels KPI' = DISTINCTCOUNT(PizzaOrders[Pizza Complexity])
+		formatString: #,0
+		displayFolder: BISM2202 Dashboard KPIs
+		lineageTag: 6a733d2c-8465-54a2-be79-b21f19d5a2e2
+
+	measure 'Avg Complexity KPI' = AVERAGE(PizzaOrders[Pizza Complexity])
+		formatString: 0.00
+		displayFolder: BISM2202 Dashboard KPIs
+		lineageTag: da37454c-050b-5729-9f69-c716889220b5
+
 	column 'Order ID'
 		dataType: string
 		lineageTag: b265fac1-1798-4f4d-b4c0-ffb9fe249d51
@@ -316,6 +401,21 @@ table PizzaOrders
 		isHidden
 		lineageTag: 3d4cdf96-3aec-4475-b15f-7ed00d4944a4
 		summarizeBy: sum
+
+	column 'Order Month English' = FORMAT(PizzaOrders[Order Month Start], "MMM yyyy", "en-US")
+		dataType: string
+		lineageTag: b1fa8055-2262-4421-a247-a13a1b4f2a91
+		summarizeBy: none
+		sortByColumn: 'Order Month Sort'
+
+		changedProperty = SortByColumn
+
+	column 'Order Month Sort' = YEAR(PizzaOrders[Order Month Start]) * 100 + MONTH(PizzaOrders[Order Month Start])
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 8df4b7f7-9dc7-4160-8f2c-7a9ecbb90b51
+		summarizeBy: none
 
 	partition PizzaOrders = m
 		mode: import

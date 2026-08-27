@@ -3,11 +3,11 @@
   "name": "q15_chart",
   "position": {
     "x": 35,
-    "y": 45,
+    "y": 145,
     "z": 0,
     "height": 620,
     "width": 1210,
-    "tabOrder": 0
+    "tabOrder": 10
   },
   "visual": {
     "visualType": "clusteredBarChart",
@@ -53,6 +53,24 @@
         "Legend": {
           "projections": []
         }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "PizzaOrders"
+                  }
+                },
+                "Property": "Pizza Complexity"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
       }
     },
     "drillFilterOtherVisuals": true,
@@ -63,7 +81,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Order Proportion by Pizza Complexity'"
+                  "Value": "'Order Share by Pizza Complexity'"
                 }
               }
             }
@@ -76,7 +94,14 @@
             "show": {
               "expr": {
                 "Literal": {
-                  "Value": "false"
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Percentage of all orders • complexity scale shown high to low'"
                 }
               }
             }
@@ -106,6 +131,23 @@
               "expr": {
                 "Literal": {
                   "Value": "2D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "dataPoint": [
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#9B51E0'"
+                    }
+                  }
                 }
               }
             }

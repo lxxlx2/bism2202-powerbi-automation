@@ -1,402 +1,382 @@
 [
   {
     "page": "Q01",
-    "canvas_file": "C:\\BISM2202\\PROJECT\\BISM2202_OUTPUT\\Version_B\\screenshots\\Q01.png",
-    "review_file": "C:\\BISM2202\\PROJECT\\BISM2202_OUTPUT\\Version_B\\review_full\\Q01_full.png",
-    "canvas_sha256": "2870a74c7921e4617d229dfc23907c70f498a1f03a0dd835505c3c899454081d",
-    "review_sha256": "7b398cfbcbf3ed5e578e5c7cbeae48e02c838777f9b8783bbe22e596e880c1e7",
-    "captured": "2026-08-25T01:37:18",
-    "window": {
-      "Left": -8,
-      "Top": -8,
-      "Width": 3472,
-      "Height": 1880
-    },
-    "canvas": {
-      "left": 166,
-      "top": 312,
-      "width": 2222,
-      "height": 1297
-    }
+    "driver": "SelectionItem",
+    "tab_left": 169.0,
+    "tab_top": 1804.0,
+    "tab_width": 61.0,
+    "tab_height": 35.0,
+    "canvas_file": "C:\\Users\\jerson\\AppData\\Local\\Temp\\bism2202_dotnet_uia_B_fbf831abb81a4fa08659a0416fa43b9e\\screenshots\\Q01.png",
+    "canvas_bytes": 125540,
+    "canvas_sha256": "087D00D177AFD728D199A9910828EC1F2CEE09E37B41A7CCFE2979DA43D84811",
+    "review_file": "C:\\Users\\jerson\\AppData\\Local\\Temp\\bism2202_dotnet_uia_B_fbf831abb81a4fa08659a0416fa43b9e\\review_full\\Q01_full.png",
+    "review_bytes": 330693,
+    "review_sha256": "9581F083EC54391FADB2CA6568C1A1CBACD3DAD70AC2ABDDFF32A3EC4E438556",
+    "captured": "2026-08-27T09:27:50",
+    "canvas_left": 183,
+    "canvas_top": 227,
+    "canvas_width": 2621,
+    "canvas_height": 1485
   },
   {
     "page": "Q02",
-    "canvas_file": "C:\\BISM2202\\PROJECT\\BISM2202_OUTPUT\\Version_B\\screenshots\\Q02.png",
-    "review_file": "C:\\BISM2202\\PROJECT\\BISM2202_OUTPUT\\Version_B\\review_full\\Q02_full.png",
-    "canvas_sha256": "e2ebab1a0b031b5e19fba22703bc76d7d011835a331c309114c3a3010e93f1d4",
-    "review_sha256": "44758b5a864713d5743a2b9fa5ba16e19b765bd37cf3328189221a7046a68fd7",
-    "captured": "2026-08-25T01:37:21",
-    "window": {
-      "Left": -8,
-      "Top": -8,
-      "Width": 3472,
-      "Height": 1880
-    },
-    "canvas": {
-      "left": 166,
-      "top": 312,
-      "width": 2222,
-      "height": 1297
-    }
+    "driver": "SelectionItem",
+    "tab_left": 230.0,
+    "tab_top": 1804.0,
+    "tab_width": 63.0,
+    "tab_height": 35.0,
+    "canvas_file": "C:\\Users\\jerson\\AppData\\Local\\Temp\\bism2202_dotnet_uia_B_fbf831abb81a4fa08659a0416fa43b9e\\screenshots\\Q02.png",
+    "canvas_bytes": 67199,
+    "canvas_sha256": "DB5195EBEC425C57FC856F0D9FEFDEA31D3DB32FA3CD22F08CD30177ED680D25",
+    "review_file": "C:\\Users\\jerson\\AppData\\Local\\Temp\\bism2202_dotnet_uia_B_fbf831abb81a4fa08659a0416fa43b9e\\review_full\\Q02_full.png",
+    "review_bytes": 264743,
+    "review_sha256": "3A207C62DD7831D331811012FCD59851FB8EE9038A4A96D6D9923FB8CAB49E81",
+    "captured": "2026-08-27T09:27:53",
+    "canvas_left": 183,
+    "canvas_top": 227,
+    "canvas_width": 2621,
+    "canvas_height": 1485
   },
   {
     "page": "Q03",
-    "canvas_file": "C:\\BISM2202\\PROJECT\\BISM2202_OUTPUT\\Version_B\\screenshots\\Q03.png",
-    "review_file": "C:\\BISM2202\\PROJECT\\BISM2202_OUTPUT\\Version_B\\review_full\\Q03_full.png",
-    "canvas_sha256": "3f38b5e1305fa9423b3364d96467793166e59964f12baabe96bb4506be4a2df0",
-    "review_sha256": "f6bd9f28284ae9d30f3eacd58cb4b7aa49ddc8417727a878f15424bf39dcb882",
-    "captured": "2026-08-25T01:37:25",
-    "window": {
-      "Left": -8,
-      "Top": -8,
-      "Width": 3472,
-      "Height": 1880
-    },
-    "canvas": {
-      "left": 166,
-      "top": 312,
-      "width": 2222,
-      "height": 1297
-    }
+    "driver": "SelectionItem",
+    "tab_left": 295.0,
+    "tab_top": 1804.0,
+    "tab_width": 63.0,
+    "tab_height": 35.0,
+    "canvas_file": "C:\\Users\\jerson\\AppData\\Local\\Temp\\bism2202_dotnet_uia_B_fbf831abb81a4fa08659a0416fa43b9e\\screenshots\\Q03.png",
+    "canvas_bytes": 61957,
+    "canvas_sha256": "71131A31958D894C550B74647561BF15CBA6829E227B8ECCBFCC174A5B1CC1B0",
+    "review_file": "C:\\Users\\jerson\\AppData\\Local\\Temp\\bism2202_dotnet_uia_B_fbf831abb81a4fa08659a0416fa43b9e\\review_full\\Q03_full.png",
+    "review_bytes": 256204,
+    "review_sha256": "C1394DBFCA3A80FF34B0319A597F8691ECEA3D21243444A3726095F9C6FB98F5",
+    "captured": "2026-08-27T09:27:56",
+    "canvas_left": 183,
+    "canvas_top": 227,
+    "canvas_width": 2621,
+    "canvas_height": 1485
   },
   {
     "page": "Q04",
-    "canvas_file": "C:\\BISM2202\\PROJECT\\BISM2202_OUTPUT\\Version_B\\screenshots\\Q04.png",
-    "review_file": "C:\\BISM2202\\PROJECT\\BISM2202_OUTPUT\\Version_B\\review_full\\Q04_full.png",
-    "canvas_sha256": "7058ab24922b75f8c5ca92c8226465d72273acf0457decb4158c73a4fe1c5e3f",
-    "review_sha256": "e7e1d814553393f3025ebe88bd01820d306c83716bd2a937f92576e741e36614",
-    "captured": "2026-08-25T01:37:28",
-    "window": {
-      "Left": -8,
-      "Top": -8,
-      "Width": 3472,
-      "Height": 1880
-    },
-    "canvas": {
-      "left": 166,
-      "top": 312,
-      "width": 2222,
-      "height": 1297
-    }
+    "driver": "SelectionItem",
+    "tab_left": 358.0,
+    "tab_top": 1804.0,
+    "tab_width": 63.0,
+    "tab_height": 35.0,
+    "canvas_file": "C:\\Users\\jerson\\AppData\\Local\\Temp\\bism2202_dotnet_uia_B_fbf831abb81a4fa08659a0416fa43b9e\\screenshots\\Q04.png",
+    "canvas_bytes": 87294,
+    "canvas_sha256": "E75536C78933B483C1C29FE501F21107FE1967A6E6A7893D6EAF919FFF4CBE41",
+    "review_file": "C:\\Users\\jerson\\AppData\\Local\\Temp\\bism2202_dotnet_uia_B_fbf831abb81a4fa08659a0416fa43b9e\\review_full\\Q04_full.png",
+    "review_bytes": 290563,
+    "review_sha256": "1469A0D07CC6924F35A5FCBB13137978D74E61941425386D700BC7AED98D0932",
+    "captured": "2026-08-27T09:27:58",
+    "canvas_left": 183,
+    "canvas_top": 227,
+    "canvas_width": 2621,
+    "canvas_height": 1485
   },
   {
     "page": "Q05",
-    "canvas_file": "C:\\BISM2202\\PROJECT\\BISM2202_OUTPUT\\Version_B\\screenshots\\Q05.png",
-    "review_file": "C:\\BISM2202\\PROJECT\\BISM2202_OUTPUT\\Version_B\\review_full\\Q05_full.png",
-    "canvas_sha256": "20a22dca6ce796a0697dd18c5c0c0b6807ba38b4a3993bd8987d81c656397308",
-    "review_sha256": "cb398456da3a580d63e1fba98363821cfff97fc88f2b36107b20f92ab0f9fe15",
-    "captured": "2026-08-25T01:37:31",
-    "window": {
-      "Left": -8,
-      "Top": -8,
-      "Width": 3472,
-      "Height": 1880
-    },
-    "canvas": {
-      "left": 166,
-      "top": 312,
-      "width": 2222,
-      "height": 1297
-    }
+    "driver": "SelectionItem",
+    "tab_left": 421.0,
+    "tab_top": 1804.0,
+    "tab_width": 63.0,
+    "tab_height": 35.0,
+    "canvas_file": "C:\\Users\\jerson\\AppData\\Local\\Temp\\bism2202_dotnet_uia_B_fbf831abb81a4fa08659a0416fa43b9e\\screenshots\\Q05.png",
+    "canvas_bytes": 63198,
+    "canvas_sha256": "190FCC920ADF7E8223C696D901E056BB13327837251659DF9617D4CE9F431865",
+    "review_file": "C:\\Users\\jerson\\AppData\\Local\\Temp\\bism2202_dotnet_uia_B_fbf831abb81a4fa08659a0416fa43b9e\\review_full\\Q05_full.png",
+    "review_bytes": 258722,
+    "review_sha256": "8775FB9D3837142F6D95690D57ACF469D4918AE63E31D4A72CA1AB166F58605C",
+    "captured": "2026-08-27T09:28:01",
+    "canvas_left": 183,
+    "canvas_top": 227,
+    "canvas_width": 2621,
+    "canvas_height": 1485
   },
   {
     "page": "Q06",
-    "canvas_file": "C:\\BISM2202\\PROJECT\\BISM2202_OUTPUT\\Version_B\\screenshots\\Q06.png",
-    "review_file": "C:\\BISM2202\\PROJECT\\BISM2202_OUTPUT\\Version_B\\review_full\\Q06_full.png",
-    "canvas_sha256": "50224669c87e2a99ec2b5744d534e60301ba1871c3522a7f6621669ed51b2b26",
-    "review_sha256": "6579257b8b6929d7d2c9bfabd0b329a707fd90a7905e4dfaeb349ca6de232f91",
-    "captured": "2026-08-25T01:37:35",
-    "window": {
-      "Left": -8,
-      "Top": -8,
-      "Width": 3472,
-      "Height": 1880
-    },
-    "canvas": {
-      "left": 166,
-      "top": 312,
-      "width": 2222,
-      "height": 1297
-    }
+    "driver": "SelectionItem",
+    "tab_left": 484.0,
+    "tab_top": 1804.0,
+    "tab_width": 63.0,
+    "tab_height": 35.0,
+    "canvas_file": "C:\\Users\\jerson\\AppData\\Local\\Temp\\bism2202_dotnet_uia_B_fbf831abb81a4fa08659a0416fa43b9e\\screenshots\\Q06.png",
+    "canvas_bytes": 55036,
+    "canvas_sha256": "98C889F666DE005F573E7069E095F2B5EADB471E9F4E7FF97375A601546C4063",
+    "review_file": "C:\\Users\\jerson\\AppData\\Local\\Temp\\bism2202_dotnet_uia_B_fbf831abb81a4fa08659a0416fa43b9e\\review_full\\Q06_full.png",
+    "review_bytes": 250010,
+    "review_sha256": "BE64FB45BC05B10973E0B4B240373E452EB09A8C40BB7E11B9B49FAFBFD349BC",
+    "captured": "2026-08-27T09:28:04",
+    "canvas_left": 183,
+    "canvas_top": 227,
+    "canvas_width": 2621,
+    "canvas_height": 1485
   },
   {
     "page": "Q07",
-    "canvas_file": "C:\\BISM2202\\PROJECT\\BISM2202_OUTPUT\\Version_B\\screenshots\\Q07.png",
-    "review_file": "C:\\BISM2202\\PROJECT\\BISM2202_OUTPUT\\Version_B\\review_full\\Q07_full.png",
-    "canvas_sha256": "9303b85cb85f483a0c2144e5a92b529326b99307706ec4f91eff095a6d5d16b3",
-    "review_sha256": "8b0753a4c7fdcab009dc1e173cdb5899e3c8f53f1a9ec136f6815b32ce237b99",
-    "captured": "2026-08-25T01:37:38",
-    "window": {
-      "Left": -8,
-      "Top": -8,
-      "Width": 3472,
-      "Height": 1880
-    },
-    "canvas": {
-      "left": 166,
-      "top": 312,
-      "width": 2222,
-      "height": 1297
-    }
+    "driver": "SelectionItem",
+    "tab_left": 547.0,
+    "tab_top": 1804.0,
+    "tab_width": 63.0,
+    "tab_height": 35.0,
+    "canvas_file": "C:\\Users\\jerson\\AppData\\Local\\Temp\\bism2202_dotnet_uia_B_fbf831abb81a4fa08659a0416fa43b9e\\screenshots\\Q07.png",
+    "canvas_bytes": 129310,
+    "canvas_sha256": "5260DF4F33BA2A42778CE748F69704D8FAD9181B0D48F27B48497E3F88EDDC23",
+    "review_file": "C:\\Users\\jerson\\AppData\\Local\\Temp\\bism2202_dotnet_uia_B_fbf831abb81a4fa08659a0416fa43b9e\\review_full\\Q07_full.png",
+    "review_bytes": 334446,
+    "review_sha256": "B37D326C82F15D9DAE986BEFA177BCB90B3870AB4B02EFBB11D33999401FD00A",
+    "captured": "2026-08-27T09:28:06",
+    "canvas_left": 183,
+    "canvas_top": 227,
+    "canvas_width": 2621,
+    "canvas_height": 1485
   },
   {
     "page": "Q08",
-    "canvas_file": "C:\\BISM2202\\PROJECT\\BISM2202_OUTPUT\\Version_B\\screenshots\\Q08.png",
-    "review_file": "C:\\BISM2202\\PROJECT\\BISM2202_OUTPUT\\Version_B\\review_full\\Q08_full.png",
-    "canvas_sha256": "f8b0e19475e233f7c0be05c30756be6ce2e1053ca7554c1d41aea6493ef9421e",
-    "review_sha256": "b5858de0daa299d5d54a1ec0887e530c6727d24c4179c3f44ed1dbbd0391e58f",
-    "captured": "2026-08-25T01:37:41",
-    "window": {
-      "Left": -8,
-      "Top": -8,
-      "Width": 3472,
-      "Height": 1880
-    },
-    "canvas": {
-      "left": 166,
-      "top": 312,
-      "width": 2222,
-      "height": 1297
-    }
+    "driver": "SelectionItem",
+    "tab_left": 610.0,
+    "tab_top": 1804.0,
+    "tab_width": 63.0,
+    "tab_height": 35.0,
+    "canvas_file": "C:\\Users\\jerson\\AppData\\Local\\Temp\\bism2202_dotnet_uia_B_fbf831abb81a4fa08659a0416fa43b9e\\screenshots\\Q08.png",
+    "canvas_bytes": 61585,
+    "canvas_sha256": "ED999D0078985F84CBF0BF72B7E3F181002AE7F25C4B44FB9FDAE134C39F400B",
+    "review_file": "C:\\Users\\jerson\\AppData\\Local\\Temp\\bism2202_dotnet_uia_B_fbf831abb81a4fa08659a0416fa43b9e\\review_full\\Q08_full.png",
+    "review_bytes": 255618,
+    "review_sha256": "EDB23AE9B182FADC56641D17A418B72768B79BE675B587E042AABCF5AF66FDB1",
+    "captured": "2026-08-27T09:28:09",
+    "canvas_left": 183,
+    "canvas_top": 227,
+    "canvas_width": 2621,
+    "canvas_height": 1485
   },
   {
     "page": "Q09",
-    "canvas_file": "C:\\BISM2202\\PROJECT\\BISM2202_OUTPUT\\Version_B\\screenshots\\Q09.png",
-    "review_file": "C:\\BISM2202\\PROJECT\\BISM2202_OUTPUT\\Version_B\\review_full\\Q09_full.png",
-    "canvas_sha256": "0231e42306ef3e8e175d8328cf9278319f94236d742ef5eb3da1a706c2cb4fab",
-    "review_sha256": "be45373f463426427a3b5d34850254ccee38dcc31136c0f6c88531f7117473d7",
-    "captured": "2026-08-25T01:37:45",
-    "window": {
-      "Left": -8,
-      "Top": -8,
-      "Width": 3472,
-      "Height": 1880
-    },
-    "canvas": {
-      "left": 166,
-      "top": 312,
-      "width": 2222,
-      "height": 1297
-    }
+    "driver": "SelectionItem",
+    "tab_left": 673.0,
+    "tab_top": 1804.0,
+    "tab_width": 63.0,
+    "tab_height": 35.0,
+    "canvas_file": "C:\\Users\\jerson\\AppData\\Local\\Temp\\bism2202_dotnet_uia_B_fbf831abb81a4fa08659a0416fa43b9e\\screenshots\\Q09.png",
+    "canvas_bytes": 112352,
+    "canvas_sha256": "DF2372BA0312A6631F2B64E76C304D126791175B055A6458759BD98A941C0DA2",
+    "review_file": "C:\\Users\\jerson\\AppData\\Local\\Temp\\bism2202_dotnet_uia_B_fbf831abb81a4fa08659a0416fa43b9e\\review_full\\Q09_full.png",
+    "review_bytes": 315342,
+    "review_sha256": "F58DD0C568B1641FE7364F568B52871DFDDA9269CE0E2B880791502C90A39B82",
+    "captured": "2026-08-27T09:28:12",
+    "canvas_left": 183,
+    "canvas_top": 227,
+    "canvas_width": 2621,
+    "canvas_height": 1485
   },
   {
     "page": "Q10",
-    "canvas_file": "C:\\BISM2202\\PROJECT\\BISM2202_OUTPUT\\Version_B\\screenshots\\Q10.png",
-    "review_file": "C:\\BISM2202\\PROJECT\\BISM2202_OUTPUT\\Version_B\\review_full\\Q10_full.png",
-    "canvas_sha256": "e73200cce9a25764833ac7f1be091409752c1f449f588f7303dff6d1464e78a6",
-    "review_sha256": "c87f5aea959f25ca791092d687efd88c7d47b004fc4d3998c12f5661826f7133",
-    "captured": "2026-08-25T01:37:48",
-    "window": {
-      "Left": -8,
-      "Top": -8,
-      "Width": 3472,
-      "Height": 1880
-    },
-    "canvas": {
-      "left": 166,
-      "top": 312,
-      "width": 2222,
-      "height": 1297
-    }
+    "driver": "SelectionItem",
+    "tab_left": 736.0,
+    "tab_top": 1804.0,
+    "tab_width": 63.0,
+    "tab_height": 35.0,
+    "canvas_file": "C:\\Users\\jerson\\AppData\\Local\\Temp\\bism2202_dotnet_uia_B_fbf831abb81a4fa08659a0416fa43b9e\\screenshots\\Q10.png",
+    "canvas_bytes": 60748,
+    "canvas_sha256": "4068AC2E1C4331AF57634262BFC0170F2564679E1A3EB45FEF05E7AD3D60BF61",
+    "review_file": "C:\\Users\\jerson\\AppData\\Local\\Temp\\bism2202_dotnet_uia_B_fbf831abb81a4fa08659a0416fa43b9e\\review_full\\Q10_full.png",
+    "review_bytes": 255897,
+    "review_sha256": "7C0FE5A09F56C8D3B78413715C0FFE3D24DB2822CDE7B6A28EA8EBE2C683DD63",
+    "captured": "2026-08-27T09:28:14",
+    "canvas_left": 183,
+    "canvas_top": 227,
+    "canvas_width": 2621,
+    "canvas_height": 1485
   },
   {
     "page": "Q11",
-    "canvas_file": "C:\\BISM2202\\PROJECT\\BISM2202_OUTPUT\\Version_B\\screenshots\\Q11.png",
-    "review_file": "C:\\BISM2202\\PROJECT\\BISM2202_OUTPUT\\Version_B\\review_full\\Q11_full.png",
-    "canvas_sha256": "bf711f39229ea72f651f54f32070c2ef7689986091703db0a2cad29a473f7d6e",
-    "review_sha256": "c12e41e84ad56e76a49f487ba68a480fa28fbe862d27dcaac3e5f1745d22e86c",
-    "captured": "2026-08-25T01:37:51",
-    "window": {
-      "Left": -8,
-      "Top": -8,
-      "Width": 3472,
-      "Height": 1880
-    },
-    "canvas": {
-      "left": 166,
-      "top": 312,
-      "width": 2222,
-      "height": 1297
-    }
+    "driver": "SelectionItem",
+    "tab_left": 797.0,
+    "tab_top": 1804.0,
+    "tab_width": 63.0,
+    "tab_height": 35.0,
+    "canvas_file": "C:\\Users\\jerson\\AppData\\Local\\Temp\\bism2202_dotnet_uia_B_fbf831abb81a4fa08659a0416fa43b9e\\screenshots\\Q11.png",
+    "canvas_bytes": 55403,
+    "canvas_sha256": "B0EDD195AD51362A8B496BEB16F1CE2CE21B1C400F1511C330E9E66F17D5FD62",
+    "review_file": "C:\\Users\\jerson\\AppData\\Local\\Temp\\bism2202_dotnet_uia_B_fbf831abb81a4fa08659a0416fa43b9e\\review_full\\Q11_full.png",
+    "review_bytes": 249056,
+    "review_sha256": "68A576390FC2F019CA458BB751FDF6A975D36F7724364174BC40877FA484ED5D",
+    "captured": "2026-08-27T09:28:17",
+    "canvas_left": 183,
+    "canvas_top": 227,
+    "canvas_width": 2621,
+    "canvas_height": 1485
   },
   {
     "page": "Q12",
-    "canvas_file": "C:\\BISM2202\\PROJECT\\BISM2202_OUTPUT\\Version_B\\screenshots\\Q12.png",
-    "review_file": "C:\\BISM2202\\PROJECT\\BISM2202_OUTPUT\\Version_B\\review_full\\Q12_full.png",
-    "canvas_sha256": "38516b34f285af5547fd48de986ce51ba0b4efbea4825e8913f92d6c51791a17",
-    "review_sha256": "0543f2cdba7099f011c71c8107580beb9fcfc935fc62ab453d5dc50258882a1a",
-    "captured": "2026-08-25T01:37:55",
-    "window": {
-      "Left": -8,
-      "Top": -8,
-      "Width": 3472,
-      "Height": 1880
-    },
-    "canvas": {
-      "left": 166,
-      "top": 312,
-      "width": 2222,
-      "height": 1297
-    }
+    "driver": "SelectionItem",
+    "tab_left": 858.0,
+    "tab_top": 1804.0,
+    "tab_width": 63.0,
+    "tab_height": 35.0,
+    "canvas_file": "C:\\Users\\jerson\\AppData\\Local\\Temp\\bism2202_dotnet_uia_B_fbf831abb81a4fa08659a0416fa43b9e\\screenshots\\Q12.png",
+    "canvas_bytes": 67978,
+    "canvas_sha256": "DF7156FB382F2C6DDF8A1FC50CFECF04E0F0ED082F2C81FF0398297FA55ABAAC",
+    "review_file": "C:\\Users\\jerson\\AppData\\Local\\Temp\\bism2202_dotnet_uia_B_fbf831abb81a4fa08659a0416fa43b9e\\review_full\\Q12_full.png",
+    "review_bytes": 263175,
+    "review_sha256": "1EF68BFDAA36F2091FF5741BD6CC3452C068496E10F6D14996D6299BA119E977",
+    "captured": "2026-08-27T09:28:20",
+    "canvas_left": 183,
+    "canvas_top": 227,
+    "canvas_width": 2621,
+    "canvas_height": 1485
   },
   {
     "page": "Q13",
-    "canvas_file": "C:\\BISM2202\\PROJECT\\BISM2202_OUTPUT\\Version_B\\screenshots\\Q13.png",
-    "review_file": "C:\\BISM2202\\PROJECT\\BISM2202_OUTPUT\\Version_B\\review_full\\Q13_full.png",
-    "canvas_sha256": "743d322544ddb0b549c6315523d6e0c9536c5a7f252510771538b0d1c9a6bded",
-    "review_sha256": "db26fe7c6c09b89895c28aefc95d4093ebb510ab491e0637c349a645d7f6c88a",
-    "captured": "2026-08-25T01:37:58",
-    "window": {
-      "Left": -8,
-      "Top": -8,
-      "Width": 3472,
-      "Height": 1880
-    },
-    "canvas": {
-      "left": 166,
-      "top": 312,
-      "width": 2222,
-      "height": 1297
-    }
+    "driver": "SelectionItem",
+    "tab_left": 923.0,
+    "tab_top": 1804.0,
+    "tab_width": 63.0,
+    "tab_height": 35.0,
+    "canvas_file": "C:\\Users\\jerson\\AppData\\Local\\Temp\\bism2202_dotnet_uia_B_fbf831abb81a4fa08659a0416fa43b9e\\screenshots\\Q13.png",
+    "canvas_bytes": 99686,
+    "canvas_sha256": "5F829EF44E04544CB8E5D5E818F9BADCF2A1568A8F59E7452E3DCA6D1B4DAB03",
+    "review_file": "C:\\Users\\jerson\\AppData\\Local\\Temp\\bism2202_dotnet_uia_B_fbf831abb81a4fa08659a0416fa43b9e\\review_full\\Q13_full.png",
+    "review_bytes": 304439,
+    "review_sha256": "609EDA11DDB97F5FB8E240B567DF0D6E568933A4C558CEFFBBC6C6529471CE9B",
+    "captured": "2026-08-27T09:28:22",
+    "canvas_left": 183,
+    "canvas_top": 227,
+    "canvas_width": 2621,
+    "canvas_height": 1485
   },
   {
     "page": "Q14",
-    "canvas_file": "C:\\BISM2202\\PROJECT\\BISM2202_OUTPUT\\Version_B\\screenshots\\Q14.png",
-    "review_file": "C:\\BISM2202\\PROJECT\\BISM2202_OUTPUT\\Version_B\\review_full\\Q14_full.png",
-    "canvas_sha256": "793504e23fc7a749b7096cc1776d2be97d33e3eda9bc7898475f392daa7eb989",
-    "review_sha256": "ec8d683ae5f4ae8a96f15b6b985555c67ded21efc0bc649a4ab655ae84acf19d",
-    "captured": "2026-08-25T01:38:01",
-    "window": {
-      "Left": -8,
-      "Top": -8,
-      "Width": 3472,
-      "Height": 1880
-    },
-    "canvas": {
-      "left": 166,
-      "top": 312,
-      "width": 2222,
-      "height": 1297
-    }
+    "driver": "SelectionItem",
+    "tab_left": 986.0,
+    "tab_top": 1804.0,
+    "tab_width": 63.0,
+    "tab_height": 35.0,
+    "canvas_file": "C:\\Users\\jerson\\AppData\\Local\\Temp\\bism2202_dotnet_uia_B_fbf831abb81a4fa08659a0416fa43b9e\\screenshots\\Q14.png",
+    "canvas_bytes": 59500,
+    "canvas_sha256": "DB4593994905CCC10BBCBFB827BD0E9B97AB9F32356A9F445E097EDBEE1622E8",
+    "review_file": "C:\\Users\\jerson\\AppData\\Local\\Temp\\bism2202_dotnet_uia_B_fbf831abb81a4fa08659a0416fa43b9e\\review_full\\Q14_full.png",
+    "review_bytes": 253272,
+    "review_sha256": "7D86FEF9C3F21203DA70D1B52C37A3D7D234B733DD092C41685824871E400560",
+    "captured": "2026-08-27T09:28:25",
+    "canvas_left": 183,
+    "canvas_top": 227,
+    "canvas_width": 2621,
+    "canvas_height": 1485
   },
   {
     "page": "Q15",
-    "canvas_file": "C:\\BISM2202\\PROJECT\\BISM2202_OUTPUT\\Version_B\\screenshots\\Q15.png",
-    "review_file": "C:\\BISM2202\\PROJECT\\BISM2202_OUTPUT\\Version_B\\review_full\\Q15_full.png",
-    "canvas_sha256": "81f06e60d22190b32083553ec0cdb676a4443a0e0238f63085a4ababd2be0c01",
-    "review_sha256": "835d61b02f59f7ff77f6231fdb5e20e51ff6e557013b2e85fb031c4e8a7e314d",
-    "captured": "2026-08-25T01:38:05",
-    "window": {
-      "Left": -8,
-      "Top": -8,
-      "Width": 3472,
-      "Height": 1880
-    },
-    "canvas": {
-      "left": 166,
-      "top": 312,
-      "width": 2222,
-      "height": 1297
-    }
+    "driver": "SelectionItem",
+    "tab_left": 1049.0,
+    "tab_top": 1804.0,
+    "tab_width": 63.0,
+    "tab_height": 35.0,
+    "canvas_file": "C:\\Users\\jerson\\AppData\\Local\\Temp\\bism2202_dotnet_uia_B_fbf831abb81a4fa08659a0416fa43b9e\\screenshots\\Q15.png",
+    "canvas_bytes": 116800,
+    "canvas_sha256": "8F8851661A1FF4F288FEA941CFACF09A7398713E953D9E3418FFEDBFDBFD6306",
+    "review_file": "C:\\Users\\jerson\\AppData\\Local\\Temp\\bism2202_dotnet_uia_B_fbf831abb81a4fa08659a0416fa43b9e\\review_full\\Q15_full.png",
+    "review_bytes": 320594,
+    "review_sha256": "B9275661706A8D81E046910E803C82410C34791D283DAA478F83C99F551C4288",
+    "captured": "2026-08-27T09:28:28",
+    "canvas_left": 183,
+    "canvas_top": 227,
+    "canvas_width": 2621,
+    "canvas_height": 1485
   },
   {
     "page": "Q16",
-    "canvas_file": "C:\\BISM2202\\PROJECT\\BISM2202_OUTPUT\\Version_B\\screenshots\\Q16.png",
-    "review_file": "C:\\BISM2202\\PROJECT\\BISM2202_OUTPUT\\Version_B\\review_full\\Q16_full.png",
-    "canvas_sha256": "ea2f190027b53f4c1a5b4d3ba06aad7f6e0662fb4745e5220957401d2f9fbd07",
-    "review_sha256": "9228f9d0d88c9e13fcea84cdf752332c6a03dfc8abd7d54c5caec3b8d3590c9d",
-    "captured": "2026-08-25T01:38:08",
-    "window": {
-      "Left": -8,
-      "Top": -8,
-      "Width": 3472,
-      "Height": 1880
-    },
-    "canvas": {
-      "left": 166,
-      "top": 312,
-      "width": 2222,
-      "height": 1297
-    }
+    "driver": "SelectionItem",
+    "tab_left": 1112.0,
+    "tab_top": 1804.0,
+    "tab_width": 63.0,
+    "tab_height": 35.0,
+    "canvas_file": "C:\\Users\\jerson\\AppData\\Local\\Temp\\bism2202_dotnet_uia_B_fbf831abb81a4fa08659a0416fa43b9e\\screenshots\\Q16.png",
+    "canvas_bytes": 77996,
+    "canvas_sha256": "5DCC4A9E2870458F62103B6066DF8B8D21448252294EC99AD8DD022E4B5A5377",
+    "review_file": "C:\\Users\\jerson\\AppData\\Local\\Temp\\bism2202_dotnet_uia_B_fbf831abb81a4fa08659a0416fa43b9e\\review_full\\Q16_full.png",
+    "review_bytes": 262282,
+    "review_sha256": "9B65C90A04DD3CE853E2B30C1D19A62A21BADDA4B6707EBDDFC340B730A9DA90",
+    "captured": "2026-08-27T09:28:31",
+    "canvas_left": 183,
+    "canvas_top": 227,
+    "canvas_width": 2621,
+    "canvas_height": 1485
   },
   {
     "page": "Q17",
-    "canvas_file": "C:\\BISM2202\\PROJECT\\BISM2202_OUTPUT\\Version_B\\screenshots\\Q17.png",
-    "review_file": "C:\\BISM2202\\PROJECT\\BISM2202_OUTPUT\\Version_B\\review_full\\Q17_full.png",
-    "canvas_sha256": "093dc2ef5c5101520dbc07cefef6226aa942ff12a8826275e72ba68e4acd39b9",
-    "review_sha256": "e42585099ca5817560c70521041559f3c12188ed841d872d17c65b58c6fea8e3",
-    "captured": "2026-08-25T01:38:11",
-    "window": {
-      "Left": -8,
-      "Top": -8,
-      "Width": 3472,
-      "Height": 1880
-    },
-    "canvas": {
-      "left": 166,
-      "top": 312,
-      "width": 2222,
-      "height": 1297
-    }
+    "driver": "SelectionItem",
+    "tab_left": 1175.0,
+    "tab_top": 1804.0,
+    "tab_width": 63.0,
+    "tab_height": 35.0,
+    "canvas_file": "C:\\Users\\jerson\\AppData\\Local\\Temp\\bism2202_dotnet_uia_B_fbf831abb81a4fa08659a0416fa43b9e\\screenshots\\Q17.png",
+    "canvas_bytes": 93260,
+    "canvas_sha256": "4D37C4B67EFB527796A228C94FA51288E0D549A44D601FD7B2B347E6E09704E0",
+    "review_file": "C:\\Users\\jerson\\AppData\\Local\\Temp\\bism2202_dotnet_uia_B_fbf831abb81a4fa08659a0416fa43b9e\\review_full\\Q17_full.png",
+    "review_bytes": 296806,
+    "review_sha256": "87327D9FB6D6F3635FDB3C2409D836099FCF955DFA608C54B784440DFFB5C196",
+    "captured": "2026-08-27T09:28:33",
+    "canvas_left": 183,
+    "canvas_top": 227,
+    "canvas_width": 2621,
+    "canvas_height": 1485
   },
   {
     "page": "Q18",
-    "canvas_file": "C:\\BISM2202\\PROJECT\\BISM2202_OUTPUT\\Version_B\\screenshots\\Q18.png",
-    "review_file": "C:\\BISM2202\\PROJECT\\BISM2202_OUTPUT\\Version_B\\review_full\\Q18_full.png",
-    "canvas_sha256": "d7ebced9da58f307664ea035e5d168ecededcc3c3ab87d89db9954d15e571cba",
-    "review_sha256": "38d5d456d7ea49f189ea29315b4f8a46b6e3785c02f44994a01da6e91efa4423",
-    "captured": "2026-08-25T01:38:15",
-    "window": {
-      "Left": -8,
-      "Top": -8,
-      "Width": 3472,
-      "Height": 1880
-    },
-    "canvas": {
-      "left": 166,
-      "top": 312,
-      "width": 2222,
-      "height": 1297
-    }
+    "driver": "SelectionItem",
+    "tab_left": 1238.0,
+    "tab_top": 1804.0,
+    "tab_width": 63.0,
+    "tab_height": 35.0,
+    "canvas_file": "C:\\Users\\jerson\\AppData\\Local\\Temp\\bism2202_dotnet_uia_B_fbf831abb81a4fa08659a0416fa43b9e\\screenshots\\Q18.png",
+    "canvas_bytes": 134732,
+    "canvas_sha256": "60E19A245AB9C5B53605CC6015E1EEBAD3D7A8EC893BFB00670876E909E850C3",
+    "review_file": "C:\\Users\\jerson\\AppData\\Local\\Temp\\bism2202_dotnet_uia_B_fbf831abb81a4fa08659a0416fa43b9e\\review_full\\Q18_full.png",
+    "review_bytes": 334979,
+    "review_sha256": "4FE2C0FF091DF7FEEACE251B4E3C41A99D8B13690ACF9B67FAEAEB19F3BDDA2F",
+    "captured": "2026-08-27T09:28:36",
+    "canvas_left": 183,
+    "canvas_top": 227,
+    "canvas_width": 2621,
+    "canvas_height": 1485
   },
   {
     "page": "Q19",
-    "canvas_file": "C:\\BISM2202\\PROJECT\\BISM2202_OUTPUT\\Version_B\\screenshots\\Q19.png",
-    "review_file": "C:\\BISM2202\\PROJECT\\BISM2202_OUTPUT\\Version_B\\review_full\\Q19_full.png",
-    "canvas_sha256": "617fe8d17e516a032ab19af9b36ad3c387ae49b732fe90e50a979e0b1f7dd09a",
-    "review_sha256": "b8ce9c111e7cd0bdb9ebe920fde181975e5b9d97ec6e9a1b0fc523ba3f4d42ba",
-    "captured": "2026-08-25T01:38:18",
-    "window": {
-      "Left": -8,
-      "Top": -8,
-      "Width": 3472,
-      "Height": 1880
-    },
-    "canvas": {
-      "left": 166,
-      "top": 312,
-      "width": 2222,
-      "height": 1297
-    }
+    "driver": "SelectionItem",
+    "tab_left": 1301.0,
+    "tab_top": 1804.0,
+    "tab_width": 63.0,
+    "tab_height": 35.0,
+    "canvas_file": "C:\\Users\\jerson\\AppData\\Local\\Temp\\bism2202_dotnet_uia_B_fbf831abb81a4fa08659a0416fa43b9e\\screenshots\\Q19.png",
+    "canvas_bytes": 90188,
+    "canvas_sha256": "EA5776A3846E2D69AC1261F5EC564A9306E99E40D83CDA5F3667335411914139",
+    "review_file": "C:\\Users\\jerson\\AppData\\Local\\Temp\\bism2202_dotnet_uia_B_fbf831abb81a4fa08659a0416fa43b9e\\review_full\\Q19_full.png",
+    "review_bytes": 284414,
+    "review_sha256": "8F2E89672EFEF3E776D0FAF6B970610E37892BDD7B655AB984692C20CCF68219",
+    "captured": "2026-08-27T09:28:39",
+    "canvas_left": 183,
+    "canvas_top": 227,
+    "canvas_width": 2621,
+    "canvas_height": 1485
   },
   {
     "page": "Q20",
-    "canvas_file": "C:\\BISM2202\\PROJECT\\BISM2202_OUTPUT\\Version_B\\screenshots\\Q20.png",
-    "review_file": "C:\\BISM2202\\PROJECT\\BISM2202_OUTPUT\\Version_B\\review_full\\Q20_full.png",
-    "canvas_sha256": "a87e1868174aeef4d4d99feb2bfbc27c31e7780f40832d71ef639fcc77e54e56",
-    "review_sha256": "a9c5bfcaba6155156d00fcff4dccfec63382213c9d1706f36a1b48ad9bc092fd",
-    "captured": "2026-08-25T01:38:21",
-    "window": {
-      "Left": -8,
-      "Top": -8,
-      "Width": 3472,
-      "Height": 1880
-    },
-    "canvas": {
-      "left": 166,
-      "top": 312,
-      "width": 2222,
-      "height": 1297
-    }
+    "driver": "SelectionItem",
+    "tab_left": 1364.0,
+    "tab_top": 1804.0,
+    "tab_width": 63.0,
+    "tab_height": 35.0,
+    "canvas_file": "C:\\Users\\jerson\\AppData\\Local\\Temp\\bism2202_dotnet_uia_B_fbf831abb81a4fa08659a0416fa43b9e\\screenshots\\Q20.png",
+    "canvas_bytes": 111018,
+    "canvas_sha256": "D191B32B32926671AD4B464561BC953F032BF4C443274ADDB4F3B84CDFB70909",
+    "review_file": "C:\\Users\\jerson\\AppData\\Local\\Temp\\bism2202_dotnet_uia_B_fbf831abb81a4fa08659a0416fa43b9e\\review_full\\Q20_full.png",
+    "review_bytes": 309587,
+    "review_sha256": "39FE79B292D2809904528E626C57AAD354808CA51BBE2866193F31FFAB04CD69",
+    "captured": "2026-08-27T09:28:41",
+    "canvas_left": 183,
+    "canvas_top": 227,
+    "canvas_width": 2621,
+    "canvas_height": 1485
   }
 ]

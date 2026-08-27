@@ -3,7 +3,7 @@
   "name": "q07",
   "displayName": "Q07",
   "displayOption": "FitToPage",
-  "height": 720,
+  "height": 800,
   "width": 1280,
   "objects": {
     "background": [
@@ -14,7 +14,7 @@
               "color": {
                 "expr": {
                   "Literal": {
-                    "Value": "'#FFFDF6'"
+                    "Value": "'#F7F9FC'"
                   }
                 }
               }
