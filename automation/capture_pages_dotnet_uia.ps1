@@ -194,10 +194,48 @@ for ($Number = 1; $Number -le 20; $Number++) {
 $DiscoveredNames = @($PageElements.Keys | Sort-Object)
 Write-Host ("DOTNET_UIA_PAGE_TABS_DISCOVERED: {0}/20" -f $DiscoveredNames.Count) -ForegroundColor DarkGray
 Write-Host ("DOTNET_UIA_PAGE_TAB_NAMES: {0}" -f ($DiscoveredNames -join ",")) -ForegroundColor DarkGray
-if ($Missing.Count -gt 0) {
+
+# Power BI Desktop can omit the currently-selected page tab from the UIA name tree.
+# In the user's current layout Q01 is selected, so UIA exposes Q02-Q20 (19/20)
+# while Q01 is visibly present. If and only if Q01 is the sole missing page, infer
+# its center from the actual Q02/Q03 UIA rectangles. This uses real neighboring tab
+# geometry rather than a hard-coded screen ratio. SHA256 uniqueness still rejects a
+# wrong click before anything is published.
+$Q01Fallback = $null
+if ($Missing.Count -eq 1 -and $Missing[0] -eq "Q01" -and $PageElements.ContainsKey("Q02") -and $PageElements.ContainsKey("Q03")) {
+    $B2 = $PageElements["Q02"].Current.BoundingRectangle
+    $B3 = $PageElements["Q03"].Current.BoundingRectangle
+    if ($B2.IsEmpty -or $B3.IsEmpty) {
+        throw "Q01 is the selected-tab omission, but Q02/Q03 bounds are unavailable for safe inference."
+    }
+
+    $C2X = $B2.Left + ($B2.Width / 2.0)
+    $C3X = $B3.Left + ($B3.Width / 2.0)
+    $C2Y = $B2.Top + ($B2.Height / 2.0)
+    $StepX = $C3X - $C2X
+
+    if ($StepX -lt 8 -or $StepX -gt 120) {
+        throw "Q01 inferred tab spacing is unsafe: $StepX pixels."
+    }
+
+    $Q01Fallback = [pscustomobject]@{
+        X = [int]($C2X - $StepX)
+        Y = [int]$C2Y
+        Left = [double]($B2.Left - $StepX)
+        Top = [double]$B2.Top
+        Width = [double]$B2.Width
+        Height = [double]$B2.Height
+    }
+
+    Write-Host ("DOTNET_UIA_SELECTED_Q01_FALLBACK: PASS x={0} y={1} step={2:N1}" -f $Q01Fallback.X, $Q01Fallback.Y, $StepX) -ForegroundColor Green
+    Write-Host "DOTNET_UIA_PAGE_TABS_DISCOVERED: 19 UIA + Q01 inferred = 20/20 PASS" -ForegroundColor Green
+}
+elseif ($Missing.Count -gt 0) {
     throw "Native .NET UIA could not discover all Power BI report tabs. Missing: $($Missing -join ',')"
 }
-Write-Host "DOTNET_UIA_PAGE_TABS_DISCOVERED: 20/20 PASS" -ForegroundColor Green
+else {
+    Write-Host "DOTNET_UIA_PAGE_TABS_DISCOVERED: 20/20 PASS" -ForegroundColor Green
+}
 
 # Ratios independently accepted for the clean report-canvas screenshots.
 $CropLeft = $Rect.Left + [int]($WindowWidth * 0.055)
@@ -225,11 +263,34 @@ try {
 
         # Re-resolve every page before action because Power BI may recreate tab controls.
         $Element = Get-PageElement -Root $Root -Name $Name
+        $Driver = $null
+        $BoundsLeft = 0.0
+        $BoundsTop = 0.0
+        $BoundsWidth = 0.0
+        $BoundsHeight = 0.0
+
         if ($null -eq $Element) {
-            throw "Power BI UIA page tab $Name disappeared before capture."
+            if ($Name -eq "Q01" -and $null -ne $Q01Fallback) {
+                Invoke-LeftClick -X $Q01Fallback.X -Y $Q01Fallback.Y
+                $Driver = "InferredSelectedQ01Click"
+                $BoundsLeft = $Q01Fallback.Left
+                $BoundsTop = $Q01Fallback.Top
+                $BoundsWidth = $Q01Fallback.Width
+                $BoundsHeight = $Q01Fallback.Height
+            }
+            else {
+                throw "Power BI UIA page tab $Name disappeared before capture."
+            }
+        }
+        else {
+            $Driver = Invoke-PageElement -Element $Element -Name $Name
+            $Bounds = $Element.Current.BoundingRectangle
+            $BoundsLeft = $Bounds.Left
+            $BoundsTop = $Bounds.Top
+            $BoundsWidth = $Bounds.Width
+            $BoundsHeight = $Bounds.Height
         }
 
-        $Driver = Invoke-PageElement -Element $Element -Name $Name
         Start-Sleep -Milliseconds 450
         [System.Windows.Forms.SendKeys]::SendWait("{ESC}")
         [System.Windows.Forms.Cursor]::Position = $SafePoint
@@ -252,15 +313,14 @@ try {
 
         $ShotHash = (Get-FileHash $Shot -Algorithm SHA256).Hash
         $ReviewHash = (Get-FileHash $Review -Algorithm SHA256).Hash
-        $Bounds = $Element.Current.BoundingRectangle
 
         $Metadata += [pscustomobject]@{
             page = $Name
             driver = $Driver
-            tab_left = $Bounds.Left
-            tab_top = $Bounds.Top
-            tab_width = $Bounds.Width
-            tab_height = $Bounds.Height
+            tab_left = $BoundsLeft
+            tab_top = $BoundsTop
+            tab_width = $BoundsWidth
+            tab_height = $BoundsHeight
             canvas_file = $Shot
             canvas_bytes = $ShotInfo.Length
             canvas_sha256 = $ShotHash
