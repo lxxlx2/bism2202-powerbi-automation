@@ -83,15 +83,15 @@
 
 ### Q03 - What is the share of orders by Pizza Size?
 
-**目标 Visual：** Treemap  
-**字段槽位：** Group: Pizza Size; Values: [Order Count]  
-**筛选/排序/格式：** Category + percentage labels  
+**目标 Visual：** Clustered bar chart  
+**字段槽位：** Y-axis: Pizza Size; X-axis: [Order Share Overall]  
+**筛选/排序/格式：** Percentage labels; descending by share  
 **标题：** `Pizza Size Order Distribution`
 
 1. 在底部单击页面 `Q03`，再单击画布空白处，确保没有选中别的 Visual。
-2. 在 Visualizations/Build visual 中选择 **Treemap**。若图标名称不确定，把鼠标停在图标上等待工具提示。
-3. 从 Data pane 展开 `PizzaOrders`，按以下位置逐个拖字段：**Group: Pizza Size; Values: [Order Count]**。Measure 带计算器图标，普通列没有。
-4. 设置 Visual：Category + percentage labels。若字段默认显示 Sum，点字段槽位右侧下拉箭头，改用指定 Measure 或 Average/Distinct count。
+2. 在 Visualizations/Build visual 中选择 **Clustered bar chart**。若图标名称不确定，把鼠标停在图标上等待工具提示。
+3. 从 Data pane 展开 `PizzaOrders`，按以下位置逐个拖字段：**Y-axis: Pizza Size; X-axis: [Order Share Overall]**。Measure 带计算器图标，普通列没有。
+4. 设置 Visual：Percentage labels; descending by share。若字段默认显示 Sum，点字段槽位右侧下拉箭头，改用指定 Measure 或 Average/Distinct count。
 5. 点 Visual 右上 `...`，按题意完成排序；然后在 Format visual 中把 Data labels 开启，并按需要设置 1–2 位小数。
 6. 在 Format visual > Detail labels/Data labels 中开启 Category 和 Percent of total；若选项名称不同，展开 Labels 的内容选项，确保截图同时能看出类别和百分比。
 7. 在 Format visual > General > Title 开启标题并输入 `Pizza Size Order Distribution`。
@@ -117,15 +117,15 @@
 
 ### Q05 - What is the share of orders by Traffic Level?
 
-**目标 Visual：** Treemap  
-**字段槽位：** Group: Traffic Level; Values: [Order Count]  
-**筛选/排序/格式：** Category + percentage labels  
+**目标 Visual：** Clustered column chart  
+**字段槽位：** X-axis: Traffic Level; Y-axis: [Order Share Overall]  
+**筛选/排序/格式：** Percentage labels; descending by share  
 **标题：** `Traffic-Level Order Mix`
 
 1. 在底部单击页面 `Q05`，再单击画布空白处，确保没有选中别的 Visual。
-2. 在 Visualizations/Build visual 中选择 **Treemap**。若图标名称不确定，把鼠标停在图标上等待工具提示。
-3. 从 Data pane 展开 `PizzaOrders`，按以下位置逐个拖字段：**Group: Traffic Level; Values: [Order Count]**。Measure 带计算器图标，普通列没有。
-4. 设置 Visual：Category + percentage labels。若字段默认显示 Sum，点字段槽位右侧下拉箭头，改用指定 Measure 或 Average/Distinct count。
+2. 在 Visualizations/Build visual 中选择 **Clustered column chart**。若图标名称不确定，把鼠标停在图标上等待工具提示。
+3. 从 Data pane 展开 `PizzaOrders`，按以下位置逐个拖字段：**X-axis: Traffic Level; Y-axis: [Order Share Overall]**。Measure 带计算器图标，普通列没有。
+4. 设置 Visual：Percentage labels; descending by share。若字段默认显示 Sum，点字段槽位右侧下拉箭头，改用指定 Measure 或 Average/Distinct count。
 5. 点 Visual 右上 `...`，按题意完成排序；然后在 Format visual 中把 Data labels 开启，并按需要设置 1–2 位小数。
 6. 在 Format visual > Detail labels/Data labels 中开启 Category 和 Percent of total；若选项名称不同，展开 Labels 的内容选项，确保截图同时能看出类别和百分比。
 7. 在 Format visual > General > Title 开启标题并输入 `Traffic-Level Order Mix`。
@@ -287,15 +287,15 @@
 
 ### Q15 - What proportion of orders fall into each Pizza Complexity category?
 
-**目标 Visual：** Treemap  
-**字段槽位：** Group: Pizza Complexity; Values: [Order Count]  
-**筛选/排序/格式：** Category + percentage labels  
+**目标 Visual：** Clustered column chart  
+**字段槽位：** X-axis: Pizza Complexity; Y-axis: [Order Share Overall]  
+**筛选/排序/格式：** Percentage labels  
 **标题：** `Pizza Complexity Mix`
 
 1. 在底部单击页面 `Q15`，再单击画布空白处，确保没有选中别的 Visual。
-2. 在 Visualizations/Build visual 中选择 **Treemap**。若图标名称不确定，把鼠标停在图标上等待工具提示。
-3. 从 Data pane 展开 `PizzaOrders`，按以下位置逐个拖字段：**Group: Pizza Complexity; Values: [Order Count]**。Measure 带计算器图标，普通列没有。
-4. 设置 Visual：Category + percentage labels。若字段默认显示 Sum，点字段槽位右侧下拉箭头，改用指定 Measure 或 Average/Distinct count。
+2. 在 Visualizations/Build visual 中选择 **Clustered column chart**。若图标名称不确定，把鼠标停在图标上等待工具提示。
+3. 从 Data pane 展开 `PizzaOrders`，按以下位置逐个拖字段：**X-axis: Pizza Complexity; Y-axis: [Order Share Overall]**。Measure 带计算器图标，普通列没有。
+4. 设置 Visual：Percentage labels。若字段默认显示 Sum，点字段槽位右侧下拉箭头，改用指定 Measure 或 Average/Distinct count。
 5. 点 Visual 右上 `...`，按题意完成排序；然后在 Format visual 中把 Data labels 开启，并按需要设置 1–2 位小数。
 6. 在 Format visual > Detail labels/Data labels 中开启 Category 和 Percent of total；若选项名称不同，展开 Labels 的内容选项，确保截图同时能看出类别和百分比。
 7. 在 Format visual > General > Title 开启标题并输入 `Pizza Complexity Mix`。
@@ -322,15 +322,15 @@
 
 ### Q17 - How does order volume vary by Order Hour, alongside average Delay (min)?
 
-**目标 Visual：** Line and stacked column chart  
-**字段槽位：** X-axis: Order Hour; Column Y-axis: [Order Count]; Line Y-axis: [Avg Delay]  
-**筛选/排序/格式：** Secondary Y-axis on; hour ascending  
+**目标 Visual：** Two coordinated charts  
+**字段槽位：** Bar: Order Hour + [Order Count]; Line: Order Hour + [Avg Delay]  
+**筛选/排序/格式：** Compare volume and delay by hour  
 **标题：** `When Order Pressure and Delay Rise`
 
 1. 在底部单击页面 `Q17`，再单击画布空白处，确保没有选中别的 Visual。
-2. 在 Visualizations/Build visual 中选择 **Line and stacked column chart**。若图标名称不确定，把鼠标停在图标上等待工具提示。
-3. 从 Data pane 展开 `PizzaOrders`，按以下位置逐个拖字段：**X-axis: Order Hour; Column Y-axis: [Order Count]; Line Y-axis: [Avg Delay]**。Measure 带计算器图标，普通列没有。
-4. 设置 Visual：Secondary Y-axis on; hour ascending。若字段默认显示 Sum，点字段槽位右侧下拉箭头，改用指定 Measure 或 Average/Distinct count。
+2. 在 Visualizations/Build visual 中选择 **Two coordinated charts**。若图标名称不确定，把鼠标停在图标上等待工具提示。
+3. 从 Data pane 展开 `PizzaOrders`，按以下位置逐个拖字段：**Bar: Order Hour + [Order Count]; Line: Order Hour + [Avg Delay]**。Measure 带计算器图标，普通列没有。
+4. 设置 Visual：Compare volume and delay by hour。若字段默认显示 Sum，点字段槽位右侧下拉箭头，改用指定 Measure 或 Average/Distinct count。
 5. 点 Visual 右上 `...`，按题意完成排序；然后在 Format visual 中把 Data labels 开启，并按需要设置 1–2 位小数。
 6. 在 Format visual 展开 Secondary y-axis，设为 On，并开启左右轴标题；Order Count 使用整数轴，平均值使用 1–2 位小数。
 7. 在 Format visual > General > Title 开启标题并输入 `When Order Pressure and Delay Rise`。
@@ -339,15 +339,15 @@
 
 ### Q18 - How does average Topping Density vary by Pizza Type, alongside order volume?
 
-**目标 Visual：** Line and clustered column chart  
-**字段槽位：** X-axis: Pizza Type; Column Y-axis: [Order Count]; Line Y-axis: [Avg Topping Density]  
-**筛选/排序/格式：** Secondary axis on; stronger density emphasis  
+**目标 Visual：** Two coordinated charts  
+**字段槽位：** Bar: Pizza Type + [Order Count]; Line: Pizza Type + [Avg Topping Density]  
+**筛选/排序/格式：** Compare volume and density  
 **标题：** `Pizza Type Volume and Topping Density`
 
 1. 在底部单击页面 `Q18`，再单击画布空白处，确保没有选中别的 Visual。
-2. 在 Visualizations/Build visual 中选择 **Line and clustered column chart**。若图标名称不确定，把鼠标停在图标上等待工具提示。
-3. 从 Data pane 展开 `PizzaOrders`，按以下位置逐个拖字段：**X-axis: Pizza Type; Column Y-axis: [Order Count]; Line Y-axis: [Avg Topping Density]**。Measure 带计算器图标，普通列没有。
-4. 设置 Visual：Secondary axis on; stronger density emphasis。若字段默认显示 Sum，点字段槽位右侧下拉箭头，改用指定 Measure 或 Average/Distinct count。
+2. 在 Visualizations/Build visual 中选择 **Two coordinated charts**。若图标名称不确定，把鼠标停在图标上等待工具提示。
+3. 从 Data pane 展开 `PizzaOrders`，按以下位置逐个拖字段：**Bar: Pizza Type + [Order Count]; Line: Pizza Type + [Avg Topping Density]**。Measure 带计算器图标，普通列没有。
+4. 设置 Visual：Compare volume and density。若字段默认显示 Sum，点字段槽位右侧下拉箭头，改用指定 Measure 或 Average/Distinct count。
 5. 点 Visual 右上 `...`，按题意完成排序；然后在 Format visual 中把 Data labels 开启，并按需要设置 1–2 位小数。
 6. 在 Format visual 展开 Secondary y-axis，设为 On，并开启左右轴标题；Order Count 使用整数轴，平均值使用 1–2 位小数。
 7. 在 Format visual > General > Title 开启标题并输入 `Pizza Type Volume and Topping Density`。
@@ -373,9 +373,9 @@
 
 ### Q20 - Design three different charts or tables that use conditional formatting (or highlight them by using different colors) in a single dashboard. Explain why each one matters, what it represents, how they should be read together, and what insights emerge from viewing them as a whole.
 
-**目标 Visual：** Dashboard: matrix + column + line  
-**字段槽位：** Restaurant Performance; Average Delay by Traffic Level; Order Volume by Order Hour  
-**筛选/排序/格式：** Three coordinated visuals with independently styled colors  
+**目标 Visual：** Dashboard: matrix + bar + line  
+**字段槽位：** Restaurant Speed and Delay; Average Delay by Traffic Condition; Hourly Demand Pattern  
+**筛选/排序/格式：** Three independently styled visuals  
 **标题：** `Pizza Order and Delivery Performance Overview`
 
 1. 在底部单击页面 `Q20 Dashboard`，再单击画布空白处，确保没有选中别的 Visual。

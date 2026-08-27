@@ -62,7 +62,7 @@ What is the average Toppings Count for weekend vs. weekday orders?
 
 Observation:
 
-Average toppings are almost unchanged between the two day types: 3.40 on weekdays and 3.27 on weekends. A gap of 0.13 suggests day type has little practical effect on topping count in this sample.
+Average toppings are almost unchanged between the two day types: 3.40 on weekdays and 3.27 on weekends. The 0.13 gap leaves the two observed averages very close in this sample.
 
 ## Q7
 
@@ -203,3 +203,4 @@ Design three different charts or tables that use conditional formatting (or high
 Observation:
 
 The three views highlight different parts of the delivery process. Restaurant results show where average speed and delay differ, the traffic view shows delay rising to 19.16 minutes under High conditions, and the hourly view shows demand peaking at 328 orders at 19:00. Taken together, the strongest operational pressure appears around the evening demand peak and under heavier traffic, while restaurant performance still varies depending on whether duration or delay is used as the benchmark.
+

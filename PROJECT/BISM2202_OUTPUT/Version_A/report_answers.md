@@ -203,3 +203,4 @@ Design three different charts or tables that use conditional formatting (or high
 Observation:
 
 The dashboard brings together restaurant performance, traffic-related delay and hourly demand. Papa John's had the shortest average delivery duration at 28.19 minutes, while Marco's Pizza had the highest average delay at 18.44. High traffic produced the highest average delay at 19.16 minutes, and demand reached 328 orders at 19:00. Looking at the three views together points to evening demand and high-traffic conditions as the main areas where delivery performance deserves attention.
+

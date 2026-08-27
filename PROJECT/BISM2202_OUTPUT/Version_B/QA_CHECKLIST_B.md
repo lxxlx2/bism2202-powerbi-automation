@@ -27,7 +27,7 @@ Python基准已完成；Power BI、截图和 PBIX 项必须在 Windows 上验证
 ## Q03
 
 - [x] Question requirement mapped: What is the share of orders by Pizza Size?
-- [x] Correct planned visual: Treemap
+- [x] Correct planned visual: Clustered bar chart
 - [x] Correct field/aggregation/filter/sort documented
 - [x] Python verification target: Medium = 429 (42.73%); Small = 132 (13.15%); total = 1,004.
 - [x] Report text uses validated numbers
@@ -49,7 +49,7 @@ Python基准已完成；Power BI、截图和 PBIX 项必须在 Windows 上验证
 ## Q05
 
 - [x] Question requirement mapped: What is the share of orders by Traffic Level?
-- [x] Correct planned visual: Treemap
+- [x] Correct planned visual: Clustered column chart
 - [x] Correct field/aggregation/filter/sort documented
 - [x] Python verification target: Low 278 (27.69%); Medium 398 (39.64%); High 328 (32.67%).
 - [x] Report text uses validated numbers
@@ -159,7 +159,7 @@ Python基准已完成；Power BI、截图和 PBIX 项必须在 Windows 上验证
 ## Q15
 
 - [x] Question requirement mapped: What proportion of orders fall into each Pizza Complexity category?
-- [x] Correct planned visual: Treemap
+- [x] Correct planned visual: Clustered column chart
 - [x] Correct field/aggregation/filter/sort documented
 - [x] Python verification target: Complexity 6 = 308 (30.68%); 12 = 229 (22.81%); 20 = 202 (20.12%).
 - [x] Report text uses validated numbers
@@ -181,7 +181,7 @@ Python基准已完成；Power BI、截图和 PBIX 项必须在 Windows 上验证
 ## Q17
 
 - [x] Question requirement mapped: How does order volume vary by Order Hour, alongside average Delay (min)?
-- [x] Correct planned visual: Line and stacked column chart
+- [x] Correct planned visual: Two coordinated charts
 - [x] Correct field/aggregation/filter/sort documented
 - [x] Python verification target: Order peak 19:00 = 328; delay peak 20:00 = 19.97.
 - [x] Report text uses validated numbers
@@ -192,7 +192,7 @@ Python基准已完成；Power BI、截图和 PBIX 项必须在 Windows 上验证
 ## Q18
 
 - [x] Question requirement mapped: How does average Topping Density vary by Pizza Type, alongside order volume?
-- [x] Correct planned visual: Line and clustered column chart
+- [x] Correct planned visual: Two coordinated charts
 - [x] Correct field/aggregation/filter/sort documented
 - [x] Python verification target: Non-Veg volume 216/density 0.760; Cheese Burst volume 188/density 0.845.
 - [x] Report text uses validated numbers
@@ -214,7 +214,7 @@ Python基准已完成；Power BI、截图和 PBIX 项必须在 Windows 上验证
 ## Q20
 
 - [x] Question requirement mapped: Design three different charts or tables that use conditional formatting (or highlight them by using different colors) in a single dashboard. Explain why each one matters, what it represents, how they should be read together, and what insights emerge from viewing them as a whole.
-- [x] Correct planned visual: Dashboard: matrix + column + line
+- [x] Correct planned visual: Dashboard: matrix + bar + line
 - [x] Correct field/aggregation/filter/sort documented
 - [x] Python verification target: Exactly three main visuals, differentiated colors or conditional formatting, and an integrated explanation based on validated earlier results.
 - [x] Report text uses validated numbers
