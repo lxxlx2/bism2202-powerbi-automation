@@ -1,4 +1,4 @@
-param(
+﻿param(
     [string]$ProjectRoot = "C:\BISM2202"
 )
 
@@ -57,7 +57,7 @@ function Assert-VersionReady([ValidateSet("A", "B")][string]$Version) {
     $han = '[\u3400-\u4DBF\u4E00-\u9FFF\uF900-\uFAFF]'
     $chineseHits = @()
     Get-ChildItem -LiteralPath (Join-Path $reportSource "definition\pages") -Filter "visual.json" -File -Recurse | ForEach-Object {
-        $raw = Get-Content -LiteralPath $_.FullName -Raw
+        $raw = Get-Content -LiteralPath $_.FullName -Raw -Encoding UTF8
         if ($raw -match $han) {
             $chineseHits += $_.FullName
         }
@@ -241,3 +241,5 @@ try {
 finally {
     Pop-Location
 }
+
+
