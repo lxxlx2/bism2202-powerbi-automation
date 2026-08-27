@@ -26,11 +26,11 @@ table PizzaOrders
 		displayFolder: BISM2202 Measures
 		lineageTag: 48285af4-b2c8-4a4e-982e-695b0d3e07b2
 
-	measure 'Delivery Duration Color' = VAR CurrentValue = [Avg Delivery Duration] VAR MinValue = MINX(ALL(PizzaOrders[Restaurant Name]), CALCULATE([Avg Delivery Duration])) VAR MaxValue = MAXX(ALL(PizzaOrders[Restaurant Name]), CALCULATE([Avg Delivery Duration])) RETURN SWITCH(TRUE(), CurrentValue = MinValue, "#C6EFCE", CurrentValue = MaxValue, "#FFC7CE", "#FFF2CC")
+	measure 'Delivery Duration Color' = VAR CurrentValue = [Avg Delivery Duration] VAR MinValue = MINX(ALL(PizzaOrders[Restaurant Name]), CALCULATE([Avg Delivery Duration])) VAR MaxValue = MAXX(ALL(PizzaOrders[Restaurant Name]), CALCULATE([Avg Delivery Duration])) RETURN SWITCH(TRUE(), CurrentValue = MinValue, "#BFE3E0", CurrentValue = MaxValue, "#F4A261", "#E9EEF3")
 		displayFolder: BISM2202 Helpers
 		lineageTag: 562afef0-77ee-41e9-9d31-253a347fbce1
 
-	measure 'Delay Color' = VAR CurrentValue = [Avg Delay] VAR MinValue = MINX(ALL(PizzaOrders[Restaurant Name]), CALCULATE([Avg Delay])) VAR MaxValue = MAXX(ALL(PizzaOrders[Restaurant Name]), CALCULATE([Avg Delay])) RETURN SWITCH(TRUE(), CurrentValue = MinValue, "#C6EFCE", CurrentValue = MaxValue, "#FFC7CE", "#FFF2CC")
+	measure 'Delay Color' = VAR CurrentValue = [Avg Delay] VAR MinValue = MINX(ALL(PizzaOrders[Restaurant Name]), CALCULATE([Avg Delay])) VAR MaxValue = MAXX(ALL(PizzaOrders[Restaurant Name]), CALCULATE([Avg Delay])) RETURN SWITCH(TRUE(), CurrentValue = MinValue, "#CDE8F6", CurrentValue = MaxValue, "#E76F51", "#EEF1F4")
 		displayFolder: BISM2202 Helpers
 		lineageTag: 03255a6d-d468-4437-8dad-afe66ce54167
 

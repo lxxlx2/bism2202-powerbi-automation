@@ -102,9 +102,9 @@ VISUALS = {
     "B": {
         1: ("Clustered column chart", "X-axis: Location; Y-axis: [Order Count]", "Top N = 20; descending; labels readable"),
         2: ("Clustered bar chart", "Y-axis: Pizza Size; X-axis: [Avg Delivery Duration]", "Data labels on; 1 decimal"),
-        3: ("Treemap", "Group: Pizza Size; Values: [Order Count]", "Category + percentage labels"),
+        3: ("Clustered bar chart", "Y-axis: Pizza Size; X-axis: [Order Share Overall]", "Percentage labels; descending by share"),
         4: ("Clustered bar chart", "Y-axis: Payment Method; X-axis: [Order Count]", "Descending by [Order Count]"),
-        5: ("Treemap", "Group: Traffic Level; Values: [Order Count]", "Category + percentage labels"),
+        5: ("Clustered column chart", "X-axis: Traffic Level; Y-axis: [Order Share Overall]", "Percentage labels; descending by share"),
         6: ("Clustered bar chart", "Y-axis: Weekend Label; X-axis: [Avg Toppings Count]", "Data labels on; 2 decimals"),
         7: ("Clustered column chart", "X-axis: Location; Y-axis: [Avg Delivery Duration]", "Top N = 10; descending; retain ties"),
         8: ("Clustered column chart", "X-axis: Peak Hour Label; Y-axis: [Order Count]", "Data labels on"),
@@ -114,12 +114,12 @@ VISUALS = {
         12: ("Clustered column chart", "X-axis: Pizza Type; Y-axis: [Avg Delivery Duration]", "Top N = 5; descending"),
         13: ("Area chart", "X-axis: Order Hour; Y-axis: [Order Count]", "Order Hour ascending; markers optional"),
         14: ("Clustered bar chart", "Y-axis: Traffic Level; X-axis: [Avg Delay]", "Cool-to-warm ordered colors; labels on"),
-        15: ("Treemap", "Group: Pizza Complexity; Values: [Order Count]", "Category + percentage labels"),
+        15: ("Clustered column chart", "X-axis: Pizza Complexity; Y-axis: [Order Share Overall]", "Percentage labels"),
         16: ("Matrix", "Rows: Restaurant Name; Values: [Avg Delivery Duration], [Avg Delay]", "Fx > Field value using Version B color measures"),
-        17: ("Line and stacked column chart", "X-axis: Order Hour; Column Y-axis: [Order Count]; Line Y-axis: [Avg Delay]", "Secondary Y-axis on; hour ascending"),
-        18: ("Line and clustered column chart", "X-axis: Pizza Type; Column Y-axis: [Order Count]; Line Y-axis: [Avg Topping Density]", "Secondary axis on; stronger density emphasis"),
+        17: ("Two coordinated charts", "Bar: Order Hour + [Order Count]; Line: Order Hour + [Avg Delay]", "Compare volume and delay by hour"),
+        18: ("Two coordinated charts", "Bar: Pizza Type + [Order Count]; Line: Pizza Type + [Avg Topping Density]", "Compare volume and density"),
         19: ("Percentage matrix + slicer", "Rows: Payment Method; Columns: Traffic Level; Values: [Order Share Within Payment]; slicer: Order Time", "Slicer style Between; each row totals 100%"),
-        20: ("Dashboard: matrix + column + line", "Restaurant Performance; Average Delay by Traffic Level; Order Volume by Order Hour", "Three coordinated visuals with independently styled colors"),
+        20: ("Dashboard: matrix + bar + line", "Restaurant Speed and Delay; Average Delay by Traffic Condition; Hourly Demand Pattern", "Three independently styled visuals"),
     },
 }
 
@@ -182,6 +182,15 @@ def narratives() -> dict[str, dict[int, str]]:
 
 
 ANSWERS = narratives()
+FINAL_NARRATIVES_PATH = COMMON / "final_narratives.json"
+if FINAL_NARRATIVES_PATH.is_file():
+    _final_narratives = json.loads(
+        FINAL_NARRATIVES_PATH.read_text(encoding="utf-8")
+    )
+    ANSWERS = {
+        version: {int(k): v for k, v in rows.items()}
+        for version, rows in _final_narratives.items()
+    }
 
 
 def write_assignment_requirements() -> None:
@@ -339,7 +348,7 @@ def expected_check(i: int) -> str:
 
 def write_report_markdown(version: str) -> None:
     folder = ROOT / f"Version_{version}"
-    lines = [f"# BISM2202 Power BI Assessment - Version {version}", "",
+    lines = ["# BISM2202 Power BI Assessment", "",
              "Student Name: __________", "", "Student ID: __________", ""]
     for i in range(1, 21):
         lines += [f"## Q{i}", "", QUESTIONS[i], "",
@@ -387,7 +396,7 @@ def configure_doc(doc: Document, version: str) -> None:
         style.paragraph_format.space_before = Pt(before)
         style.paragraph_format.space_after = Pt(after)
     header = section.header.paragraphs[0]
-    header.text = f"BISM2202 | Power BI Assessment | Version {version}"
+    header.text = "BISM2202 | Power BI Assessment"
     header.alignment = WD_ALIGN_PARAGRAPH.RIGHT
     for run in header.runs:
         run.font.name = "Calibri"
@@ -418,7 +427,7 @@ def build_docx(version: str) -> None:
     p = doc.add_paragraph()
     p.alignment = WD_ALIGN_PARAGRAPH.CENTER
     p.paragraph_format.space_after = Pt(36)
-    r = p.add_run(f"BISM2202 Assessment Report - Version {version}")
+    r = p.add_run("BISM2202 Assessment Report")
     r.font.size = Pt(15)
     r.font.color.rgb = RGBColor(70, 78, 88)
     for label in ["Student Name: __________", "Student ID: __________", "Total Questions: 20", "Total Points: 20"]:

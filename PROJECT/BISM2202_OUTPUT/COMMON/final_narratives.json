@@ -27,7 +27,7 @@
     "3": "Medium pizzas account for 42.73% of all orders, with 429 orders. Small pizzas account for 13.15% with 132 orders, so the Medium share is more than three times the Small share.",
     "4": "Card and UPI dominate payment activity with 276 and 271 orders. Combined they represent 547 of the 1,004 orders, while Wallet and Cash contribute 208 and 202; Hut Points and Domino's Cash remain small categories with 24 and 23.",
     "5": "Medium traffic is the largest group at 39.64%, followed by High at 32.67% and Low at 27.69%. Medium and High together account for 72.31% of orders, so most deliveries took place outside the Low-traffic category.",
-    "6": "Average toppings are almost unchanged between the two day types: 3.40 on weekdays and 3.27 on weekends. A gap of 0.13 suggests day type has little practical effect on topping count in this sample.",
+    "6": "Average toppings are almost unchanged between the two day types: 3.40 on weekdays and 3.27 on weekends. The 0.13 gap leaves the two observed averages very close in this sample.",
     "7": "Fort Wayne and Newark are tied at the highest average delivery duration of 50.00 minutes. The next group sits at 45.00 minutes across four locations, leaving a five-minute gap between the first tier and the next tied tier.",
     "8": "There are 949 Peak Hour orders compared with 55 Non-Peak Hour orders. Peak activity is therefore roughly seventeen times the non-peak count and represents 94.52% of the dataset.",
     "9": "Monthly volume reaches 86 orders in 2024-08 and 75 in 2024-09 before dropping to 44 in 2024-10. Across the full 31-point sequence, 2024-05 is the lowest complete month at 6 orders; 2026-07 has 7 orders but covers only the first seven days of July.",

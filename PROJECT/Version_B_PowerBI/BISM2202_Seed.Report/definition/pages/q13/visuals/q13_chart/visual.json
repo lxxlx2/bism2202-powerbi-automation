@@ -81,7 +81,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Order Volume by Order Hour'"
+                  "Value": "'Order Volume across the Day'"
                 }
               }
             }

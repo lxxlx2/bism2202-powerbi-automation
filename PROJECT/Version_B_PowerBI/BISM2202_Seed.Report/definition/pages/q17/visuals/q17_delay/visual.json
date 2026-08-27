@@ -78,7 +78,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Average Delay by Order Hour'"
+                  "Value": "'Hourly Average Delay'"
                 }
               }
             }

@@ -81,7 +81,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Locations with Highest Average Delivery Duration'"
+                  "Value": "'Highest Average Delivery Duration by Location'"
                 }
               }
             }

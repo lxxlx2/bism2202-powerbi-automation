@@ -58,8 +58,8 @@ def main() -> int:
                 child.unlink()
             elif child.is_dir():
                 shutil.rmtree(child)
-        pbix = target_dir / f"BISM2202_Assignment_{version}.pbix"
-        docx = target_dir / f"BISM2202_Report_{version}.docx"
+        pbix = target_dir / "BISM2202_Assignment.pbix"
+        docx = target_dir / "BISM2202_Report.docx"
         for source_path, target_path in ((source_pbix, pbix), (source_docx, docx)):
             if not source_path.is_file() or source_path.stat().st_size < 50_000:
                 issues.append(f"Version {version}: missing or suspiciously small {source_path}")

@@ -81,7 +81,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Order Volume Trend by Month-Year'"
+                  "Value": "'Monthly Order Volume'"
                 }
               }
             }

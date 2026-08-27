@@ -167,7 +167,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Restaurant Performance'"
+                  "Value": "'Restaurant Speed and Delay'"
                 }
               }
             }

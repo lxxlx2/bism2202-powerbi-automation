@@ -81,7 +81,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Share of Orders by Traffic Level'"
+                  "Value": "'Traffic Mix of Orders'"
                 }
               }
             }

@@ -96,7 +96,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Order Volume by Order Hour'"
+                  "Value": "'Hourly Demand Pattern'"
                 }
               }
             }

@@ -60,7 +60,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Average Topping Density by Pizza Type'"
+                  "Value": "'Pizza Type Average Topping Density'"
                 }
               }
             }

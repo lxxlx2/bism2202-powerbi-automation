@@ -81,7 +81,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Order Share by Pizza Complexity'"
+                  "Value": "'Pizza Complexity Share'"
                 }
               }
             }

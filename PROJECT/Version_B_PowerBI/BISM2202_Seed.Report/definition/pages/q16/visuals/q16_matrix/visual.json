@@ -167,7 +167,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Restaurant Performance: Average Delivery Duration and Delay'"
+                  "Value": "'Restaurant Speed and Delay Matrix'"
                 }
               }
             }
